@@ -81,5 +81,44 @@ document.querySelectorAll(".rowsection").forEach(section=>{const shelf=section.q
 document.querySelector("#heroPlay").onclick=()=>document.querySelector("#tendances").scrollIntoView({behavior:"smooth"});
 document.querySelector("#heroInfo").onclick=()=>openCard({title:"Bienvenue sur METARECALL PLAY",desc:"Cette première version présente l'interface et les fiches interactives. Le catalogue et la lecture de contenus réels seront connectés dans une prochaine étape.",art:"space"});
 document.querySelector("#search").addEventListener("input",e=>{const q=e.target.value.trim().toLowerCase();let count=0;document.querySelectorAll(".poster").forEach(el=>{const show=!q||el.dataset.search.includes(q);el.style.display=show?"":"none";if(show)count++});document.querySelector("#empty").style.display=count?"none":"block"});
+
+function openCard(item){
+ document.querySelector("#modalTitle").textContent=item.title;
+ document.querySelector("#modalDesc").textContent=item.desc||"Consultez les plateformes disponibles en France.";
+ document.querySelector("#modalArt").style.backgroundImage="url('" + (item.imageUrl||art[item.art]||art.space) + "')";
+ document.querySelector("#whereWatch").href="https://www.justwatch.com/fr/recherche?q="+encodeURIComponent(item.title);
+ modal.classList.add("open");document.body.style.overflow="hidden";
+}
+async function loadFranceSeries(){
+ const shelf=document.querySelector("#newShows");
+ const dates=[0,-1,1].map(offset=>{const d=new Date();d.setDate(d.getDate()+offset);return d.toISOString().slice(0,10)});
+ try{
+  const batches=await Promise.all(dates.map(date=>fetch("https://api.tvmaze.com/schedule?country=FR&date="+date).then(r=>{if(!r.ok)throw new Error("API indisponible");return r.json()})));
+  const seen=new Set(),items=[];
+  batches.flat().sort((a,b)=>new Date(b.airstamp||b.airdate)-new Date(a.airstamp||a.airdate)).forEach(ep=>{
+   const show=ep.show;if(!show||seen.has(show.id))return;seen.add(show.id);
+   if(!show.image||!show.image.medium)return;
+   const desc=(show.summary||"").replace(/<[^>]*>/g," ").replace(/\s+/g," ").trim();
+   items.push({title:show.name,type:"Série",genre:(show.genres||[]).slice(0,2).join(" · ")||"Série",desc:desc||"Consultez la fiche de cette série et sa disponibilité en France.",imageUrl:show.image.original||show.image.medium});
+  });
+  shelf.replaceChildren();
+  if(!items.length){shelf.textContent="Aucune diffusion française récente référencée pour le moment.";return}
+  items.slice(0,24).forEach(item=>{
+   const el=document.createElement("article");el.className="poster";el.tabIndex=0;el.setAttribute("role","button");
+   const image=document.createElement("div");image.className="art";image.style.backgroundImage="url('"+item.imageUrl+"')";
+   const icon=document.createElement("span");icon.className="playicon";icon.textContent="▶";
+   const txt=document.createElement("div");txt.className="posterText";
+   const small=document.createElement("small");small.textContent="SÉRIE · NOUVEAUTÉ FR";
+   const strong=document.createElement("strong");strong.textContent=item.title;
+   txt.append(small,strong);el.append(image,icon,txt);
+   el.dataset.search=(item.title+" "+item.genre+" série").toLowerCase();
+   el.onclick=()=>openCard(item);
+   el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openCard(item)}};
+   shelf.appendChild(el);
+  });
+ }catch(error){shelf.textContent="Le flux de nouveautés est momentanément indisponible."}
+}
+loadFranceSeries();
+
 </script>
 </body></html>
