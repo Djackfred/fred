@@ -102,6 +102,13 @@ function isMovie(show,episode){
  const genres=(show.genres||[]).map(x=>String(x).toLowerCase());
  return kind==="movie"||genres.includes("movie")||String(episode.type||"").toLowerCase()==="movie";
 }
+function isFranceOrGlobalPlatform(channel){
+ if(!channel)return false;
+ const country=channel.country&&channel.country.name?channel.country.name.toLowerCase():"";
+ if(country==="france")return true;
+ const name=String(channel.name||"").toLowerCase();
+ return ["netflix","amazon prime video","prime video","disney+","apple tv+","apple tv","max","paramount+","hulu","peacock","crunchyroll","youtube"].some(platform=>name.includes(platform));
+}
 function makeKey(ep){
  if(ep.id!==undefined&&ep.id!==null)return "ep:"+ep.id;
  return "fallback:"+[ep.show&&ep.show.id,ep.season,ep.number,ep.airdate].join(":");
