@@ -7,7 +7,7 @@
 <style>
 :root{--red:#e50914;--bg:#090909;--muted:#b3b3b3;--panel:#181818}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#fff;font:15px/1.45 Arial,Helvetica,sans-serif}button,input{font:inherit}a{color:inherit;text-decoration:none}
-header{position:fixed;z-index:20;inset:0 0 auto;height:68px;background:linear-gradient(180deg,#080808f5,#080808c9 70%,transparent);transition:background .2s}
+header{position:fixed;z-index:20;inset:0 0 auto;height:68px;background:linear-gradient(180deg,#080808f5,#080808c9 70%,transparent)}
 .nav{height:68px;max-width:1500px;margin:auto;padding:0 4.5%;display:flex;align-items:center;gap:34px}
 .logo{font-size:25px;font-weight:900;letter-spacing:-1.5px;color:var(--red);white-space:nowrap}.logo span{color:#fff;font-size:13px;letter-spacing:2px;margin-left:5px}
 nav{display:flex;gap:20px;font-size:14px;color:#e5e5e5}nav a:hover{color:#aaa}
@@ -38,13 +38,14 @@ footer{padding:35px 5%;border-top:1px solid #222;color:#777;font-size:12px;line-
 <section class="hero"><div class="heroContent"><div class="tagline">METARECALL ORIGINAL EXPERIENCE</div><h1>VOTRE PROCHAINE HISTOIRE COMMENCE ICI.</h1><p>Explorez un univers de films, séries, musique et créations. Une nouvelle façon de découvrir vos prochains coups de cœur.</p><div class="actions"><button class="btn play" id="heroPlay">▶ &nbsp; Explorer</button><button class="btn more" id="heroInfo">ⓘ &nbsp; En savoir plus</button></div></div></section>
 <div class="content">
 <section class="rowsection" id="tendances"><h2 class="rowtitle">Tendances sur METARECALL PLAY</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="trending"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
-<section class="rowsection" id="nouveautes"><h2 class="rowtitle">Séries récentes diffusées en France</h2><button class="shelfArrow left">‹</button><div class="shelf" id="newShows"><p class="note">Chargement des nouveautés…</p></div><button class="shelfArrow right">›</button></section><section class="rowsection" id="films"><h2 class="rowtitle">Films à découvrir</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="filmsShelf"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
+<section class="rowsection" id="nouveautes"><h2 class="rowtitle">Nouveautés : France & plateformes mondiales</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="newShows"><p class="note">Chargement des nouveautés…</p></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
+<section class="rowsection" id="films"><h2 class="rowtitle">Films à découvrir</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="filmsShelf"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <section class="rowsection" id="series"><h2 class="rowtitle">Séries qui méritent votre attention</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="seriesShelf"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <section class="rowsection" id="musique"><h2 class="rowtitle">Musique & clips</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="musicShelf"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <p class="empty" id="empty">Aucun titre ne correspond à votre recherche.</p>
 </div></main>
-<footer><strong>METARECALL PLAY</strong><br>Prototype public — interface de démonstration inspirée des grandes plateformes de streaming.<br>Les visuels et titres présentés illustrent le catalogue. Aucun flux vidéo ou audio n'est actuellement diffusé. La mise en ligne de contenus réels nécessitera les droits et autorisations correspondants.</footer>
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalbox"><button class="close" id="close" aria-label="Fermer">×</button><div class="modalart" id="modalArt"></div><div class="modalbody"><span class="badge">FICHE DU PROGRAMME</span><h2 id="modalTitle"></h2><p id="modalDesc"></p><p style="font-size:12px;color:#aaa">Aperçu de démonstration · La lecture sera disponible après connexion de contenus autorisés.</p><a class="btn play" id="whereWatch" href="https://www.justwatch.com/fr" target="_blank" rel="noopener">Où regarder légalement ?</a> <button class="btn more" id="modalOk">Fermer</button></div></div></div>
+<footer><strong>METARECALL PLAY</strong><br>Catalogue de découverte alimenté par TVmaze. Les dates de diffusion et les disponibilités peuvent varier selon les territoires.<br>METARECALL PLAY ne diffuse pas les œuvres : le bouton « Où regarder légalement ? » renvoie vers JustWatch France. Les disponibilités ne sont pas affirmées sans vérification auprès du service concerné.</footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalbox"><button class="close" id="close" aria-label="Fermer">×</button><div class="modalart" id="modalArt"></div><div class="modalbody"><span class="badge">FICHE DU PROGRAMME</span><h2 id="modalTitle"></h2><p id="modalMeta" style="font-size:12px;color:#aaa"></p><p id="modalDesc"></p><a class="btn play" id="whereWatch" href="https://www.justwatch.com/fr" target="_blank" rel="noopener">Où regarder légalement ?</a> <button class="btn more" id="modalOk">Fermer</button></div></div></div>
 <script>
 const art={
 space:"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=700&q=85",
@@ -71,54 +72,106 @@ const titles=[
 {title:"Horizon rouge",type:"Film",genre:"Aventure",art:"desert",desc:"Une traversée hors du commun au milieu de paysages immenses."}
 ];
 const modal=document.querySelector("#modal");
-function openCard(item){document.querySelector("#modalTitle").textContent=item.title;document.querySelector("#modalDesc").textContent=item.desc;document.querySelector("#modalArt").style.backgroundImage="url('"+art[item.art]+"')";modal.classList.add("open");document.body.style.overflow="hidden"}
+function openCard(item){
+ document.querySelector("#modalTitle").textContent=item.title;
+ document.querySelector("#modalMeta").textContent=[item.type,item.genre,item.displayDate,item.channelName].filter(Boolean).join(" · ");
+ document.querySelector("#modalDesc").textContent=item.desc||"Consultez la fiche de cette œuvre et sa disponibilité en France.";
+ document.querySelector("#modalArt").style.backgroundImage="url('"+(item.imageUrl||art[item.art]||art.space)+"')";
+ document.querySelector("#whereWatch").href="https://www.justwatch.com/fr/recherche?q="+encodeURIComponent(item.title);
+ modal.classList.add("open");document.body.style.overflow="hidden";
+}
 function closeModal(){modal.classList.remove("open");document.body.style.overflow=""}
 document.querySelector("#close").onclick=closeModal;document.querySelector("#modalOk").onclick=closeModal;modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
-function card(item,index,rank=false){const el=document.createElement("article");el.className="poster";el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-label","Ouvrir "+item.title);el.dataset.search=(item.title+" "+item.type+" "+item.genre).toLowerCase();el.innerHTML=(rank?'<span class="rank">'+(index+1)+'</span>':'')+'<div class="art" style="background-image:url(\''+art[item.art]+'\')"></div><span class="playicon">▶</span><div class="posterText"><small>'+item.type.toUpperCase()+' · '+item.genre.toUpperCase()+'</small><strong>'+item.title+'</strong></div>';el.onclick=()=>openCard(item);el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openCard(item)}};return el}
+function card(item,index,rank=false){
+ const el=document.createElement("article");el.className="poster";el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-label","Ouvrir "+item.title);
+ el.dataset.search=(item.title+" "+item.type+" "+(item.genre||"")).toLowerCase();
+ el.innerHTML=(rank?'<span class="rank">'+(index+1)+'</span>':'')+'<div class="art" style="background-image:url(\''+(item.imageUrl||art[item.art]||art.space)+'\')"></div><span class="playicon">▶</span><div class="posterText"><small>'+item.type.toUpperCase()+' · '+(item.genre||"À DÉCOUVRIR").toUpperCase()+'</small><strong></strong></div>';
+ el.querySelector("strong").textContent=item.title;el.onclick=()=>openCard(item);el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openCard(item)}};return el;
+}
 function fill(id,items,rank=false){const shelf=document.getElementById(id);items.forEach((x,i)=>shelf.appendChild(card(x,i,rank)))}
 fill("trending",titles.slice(0,8),true);fill("filmsShelf",titles.filter(x=>x.type==="Film"));fill("seriesShelf",titles.filter(x=>x.type==="Série"));fill("musicShelf",titles.filter(x=>x.type==="Musique"||x.type==="Clip"));
 document.querySelectorAll(".rowsection").forEach(section=>{const shelf=section.querySelector(".shelf");section.querySelector(".left").onclick=()=>shelf.scrollBy({left:-shelf.clientWidth*.8,behavior:"smooth"});section.querySelector(".right").onclick=()=>shelf.scrollBy({left:shelf.clientWidth*.8,behavior:"smooth"})});
 document.querySelector("#heroPlay").onclick=()=>document.querySelector("#tendances").scrollIntoView({behavior:"smooth"});
-document.querySelector("#heroInfo").onclick=()=>openCard({title:"Bienvenue sur METARECALL PLAY",desc:"Cette première version présente l'interface et les fiches interactives. Le catalogue et la lecture de contenus réels seront connectés dans une prochaine étape.",art:"space"});
+document.querySelector("#heroInfo").onclick=()=>openCard({title:"Bienvenue sur METARECALL PLAY",type:"Présentation",genre:"Catalogue de découverte",desc:"Découvrez les programmes récents référencés en France et les sorties web internationales. Les liens JustWatch vous permettent de vérifier où les œuvres sont légalement disponibles.",art:"space"});
 document.querySelector("#search").addEventListener("input",e=>{const q=e.target.value.trim().toLowerCase();let count=0;document.querySelectorAll(".poster").forEach(el=>{const show=!q||el.dataset.search.includes(q);el.style.display=show?"":"none";if(show)count++});document.querySelector("#empty").style.display=count?"none":"block"});
 
-function openCard(item){
- document.querySelector("#modalTitle").textContent=item.title;
- document.querySelector("#modalDesc").textContent=item.desc||"Consultez les plateformes disponibles en France.";
- document.querySelector("#modalArt").style.backgroundImage="url('" + (item.imageUrl||art[item.art]||art.space) + "')";
- document.querySelector("#whereWatch").href="https://www.justwatch.com/fr/recherche?q="+encodeURIComponent(item.title);
- modal.classList.add("open");document.body.style.overflow="hidden";
+function localDateString(date){const y=date.getFullYear(),m=String(date.getMonth()+1).padStart(2,"0"),d=String(date.getDate()).padStart(2,"0");return y+"-"+m+"-"+d}
+function cleanSummary(html){const box=document.createElement("div");box.innerHTML=html||"";return (box.textContent||"").replace(/\s+/g," ").trim()}
+function isMovie(show,episode){
+ const kind=String(show.type||"").toLowerCase();
+ const genres=(show.genres||[]).map(x=>String(x).toLowerCase());
+ return kind==="movie"||genres.includes("movie")||String(episode.type||"").toLowerCase()==="movie";
 }
-async function loadFranceSeries(){
+function makeKey(ep){
+ if(ep.id!==undefined&&ep.id!==null)return "ep:"+ep.id;
+ return "fallback:"+[ep.show&&ep.show.id,ep.season,ep.number,ep.airdate].join(":");
+}
+function posterFor(show,channel){
+ if(show.image&&(show.image.original||show.image.medium))return show.image.original||show.image.medium;
+ if(channel&&channel.logo&&channel.logo.medium)return channel.logo.medium;
+ if(channel&&channel.logo&&channel.logo.original)return channel.logo.original;
+ return "";
+}
+function placeholderArt(title){
+ const svg='<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#252525"/><stop offset="1" stop-color="#090909"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/><circle cx="300" cy="300" r="170" fill="#e50914" opacity=".12"/><text x="50%" y="52%" fill="#fff" font-family="Arial" font-size="34" font-weight="bold" text-anchor="middle">'+String(title||"METARECALL").replace(/[<>&]/g,"")+'</text><text x="50%" y="59%" fill="#aaa" font-family="Arial" font-size="18" text-anchor="middle">METARECALL PLAY</text></svg>';
+ return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
+}
+function toCatalogItem(ep,source){
+ const show=ep.show||{},channel=show.webChannel||show.network||null;
+ const rawAirDate=ep.airdate||null;
+ const localAirDate=ep.airdateLocal||ep.airdate||null;
+ const movie=isMovie(show,ep);
+ const dateObj=localAirDate?new Date(localAirDate+"T12:00:00"):null;
+ const displayDate=dateObj&&!Number.isNaN(dateObj.getTime())?dateObj.toLocaleDateString("fr-FR",{day:"2-digit",month:"long",year:"numeric"}):"";
+ return {
+  id:ep.id,title:show.name||"Titre non renseigné",type:movie?"Film":"Série",
+  genre:(show.genres||[]).slice(0,2).join(" · ")||(movie?"Film":"Série"),
+  desc:cleanSummary(show.summary)||"Synopsis non communiqué par la source.",
+  imageUrl:posterFor(show,channel)||placeholderArt(show.name),
+  displayDate,rawAirDate,localAirDate,source,
+  channelName:channel&&channel.name?channel.name:"",
+  channelCountry:channel&&channel.country&&channel.country.name?channel.country.name:"",
+  showId:show.id,season:ep.season,episode:ep.number
+ };
+}
+async function fetchJson(url){
+ const response=await fetch(url,{headers:{Accept:"application/json"}});
+ if(!response.ok)throw new Error("HTTP "+response.status+" pour "+url);
+ return response.json();
+}
+async function loadFranceAndWeb(){
  const shelf=document.querySelector("#newShows");
- const dates=[0,-1,1].map(offset=>{const d=new Date();d.setDate(d.getDate()+offset);return d.toISOString().slice(0,10)});
+ const today=new Date();
+ const dates=[-1,0,1].map(offset=>{const d=new Date(today);d.setDate(d.getDate()+offset);return localDateString(d)});
  try{
-  const batches=await Promise.all(dates.map(date=>fetch("https://api.tvmaze.com/schedule?country=FR&date="+date).then(r=>{if(!r.ok)throw new Error("API indisponible");return r.json()})));
-  const seen=new Set(),items=[];
-  batches.flat().sort((a,b)=>new Date(b.airstamp||b.airdate)-new Date(a.airstamp||a.airdate)).forEach(ep=>{
-   const show=ep.show;if(!show||seen.has(show.id))return;seen.add(show.id);
-   if(!show.image||!show.image.medium)return;
-   const desc=(show.summary||"").replace(/<[^>]*>/g," ").replace(/\s+/g," ").trim();
-   items.push({title:show.name,type:"Série",genre:(show.genres||[]).slice(0,2).join(" · ")||"Série",desc:desc||"Consultez la fiche de cette série et sa disponibilité en France.",imageUrl:show.image.original||show.image.medium});
+  const results=await Promise.all(dates.map(async date=>{
+   const [fr,web]=await Promise.all([
+    fetchJson("https://api.tvmaze.com/schedule?country=FR&date="+date),
+    fetchJson("https://api.tvmaze.com/schedule/web?date="+date)
+   ]);
+   const france=fr.map(ep=>({ep,source:"France"}));
+   const worldwide=web.filter(ep=>ep.show&&ep.show.webChannel).map(ep=>({ep,source:"Plateforme web"}));
+   return france.concat(worldwide);
+  }));
+  const unique=new Map();
+  results.flat().forEach(({ep,source})=>{
+   if(!ep.show)return;
+   const key=makeKey(ep);
+   const existing=unique.get(key);
+   // Keep France's localized listing when the same episode exists in both feeds.
+   if(!existing||source==="France")unique.set(key,{ep,source});
   });
+  const items=Array.from(unique.values()).map(({ep,source})=>toCatalogItem(ep,source));
+  items.sort((a,b)=>(b.localAirDate||"").localeCompare(a.localAirDate||"")||a.title.localeCompare(b.title,"fr"));
   shelf.replaceChildren();
-  if(!items.length){shelf.textContent="Aucune diffusion française récente référencée pour le moment.";return}
-  items.slice(0,24).forEach(item=>{
-   const el=document.createElement("article");el.className="poster";el.tabIndex=0;el.setAttribute("role","button");
-   const image=document.createElement("div");image.className="art";image.style.backgroundImage="url('"+item.imageUrl+"')";
-   const icon=document.createElement("span");icon.className="playicon";icon.textContent="▶";
-   const txt=document.createElement("div");txt.className="posterText";
-   const small=document.createElement("small");small.textContent="SÉRIE · NOUVEAUTÉ FR";
-   const strong=document.createElement("strong");strong.textContent=item.title;
-   txt.append(small,strong);el.append(image,icon,txt);
-   el.dataset.search=(item.title+" "+item.genre+" série").toLowerCase();
-   el.onclick=()=>openCard(item);
-   el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openCard(item)}};
-   shelf.appendChild(el);
-  });
- }catch(error){shelf.textContent="Le flux de nouveautés est momentanément indisponible."}
+  if(!items.length){shelf.textContent="Aucune nouveauté référencée sur cette période.";return}
+  items.slice(0,36).forEach((item,i)=>shelf.appendChild(card(item,i)));
+  const status=document.createElement("p");status.className="note";status.textContent=items.length+" programmes référencés · diffusion France et calendrier web mondial · dates : hier, aujourd’hui et demain.";shelf.after(status);
+ }catch(error){
+  console.error("METARECALL PLAY — chargement TVmaze :",error);
+  shelf.replaceChildren();const message=document.createElement("p");message.className="note";message.textContent="Le calendrier des nouveautés est momentanément indisponible. Les autres rubriques restent accessibles.";shelf.appendChild(message);
+ }
 }
-loadFranceSeries();
-
+loadFranceAndWeb();
 </script>
 </body></html>
