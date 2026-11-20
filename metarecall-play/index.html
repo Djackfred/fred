@@ -150,7 +150,7 @@ async function loadFranceAndWeb(){
     fetchJson("https://api.tvmaze.com/schedule/web?date="+date)
    ]);
    const france=fr.map(ep=>({ep,source:"France"}));
-   const worldwide=web.filter(ep=>ep.show&&ep.show.webChannel).map(ep=>({ep,source:"Plateforme web"}));
+   const worldwide=web.filter(ep=>{if(!ep.show||!ep.show.webChannel)return false;const code=ep.show.webChannel.country&&ep.show.webChannel.country.code;return !code||code==="FR"}).map(ep=>({ep,source:"Plateforme web"}));
    return france.concat(worldwide);
   }));
   const unique=new Map();
