@@ -195,7 +195,7 @@ const heroPosterFallbacks={
  "avengers endgame extended":["https://media.everythingbrunei.com/public/0JaArjFgzHoJ3UFt6-2ek-QwTZKCI7yX3H4HIXYwJPn.jpeg"]
 };
 function normalizePosterTitle(value){
- return String(value||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+ return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
 }
 function posterSourcesFor(item){
  const key=normalizePosterTitle(item&&item.title);
@@ -212,7 +212,7 @@ function setHeroPosters(items){
   slot.hidden=false;
   image.alt="Affiche de "+item.title;
   image.loading=index===1?"eager":"lazy";
-  image.referrerPolicy="no-referrer";
+  image.referrerPolicy="strict-origin-when-cross-origin";
   const sources=posterSourcesFor(item);
   let attempt=0;
   const tryNext=()=>{
