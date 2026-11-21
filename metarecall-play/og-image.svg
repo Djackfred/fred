@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050816"/><stop offset=".55" stop-color="#10143b"/><stop offset="1" stop-color="#260b3b"/></linearGradient>
+ <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#20d9ff"/><stop offset=".55" stop-color="#6575ff"/><stop offset="1" stop-color="#ed42e8"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#2b75ff" stop-opacity=".42"/><stop offset="1" stop-color="#2b75ff" stop-opacity="0"/></radialGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="30"/></filter>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/>
+<circle cx="930" cy="160" r="290" fill="url(#glow)" filter="url(#blur)"/>
+<circle cx="160" cy="560" r="260" fill="#8d2eff" opacity=".12" filter="url(#blur)"/>
+<g fill="none" stroke="url(#neon)" opacity=".65">
+ <path d="M0 500 Q300 350 600 500 T1200 460" stroke-width="2"/>
+ <path d="M0 530 Q300 380 600 530 T1200 490" stroke-width="1"/>
+ <circle cx="970" cy="315" r="165" stroke-width="2"/><circle cx="970" cy="315" r="190" stroke-width="1" opacity=".4"/>
+</g>
+<g transform="translate(760 105)" opacity=".9">
+ <rect x="0" y="0" width="350" height="230" rx="22" fill="#101a36" stroke="#536dff" stroke-width="3"/>
+ <rect x="22" y="22" width="306" height="186" rx="12" fill="#090d20"/>
+ <path d="M45 165 L110 90 L160 140 L222 60 L305 165" fill="none" stroke="#27d9ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+ <circle cx="250" cy="70" r="18" fill="#ed42e8"/>
+ <path d="M25 190 H325" stroke="#ed42e8" stroke-width="5"/>
+</g>
+<g transform="translate(80 108)">
+ <rect x="0" y="0" width="112" height="112" rx="28" fill="#080d20" stroke="url(#neon)" stroke-width="5"/>
+ <path d="M28 80 L55 26 L84 80 M40 58 H72" fill="none" stroke="url(#neon)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M72 92 H95" stroke="#ed42e8" stroke-width="6" stroke-linecap="round"/>
+</g>
+<text x="80" y="310" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="76" font-weight="800" letter-spacing="-3">METARECALL</text>
+<text x="80" y="405" fill="url(#neon)" font-family="Arial,Helvetica,sans-serif" font-size="104" font-weight="900" letter-spacing="3">PLAY</text>
+<text x="86" y="475" fill="#f3f5ff" font-family="Arial,Helvetica,sans-serif" font-size="29" letter-spacing="1">FILMS  ·  SÉRIES  ·  MUSIQUE  ·  CRÉATIONS</text>
+<path d="M85 515 H590" stroke="url(#neon)" stroke-width="5" stroke-linecap="round"/>
+<text x="86" y="570" fill="#aab5d8" font-family="Arial,Helvetica,sans-serif" font-size="22">metarecall-play.onrender.com</text>
+</svg>
