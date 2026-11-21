@@ -133,9 +133,9 @@ footer strong{color:#e6e7eb;font-size:12px;letter-spacing:1px}
 <p>Explorez les nouveautés cinéma et séries, retrouvez les dates de diffusion et vérifiez où regarder chaque œuvre légalement en France.</p>
 <div class="actions"><button class="btn play" id="heroPlay">⌕ &nbsp; Explorer le catalogue</button><button class="btn more" id="heroInfo">ⓘ &nbsp; Notre sélection</button></div>
 </div><div class="heroArt" aria-hidden="true">
-<div class="heroPoster one"><img src="https://fr.web.img4.acsta.net/c_310_420/img/56/5c/565cdbfcc46704c57c8575724a1f90de.jpg" alt=""></div>
-<div class="heroPoster two"><img src="https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/019e8be6-6342-7037-9171-66a476774ef5/compose?format=webp&width=2560" alt=""></div>
-<div class="heroPoster three"><img src="https://images.justwatch.com/poster/356419167/s166/saison-2.jpg" alt=""></div>
+<div class="heroPoster one"><img src="https://www.ravpaz.com/1sjuv496ooa1/home/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg" alt="Affiche de Lucky Strike"></div>
+<div class="heroPoster two"><img src="https://www.ravpaz.com/1sjuv496ooa1/home/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg" alt="Affiche de L'Odyssée"></div>
+<div class="heroPoster three"><img src="https://media.everythingbrunei.com/public/0JaArjFgzHoJ3UFt6-2ek-QwTZKCI7yX3H4HIXYwJPn.jpeg" alt="Affiche de Avengers : Endgame Extended"></div>
 </div></section>
 <div class="proofbar" aria-label="Les repères METARECALL PLAY">
 <div class="proofitem"><span class="prooficon">✦</span><span><strong>NOUVEAUTÉS</strong><small>France et diffusion web</small></span></div>
@@ -191,6 +191,41 @@ function openCard(item){
 }
 function closeModal(){modal.classList.remove("open");document.body.style.overflow=""}
 document.querySelector("#close").onclick=closeModal;document.querySelector("#modalOk").onclick=closeModal;modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+const heroPosterFallbacks={
+ "avengers endgame extended":["https://media.everythingbrunei.com/public/0JaArjFgzHoJ3UFt6-2ek-QwTZKCI7yX3H4HIXYwJPn.jpeg"]
+};
+function normalizePosterTitle(value){
+ return String(value||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+}
+function posterSourcesFor(item){
+ const key=normalizePosterTitle(item&&item.title);
+ const extras=heroPosterFallbacks[key]||[];
+ return [...new Set([...(Array.isArray(item&&item.posterCandidates)?item.posterCandidates:[]),item&&item.imageUrl,...extras].filter(Boolean))];
+}
+function setHeroPosters(items){
+ const slots=[...document.querySelectorAll(".heroPoster")];
+ const firstThree=(Array.isArray(items)?items:[]).slice(0,3);
+ slots.forEach((slot,index)=>{
+  const item=firstThree[index],image=slot.querySelector("img");
+  if(!image)return;
+  if(!item){slot.hidden=true;return}
+  slot.hidden=false;
+  image.alt="Affiche de "+item.title;
+  image.loading=index===1?"eager":"lazy";
+  image.referrerPolicy="no-referrer";
+  const sources=posterSourcesFor(item);
+  let attempt=0;
+  const tryNext=()=>{
+   if(attempt<sources.length){image.src=sources[attempt++];return}
+   image.onerror=null;
+   image.src=placeholderArt(item.title);
+  };
+  image.onerror=tryNext;
+  tryNext();
+  slot.dataset.catalogueId=item.id||"";
+  slot.title=item.title;
+ });
+}
 function card(item,index,rank=false){
  const el=document.createElement("article");el.className="poster";el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-label","Ouvrir "+item.title);
  el.dataset.search=(item.title+" "+item.type+" "+(item.genre||"")).toLowerCase();
@@ -198,7 +233,7 @@ function card(item,index,rank=false){
  if(rank){const number=document.createElement("span");number.className="rank";number.textContent=String(index+1);el.appendChild(number)}
  const visual=document.createElement("div");visual.className="art";
  const image=document.createElement("img");image.loading=index<8?"eager":"lazy";image.alt="Affiche de "+item.title;image.referrerPolicy="strict-origin-when-cross-origin";
- const posterCandidates=Array.isArray(item.posterCandidates)&&item.posterCandidates.length?item.posterCandidates:[item.imageUrl].filter(Boolean);
+ const posterCandidates=posterSourcesFor(item);
  let posterAttempt=0;
  const loadNextPoster=()=>{if(posterAttempt<posterCandidates.length){image.src=posterCandidates[posterAttempt++]}else{image.onerror=null;image.src=placeholderArt(item.title)}};
  image.onerror=loadNextPoster;loadNextPoster();visual.appendChild(image);el.appendChild(visual);
@@ -330,9 +365,9 @@ async function loadReferenceCatalog(){
   const response=await fetch("./catalogue-ravpaz.json?v=20261121",{cache:"no-store"});
   if(!response.ok)throw new Error("HTTP "+response.status+" sur le catalogue de référence");
   const data=await response.json(),sections=data.sections||{};
-  const toCard=item=>({id:item.id,title:item.title,type:item.type||"Film",genre:item.genre||"À découvrir",displayDate:item.year||"",year:item.year||"",desc:"Titre repris du catalogue public de référence. Consultez les options de visionnage légal en France via JustWatch.",imageUrl:item.imageUrl||"",posterCandidates:item.posterCandidates||[],officialUrl:null,source:"Ravpaz"});
+  const toCard=item=>({id:item.id,title:item.title,type:item.type||"Film",genre:item.genre||"À découvrir",displayDate:item.year||"",year:item.year||"",desc:"Titre repris du catalogue public de référence. Consultez les options de visionnage légal en France via JustWatch.",imageUrl:item.imageUrl||"",posterCandidates:posterSourcesFor(item),officialUrl:null,source:"Ravpaz"});
   const fillSection=(elementId,key,rank=false)=>{const shelf=document.getElementById(elementId);if(!shelf)return;shelf.replaceChildren();(sections[key]||[]).forEach((item,index)=>shelf.appendChild(card(toCard(item),index,rank)))};
-  fillSection("latestShelf","latest");fillSection("top15Shelf","top15",true);fillSection("featuredShelf","featured");fillSection("animationShelf","animation");fillSection("docsShelf","docs");fillSection("catalogueShelf","catalogue");
+  fillSection("latestShelf","latest");fillSection("top15Shelf","top15",true);fillSection("featuredShelf","featured");fillSection("animationShelf","animation");fillSection("docsShelf","docs");fillSection("catalogueShelf","catalogue");setHeroPosters(sections.top15||[]);
   window.__ravpazSnapshot=data.snapshotDate||"";
   applyFilters();
  }catch(error){console.error("Catalogue Ravpaz indisponible",error);["latestShelf","top15Shelf","featuredShelf","animationShelf","docsShelf","catalogueShelf"].forEach(id=>{const shelf=document.getElementById(id);if(shelf)shelf.innerHTML='<p class="note">Le catalogue de référence n’a pas pu être chargé. Réessayez dans quelques instants.</p>'})}
