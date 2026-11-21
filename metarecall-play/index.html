@@ -59,7 +59,9 @@ main{overflow:hidden}
 .btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px #0007}
 .heroArt{position:absolute;right:7%;top:50%;transform:translateY(-50%);width:39%;height:285px;display:flex;align-items:center;justify-content:center;perspective:850px;pointer-events:none}
 .heroPoster{position:absolute;width:clamp(112px,13vw,174px);aspect-ratio:2/3;border-radius:12px;overflow:hidden;border:1px solid #ffffff40;box-shadow:0 20px 50px #000a;background:#242630}
-.heroPoster img{width:100%;height:100%;object-fit:cover;display:block}
+.heroPoster{background:linear-gradient(145deg,#30394d,#11141d)}
+.heroPosterFallbackTitle{position:absolute;z-index:0;inset:auto 5px 8px;color:#fff;font-size:9px;line-height:1.15;font-weight:850;text-align:center;text-shadow:0 2px 8px #000;overflow-wrap:anywhere}
+.heroPoster img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
 .heroPoster.one{left:4%;transform:rotateY(19deg) rotateZ(-7deg) translateY(8px);opacity:.82}
 .heroPoster.two{left:34%;z-index:2;transform:translateY(-8px) scale(1.06)}
 .heroPoster.three{right:2%;transform:rotateY(-18deg) rotateZ(7deg) translateY(8px);opacity:.88}
@@ -824,10 +826,16 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
 html{scroll-behavior:auto!important;scroll-padding-top:132px}body{overflow-x:hidden}
 .topbar{position:sticky;top:0;z-index:40;background:#0c0d12!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;transform:none!important}
 .topbar .nav{--header-progress:0!important;overflow:visible!important;transition:none!important}
-.scrollNavArrow#scrollToBottom{display:none!important}
-.scrollNavArrow#backToTop{left:auto!important;right:calc(16px + env(safe-area-inset-right,0px))!important;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important;width:48px;height:48px;transform:translateY(8px);transition:opacity .16s ease,visibility .16s ease,transform .16s ease!important}
-.scrollNavArrow#backToTop.is-visible{transform:translateY(0)!important}
-body.hasScrollUp #backToTop{left:auto!important;right:calc(16px + env(safe-area-inset-right,0px))!important}
+/* Both floating navigation controls stay grouped around the horizontal center. */
+.scrollNavArrow#scrollToBottom,.scrollNavArrow#backToTop{display:flex}
+body.atLastStep #backToTop{left:50%}
+@media(max-width:760px){
+ .scrollNavArrow{width:48px;height:48px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+ .scrollNavArrow svg{width:24px;height:24px}
+ body.hasScrollUp #scrollToBottom{left:calc(50% - 29px)}
+ body.hasScrollUp #backToTop{left:calc(50% + 29px)}
+ body.atLastStep #backToTop{left:50%}
+}
 @media (min-width:761px) and (max-width:1100px){
 .topbar .nav{display:grid;grid-template-columns:minmax(0,1fr) max-content;grid-template-areas:"brand account" "search search" "menu menu";grid-template-rows:34px 40px 30px;min-height:0!important;height:auto!important;gap:7px 12px;padding:9px 3% 8px;overflow:visible!important}
 .topbar .brand{grid-area:brand;justify-self:start;min-width:0}.topbar .searchbox{grid-area:search;justify-self:stretch;width:100%;height:38px;max-width:none}
@@ -860,7 +868,13 @@ html{scroll-padding-top:126px}
 .heroContent{width:100%;max-width:100%;margin:0}.tagline{font-size:7.5px;letter-spacing:1.35px;line-height:1.4}
 .hero h1{max-width:100%;margin:7px 0 8px;font-size:clamp(23px,6.2vw,30px);line-height:1.08;letter-spacing:-.9px}
 .hero p{max-width:100%;font-size:11px;line-height:1.45}.actions{gap:7px;margin-top:12px}.btn{min-height:34px;padding:8px 11px;font-size:9px}
-.heroArt,.proofbar{display:none!important}
+.proofbar{display:none!important}
+.hero{flex-direction:column}
+.heroArt{display:flex!important;position:relative;top:auto;right:auto;transform:none;width:100%;height:88px;margin:10px auto 0;opacity:1;perspective:650px;flex:0 0 88px}
+.heroPoster{width:52px;height:78px;aspect-ratio:auto;border-radius:7px}
+.heroPoster.one{left:calc(50% - 79px);transform:rotateY(15deg) rotateZ(-7deg);opacity:.9}
+.heroPoster.two{left:calc(50% - 26px);transform:translateY(-5px) scale(1.04);opacity:1}
+.heroPoster.three{right:calc(50% - 79px);transform:rotateY(-14deg) rotateZ(7deg);opacity:.9}
 .content{width:100%;max-width:100%;margin:16px auto 0;padding:0 0 28px}
 .genreExplorer{margin:0 auto 8px;padding:0 12px 14px}.genreHead{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin:0 1px 8px}
 .genreHead .eyebrow{font-size:7px;letter-spacing:1.5px}.genreHead h2{font-size:14px;line-height:1.2;margin:3px 0 0}
@@ -932,10 +946,10 @@ footer{padding:20px 12px;font-size:9px}.privacyFooter{padding-bottom:14px}.legal
 <h1>Votre prochaine histoire commence ici.</h1>
 <p>Explorez les nouveautés cinéma et séries, retrouvez les dates de diffusion et vérifiez où regarder chaque œuvre légalement en France.</p>
 <div class="actions"><button class="btn play" id="heroPlay">⌕ &nbsp; Explorer le catalogue</button><button class="btn more" id="heroInfo">ⓘ &nbsp; Notre sélection</button></div>
-</div><div class="heroArt" aria-hidden="true">
-<div class="heroPoster one"><img src="https://www.ravpaz.com/1sjuv496ooa1/home/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg" alt="Affiche de Lucky Strike"></div>
-<div class="heroPoster two"><img src="https://www.ravpaz.com/1sjuv496ooa1/home/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg" alt="Affiche de L'Odyssée"></div>
-<div class="heroPoster three"><img src="https://media.everythingbrunei.com/public/0JaArjFgzHoJ3UFt6-2ek-QwTZKCI7yX3H4HIXYwJPn.jpeg" alt="Affiche de Avengers : Endgame Extended"></div>
+</div><div class="heroArt" role="group" aria-label="Trois premières affiches du TOP 15">
+<div class="heroPoster one"><span class="heroPosterFallbackTitle" aria-hidden="true"></span><img alt="Affiche du rang 1 du TOP 15"></div>
+<div class="heroPoster two"><span class="heroPosterFallbackTitle" aria-hidden="true"></span><img alt="Affiche du rang 2 du TOP 15"></div>
+<div class="heroPoster three"><span class="heroPosterFallbackTitle" aria-hidden="true"></span><img alt="Affiche du rang 3 du TOP 15"></div>
 </div></section>
 <div class="proofbar" aria-label="Les repères METARECALL PLAY">
 <div class="proofitem"><span class="prooficon">✦</span><span><strong>NOUVEAUTÉS</strong><small>France et diffusion web</small></span></div>
@@ -1014,17 +1028,9 @@ function openCard(item){
 function closeModal(){modal.classList.remove("open");document.body.style.overflow=""}
 document.querySelector("#close").onclick=closeModal;document.querySelector("#modalOk").onclick=closeModal;modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
 const heroPosterFallbacks={
- "lucky strike":[
-  "https://images.justwatch.com/poster/347233655/s718/lucky-strike.jpg",
-  "https://www.impawards.com/2026/lucky_strike_xlg.html"
- ],
- "l odyssee":[
-  "https://dx35vtwkllhj9.cloudfront.net/universalstudios/the-odyssey/images/regions/ca/onesheet.jpg"
- ],
- "avengers endgame extended":[
-  "https://cineamo-cdn.b-cdn.net/movie-customization-poster-image/d8453702-9f9e-4d16-853e-6694400b37a6?optimizer=image&width=3840",
-  "https://media.kg-portal.ru/movies/a/avengers4/posters/avengers4_96.jpg"
- ]
+ "lucky strike":["https://images.justwatch.com/poster/347233655/s718/lucky-strike.jpg"],
+ "l odyssee":["https://images.static-bluray.com/products/20/165306_4_large.jpg"],
+ "avengers endgame extended":["https://newsroom.disney.fr/download-image/6a8dc44e9a934259cc05a589","https://cineamo-cdn.b-cdn.net/movie-customization-poster-image/d8453702-9f9e-4d16-853e-6694400b37a6?optimizer=image&width=3840"]
 };
 function normalizePosterTitle(value){
  return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
@@ -1032,35 +1038,40 @@ function normalizePosterTitle(value){
 function posterSourcesFor(item){
  const key=normalizePosterTitle(item&&item.title);
  const extras=heroPosterFallbacks[key]||[];
- return [...new Set([...(Array.isArray(item&&item.posterCandidates)?item.posterCandidates:[]),item&&item.imageUrl,...extras].filter(Boolean))];
+ const candidates=[...(Array.isArray(item&&item.posterCandidates)?item.posterCandidates:[]),item&&item.imageUrl].filter(Boolean);
+ const safeCandidates=candidates.filter(src=>{
+  if(/^https?:\/\/image\.tmdb\.org\//i.test(src))return Boolean(item&&item.tmdbId&&item.tmdbPosterPath&&src.includes(item.tmdbPosterPath));
+  return true;
+ });
+ return [...new Set([...safeCandidates,...extras])];
+}
+function placeholderArt(title){
+ const raw=String(title||"TOP 15").trim()||"TOP 15";
+ const escaped=raw.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+ const words=escaped.split(/\s+/),lines=[];let line="";
+ words.forEach(word=>{const next=(line+" "+word).trim();if(next.length>20&&line&&lines.length<2){lines.push(line);line=word}else line=next});
+ if(line)lines.push(line);
+ const text=lines.slice(0,3).map((value,index)=>'<text x="180" y="'+(292+(index-(Math.min(lines.length,3)-1)/2)*34)+'" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="700">'+value+'</text>').join("");
+ const svg='<svg xmlns="http://www.w3.org/2000/svg" width="360" height="540" viewBox="0 0 360 540"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#343d54"/><stop offset="1" stop-color="#11131d"/></linearGradient><radialGradient id="r"><stop offset="0" stop-color="#e52d55" stop-opacity=".45"/><stop offset="1" stop-color="#e52d55" stop-opacity="0"/></radialGradient></defs><rect width="360" height="540" fill="url(#g)"/><circle cx="180" cy="190" r="210" fill="url(#r)"/><path d="M28 38h304v464H28z" fill="none" stroke="#ffffff35" stroke-width="2"/><text x="180" y="86" text-anchor="middle" fill="#ff8aa0" font-family="Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="3">METARECALL PLAY</text><path d="M85 145h190M85 395h190" stroke="#ffffff35"/><text x="180" y="244" text-anchor="middle" fill="#ffffffa8" font-family="Arial,sans-serif" font-size="12" letter-spacing="3">TOP 15</text>'+text+'<text x="180" y="455" text-anchor="middle" fill="#ffffff90" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">VISUEL ÉDITORIAL</text></svg>';
+ return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
 }
 function setHeroPosters(items){
- const slots=[...document.querySelectorAll(".heroPoster")];
+ const slots=[...document.querySelectorAll(".heroPoster")].slice(0,3);
  const firstThree=(Array.isArray(items)?items:[]).slice(0,3);
  slots.forEach((slot,index)=>{
   const item=firstThree[index],image=slot.querySelector("img");
   if(!image)return;
-  image.onload=null;image.onerror=null;
-  if(!item){slot.hidden=true;slot.dataset.catalogueId="";slot.removeAttribute("title");image.removeAttribute("src");return}
-  slot.hidden=false;
-  image.alt="Affiche de "+item.title;
-  image.loading="eager";
-  image.decoding="async";
-  image.fetchPriority=index===1?"high":"auto";
-  image.referrerPolicy="no-referrer";
-  image.style.opacity="0";
-  const sources=posterSourcesFor(item);
-  let attempt=0;
-  const tryNext=()=>{
-   if(attempt<sources.length){image.src=sources[attempt++];return}
-   image.onload=null;image.onerror=null;
-   image.src=placeholderArt(item.title);
-  };
-  image.onload=()=>{image.style.opacity="1";slot.hidden=false};
-  image.onerror=tryNext;
-  slot.dataset.catalogueId=item.id||"";
-  slot.title=item.title;
-  tryNext();
+  const fallback=slot.querySelector(".heroPosterFallbackTitle");
+  const title=item&&item.title?item.title:"TOP 15 · Rang "+(index+1);
+  if(fallback)fallback.textContent=title;
+  slot.hidden=false;slot.dataset.catalogueId=item&&item.id?item.id:"";slot.title=title;
+  image.onload=null;image.onerror=null;image.alt=item?"Affiche de "+title:"Visuel éditorial METARECALL PLAY — "+title;
+  image.loading="eager";image.decoding="async";image.fetchPriority=index===1?"high":"auto";image.referrerPolicy="no-referrer";image.style.opacity="0";
+  if(!item){image.onload=()=>{image.style.opacity="1"};image.src=placeholderArt(title);return}
+  const sources=posterSourcesFor(item);let attempt=0;
+  const showEditorialFallback=()=>{image.onload=()=>{image.style.opacity="1";slot.hidden=false};image.onerror=null;image.src=placeholderArt(title)};
+  const tryNext=()=>{if(attempt<sources.length){image.src=sources[attempt++];return}showEditorialFallback()};
+  image.onload=()=>{image.style.opacity="1";slot.hidden=false};image.onerror=tryNext;tryNext();
  });
 }
 
@@ -1127,6 +1138,7 @@ function applyFilters(scrollToResults=false){
   const first=[...document.querySelectorAll(".rowsection")].find(section=>!section.hidden&&[...section.querySelectorAll(".poster")].some(el=>el.style.display!=="none"));
   if(first)first.scrollIntoView({behavior:"smooth",block:"start"});
  }
+ if(typeof window.updateScrollArrows==="function")window.updateScrollArrows();
 }
 function updateGenreCounts(sections){
  // Comptage sur le catalogue source, avec déduplication par identifiant.
@@ -1271,7 +1283,7 @@ async function loadOfficialAnnouncements(){
    return !names.some(name=>ravpaz.has(name)||tvmaze.has(name));
   });
   root.replaceChildren();
-  if(!items.length){section.hidden=true;return}
+  if(!items.length){section.hidden=true;if(typeof window.updateScrollArrows==="function")window.updateScrollArrows();return}
   items.forEach(item=>{
    const article=document.createElement("article");article.className="officialCard";
    const media=document.createElement("div");media.className="officialPoster theme-"+(item.posterTheme||"cinema");
@@ -1317,10 +1329,12 @@ async function loadOfficialAnnouncements(){
   const checked=document.getElementById("officialCheckedAt");
   if(checked&&data.checkedAtLabel)checked.textContent="Contrôle du "+data.checkedAtLabel;
   section.hidden=false;
+  applyFilters(false);
  }catch(error){
   console.error("Annonces officielles indisponibles",error);
   root.innerHTML='<p class="note">Le calendrier officiel est momentanément indisponible. Réessayez lors du prochain contrôle.</p>';
   section.hidden=false;
+  applyFilters(false);
  }
 }
 
@@ -1341,29 +1355,35 @@ async function loadReferenceCatalog(){
 Promise.allSettled([loadReferenceCatalog(),loadFranceAndWeb()]).then(()=>loadOfficialAnnouncements());
 
 function bindScrollArrows(){
- const up=document.getElementById("backToTop");
- const down=document.getElementById("scrollToBottom");
- if(down)down.hidden=true;
- if(!up)return;
- let framePending=false;
+ const up=document.getElementById("backToTop"),down=document.getElementById("scrollToBottom");
+ if(!up&&!down)return;
  const reduceMotion=()=>window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ const isVisible=element=>{if(!element||element.hidden)return false;const style=window.getComputedStyle(element);return style.display!=="none"&&style.visibility!=="hidden"&&element.getClientRects().length>0};
+ const getStops=()=>{const rows=[...document.querySelectorAll(".rowsection")].filter(isVisible);const footer=document.querySelector(".footerLinks");if(isVisible(footer))rows.push(footer);return rows};
+ const getNextStop=()=>{
+  const stops=getStops();if(!stops.length)return null;if((window.scrollY||0)<=8)return stops[0];
+  if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-24)return null;
+  return stops.find(element=>element.getBoundingClientRect().top>150)||null;
+ };
+ let framePending=false;
  const update=()=>{
-  if(framePending)return;
-  framePending=true;
+  if(framePending)return;framePending=true;
   window.requestAnimationFrame(()=>{
-   framePending=false;
-   up.classList.toggle("is-visible",(window.scrollY||0)>360);
+   framePending=false;const awayFromTop=(window.scrollY||0)>320,hasNext=Boolean(getNextStop());
+   document.body.classList.toggle("hasScrollUp",awayFromTop);document.body.classList.toggle("atLastStep",awayFromTop&&!hasNext);
+   if(up){up.classList.toggle("is-visible",awayFromTop);up.setAttribute("aria-hidden",String(!awayFromTop));up.tabIndex=awayFromTop?0:-1}
+   if(down){down.classList.toggle("is-visible",hasNext);down.disabled=!hasNext;down.setAttribute("aria-hidden",String(!hasNext));down.tabIndex=hasNext?0:-1}
   });
  };
- window.addEventListener("scroll",update,{passive:true});
- window.addEventListener("resize",update,{passive:true});
- up.addEventListener("click",()=>window.scrollTo({top:0,behavior:reduceMotion()?"auto":"smooth"}));
+ window.updateScrollArrows=update;window.addEventListener("scroll",update,{passive:true});window.addEventListener("resize",update,{passive:true});
+ if(down)down.addEventListener("click",()=>{const next=getNextStop();if(!next){update();return}next.scrollIntoView({behavior:reduceMotion()?"auto":"smooth",block:"start"});update()});
+ if(up)up.addEventListener("click",()=>window.scrollTo({top:0,behavior:reduceMotion()?"auto":"smooth"}));
  update();
 }
 document.addEventListener("DOMContentLoaded",bindScrollArrows,{once:true});
 </script>
 
-<button class="scrollNavArrow down is-visible" id="scrollToBottom" type="button" aria-label="Descendre en bas de la page" title="Descendre en bas">
+<button class="scrollNavArrow down is-visible" id="scrollToBottom" type="button" aria-label="Aller à la prochaine rubrique" title="Rubrique suivante">
  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m5.5 12.5 6.5 6.5 6.5-6.5"/></svg>
 </button>
 <button class="scrollNavArrow up" id="backToTop" type="button" aria-label="Revenir en haut de la page" title="Revenir en haut">
