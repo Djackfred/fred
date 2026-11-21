@@ -1081,6 +1081,15 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
  .mobile-holiday-signature .holiday-lights,.mobile-holiday-signature .holiday-name{animation:none!important}
 }
 
+
+/* METARECALL TV REMOTE NAVIGATION */
+html.tv-navigation{scroll-behavior:smooth}
+.tv-navigation :focus{outline:3px solid #f5c95d!important;outline-offset:4px!important;box-shadow:0 0 0 5px rgba(245,201,93,.20),0 0 26px rgba(245,201,93,.36)!important}
+.tv-navigation .poster:focus{transform:translateY(-5px) scale(1.055);z-index:12}
+.tv-navigation .btn:focus,.tv-navigation .accountBtn:focus,.tv-navigation .genreButton:focus,.tv-navigation .footerLinkCard:focus{transform:scale(1.045);z-index:12}
+.tv-navigation .shelf{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html.tv-navigation{scroll-behavior:auto}.tv-navigation .poster:focus,.tv-navigation .btn:focus,.tv-navigation .accountBtn:focus{transform:none}}
+
 </style>
 </head>
 <body>
@@ -2015,6 +2024,80 @@ supabase.auth.onAuthStateChange((_event, session) => {
 supabase.auth.getSession().then(({ data, error }) => {
   if (!error) setAccount(data.session?.user || null);
 });
+</script>
+
+
+<script>
+/* METARECALL TV REMOTE NAVIGATION
+   D-pad / arrow keys move focus spatially; Enter activates native controls.
+   Works with keyboard remotes and common browser key-code mappings.
+*/
+(function(){
+ "use strict";
+ const selector='a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[role="button"][tabindex],.poster';
+ const isEditable=el=>!!el&&(/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)||el.isContentEditable);
+ const visible=el=>{
+  if(!el||!el.isConnected||el.disabled||el.getAttribute("aria-hidden")==="true")return false;
+  if(el.closest("[hidden], [inert], .scrollNavArrow"))return false;
+  const style=getComputedStyle(el);
+  return style.display!=="none"&&style.visibility!=="hidden"&&Number(style.opacity)!==0&&el.getClientRects().length>0;
+ };
+ const candidates=()=>[...document.querySelectorAll(selector)].filter(visible);
+ const center=el=>{const r=el.getBoundingClientRect();return{x:r.left+r.width/2,y:r.top+r.height/2}};
+ const focusElement=el=>{
+  if(!el)return;
+  try{el.focus({preventScroll:true})}catch(_){el.focus()}
+  el.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"nearest",inline:"nearest"});
+  const shelf=el.closest(".shelf");
+  if(shelf){
+   const r=el.getBoundingClientRect(),s=shelf.getBoundingClientRect();
+   if(r.left<s.left||r.right>s.right)shelf.scrollBy({left:r.left<s.left?r.left-s.left-18:r.right-s.right+18,behavior:"smooth"});
+  }
+ };
+ const directionFromKey=event=>{
+  const key=event.key;
+  if(key==="ArrowUp"||event.keyCode===38)return "up";
+  if(key==="ArrowDown"||event.keyCode===40)return "down";
+  if(key==="ArrowLeft"||event.keyCode===37)return "left";
+  if(key==="ArrowRight"||event.keyCode===39)return "right";
+  return "";
+ };
+ const move=(direction)=>{
+  const all=candidates();
+  if(!all.length)return;
+  const active=document.activeElement;
+  if(!active||active===document.body||!all.includes(active)){
+   const first=all.find(el=>el.closest(".topbar"))||all.find(el=>el.closest(".hero"))||all.find(el=>el.classList.contains("poster"))||all[0];
+   focusElement(first);return;
+  }
+  const origin=center(active);
+  const vectors={left:{x:-1,y:0},right:{x:1,y:0},up:{x:0,y:-1},down:{x:0,y:1}};
+  const v=vectors[direction];
+  let best=null,bestScore=Infinity;
+  for(const el of all){
+   if(el===active)continue;
+   const p=center(el),dx=p.x-origin.x,dy=p.y-origin.y;
+   const primary=dx*v.x+dy*v.y;
+   if(primary<=5)continue;
+   const cross=Math.abs(dx*v.y-dy*v.x);
+   const score=primary+cross*1.65+(cross>primary?cross*.35:0);
+   if(score<bestScore){best=el;bestScore=score}
+  }
+  if(best)focusElement(best);
+ };
+ document.addEventListener("keydown",event=>{
+  const direction=directionFromKey(event);
+  if(!direction)return;
+  if(isEditable(document.activeElement))return;
+  event.preventDefault();
+  event.stopPropagation();
+  document.documentElement.classList.add("tv-navigation");
+  move(direction);
+ },true);
+ document.addEventListener("focusin",event=>{
+  if(event.target&&event.target.matches(selector))document.documentElement.classList.add("tv-navigation");
+ });
+})();
 </script>
 
 </body></html>
