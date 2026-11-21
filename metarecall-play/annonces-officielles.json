@@ -3,7 +3,7 @@
   "sourceUrl": "https://about.netflix.com/fr/news/calendrier-de-sorties-originals-france",
   "checkedAt": "2026-11-21",
   "checkedAtLabel": "21 novembre 2026",
-  "note": "Annonces officielles France. Les images du Media Center consultées renvoyaient à un visuel placeholder ; les fiches restent textuelles et hors des carrousels jusqu'à validation d'une affiche.",
+  "note": "Annonces officielles France et annonces mondiales explicitement annoncées pour une sortie mondiale incluant la France. Chaque carte conserve une affiche ou un visuel éditorial METARECALL clairement identifié ; aucune disponibilité sur une plateforme tierce n'est déduite.",
   "items": [
     {
       "id": "netflix-82013434",
@@ -211,7 +211,54 @@
       "posterSymbol": "🎭",
       "posterTheme": "comedy",
       "visualUpdatedAt": "2026-11-21"
+    },
+    {
+      "id": "netflix-the-one-piece-2027",
+      "title": "THE ONE PIECE",
+      "displayTitle": "THE ONE PIECE",
+      "aliases": [],
+      "year": "2027",
+      "type": "Série animée",
+      "genre": "Animation · Aventure",
+      "rubrique": "Annonces officielles",
+      "releaseDate": null,
+      "displayDate": "Février 2027 · Netflix",
+      "description": "Nouvelle adaptation animée de One Piece annoncée par Netflix. La série est prévue dans le monde entier en février 2027, France comprise.",
+      "sourceLabel": "Netflix · annonce mondiale",
+      "officialUrl": "https://about.netflix.com/fr/news/netflix-previews-its-animation-slate-for-2026-and-beyond",
+      "justWatchQuery": "THE ONE PIECE",
+      "posterCandidates": [],
+      "posterStatus": "Illustration graphique de présentation · aucune affiche officielle vérifiée",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "🏴‍☠️",
+      "posterTheme": "anime",
+      "visualUpdatedAt": "2026-11-21"
+    },
+    {
+      "id": "netflix-sos-fantomes-equipe-de-nuit-2027",
+      "title": "S.O.S. Fantômes : Équipe de nuit",
+      "displayTitle": "S.O.S. Fantômes : Équipe de nuit",
+      "aliases": [],
+      "year": "2027",
+      "type": "Série",
+      "genre": "Fantastique · Comédie",
+      "rubrique": "Annonces officielles",
+      "releaseDate": null,
+      "displayDate": "2027 · Netflix",
+      "description": "Nouvelle série de l'univers S.O.S. Fantômes, annoncée par Netflix pour une sortie mondiale en 2027.",
+      "sourceLabel": "Netflix · annonce mondiale",
+      "officialUrl": "https://about.netflix.com/fr/news/netflix-previews-its-animation-slate-for-2026-and-beyond",
+      "justWatchQuery": "S.O.S. Fantômes : Équipe de nuit",
+      "posterCandidates": [],
+      "posterStatus": "Illustration graphique de présentation · aucune affiche officielle vérifiée",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "👻",
+      "posterTheme": "ghostbusters",
+      "visualUpdatedAt": "2026-11-21"
     }
   ],
-  "visualNote": "Chaque fiche comporte une jaquette ou un visuel graphique de présentation. Les visuels issus de médias tiers sont explicitement identifiés (affiche promotionnelle, image de premier regard ou photo d'artiste). Les visuels éditoriaux METARECALL ne sont pas présentés comme des affiches officielles."
+  "visualNote": "Chaque fiche comporte une jaquette ou un visuel graphique de présentation. Les visuels issus de médias tiers sont explicitement identifiés (affiche promotionnelle, image de premier regard ou photo d'artiste). Les visuels éditoriaux METARECALL ne sont pas présentés comme des affiches officielles.",
+  "additionalSources": [
+    "https://about.netflix.com/fr/news/netflix-previews-its-animation-slate-for-2026-and-beyond"
+  ]
 }
