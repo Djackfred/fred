@@ -344,6 +344,68 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
   .topbar .accountBtn{min-height:34px;padding:7px 11px;font-size:9px}
 }
 
+
+/* Header compact au défilement, développé dès que l'utilisateur remonte */
+.topbar .nav,
+.topbar .brand,
+.topbar .brandIcon,
+.topbar .brandName,
+.topbar .searchbox,
+.topbar .accountBtn{
+  transition:height .24s ease,min-height .24s ease,padding .24s ease,gap .24s ease,
+             font-size .24s ease,opacity .18s ease,transform .24s ease;
+}
+body.header-compact .topbar .nav{
+  grid-template-columns:minmax(185px,auto) minmax(180px,1fr) max-content;
+  grid-template-areas:"brand search account";
+  min-height:58px;
+  gap:8px 16px;
+  padding:7px 4.5%;
+}
+body.header-compact .topbar .nav>nav{display:none}
+body.header-compact .topbar .brandIcon{width:34px;height:34px;border-radius:10px;font-size:13px}
+body.header-compact .topbar .brandName{font-size:15px}
+body.header-compact .topbar .brandName .certifiedBy,
+body.header-compact .topbar .brandName small:last-child{display:none}
+body.header-compact .topbar .searchbox{height:38px;border-radius:10px;padding:0 12px}
+body.header-compact .topbar .searchbox input{font-size:12px}
+body.header-compact .topbar .accountControls{gap:5px}
+body.header-compact .topbar .accountBtn{min-height:30px;padding:5px 9px;font-size:9px}
+@media(max-width:1100px){
+  body.header-compact .topbar .nav{
+    grid-template-columns:minmax(140px,auto) minmax(150px,1fr) max-content;
+    grid-template-areas:"brand search account";
+    min-height:56px;
+    gap:7px 11px;
+    padding:7px 4%;
+  }
+  body.header-compact .topbar .brandName{font-size:14px}
+  body.header-compact .topbar .searchbox{height:36px}
+}
+@media(max-width:700px){
+  body.header-compact .topbar .nav{
+    grid-template-columns:34px minmax(0,1fr) max-content;
+    grid-template-areas:"brand search account";
+    min-height:54px;
+    gap:7px;
+    padding:7px 3.5%;
+  }
+  body.header-compact .topbar .brand{justify-self:start}
+  body.header-compact .topbar .brandIcon{width:32px;height:32px}
+  body.header-compact .topbar .brandName{display:none}
+  body.header-compact .topbar .searchbox{height:36px;padding:0 9px}
+  body.header-compact .topbar .searchbox input{font-size:12px}
+  body.header-compact .topbar .accountControls{justify-self:end;gap:3px;flex-wrap:nowrap}
+  body.header-compact .topbar .accountBtn{min-height:29px;padding:4px 7px;font-size:8px}
+  body.header-compact .topbar #signupOpenBtn,
+  body.header-compact .topbar #dataOpenBtn,
+  body.header-compact .topbar #adminOpenBtn{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .topbar .nav,.topbar .brand,.topbar .brandIcon,.topbar .brandName,
+  .topbar .searchbox,.topbar .accountBtn{transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -780,8 +842,21 @@ function bindScrollArrows(){
   const currentY=window.scrollY;
   return scrollStops().find(section=>section.getBoundingClientRect().top>105)||null;
  };
+ let lastScrollY=window.scrollY;
+ let compactHeader=false;
  const updateVisibility=()=>{
-  const awayFromTop=window.scrollY>320;
+  const currentY=window.scrollY;
+  if(currentY<=90){
+   compactHeader=false;
+  }else if(currentY>lastScrollY+1){
+   compactHeader=true;
+  }else if(currentY<lastScrollY-1){
+   compactHeader=false;
+  }
+  document.body.classList.toggle("header-compact",compactHeader);
+  lastScrollY=currentY;
+
+  const awayFromTop=currentY>320;
   const canStep=Boolean(getNextStop());
   document.body.classList.toggle("hasScrollUp",awayFromTop);
   down.classList.toggle("is-visible",canStep);
