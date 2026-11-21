@@ -478,7 +478,7 @@ function bindBackToTop(){
   window.scrollTo({top:0,behavior:reduceMotion?"auto":"smooth"});
  });
 }
-bindBackToTop();
+document.addEventListener("DOMContentLoaded",bindBackToTop,{once:true});
 </script>
 
 <button class="backToTop" id="backToTop" type="button" aria-label="Revenir en haut de la page" title="Revenir en haut">
