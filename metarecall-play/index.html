@@ -135,6 +135,17 @@ footer{padding:31px 5%;border-top:1px solid #ffffff12;background:#090a0f;color:#
 footer strong{color:#e6e7eb;font-size:12px;letter-spacing:1px}
 @media(max-width:900px){.nav{gap:17px}.brand{min-width:auto}.brandName{font-size:17px}nav{gap:13px}.heroArt{right:5%;width:42%}.heroContent{width:58%}.proofbar{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.nav{height:66px;padding:0 4%;gap:10px}.brandIcon{width:34px;height:34px;border-radius:10px}.brandName{font-size:15px}.brandName small{font-size:7px;letter-spacing:1.5px}.brandName .certifiedBy{font-size:7px;letter-spacing:1px;margin-bottom:3px}nav{display:none}.searchbox{padding:8px 11px}.searchbox input{width:105px;font-size:12px}.hero{margin-top:9px;min-height:370px;padding:34px 8%}.hero:before{inset:0 3%;border-radius:19px}.heroContent{width:100%;margin:0}.hero h1{font-size:39px;letter-spacing:-1.8px;max-width:400px}.hero p{font-size:13px;max-width:410px}.heroArt{opacity:.22;right:3%;width:65%;height:230px}.heroPoster{width:120px}.actions{margin-top:20px}.proofbar{padding:0 5%;gap:7px}.proofitem{padding:10px 9px;gap:8px}.proofitem strong{font-size:9px}.proofitem small{font-size:9px}.prooficon{width:28px;height:28px;flex-basis:28px}.content{margin-top:24px}.genreExplorer{padding:0 5% 18px}.genreHead h2{font-size:15px}.genreHead span{display:none}.genreButton{font-size:10px;padding:8px 12px}.rowsection{margin-bottom:25px}.rowhead{margin:0 5% 10px}.rowtitle{font-size:18px}.rowmeta{display:none}.shelf{gap:10px;padding-left:5%;padding-right:5%}.poster{flex-basis:145px;border-radius:9px}.posterText{left:10px;bottom:11px}.posterText strong{font-size:14px}.shelfArrow{display:none}.modalart{height:190px}.modalbody{padding:0 18px 22px}.modalbody h2{font-size:24px}}
+.officialGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 4.5% 10px}
+.officialCard{display:flex;flex-direction:column;gap:8px;min-width:0;padding:16px;border:1px solid #ffffff16;border-radius:14px;background:linear-gradient(125deg,#1c1e29,#12141b);box-shadow:0 12px 30px #0003}
+.officialCard small{font-size:9px;letter-spacing:1px;color:#aeb4c2;text-transform:uppercase}
+.officialCard strong{font-size:16px;line-height:1.2;color:#fff}
+.officialCard p{margin:0;color:#c4c7d0;font-size:12px;line-height:1.55}
+.officialCard .officialPending{font-size:10px;letter-spacing:0;text-transform:none;color:#aeb4c2}
+.officialActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.officialActions a{display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border:1px solid #ffffff22;border-radius:999px;color:#fff;font-size:11px;font-weight:750}
+.officialActions a:first-child{background:#e52d5525;border-color:#e52d5555}
+@media(max-width:900px){.officialGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.officialGrid{grid-template-columns:1fr;margin:0 5% 10px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 
 /* Floating back-to-top control — visible throughout the page while scrolling */
@@ -150,7 +161,7 @@ footer strong{color:#e6e7eb;font-size:12px;letter-spacing:1px}
 <body>
 <header class="topbar"><div class="nav">
 <a class="brand" href="#accueil" aria-label="METARECALL PLAY, accueil"><span class="brandIcon">MP</span><span class="brandName"><small class="certifiedBy">CERTIFIÉ BY FRÉDÉRIC JACQUET</small>METARECALL <b>PLAY</b><small>FILMS · SÉRIES · CRÉATIONS</small></span></a>
-<nav aria-label="Navigation principale"><a href="#nouveautes">Derniers ajouts</a><a href="#top15">TOP 15</a><a href="#alafiche">À l’affiche</a><a href="#animations">Animation</a><a href="#docs">Docs & spectacles</a><a href="#catalogue">Catalogue</a></nav>
+<nav aria-label="Navigation principale"><a href="#nouveautes">Derniers ajouts</a><a href="#top15">TOP 15</a><a href="#alafiche">À l’affiche</a><a href="#animations">Animation</a><a href="#docs">Docs & spectacles</a><a href="#annonces-officielles">À venir</a><a href="#catalogue">Catalogue</a></nav>
 <div class="navright"><label class="searchbox"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Rechercher un titre..." aria-label="Rechercher un titre"></label></div>
 </div></header>
 <main id="accueil">
@@ -189,6 +200,10 @@ footer strong{color:#e6e7eb;font-size:12px;letter-spacing:1px}
 <section class="rowsection" id="docs"><div class="rowhead"><div><span class="eyebrow">Documentaires & spectacles</span><h2 class="rowtitle">Docs & Spectacles</h2></div><span class="rowmeta">25 titres relevés</span></div><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="docsShelf"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <section class="rowsection" id="catalogue"><div class="rowhead"><div><span class="eyebrow">Tous les titres visibles dans le relevé</span><h2 class="rowtitle">Explorer le catalogue</h2></div><span class="rowmeta">51 entrées sur la page d'accueil</span></div><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="catalogueShelf"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <section class="rowsection" id="series-tvmaze"><div class="rowhead"><div><span class="eyebrow">Calendrier télévisé complémentaire</span><h2 class="rowtitle">Épisodes récents — TVmaze</h2></div><span class="rowmeta">France · hier, aujourd'hui, demain</span></div><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="newShows"><p class="note">Chargement des diffusions TVmaze…</p></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
+<section class="rowsection officialAnnouncements" id="annonces-officielles" hidden>
+<div class="rowhead"><div><span class="eyebrow">Calendrier des plateformes</span><h2 class="rowtitle">Sorties annoncées — France</h2></div><span class="rowmeta" id="officialCheckedAt">Annonces officielles</span></div>
+<div class="officialGrid" id="officialReleases"></div>
+</section>
 <p class="empty" id="empty">Aucun titre ne correspond à votre recherche ou à ce filtre.</p>
 </div></main>
 <footer>
@@ -438,6 +453,7 @@ async function loadFranceAndWeb(){
  });
  const items=Array.from(unique.values()).map(({ep,source})=>toCatalogItem(ep,source));
  items.sort((a,b)=>(b.localAirDate||"").localeCompare(a.localAirDate||"")||a.title.localeCompare(b.title,"fr"));
+ window.__tvmazeTitleKeys=new Set(items.map(item=>normalizePosterTitle(item.title)));
  shelf.replaceChildren();
  if(items.length){
   items.slice(0,36).forEach((item,i)=>{const poster=card(item,i);if(poster)shelf.appendChild(poster)});
@@ -451,11 +467,52 @@ async function loadFranceAndWeb(){
  shelf.after(status);
  applyFilters();
 }
+async function loadOfficialAnnouncements(){
+ const section=document.getElementById("annonces-officielles"),root=document.getElementById("officialReleases");
+ if(!section||!root)return;
+ try{
+  const response=await fetch("./annonces-officielles.json?v=20261121",{cache:"no-store"});
+  if(!response.ok)throw new Error("HTTP "+response.status+" sur les annonces officielles");
+  const data=await response.json();
+  const ravpaz=window.__ravpazTitleKeys||new Set(),tvmaze=window.__tvmazeTitleKeys||new Set(),seen=new Set();
+  const items=(Array.isArray(data.items)?data.items:[]).filter(item=>{
+   const names=[item.title,...(Array.isArray(item.aliases)?item.aliases:[])].map(normalizePosterTitle).filter(Boolean);
+   const key=item.id||names[0];
+   if(!key||seen.has(key))return false;
+   seen.add(key);
+   return !names.some(name=>ravpaz.has(name)||tvmaze.has(name));
+  });
+  root.replaceChildren();
+  if(!items.length){section.hidden=true;return}
+  items.forEach(item=>{
+   const article=document.createElement("article");article.className="officialCard";
+   const meta=document.createElement("small");meta.textContent=[item.type,item.genre].filter(Boolean).join(" · ");
+   const title=document.createElement("strong");title.textContent=item.displayTitle||item.title;
+   const date=document.createElement("p");date.textContent=item.displayDate||item.year||"Date à confirmer";
+   article.append(meta,title,date);
+   if(item.description){const description=document.createElement("p");description.textContent=item.description;article.appendChild(description)}
+   const source=document.createElement("small");source.className="officialPending";source.textContent=item.sourceLabel||"Source officielle";
+   const poster=document.createElement("small");poster.className="officialPending";poster.textContent=item.posterStatus||"Affiche non vérifiée — fiche texte uniquement";
+   const actions=document.createElement("div");actions.className="officialActions";
+   const justwatch=document.createElement("a");justwatch.href="https://www.justwatch.com/fr/recherche?q="+encodeURIComponent(item.justWatchQuery||item.displayTitle||item.title);justwatch.target="_blank";justwatch.rel="noopener noreferrer";justwatch.textContent="JustWatch France";justwatch.setAttribute("aria-label","Rechercher "+(item.displayTitle||item.title)+" sur JustWatch France");
+   const official=document.createElement("a");official.href=item.officialUrl||data.sourceUrl;official.target="_blank";official.rel="noopener noreferrer";official.textContent="Annonce officielle";
+   actions.append(justwatch,official);article.append(source,poster,actions);root.appendChild(article);
+  });
+  const checked=document.getElementById("officialCheckedAt");
+  if(checked&&data.checkedAtLabel)checked.textContent="Contrôle du "+data.checkedAtLabel;
+  section.hidden=false;
+ }catch(error){
+  console.error("Annonces officielles indisponibles",error);
+  root.innerHTML='<p class="note">Le calendrier officiel est momentanément indisponible. Réessayez lors du prochain contrôle.</p>';
+  section.hidden=false;
+ }
+}
 async function loadReferenceCatalog(){
  try{
   const response=await fetch("./catalogue-ravpaz.json?v=20261121",{cache:"no-store"});
   if(!response.ok)throw new Error("HTTP "+response.status+" sur le catalogue de référence");
   const data=await response.json(),sections=data.sections||{};
+  window.__ravpazTitleKeys=new Set(Object.values(sections).flat().map(item=>normalizePosterTitle(item.title)));
   const toCard=item=>({id:item.id,title:item.title,type:item.type||"Film",genre:item.genre||"À découvrir",genreTags:item.genreTags||[],displayDate:item.year||"",year:item.year||"",desc:"Titre repris du catalogue public de référence. Consultez les options de visionnage légal en France via JustWatch.",imageUrl:item.imageUrl||"",posterCandidates:posterSourcesFor(item),officialUrl:null,source:"Ravpaz"});
   const fillSection=(elementId,key,rank=false)=>{const shelf=document.getElementById(elementId);if(!shelf)return;shelf.replaceChildren();(sections[key]||[]).forEach((item,index)=>{const poster=card(toCard(item),index,rank);if(poster)shelf.appendChild(poster)})};
   fillSection("latestShelf","latest");fillSection("top15Shelf","top15",true);fillSection("featuredShelf","featured");fillSection("animationShelf","animation");fillSection("docsShelf","docs");fillSection("catalogueShelf","catalogue");setHeroPosters(sections.top15||[]);
@@ -464,8 +521,7 @@ async function loadReferenceCatalog(){
   applyFilters(false);
  }catch(error){console.error("Catalogue Ravpaz indisponible",error);["latestShelf","top15Shelf","featuredShelf","animationShelf","docsShelf","catalogueShelf"].forEach(id=>{const shelf=document.getElementById(id);if(shelf)shelf.innerHTML='<p class="note">Le catalogue de référence n’a pas pu être chargé. Réessayez dans quelques instants.</p>'})}
 }
-loadReferenceCatalog();
-loadFranceAndWeb();
+Promise.allSettled([loadReferenceCatalog(),loadFranceAndWeb()]).then(()=>loadOfficialAnnouncements());
 
 function bindBackToTop(){
  const button=document.getElementById("backToTop");

@@ -1,0 +1,170 @@
+{
+  "source": "Netflix France",
+  "sourceUrl": "https://about.netflix.com/fr/news/calendrier-de-sorties-originals-france",
+  "checkedAt": "2026-11-21",
+  "checkedAtLabel": "21 novembre 2026",
+  "note": "Annonces officielles France. Les images du Media Center consultées renvoyaient à un visuel placeholder ; les fiches restent textuelles et hors des carrousels jusqu'à validation d'une affiche.",
+  "items": [
+    {
+      "id": "netflix-82013434",
+      "title": "Quasimodo, l'âme de Paris",
+      "displayTitle": "Quasimodo, l'âme de Paris",
+      "aliases": [
+        "The Hunchback, Soul of Paris",
+        "Quasimodo"
+      ],
+      "year": "2026",
+      "type": "Film",
+      "genre": "Drame historique",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-11-27",
+      "displayDate": "27 novembre 2026 · Netflix",
+      "description": "À Paris en 1830, un tailleur de pierre se retrouve pris entre le choléra, la révolte et un amour impossible.",
+      "sourceLabel": "Netflix France",
+      "officialUrl": "https://media.netflix.com/en/only-on-netflix/82013434",
+      "justWatchQuery": "Quasimodo, l'âme de Paris",
+      "posterCandidates": [],
+      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+    },
+    {
+      "id": "netflix-81737965",
+      "title": "Orgueil et Préjugés",
+      "displayTitle": "Orgueil et Préjugés",
+      "aliases": [
+        "Pride and Prejudice"
+      ],
+      "year": "2026",
+      "type": "Série",
+      "genre": "Romance · Drame",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-12-03",
+      "displayDate": "3 décembre 2026 · Netflix",
+      "description": "Mini-série en six épisodes adaptée du roman de Jane Austen.",
+      "sourceLabel": "Netflix France",
+      "officialUrl": "https://media.netflix.com/en/only-on-netflix/81737965",
+      "justWatchQuery": "Orgueil et Préjugés",
+      "posterCandidates": [],
+      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+    },
+    {
+      "id": "netflix-81908710",
+      "title": "14TH",
+      "displayTitle": "14TH",
+      "aliases": [
+        "14th"
+      ],
+      "year": "2026",
+      "type": "Documentaire",
+      "genre": "Documentaire",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-12-04",
+      "displayDate": "4 décembre 2026 · Netflix",
+      "description": "Documentaire d'Ava DuVernay consacré au 14e amendement américain, à l'égalité et à la citoyenneté.",
+      "sourceLabel": "Netflix France",
+      "officialUrl": "https://media.netflix.com/en/only-on-netflix/81908710",
+      "justWatchQuery": "14TH",
+      "posterCandidates": [],
+      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+    },
+    {
+      "id": "netflix-81756797",
+      "title": "Ray Gunn",
+      "displayTitle": "Ray Gunn",
+      "aliases": [],
+      "year": "2026",
+      "type": "Film",
+      "genre": "Science-fiction",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-12-18",
+      "displayDate": "18 décembre 2026 · Netflix",
+      "description": "Dans une Metropia alternative de 1939, le détective Raymond Gunn enquête sur une affaire mêlant extraterrestres et meurtres.",
+      "sourceLabel": "Netflix France",
+      "officialUrl": "https://media.netflix.com/en/only-on-netflix/81756797",
+      "justWatchQuery": "Ray Gunn",
+      "posterCandidates": [],
+      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+    },
+    {
+      "id": "netflix-82054606",
+      "title": "The Further Mis-Adventures of Cliff Booth",
+      "displayTitle": "Les nouvelles mésaventures de Cliff Booth",
+      "aliases": [
+        "The Further Mis-Adventures of Cliff Booth",
+        "Cliff Booth"
+      ],
+      "year": "2026",
+      "type": "Film",
+      "genre": "Crime · Drame",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-12-23",
+      "displayDate": "23 décembre 2026 · Netflix",
+      "description": "Cliff Booth retrouve Hollywood en 1977 dans un nouveau film réalisé par David Fincher sur un scénario de Quentin Tarantino.",
+      "sourceLabel": "Netflix France",
+      "officialUrl": "https://media.netflix.com/en/only-on-netflix/82054606",
+      "justWatchQuery": "The Further Mis-Adventures of Cliff Booth",
+      "posterCandidates": [],
+      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+    },
+    {
+      "id": "netflix-81037371",
+      "title": "Emily in Paris — Saison 6",
+      "displayTitle": "Emily in Paris — Saison 6",
+      "aliases": [
+        "Emily in Paris",
+        "Emily in Paris Season 6"
+      ],
+      "year": "2026",
+      "type": "Série",
+      "genre": "Romance",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-12-24",
+      "displayDate": "24 décembre 2026 · Netflix",
+      "description": "Emily doit faire des choix décisifs entre sa carrière, ses relations et la vie qu'elle construit à Paris.",
+      "sourceLabel": "Netflix France",
+      "officialUrl": "https://media.netflix.com/en/only-on-netflix/81037371",
+      "justWatchQuery": "Emily in Paris",
+      "posterCandidates": [],
+      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+    },
+    {
+      "id": "netflix-81030669",
+      "title": "Narnia : Le Neveu du Magicien",
+      "displayTitle": "Narnia : Le Neveu du Magicien",
+      "aliases": [
+        "Narnia: The Magician's Nephew"
+      ],
+      "year": "2027",
+      "type": "Film",
+      "genre": "Aventure",
+      "rubrique": "Annonces officielles",
+      "releaseDate": null,
+      "displayDate": "2027 · date précise à confirmer",
+      "description": "Greta Gerwig adapte le récit de C. S. Lewis consacré aux origines de Narnia.",
+      "sourceLabel": "Netflix France",
+      "officialUrl": "https://media.netflix.com/en/only-on-netflix/81030669",
+      "justWatchQuery": "Narnia : Le Neveu du Magicien",
+      "posterCandidates": [],
+      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+    },
+    {
+      "id": "netflix-francois-damiens-cameras-cachees",
+      "title": "Les caméras cachées de François Damiens",
+      "displayTitle": "Les caméras cachées de François Damiens",
+      "aliases": [
+        "François Damiens"
+      ],
+      "year": "2026",
+      "type": "Série",
+      "genre": "Divertissement",
+      "rubrique": "Annonces officielles",
+      "releaseDate": null,
+      "displayDate": "2026 · date de sortie à confirmer",
+      "description": "Série annoncée en exclusivité Netflix, composée de 14 épisodes d'environ 10 minutes.",
+      "sourceLabel": "Netflix France",
+      "officialUrl": "https://about.netflix.com/fr/news/calendrier-de-sorties-originals-france",
+      "justWatchQuery": "Les caméras cachées de François Damiens",
+      "posterCandidates": [],
+      "posterStatus": "Aucune jaquette exploitable vérifiée ; fiche texte uniquement."
+    }
+  ]
+}
