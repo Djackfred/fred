@@ -180,13 +180,77 @@ body.hasScrollUp #scrollToBottom{left:calc(50% - 39px)}
 body.hasScrollUp #backToTop{left:calc(50% + 39px)}
 @media(max-width:620px){.scrollNavArrow{width:58px;height:58px;bottom:16px}.scrollNavArrow svg{width:28px;height:28px}body.hasScrollUp #scrollToBottom{left:calc(50% - 35px)}body.hasScrollUp #backToTop{left:calc(50% + 35px)}}
 @media(prefers-reduced-motion:reduce){.scrollNavArrow{transition:none}}
+
+/* METARECALL PLAY — authenticated subscriber space */
+.accountControls{display:flex;align-items:center;gap:7px;flex-wrap:nowrap}
+.accountBtn{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:8px 11px;border:1px solid #ffffff25;border-radius:999px;background:#191b25;color:#f5f6fa;font-size:10px;font-weight:800;white-space:nowrap;cursor:pointer;transition:transform .2s,border-color .2s,background .2s}
+.accountBtn:hover{transform:translateY(-1px);border-color:#ff8194;background:#25202a}
+.accountBtn.primary{background:linear-gradient(115deg,#ff5d78,#d61e4a);border-color:transparent;color:#fff}
+.accountBtn.subtle{background:#ffffff0a}
+.accountEmail{max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#d8dbe4;font-size:10px}
+.accountBtn[hidden],.accountEmail[hidden]{display:none!important}
+.accountOverlay{position:fixed;inset:0;z-index:1200;display:none;align-items:center;justify-content:center;padding:18px;background:#05060be8;backdrop-filter:blur(9px);overflow:auto}
+.accountOverlay.open{display:flex}
+.accountDialog{position:relative;width:min(510px,100%);max-height:92vh;overflow:auto;padding:28px;border:1px solid #ffffff20;border-radius:20px;background:linear-gradient(145deg,#1b1e29,#11131b);box-shadow:0 28px 100px #000c}
+.accountDialog h2{font-size:27px;line-height:1.12;letter-spacing:-.8px;margin:9px 0}
+.accountDialog p{color:#b8bdca;font-size:12px;line-height:1.65}
+.accountClose{position:absolute;top:13px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid #ffffff28;background:#ffffff0c;color:white;font-size:22px;cursor:pointer}
+.accountForm{display:grid;gap:13px;margin-top:20px}
+.accountForm label:not(.privacyAck){display:grid;gap:6px;color:#dfe1e8;font-size:11px;font-weight:750}
+.accountForm input[type=email],.accountForm input[type=password]{width:100%;min-height:44px;padding:10px 12px;border:1px solid #ffffff25;border-radius:10px;background:#0c0e15;color:#fff;outline:none}
+.accountForm input:focus{border-color:#ff8194;box-shadow:0 0 0 3px #e52d5525}
+.privacyAck{display:flex;align-items:flex-start;gap:9px;color:#bfc4d0;font-size:10px;line-height:1.5}
+.privacyAck input{margin-top:2px;accent-color:#ed4968}
+.accountSubmit{width:100%;min-height:45px;border:0;border-radius:999px;background:linear-gradient(115deg,#ff5d78,#d61e4a);color:white;font-size:12px;font-weight:850;cursor:pointer}
+.accountMessage{min-height:20px;margin:10px 0 0!important;font-size:11px!important}
+.accountMessage[data-kind=error]{color:#ff9aaa!important}
+.accountMessage[data-kind=success]{color:#9ee6bd!important}
+.accountSwitch{border:0;background:none;color:#ff9aaa;font-size:11px;font-weight:800;text-decoration:underline;cursor:pointer;padding:8px 0}
+.accountDialog details{margin-top:15px;border-top:1px solid #ffffff16;padding-top:13px;color:#dce0e9}
+.accountDialog summary{cursor:pointer;font-size:11px;font-weight:800;color:#ff9aaa}
+.accountDialog details p{margin:9px 0;font-size:10px}
+.adminDialog{width:min(1120px,100%)}
+.adminTop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.adminTop h2{margin:6px 0 4px}
+.adminTools{display:flex;gap:8px;align-items:center}
+.adminStats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:15px 0 22px}
+.adminStat{padding:13px;border:1px solid #ffffff16;border-radius:12px;background:#ffffff08}
+.adminStat strong{display:block;color:#fff;font-size:21px}
+.adminStat span{color:#aab0bf;font-size:10px}
+.adminSectionTitle{font-size:14px;margin:17px 0 9px}
+.adminTableWrap{width:100%;overflow:auto;border:1px solid #ffffff15;border-radius:12px}
+.adminTable{width:100%;min-width:620px;border-collapse:collapse;text-align:left;font-size:10px}
+.adminTable th,.adminTable td{padding:10px 12px;border-bottom:1px solid #ffffff12;white-space:nowrap}
+.adminTable th{background:#ffffff09;color:#bfc4d1;font-size:9px;letter-spacing:.8px;text-transform:uppercase}
+.adminTable td{color:#e7e8ed}
+.adminTable tr:last-child td{border-bottom:0}
+.adminStatus{display:inline-block;padding:4px 7px;border-radius:999px;background:#ffffff12;color:#bfc4d1;font-size:9px}
+.adminStatus.ok{background:#1e9e6326;color:#9de4ba}
+.adminEmpty{padding:14px!important;color:#abb1be!important}
+.cookieNotice{position:fixed;z-index:1100;left:50%;bottom:16px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;width:min(760px,calc(100% - 24px));padding:13px 15px;border:1px solid #ffffff20;border-radius:14px;background:#171922f2;box-shadow:0 14px 45px #0009;backdrop-filter:blur(12px)}
+.cookieNotice p{margin:0;color:#c5c9d4;font-size:10px;line-height:1.55}
+.cookieNotice strong{color:#fff}
+.cookieNotice button{flex:0 0 auto;border:1px solid #ffffff28;border-radius:999px;background:#ffffff12;color:#fff;padding:8px 12px;font-size:10px;font-weight:800;cursor:pointer}
+.privacyFooter{padding:0 4.5% 20px;color:#8e95a4;font-size:10px}
+.privacyFooter button{border:0;background:none;color:#ff9aaa;font-size:10px;text-decoration:underline;cursor:pointer;padding:0}
+@media(max-width:900px){.accountControls{gap:5px}.accountBtn{padding:7px 9px;font-size:9px}.accountEmail{display:none}}
+@media(max-width:620px){.accountControls{gap:4px}.accountBtn{min-height:33px;padding:6px 8px;font-size:8.5px}.searchbox input{width:83px}.accountDialog{padding:24px 18px}.accountDialog h2{font-size:23px}.adminStats{grid-template-columns:1fr}.cookieNotice{align-items:flex-start;bottom:9px}.cookieNotice button{margin-top:2px}}
+
 </style>
 </head>
 <body>
 <header class="topbar"><div class="nav">
 <a class="brand" href="#accueil" aria-label="METARECALL PLAY, accueil"><span class="brandIcon">MP</span><span class="brandName"><small class="certifiedBy">CERTIFIÉ BY FRÉDÉRIC JACQUET</small>METARECALL <b>PLAY</b><small>FILMS · SÉRIES · CRÉATIONS</small></span></a>
 <nav aria-label="Navigation principale"><a href="#nouveautes">Derniers ajouts</a><a href="#top15">TOP 15</a><a href="#alafiche">À l’affiche</a><a href="#animations">Animation</a><a href="#docs">Docs & spectacles</a><a href="#annonces-officielles">À venir</a><a href="#catalogue">Catalogue</a></nav>
-<div class="navright"><label class="searchbox"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Rechercher un titre..." aria-label="Rechercher un titre"></label></div>
+<div class="navright">
+<label class="searchbox"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Rechercher un titre..." aria-label="Rechercher un titre"></label>
+<div class="accountControls" aria-label="Espace abonnés">
+<button class="accountBtn primary" id="loginOpenBtn" type="button">Connexion abonnés</button>
+<button class="accountBtn" id="signupOpenBtn" type="button">Inscription</button>
+<span class="accountEmail" id="accountEmail" hidden></span>
+<button class="accountBtn subtle" id="adminOpenBtn" type="button" hidden>Espace admin</button>
+<button class="accountBtn" id="logoutBtn" type="button" hidden>Déconnexion</button>
+</div></div>
 </div></header>
 <main id="accueil">
 <section class="hero" id="accueil"><div class="heroContent">
@@ -246,7 +310,8 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
   </a>
  </div>
 </section>
-<strong>METARECALL PLAY</strong><br>Catalogue de découverte certifié by Frédéric Jacquet. Les rubriques, titres, années et genres reprennent le relevé public de la page de référence Ravpaz. Les affiches sont chargées depuis leur source image publique, avec une source de repli lorsque disponible.<br>METARECALL PLAY ne diffuse pas les œuvres. Le bouton « Vérifier sur JustWatch France » permet de rechercher des options légales ; aucune disponibilité sur une plateforme n’est affirmée sans vérification.</footer>
+<strong>METARECALL PLAY</strong><br>Catalogue de découverte certifié by Frédéric Jacquet. Les rubriques, titres, années et genres reprennent le relevé public de la page de référence Ravpaz. Les affiches sont chargées depuis leur source image publique, avec une source de repli lorsque disponible.<br>METARECALL PLAY ne diffuse pas les œuvres. Le bouton « Vérifier sur JustWatch France » permet de rechercher des options légales ; aucune disponibilité sur une plateforme n’est affirmée sans vérification.<div class="privacyFooter">Comptes abonnés sécurisés · <button id="privacyFooterBtn" type="button">Confidentialité et cookies</button> · Contact : <a href="mailto:contact@metarecall.fr">contact@metarecall.fr</a></div>
+</footer>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalbox"><button class="close" id="close" aria-label="Fermer">×</button><div class="modalart" id="modalArt"></div><div class="modalbody"><span class="badge">FICHE DU PROGRAMME</span><h2 id="modalTitle"></h2><p id="modalMeta" style="font-size:12px;color:#aaa"></p><p id="modalDesc"></p><a class="btn play" id="whereWatch" href="https://www.justwatch.com/fr" target="_blank" rel="noopener">Vérifier sur JustWatch France</a> <a class="btn more" id="officialLink" href="#" target="_blank" rel="noopener">Fiche officielle</a> <button class="btn more" id="modalOk">Fermer</button></div></div></div>
 <script>
 const art={
@@ -636,4 +701,301 @@ document.addEventListener("DOMContentLoaded",bindScrollArrows,{once:true});
 <button class="scrollNavArrow up" id="backToTop" type="button" aria-label="Revenir en haut de la page" title="Revenir en haut">
  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5.5 11.5 6.5-6.5 6.5 6.5"/></svg>
 </button>
+
+<div class="accountOverlay" id="authOverlay" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <section class="accountDialog">
+    <button class="accountClose" id="closeAuthBtn" type="button" aria-label="Fermer">×</button>
+    <span class="eyebrow">METARECALL PLAY · ESPACE ABONNÉS</span>
+    <h2 id="authTitle">Connexion abonnés</h2>
+    <p id="authIntro">Retrouvez votre espace personnel et vos accès.</p>
+    <form class="accountForm" id="authForm">
+      <label>Adresse e-mail
+        <input id="authEmail" type="email" autocomplete="email" placeholder="vous@exemple.fr" required>
+      </label>
+      <label>Mot de passe
+        <input id="authPassword" type="password" autocomplete="current-password" minlength="8" placeholder="8 caractères minimum" required>
+      </label>
+      <label class="privacyAck" id="privacyAckWrap" hidden>
+        <input id="privacyAck" type="checkbox">
+        <span>Je confirme avoir pris connaissance des informations de confidentialité ci-dessous.</span>
+      </label>
+      <button class="accountSubmit" id="authSubmit" type="submit">Se connecter</button>
+    </form>
+    <p class="accountMessage" id="authMessage" role="status" aria-live="polite"></p>
+    <button class="accountSwitch" id="switchAuthMode" type="button">Créer un compte abonné</button>
+    <details id="privacyDisclosure">
+      <summary>Confidentialité et cookies</summary>
+      <p><strong>Données utilisées :</strong> adresse e-mail, identifiant de compte, date de création et historique des inscriptions/connexions. Ces informations servent à gérer les comptes abonnés et à sécuriser les accès.</p>
+      <p><strong>Conservation :</strong> le compte reste actif jusqu'à sa suppression. Les événements de connexion sont automatiquement purgés après 12 mois.</p>
+      <p><strong>Hébergement :</strong> Supabase, projet hébergé dans l'Union européenne (Paris). Les données ne sont ni revendues ni utilisées pour de la publicité.</p>
+      <p><strong>Cookies et stockage :</strong> aucun traceur publicitaire ni outil de mesure d'audience n'est installé. Le stockage de session nécessaire à l'authentification est utilisé pour maintenir votre connexion.</p>
+      <p><strong>Vos droits :</strong> accès, rectification, effacement et demandes relatives à vos données via <a href="mailto:contact@metarecall.fr">contact@metarecall.fr</a>.</p>
+      <p><strong>Responsable du traitement :</strong> METARECALL, éditeur de METARECALL PLAY. Contact : contact@metarecall.fr.</p>
+    </details>
+  </section>
+</div>
+
+<div class="accountOverlay" id="adminOverlay" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+  <section class="accountDialog adminDialog">
+    <div class="adminTop">
+      <div>
+        <span class="eyebrow">ESPACE PRIVÉ · ADMINISTRATION</span>
+        <h2 id="adminTitle">Tableau de bord abonnés</h2>
+        <p>Liste des comptes, statut de confirmation et historique récent des connexions.</p>
+      </div>
+      <div class="adminTools">
+        <button class="accountBtn" id="adminRefreshBtn" type="button">Actualiser</button>
+        <button class="accountClose" id="closeAdminBtn" type="button" aria-label="Fermer">×</button>
+      </div>
+    </div>
+    <p class="accountMessage" id="adminMessage" role="status" aria-live="polite"></p>
+    <div class="adminStats">
+      <div class="adminStat"><strong id="adminSubscriberCount">—</strong><span>Comptes enregistrés</span></div>
+      <div class="adminStat"><strong id="adminVerifiedCount">—</strong><span>Adresses confirmées</span></div>
+      <div class="adminStat"><strong id="adminEventCount">—</strong><span>Événements récents affichés</span></div>
+    </div>
+    <h3 class="adminSectionTitle">Abonnés</h3>
+    <div class="adminTableWrap">
+      <table class="adminTable">
+        <thead><tr><th>Adresse e-mail</th><th>Inscription</th><th>Dernière connexion</th><th>Confirmation</th></tr></thead>
+        <tbody id="adminUsersBody"><tr><td class="adminEmpty" colspan="4">Chargement…</td></tr></tbody>
+      </table>
+    </div>
+    <h3 class="adminSectionTitle">Historique des connexions et inscriptions · 100 derniers événements</h3>
+    <div class="adminTableWrap">
+      <table class="adminTable">
+        <thead><tr><th>Adresse e-mail</th><th>Événement</th><th>Date et heure</th></tr></thead>
+        <tbody id="adminEventsBody"><tr><td class="adminEmpty" colspan="3">Chargement…</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<div class="cookieNotice" id="cookieNotice" role="status">
+  <p><strong>Confidentialité :</strong> METARECALL PLAY n'utilise pas de cookies publicitaires ni de mesure d'audience. Seul le stockage indispensable à la connexion des abonnés est utilisé.</p>
+  <button id="closeCookieNotice" type="button">Compris</button>
+</div>
+
+
+<script type="module">
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
+const SUPABASE_URL = "https://ogwjqjzncjxlxbhcrcgo.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_RLGO1L8iSgHkZ7ReHEaTRg_ImaBLx9y";
+const INITIAL_ADMIN_EMAIL = "contact@metarecall.fr";
+const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+  auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
+});
+
+const byId = (id) => document.getElementById(id);
+const authOverlay = byId("authOverlay");
+const adminOverlay = byId("adminOverlay");
+const authMessage = byId("authMessage");
+let authMode = "login";
+let currentUser = null;
+let adminData = null;
+
+function setMessage(element, message, kind = "info") {
+  element.textContent = message || "";
+  element.dataset.kind = kind;
+}
+function openAuth(mode = "login") {
+  setAuthMode(mode);
+  authOverlay.classList.add("open");
+  setTimeout(() => byId("authEmail").focus(), 40);
+}
+function closeAuth() { authOverlay.classList.remove("open"); }
+function setAuthMode(mode) {
+  authMode = mode;
+  const signup = mode === "signup";
+  byId("authTitle").textContent = signup ? "Créer votre compte abonné" : "Connexion abonnés";
+  byId("authIntro").textContent = signup
+    ? "Créez votre accès personnel à METARECALL PLAY."
+    : "Connectez-vous pour retrouver votre espace abonné.";
+  byId("authSubmit").textContent = signup ? "Créer mon compte" : "Se connecter";
+  byId("switchAuthMode").textContent = signup ? "J'ai déjà un compte : me connecter" : "Créer un compte abonné";
+  byId("privacyAckWrap").hidden = !signup;
+  byId("privacyAck").required = signup;
+  byId("authPassword").autocomplete = signup ? "new-password" : "current-password";
+  byId("authPassword").minLength = signup ? 8 : 1;
+  setMessage(authMessage, "");
+}
+function closeAdmin() { adminOverlay.classList.remove("open"); }
+function formatDate(value) {
+  if (!value) return "—";
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "—" : date.toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" });
+}
+function appendCell(row, value, className) {
+  const cell = document.createElement("td");
+  cell.textContent = value ?? "—";
+  if (className) cell.className = className;
+  row.appendChild(cell);
+  return cell;
+}
+function renderAdmin(data) {
+  adminData = data;
+  const users = Array.isArray(data.users) ? [...data.users] : [];
+  const events = Array.isArray(data.recent_events) ? data.recent_events : [];
+  users.sort((a, b) => (b.last_sign_in_at || b.created_at || "").localeCompare(a.last_sign_in_at || a.created_at || ""));
+  byId("adminSubscriberCount").textContent = String(data.subscriber_count ?? users.length);
+  byId("adminVerifiedCount").textContent = String(users.filter(user => Boolean(user.email_confirmed_at)).length);
+  byId("adminEventCount").textContent = String(events.length);
+
+  const usersBody = byId("adminUsersBody");
+  usersBody.replaceChildren();
+  if (!users.length) {
+    const row = usersBody.insertRow();
+    appendCell(row, "Aucun compte enregistré.", "adminEmpty").colSpan = 4;
+  } else {
+    users.forEach(user => {
+      const row = usersBody.insertRow();
+      appendCell(row, user.email || "Adresse indisponible");
+      appendCell(row, formatDate(user.created_at));
+      appendCell(row, formatDate(user.last_sign_in_at));
+      const status = appendCell(row, user.email_confirmed_at ? "Confirmée" : "En attente");
+      status.innerHTML = "";
+      const badge = document.createElement("span");
+      badge.className = "adminStatus" + (user.email_confirmed_at ? " ok" : "");
+      badge.textContent = user.email_confirmed_at ? "Confirmée" : "En attente";
+      status.appendChild(badge);
+    });
+  }
+
+  const eventsBody = byId("adminEventsBody");
+  eventsBody.replaceChildren();
+  if (!events.length) {
+    const row = eventsBody.insertRow();
+    appendCell(row, "Aucun événement enregistré pour le moment.", "adminEmpty").colSpan = 3;
+  } else {
+    events.forEach(event => {
+      const row = eventsBody.insertRow();
+      appendCell(row, event.email || "Compte supprimé");
+      appendCell(row, event.event_type === "sign_up" ? "Inscription" : "Connexion");
+      appendCell(row, formatDate(event.created_at));
+    });
+  }
+  setMessage(byId("adminMessage"), "Données actualisées.", "success");
+}
+async function loadAdminData(openPanel = true) {
+  setMessage(byId("adminMessage"), "Chargement des données…");
+  const { data, error } = await supabase.functions.invoke("admin-dashboard", { body: {} });
+  if (error || !data || data.error) {
+    setMessage(byId("adminMessage"), data?.error || "Accès administrateur indisponible.", "error");
+    byId("adminOpenBtn").hidden = true;
+    return false;
+  }
+  renderAdmin(data);
+  byId("adminOpenBtn").hidden = false;
+  if (openPanel) adminOverlay.classList.add("open");
+  return true;
+}
+async function checkAdminAccess() {
+  if (!currentUser || (currentUser.email || "").toLowerCase() !== INITIAL_ADMIN_EMAIL) {
+    byId("adminOpenBtn").hidden = true;
+    return;
+  }
+  await loadAdminData(false);
+}
+function setAccount(user) {
+  currentUser = user || null;
+  const signedIn = Boolean(currentUser);
+  byId("loginOpenBtn").hidden = signedIn;
+  byId("signupOpenBtn").hidden = signedIn;
+  byId("accountEmail").hidden = !signedIn;
+  byId("accountEmail").textContent = signedIn ? currentUser.email || "Abonné connecté" : "";
+  byId("logoutBtn").hidden = !signedIn;
+  if (!signedIn) {
+    byId("adminOpenBtn").hidden = true;
+    closeAdmin();
+  } else {
+    checkAdminAccess();
+  }
+}
+async function logAuthEvent(eventType) {
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) return;
+  const { error: insertError } = await supabase.from("login_events").insert({
+    user_id: data.user.id,
+    event_type: eventType
+  });
+  if (insertError) console.warn("Historique de connexion non enregistré:", insertError.message);
+}
+
+byId("loginOpenBtn").addEventListener("click", () => openAuth("login"));
+byId("signupOpenBtn").addEventListener("click", () => openAuth("signup"));
+byId("closeAuthBtn").addEventListener("click", closeAuth);
+byId("switchAuthMode").addEventListener("click", () => setAuthMode(authMode === "login" ? "signup" : "login"));
+authOverlay.addEventListener("click", event => { if (event.target === authOverlay) closeAuth(); });
+byId("privacyFooterBtn")?.addEventListener("click", () => {
+  openAuth("login");
+  byId("privacyDisclosure").open = true;
+});
+byId("adminOpenBtn").addEventListener("click", () => loadAdminData(true));
+byId("adminRefreshBtn").addEventListener("click", () => loadAdminData(true));
+byId("closeAdminBtn").addEventListener("click", closeAdmin);
+adminOverlay.addEventListener("click", event => { if (event.target === adminOverlay) closeAdmin(); });
+byId("closeCookieNotice").addEventListener("click", () => byId("cookieNotice").remove());
+
+byId("authForm").addEventListener("submit", async event => {
+  event.preventDefault();
+  const email = byId("authEmail").value.trim().toLowerCase();
+  const password = byId("authPassword").value;
+  const submit = byId("authSubmit");
+  submit.disabled = true;
+  submit.textContent = "Traitement…";
+  try {
+    if (authMode === "signup") {
+      if (!byId("privacyAck").checked) {
+        setMessage(authMessage, "Merci de confirmer que vous avez lu les informations de confidentialité.", "error");
+        return;
+      }
+      const { data, error } = await supabase.auth.signUp({ email, password });
+      if (error) throw error;
+      if (data.session && data.user) {
+        setAccount(data.user);
+        closeAuth();
+        setMessage(authMessage, "Votre compte est créé.", "success");
+      } else {
+        setAuthMode("login");
+        byId("authEmail").value = email;
+        setMessage(authMessage, "Inscription enregistrée. Vérifiez votre messagerie pour confirmer l'adresse e-mail, puis revenez vous connecter.", "success");
+      }
+    } else {
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+      await logAuthEvent("sign_in");
+      setAccount(data.user);
+      closeAuth();
+    }
+  } catch (error) {
+    const message = error?.message || "Une erreur est survenue. Vérifiez les informations saisies.";
+    setMessage(authMessage, message, "error");
+  } finally {
+    submit.disabled = false;
+    submit.textContent = authMode === "signup" ? "Créer mon compte" : "Se connecter";
+  }
+});
+
+byId("logoutBtn").addEventListener("click", async () => {
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    alert("La déconnexion n'a pas abouti. Réessayez.");
+    return;
+  }
+  setAccount(null);
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") { closeAuth(); closeAdmin(); }
+});
+
+supabase.auth.onAuthStateChange((_event, session) => {
+  setAccount(session?.user || null);
+});
+supabase.auth.getSession().then(({ data, error }) => {
+  if (!error) setAccount(data.session?.user || null);
+});
+</script>
+
 </body></html>
