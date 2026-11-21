@@ -39,13 +39,14 @@ footer{padding:35px 5%;border-top:1px solid #222;color:#777;font-size:12px;line-
 <div class="content">
 <section class="rowsection" id="tendances"><h2 class="rowtitle">Tendances sur METARECALL PLAY</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="trending"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <section class="rowsection" id="nouveautes"><h2 class="rowtitle">Nouveautés : France & plateformes mondiales</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="newShows"><p class="note">Chargement des nouveautés…</p></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
+<section class="rowsection" id="sorties-confirmees"><h2 class="rowtitle">Sorties annoncées — décembre 2026</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="confirmedReleases"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <section class="rowsection" id="films"><h2 class="rowtitle">Films à découvrir</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="filmsShelf"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <section class="rowsection" id="series"><h2 class="rowtitle">Séries qui méritent votre attention</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="seriesShelf"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <section class="rowsection" id="musique"><h2 class="rowtitle">Musique & clips</h2><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="musicShelf"></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <p class="empty" id="empty">Aucun titre ne correspond à votre recherche.</p>
 </div></main>
 <footer><strong>METARECALL PLAY</strong><br>Catalogue de découverte alimenté par TVmaze. Les dates de diffusion et les disponibilités peuvent varier selon les territoires.<br>METARECALL PLAY ne diffuse pas les œuvres : le bouton « Où regarder légalement ? » renvoie vers JustWatch France. Les disponibilités ne sont pas affirmées sans vérification auprès du service concerné.</footer>
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalbox"><button class="close" id="close" aria-label="Fermer">×</button><div class="modalart" id="modalArt"></div><div class="modalbody"><span class="badge">FICHE DU PROGRAMME</span><h2 id="modalTitle"></h2><p id="modalMeta" style="font-size:12px;color:#aaa"></p><p id="modalDesc"></p><a class="btn play" id="whereWatch" href="https://www.justwatch.com/fr" target="_blank" rel="noopener">Où regarder légalement ?</a> <button class="btn more" id="modalOk">Fermer</button></div></div></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalbox"><button class="close" id="close" aria-label="Fermer">×</button><div class="modalart" id="modalArt"></div><div class="modalbody"><span class="badge">FICHE DU PROGRAMME</span><h2 id="modalTitle"></h2><p id="modalMeta" style="font-size:12px;color:#aaa"></p><p id="modalDesc"></p><a class="btn play" id="whereWatch" href="https://www.justwatch.com/fr" target="_blank" rel="noopener">Vérifier sur JustWatch France</a> <a class="btn more" id="officialLink" href="#" target="_blank" rel="noopener">Fiche officielle</a> <button class="btn more" id="modalOk">Fermer</button></div></div></div>
 <script>
 const art={
 space:"https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=700&q=85",
@@ -78,6 +79,7 @@ function openCard(item){
  document.querySelector("#modalDesc").textContent=item.desc||"Consultez la fiche de cette œuvre et sa disponibilité en France.";
  document.querySelector("#modalArt").style.backgroundImage="url('"+(item.imageUrl||art[item.art]||art.space)+"')";
  document.querySelector("#whereWatch").href="https://www.justwatch.com/fr/recherche?q="+encodeURIComponent(item.title);
+ const official=document.querySelector("#officialLink");official.href=item.officialUrl||"https://www.netflix.com/fr/";official.style.display=item.officialUrl?"inline-flex":"none";
  modal.classList.add("open");document.body.style.overflow="hidden";
 }
 function closeModal(){modal.classList.remove("open");document.body.style.overflow=""}
@@ -141,44 +143,62 @@ function toCatalogItem(ep,source){
   showId:show.id,season:ep.season,episode:ep.number
  };
 }
-async function fetchJson(url){
- const response=await fetch(url,{headers:{Accept:"application/json"}});
- if(!response.ok)throw new Error("HTTP "+response.status+" pour "+url);
- return response.json();
+async function fetchJson(url,attempt=0){
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),12000);
+ try{
+  const response=await fetch(url,{headers:{Accept:"application/json"},signal:controller.signal});
+  if((response.status===429||response.status>=500)&&attempt<2){
+   const retry=response.headers.get("Retry-After");
+   const wait=retry&&/^\\d+$/.test(retry)?Math.min(Number(retry)*1000,10000):1000*(attempt+1);
+   await new Promise(resolve=>setTimeout(resolve,wait));
+   return fetchJson(url,attempt+1);
+  }
+  if(!response.ok)throw new Error("HTTP "+response.status+" pour "+url);
+  return await response.json();
+ }finally{clearTimeout(timeout)}
 }
 async function loadFranceAndWeb(){
- const shelf=document.querySelector("#newShows");
- const today=new Date();
+ const shelf=document.querySelector("#newShows"),today=new Date();
  const dates=[-1,0,1].map(offset=>{const d=new Date(today);d.setDate(d.getDate()+offset);return localDateString(d)});
- try{
-  const results=await Promise.all(dates.map(async date=>{
-   const [fr,web]=await Promise.all([
-    fetchJson("https://api.tvmaze.com/schedule?country=FR&date="+date),
-    fetchJson("https://api.tvmaze.com/schedule/web?date="+date)
-   ]);
-   const france=fr.map(ep=>({ep,source:"France"}));
-   const worldwide=web.filter(ep=>ep.show&&isFranceOrGlobalPlatform(ep.show.webChannel)).map(ep=>({ep,source:"Plateforme web"}));
-   return france.concat(worldwide);
-  }));
-  const unique=new Map();
-  results.flat().forEach(({ep,source})=>{
-   if(!ep.show)return;
-   const key=makeKey(ep);
-   const existing=unique.get(key);
-   // Keep France's localized listing when the same episode exists in both feeds.
-   if(!existing||source==="France")unique.set(key,{ep,source});
+ const requests=dates.flatMap(date=>[
+  {date,source:"France",url:"https://api.tvmaze.com/schedule?country=FR&date="+date},
+  {date,source:"Plateforme web",url:"https://api.tvmaze.com/schedule/web?date="+date}
+ ]);
+ const settled=await Promise.allSettled(requests.map(x=>fetchJson(x.url)));
+ const unique=new Map();let successful=0,failures=0;
+ settled.forEach((result,index)=>{
+  const req=requests[index];
+  if(result.status!=="fulfilled"){failures++;console.warn("TVmaze indisponible",req.url,result.reason);return}
+  successful++;
+  const episodes=result.value.filter(ep=>ep&&ep.show&&
+   (req.source==="France"||isFranceOrGlobalPlatform(ep.show.webChannel)));
+  episodes.forEach(ep=>{
+   const key=makeKey(ep),existing=unique.get(key);
+   if(!existing||req.source==="France")unique.set(key,{ep,source:req.source});
   });
-  const items=Array.from(unique.values()).map(({ep,source})=>toCatalogItem(ep,source));
-  items.sort((a,b)=>(b.localAirDate||"").localeCompare(a.localAirDate||"")||a.title.localeCompare(b.title,"fr"));
-  shelf.replaceChildren();
-  if(!items.length){shelf.textContent="Aucune nouveauté référencée sur cette période.";return}
+ });
+ const items=Array.from(unique.values()).map(({ep,source})=>toCatalogItem(ep,source));
+ items.sort((a,b)=>(b.localAirDate||"").localeCompare(a.localAirDate||"")||a.title.localeCompare(b.title,"fr"));
+ shelf.replaceChildren();
+ if(items.length){
   items.slice(0,36).forEach((item,i)=>shelf.appendChild(card(item,i)));
-  const status=document.createElement("p");status.className="note";status.textContent=items.length+" programmes référencés · diffusion France et calendrier web mondial · dates : hier, aujourd’hui et demain.";shelf.after(status);
- }catch(error){
-  console.error("METARECALL PLAY — chargement TVmaze :",error);
-  shelf.replaceChildren();const message=document.createElement("p");message.className="note";message.textContent="Le calendrier des nouveautés est momentanément indisponible. Les autres rubriques restent accessibles.";shelf.appendChild(message);
+ }else{
+  const msg=document.createElement("p");msg.className="note";
+  msg.textContent=failures===requests.length?"Le flux TVmaze est momentanément inaccessible. Réessayez dans quelques instants.":"Aucune nouveauté référencée sur cette période.";
+  shelf.appendChild(msg);
  }
+ const status=document.createElement("p");status.className="note";
+ status.textContent=items.length+" programmes référencés · diffusion France et plateformes web mondiales · hier, aujourd’hui et demain."+(failures?" "+failures+" flux en erreur sur "+requests.length+" ; les autres résultats restent affichés.":" Tous les flux ont répondu.");
+ shelf.after(status);
 }
+const confirmedReleases=[
+ {title:"Orgueil et Préjugés",type:"Série",genre:"Mini-série · Jane Austen",displayDate:"3 décembre 2026",desc:"Adaptation en six épisodes du roman de Jane Austen, avec Emma Corrin, Jack Lowden et Olivia Colman.",imageUrl:"https://dnm.nflximg.net/api/v6/Kc8CA9GHHouTKoU4bM9l5VW4DIA/AAAABfri41bC8gnGwD1dJgbKD7RmRCW1jdvBXYCH9etNwfiKPB1ZsYMD5plj_IO4rscbCYE4vo-jqs6GRM1DoTwo96SAJRVknX0TFO-4yd5CPPBACxOxXyiq9D8Q3spiApnhwyOwUC6tu6LLRwUbvrUXz6Skceicuw.jpg",officialUrl:"https://www.netflix.com/fr/title/81737965"},
+ {title:"Le 14e",type:"Documentaire",genre:"Documentaire · Ava DuVernay",displayDate:"4 décembre 2026",desc:"Ava DuVernay explore l’histoire et les débats autour du 14e amendement de la Constitution américaine.",imageUrl:"https://fr.web.img3.acsta.net/c_310_420/img/2c/90/2c9022abb8a75473208807a2ae6635a1.jpg",officialUrl:"https://www.netflix.com/fr/title/81908710"},
+ {title:"Ray Gunn",type:"Film",genre:"Animation · Science-fiction",displayDate:"18 décembre 2026",desc:"Dans une métropole rétrofuturiste, le détective Raymond Gunn enquête sur une affaire mêlant extraterrestres et meurtres.",imageUrl:"https://v1.fdbimg.pl/crop?height=1739&noprofile=true&quality=80&stripmeta=true&type=webp&url=https%3A%2F%2Fi11.fdbimg.pl%2Fi%2Fe%2F7%2F2%2Fe7242fqaxbg1lueot6xr5stwkdir&width=1200",officialUrl:"https://www.netflix.com/fr/title/81756797"},
+ {title:"Les Nouvelles Mésaventures de Cliff Booth",type:"Film",genre:"Comédie dramatique · David Fincher",displayDate:"23 décembre 2026",desc:"Brad Pitt reprend le rôle de Cliff Booth dans une histoire située à Hollywood en 1977, écrite par Quentin Tarantino et réalisée par David Fincher.",imageUrl:"https://actionewz.com/images/articles/banners/the-further-mis-adventures-of-cliff-booth-official-trailer-reveals-first-look-at-brad-pitt-sequel-ab7053.jpg",officialUrl:"https://www.netflix.com/fr/title/82054606"},
+ {title:"Emily in Paris — saison 6",type:"Série",genre:"Comédie romantique · Saison 6",displayDate:"24 décembre 2026",desc:"La sixième saison des aventures d’Emily Cooper, annoncée comme le dernier chapitre de la série.",imageUrl:"https://images.justwatch.com/poster/320012391/s718/season-6.jpg",officialUrl:"https://www.netflix.com/fr/title/81037371"}
+];
+fill("confirmedReleases",confirmedReleases);
 loadFranceAndWeb();
 </script>
 </body></html>
