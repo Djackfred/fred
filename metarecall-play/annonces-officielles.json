@@ -23,8 +23,14 @@
       "sourceLabel": "Netflix France",
       "officialUrl": "https://media.netflix.com/en/only-on-netflix/82013434",
       "justWatchQuery": "Quasimodo, l'âme de Paris",
-      "posterCandidates": [],
-      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+      "posterCandidates": [
+        "https://static.filmvandaag.nl/covers/original/149000/149092.jpg?v=1&width=800"
+      ],
+      "posterStatus": "Affiche promotionnelle · image éditoriale publique",
+      "posterType": "Affiche promotionnelle",
+      "posterSymbol": "🏛",
+      "posterTheme": "paris",
+      "visualUpdatedAt": "2026-11-21"
     },
     {
       "id": "netflix-81737965",
@@ -43,8 +49,14 @@
       "sourceLabel": "Netflix France",
       "officialUrl": "https://media.netflix.com/en/only-on-netflix/81737965",
       "justWatchQuery": "Orgueil et Préjugés",
-      "posterCandidates": [],
-      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+      "posterCandidates": [
+        "https://i.tribune.com.pk/media/images/netflix1756084935-0/netflix1756084935-0-640x480.webp"
+      ],
+      "posterStatus": "Image de premier regard · image éditoriale publique",
+      "posterType": "Image de premier regard",
+      "posterSymbol": "🌿",
+      "posterTheme": "regency",
+      "visualUpdatedAt": "2026-11-21"
     },
     {
       "id": "netflix-81908710",
@@ -64,7 +76,11 @@
       "officialUrl": "https://media.netflix.com/en/only-on-netflix/81908710",
       "justWatchQuery": "14TH",
       "posterCandidates": [],
-      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+      "posterStatus": "Illustration graphique de présentation · aucune affiche officielle vérifiée",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "⚖",
+      "posterTheme": "documentary",
+      "visualUpdatedAt": "2026-11-21"
     },
     {
       "id": "netflix-81756797",
@@ -81,8 +97,14 @@
       "sourceLabel": "Netflix France",
       "officialUrl": "https://media.netflix.com/en/only-on-netflix/81756797",
       "justWatchQuery": "Ray Gunn",
-      "posterCandidates": [],
-      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+      "posterCandidates": [
+        "https://pbs.twimg.com/media/HHuGKxhWwAQg1bG.jpg?name=orig"
+      ],
+      "posterStatus": "Visuel de présentation · image éditoriale publique",
+      "posterType": "Visuel de présentation",
+      "posterSymbol": "🕵",
+      "posterTheme": "noir",
+      "visualUpdatedAt": "2026-11-21"
     },
     {
       "id": "netflix-82054606",
@@ -102,8 +124,14 @@
       "sourceLabel": "Netflix France",
       "officialUrl": "https://media.netflix.com/en/only-on-netflix/82054606",
       "justWatchQuery": "The Further Mis-Adventures of Cliff Booth",
-      "posterCandidates": [],
-      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+      "posterCandidates": [
+        "https://actionewz.com/images/articles/banners/the-further-mis-adventures-of-cliff-booth-official-trailer-reveals-first-look-at-brad-pitt-sequel-ab7053.jpg"
+      ],
+      "posterStatus": "Image de premier regard · image éditoriale publique",
+      "posterType": "Image de premier regard",
+      "posterSymbol": "🚘",
+      "posterTheme": "retro",
+      "visualUpdatedAt": "2026-11-21"
     },
     {
       "id": "netflix-81037371",
@@ -123,8 +151,14 @@
       "sourceLabel": "Netflix France",
       "officialUrl": "https://media.netflix.com/en/only-on-netflix/81037371",
       "justWatchQuery": "Emily in Paris",
-      "posterCandidates": [],
-      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+      "posterCandidates": [
+        "https://cf-images.assettype.com/outlookindia/2026-08-27/nw59sv2i/emily-in-paris-6-first-look-pics.jpg?auto=format%2Ccompress&dpr=1.0&fit=max&format=webp&w=800"
+      ],
+      "posterStatus": "Image de premier regard · image éditoriale publique",
+      "posterType": "Image de premier regard",
+      "posterSymbol": "🗼",
+      "posterTheme": "paris",
+      "visualUpdatedAt": "2026-11-21"
     },
     {
       "id": "netflix-81030669",
@@ -143,8 +177,14 @@
       "sourceLabel": "Netflix France",
       "officialUrl": "https://media.netflix.com/en/only-on-netflix/81030669",
       "justWatchQuery": "Narnia : Le Neveu du Magicien",
-      "posterCandidates": [],
-      "posterStatus": "Affiche non vérifiée : le Media Center renvoyait un visuel placeholder."
+      "posterCandidates": [
+        "https://movieplayer.net-cdn.it/t/images/2026/05/06/narnia_jpg_1280x720_crop_q85.jpg"
+      ],
+      "posterStatus": "Visuel de premier regard · image éditoriale publique",
+      "posterType": "Visuel de premier regard",
+      "posterSymbol": "🦁",
+      "posterTheme": "fantasy",
+      "visualUpdatedAt": "2026-11-21"
     },
     {
       "id": "netflix-francois-damiens-cameras-cachees",
@@ -163,8 +203,15 @@
       "sourceLabel": "Netflix France",
       "officialUrl": "https://about.netflix.com/fr/news/calendrier-de-sorties-originals-france",
       "justWatchQuery": "Les caméras cachées de François Damiens",
-      "posterCandidates": [],
-      "posterStatus": "Aucune jaquette exploitable vérifiée ; fiche texte uniquement."
+      "posterCandidates": [
+        "https://photos.tf1.fr/217/289/vignette-portrait_francois-damiens-20-ans-de-cameras-cachees-cultes_2023-84214a-0c250e-0%403x.jpg"
+      ],
+      "posterStatus": "Photo de l'artiste · image éditoriale publique",
+      "posterType": "Photo de l'artiste",
+      "posterSymbol": "🎭",
+      "posterTheme": "comedy",
+      "visualUpdatedAt": "2026-11-21"
     }
-  ]
+  ],
+  "visualNote": "Chaque fiche comporte une jaquette ou un visuel graphique de présentation. Les visuels issus de médias tiers sont explicitement identifiés (affiche promotionnelle, image de premier regard ou photo d'artiste). Les visuels éditoriaux METARECALL ne sont pas présentés comme des affiches officielles."
 }
