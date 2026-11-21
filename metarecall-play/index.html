@@ -345,65 +345,115 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
 }
 
 
-/* Header compact au défilement, développé dès que l'utilisateur remonte */
+/* Progressive sticky header: continuously resized from scroll progress */
+.topbar{
+  --header-progress:0;
+}
 .topbar .nav,
-.topbar .brand,
 .topbar .brandIcon,
 .topbar .brandName,
+.topbar .brandName small,
 .topbar .searchbox,
+.topbar .searchbox input,
+.topbar .accountBtn,
+.topbar .accountControls,
+.topbar .nav>nav{
+  transition:none!important;
+}
+.topbar .nav{
+  grid-template-rows:auto minmax(0,calc(36px * (1 - var(--header-progress))));
+  min-height:calc(102px - 44px * var(--header-progress));
+  gap:calc(8px - 2px * var(--header-progress)) calc(22px - 6px * var(--header-progress));
+  padding:calc(11px - 4px * var(--header-progress)) 4.5% calc(9px - 3px * var(--header-progress));
+  overflow:hidden;
+}
+.topbar .nav>nav{
+  display:flex;
+  min-height:0;
+  max-height:calc(36px * (1 - var(--header-progress)));
+  padding-top:calc(3px * (1 - var(--header-progress)));
+  overflow:hidden;
+  opacity:calc(1 - var(--header-progress));
+  align-items:center;
+}
+.topbar .brandIcon{
+  width:calc(39px - 5px * var(--header-progress));
+  height:calc(39px - 5px * var(--header-progress));
+  border-radius:calc(12px - 2px * var(--header-progress));
+  font-size:calc(15px - 2px * var(--header-progress));
+}
+.topbar .brandName{font-size:calc(19px - 4px * var(--header-progress))}
+.topbar .brandName .certifiedBy,
+.topbar .brandName small:last-child{
+  max-height:calc(12px * (1 - var(--header-progress)));
+  margin-top:calc(5px * (1 - var(--header-progress)));
+  overflow:hidden;
+  opacity:calc(1 - var(--header-progress));
+}
+.topbar .searchbox{
+  height:calc(44px - 8px * var(--header-progress));
+  padding:0 calc(15px - 3px * var(--header-progress));
+  border-radius:calc(12px - 2px * var(--header-progress));
+}
+.topbar .searchbox input{font-size:calc(13px - 1px * var(--header-progress))}
+.topbar .accountControls{gap:calc(7px - 2px * var(--header-progress))}
 .topbar .accountBtn{
-  transition:height .24s ease,min-height .24s ease,padding .24s ease,gap .24s ease,
-             font-size .24s ease,opacity .18s ease,transform .24s ease;
+  min-height:calc(36px - 6px * var(--header-progress));
+  padding:calc(8px - 3px * var(--header-progress)) calc(11px - 2px * var(--header-progress));
+  font-size:calc(10px - 1px * var(--header-progress));
 }
-body.header-compact .topbar .nav{
-  grid-template-columns:minmax(185px,auto) minmax(180px,1fr) max-content;
-  grid-template-areas:"brand search account";
-  min-height:58px;
-  gap:8px 16px;
-  padding:7px 4.5%;
-}
-body.header-compact .topbar .nav>nav{display:none}
-body.header-compact .topbar .brandIcon{width:34px;height:34px;border-radius:10px;font-size:13px}
-body.header-compact .topbar .brandName{font-size:15px}
-body.header-compact .topbar .brandName .certifiedBy,
-body.header-compact .topbar .brandName small:last-child{display:none}
-body.header-compact .topbar .searchbox{height:38px;border-radius:10px;padding:0 12px}
-body.header-compact .topbar .searchbox input{font-size:12px}
-body.header-compact .topbar .accountControls{gap:5px}
-body.header-compact .topbar .accountBtn{min-height:30px;padding:5px 9px;font-size:9px}
 @media(max-width:1100px){
-  body.header-compact .topbar .nav{
-    grid-template-columns:minmax(140px,auto) minmax(150px,1fr) max-content;
-    grid-template-areas:"brand search account";
-    min-height:56px;
-    gap:7px 11px;
-    padding:7px 4%;
+  .topbar .nav{
+    grid-template-columns:minmax(125px,auto) minmax(130px,1fr) max-content;
+    grid-template-areas:"brand search account" "menu menu menu";
+    grid-template-rows:auto minmax(0,calc(35px * (1 - var(--header-progress))));
+    min-height:calc(96px - 40px * var(--header-progress));
+    gap:calc(8px - 2px * var(--header-progress)) 12px;
+    padding:calc(10px - 3px * var(--header-progress)) 4% calc(8px - 2px * var(--header-progress));
   }
-  body.header-compact .topbar .brandName{font-size:14px}
-  body.header-compact .topbar .searchbox{height:36px}
+  .topbar .nav>nav{
+    gap:7px 17px;
+    max-height:calc(35px * (1 - var(--header-progress)));
+  }
+  .topbar .searchbox{justify-self:stretch;width:100%;max-width:none;height:calc(42px - 7px * var(--header-progress))}
+  .topbar .brandName{font-size:calc(17px - 3px * var(--header-progress))}
 }
 @media(max-width:700px){
-  body.header-compact .topbar .nav{
-    grid-template-columns:34px minmax(0,1fr) max-content;
-    grid-template-areas:"brand search account";
-    min-height:54px;
-    gap:7px;
-    padding:7px 3.5%;
+  .topbar .nav{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"brand" "search" "account";
+    grid-template-rows:auto auto auto;
+    min-height:calc(148px - 25px * var(--header-progress));
+    gap:calc(10px - 3px * var(--header-progress));
+    padding:calc(11px - 4px * var(--header-progress)) 4% calc(12px - 4px * var(--header-progress));
   }
-  body.header-compact .topbar .brand{justify-self:start}
-  body.header-compact .topbar .brandIcon{width:32px;height:32px}
-  body.header-compact .topbar .brandName{display:none}
-  body.header-compact .topbar .searchbox{height:36px;padding:0 9px}
-  body.header-compact .topbar .searchbox input{font-size:12px}
-  body.header-compact .topbar .accountControls{justify-self:end;gap:3px;flex-wrap:nowrap}
-  body.header-compact .topbar .accountBtn{min-height:29px;padding:4px 7px;font-size:8px}
-  body.header-compact .topbar #signupOpenBtn,
-  body.header-compact .topbar #dataOpenBtn,
-  body.header-compact .topbar #adminOpenBtn{display:none!important}
+  .topbar .brand{justify-self:center}
+  .topbar .nav>nav{display:none}
+  .topbar .brandIcon{
+    width:calc(34px - 2px * var(--header-progress));
+    height:calc(34px - 2px * var(--header-progress));
+  }
+  .topbar .brandName{font-size:calc(15px - 2px * var(--header-progress))}
+  .topbar .brandName small{font-size:calc(7px - 1px * var(--header-progress))}
+  .topbar .searchbox{
+    justify-self:stretch;width:100%;height:calc(46px - 10px * var(--header-progress));
+    border-radius:12px;padding:0 calc(14px - 3px * var(--header-progress));
+  }
+  .topbar .searchbox input{font-size:calc(14px - 2px * var(--header-progress))}
+  .topbar .accountControls{
+    justify-self:center;justify-content:center;flex-wrap:wrap;
+    gap:calc(7px - 3px * var(--header-progress));
+  }
+  .topbar .accountBtn{
+    min-height:calc(34px - 5px * var(--header-progress));
+    padding:calc(7px - 2px * var(--header-progress)) calc(11px - 4px * var(--header-progress));
+    font-size:calc(9px - 1px * var(--header-progress));
+  }
 }
 @media(prefers-reduced-motion:reduce){
-  .topbar .nav,.topbar .brand,.topbar .brandIcon,.topbar .brandName,
-  .topbar .searchbox,.topbar .accountBtn{transition:none!important}
+  .topbar .nav,.topbar .brandIcon,.topbar .brandName,.topbar .brandName small,
+  .topbar .searchbox,.topbar .searchbox input,.topbar .accountBtn,
+  .topbar .accountControls,.topbar .nav>nav{transition:none!important}
 }
 
 </style>
@@ -842,20 +892,47 @@ function bindScrollArrows(){
   const currentY=window.scrollY;
   return scrollStops().find(section=>section.getBoundingClientRect().top>105)||null;
  };
+ const topbar=document.querySelector(".topbar");
  let lastScrollY=window.scrollY;
- let compactHeader=false;
+ let downTravel=0;
+ let upTravel=0;
+ let headerProgress=window.scrollY>100?1:0;
+ let targetProgress=headerProgress;
+ let headerFrame=0;
+ const setHeaderProgress=()=>{
+  if(!topbar)return;
+  topbar.style.setProperty("--header-progress",headerProgress.toFixed(3));
+ };
+ const animateHeader=()=>{
+  headerFrame=0;
+  const difference=targetProgress-headerProgress;
+  const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduceMotion){
+   headerProgress=targetProgress;
+  }else{
+   headerProgress+=difference*0.19;
+   if(Math.abs(targetProgress-headerProgress)<0.004)headerProgress=targetProgress;
+  }
+  setHeaderProgress();
+  if(headerProgress!==targetProgress)headerFrame=window.requestAnimationFrame(animateHeader);
+ };
+ const updateHeaderTarget=(currentY)=>{
+  const delta=currentY-lastScrollY;
+  lastScrollY=currentY;
+  if(currentY<=8){
+   downTravel=0;upTravel=0;targetProgress=0;
+  }else if(delta>0.5){
+   downTravel+=delta;upTravel=0;
+   if(downTravel>=18)targetProgress=1;
+  }else if(delta< -0.5){
+   upTravel+=-delta;downTravel=0;
+   if(upTravel>=18)targetProgress=0;
+  }
+  if(targetProgress!==headerProgress&&!headerFrame)headerFrame=window.requestAnimationFrame(animateHeader);
+ };
  const updateVisibility=()=>{
   const currentY=window.scrollY;
-  if(currentY<=90){
-   compactHeader=false;
-  }else if(currentY>lastScrollY+1){
-   compactHeader=true;
-  }else if(currentY<lastScrollY-1){
-   compactHeader=false;
-  }
-  document.body.classList.toggle("header-compact",compactHeader);
-  lastScrollY=currentY;
-
+  updateHeaderTarget(currentY);
   const awayFromTop=currentY>320;
   const canStep=Boolean(getNextStop());
   document.body.classList.toggle("hasScrollUp",awayFromTop);
