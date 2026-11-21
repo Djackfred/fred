@@ -1222,6 +1222,23 @@ const heroPosterFallbacks={
 function normalizePosterTitle(value){
  return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
 }
+function escapePosterSvgText(value){
+ return String(value||"Titre à découvrir").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&apos;"}[char]));
+}
+function placeholderArt(title){
+ const words=String(title||"Titre à découvrir").trim().split(/\s+/);
+ const lines=[];let line="";
+ words.forEach(word=>{
+  const candidate=(line+" "+word).trim();
+  if(candidate.length>19&&line&&lines.length<2){lines.push(line);line=word}else{line=candidate}
+ });
+ if(line)lines.push(line);
+ if(lines.length>3)lines.splice(3);
+ if(lines.length===3&&String(title||"").length>lines.join(" ").length)lines[2]=lines[2].slice(0,16)+"…";
+ const titleSvg=lines.map((part,index)=>'<text x="300" y="'+(535+index*58)+'" text-anchor="middle" fill="#fff5df" font-family="Arial,Helvetica,sans-serif" font-size="43" font-weight="800">'+escapePosterSvgText(part)+'</text>').join("");
+ const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900" role="img" aria-label="Visuel éditorial de secours pour '+escapePosterSvgText(title)+'"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#24364a"/><stop offset=".55" stop-color="#151c2b"/><stop offset="1" stop-color="#5a2039"/></linearGradient><radialGradient id="glow"><stop offset="0" stop-color="#d7b56e" stop-opacity=".42"/><stop offset="1" stop-color="#d7b56e" stop-opacity="0"/></radialGradient></defs><rect width="600" height="900" fill="url(#bg)"/><circle cx="460" cy="190" r="280" fill="url(#glow)"/><path d="M0 680 Q150 560 300 690 T600 650 V900 H0Z" fill="#080e18" opacity=".55"/><path d="M70 125 H530 M70 775 H530" stroke="#e8cd89" stroke-opacity=".55" stroke-width="2"/><text x="300" y="95" text-anchor="middle" fill="#e8cd89" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" letter-spacing="6">METARECALL PLAY</text><text x="300" y="450" text-anchor="middle" fill="#e8cd89" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" letter-spacing="4">VISUEL ÉDITORIAL</text>'+titleSvg+'<text x="300" y="820" text-anchor="middle" fill="#c5cbd5" font-family="Arial,Helvetica,sans-serif" font-size="14" letter-spacing="3">AFFICHE NON DISPONIBLE</text></svg>';
+ return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
+}
 function posterSourcesFor(item){
  const key=normalizePosterTitle(item&&item.title);
  const extras=heroPosterFallbacks[key]||[];
@@ -1247,6 +1264,8 @@ function setHeroPosters(items){
   const tryNext=()=>{
    if(attempt<sources.length){image.src=sources[attempt++];return}
    image.onload=null;image.onerror=null;
+   image.alt="Visuel éditorial de secours — aucune affiche vérifiée pour "+item.title;
+   image.dataset.posterFallback="editorial";
    image.src=placeholderArt(item.title);
   };
   image.onload=()=>{image.style.opacity="1";slot.hidden=false};
