@@ -1082,7 +1082,12 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
 }
 
 
-/* METARECALL TV REMOTE NAVIGATION */
+/* Sélection Smart TV : focus contrasté, carte centrée dans le rayon */
+.tv-navigation :focus{outline:3px solid #f5c95d!important;outline-offset:4px!important;box-shadow:0 0 0 5px rgba(245,201,93,.22),0 0 25px rgba(245,201,93,.4)!important}
+.tv-navigation .poster:focus{transform:scale(1.055);z-index:15}
+.tv-navigation .officialCard:focus,.tv-navigation button:focus,.tv-navigation a:focus{transform:scale(1.025);z-index:15}
+@media(prefers-reduced-motion:reduce){.tv-navigation .poster:focus,.tv-navigation .officialCard:focus{transform:none!important}}
+
 html.tv-navigation{scroll-behavior:smooth}
 .tv-navigation :focus{outline:3px solid #f5c95d!important;outline-offset:4px!important;box-shadow:0 0 0 5px rgba(245,201,93,.20),0 0 26px rgba(245,201,93,.36)!important}
 .tv-navigation .poster:focus{transform:translateY(-5px) scale(1.055);z-index:12}
@@ -2028,75 +2033,135 @@ supabase.auth.getSession().then(({ data, error }) => {
 
 
 <script>
-/* METARECALL TV REMOTE NAVIGATION
-   D-pad / arrow keys move focus spatially; Enter activates native controls.
-   Works with keyboard remotes and common browser key-code mappings.
-*/
+/* METARECALL TV REMOTE NAVIGATION — navigation centralisée par rangée */
 (function(){
  "use strict";
- const selector='a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[role="button"][tabindex],.poster';
+ const reduce=()=>window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ const selector='a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[role="button"][tabindex],.poster,.officialCard';
+ let lastPoster=null;
  const isEditable=el=>!!el&&(/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)||el.isContentEditable);
  const visible=el=>{
-  if(!el||!el.isConnected||el.disabled||el.getAttribute("aria-hidden")==="true")return false;
-  if(el.closest("[hidden], [inert], .scrollNavArrow"))return false;
-  const style=getComputedStyle(el);
-  return style.display!=="none"&&style.visibility!=="hidden"&&Number(style.opacity)!==0&&el.getClientRects().length>0;
+  if(!el||!el.isConnected||el.disabled||el.getAttribute("aria-hidden")==="true"||el.closest("[hidden],[inert],.scrollNavArrow"))return false;
+  const s=getComputedStyle(el);
+  return s.display!=="none"&&s.visibility!=="hidden"&&Number(s.opacity)!==0&&el.getClientRects().length>0;
  };
- const candidates=()=>[...document.querySelectorAll(selector)].filter(visible);
- const center=el=>{const r=el.getBoundingClientRect();return{x:r.left+r.width/2,y:r.top+r.height/2}};
- const focusElement=el=>{
+ const all=()=>[...document.querySelectorAll(selector)].filter(visible);
+ const point=el=>{const r=el.getBoundingClientRect();return{x:r.left+r.width/2,y:r.top+r.height/2}};
+ const focus=el=>{
   if(!el)return;
   try{el.focus({preventScroll:true})}catch(_){el.focus()}
-  el.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"nearest",inline:"nearest"});
-  const shelf=el.closest(".shelf");
-  if(shelf){
-   const r=el.getBoundingClientRect(),s=shelf.getBoundingClientRect();
-   if(r.left<s.left||r.right>s.right)shelf.scrollBy({left:r.left<s.left?r.left-s.left-18:r.right-s.right+18,behavior:"smooth"});
+  const behavior=reduce()?"auto":"smooth";
+  if(el.classList.contains("poster")){
+   lastPoster=el;
+   const shelf=el.closest(".shelf");
+   if(shelf){
+    const sr=shelf.getBoundingClientRect(),er=el.getBoundingClientRect();
+    const delta=(er.left+er.width/2)-(sr.left+sr.width/2);
+    shelf.scrollBy({left:delta,behavior});
+   }
+   const r=el.getBoundingClientRect();
+   const target=window.scrollY+r.top+r.height/2-window.innerHeight/2;
+   window.scrollTo({top:Math.max(0,target),behavior});
+  }else{
+   el.scrollIntoView({behavior,block:"center",inline:"center"});
   }
  };
- const directionFromKey=event=>{
-  const key=event.key;
-  if(key==="ArrowUp"||event.keyCode===38)return "up";
-  if(key==="ArrowDown"||event.keyCode===40)return "down";
-  if(key==="ArrowLeft"||event.keyCode===37)return "left";
-  if(key==="ArrowRight"||event.keyCode===39)return "right";
+ const postersIn=section=>[...section.querySelectorAll(".poster,.officialCard")].filter(visible);
+ const moveHorizontal=(active,dir)=>{
+  const shelf=active.closest(".shelf");
+  if(shelf&&active.classList.contains("poster")){
+   const items=[...shelf.querySelectorAll(".poster")].filter(visible);
+   const i=items.indexOf(active),next=items[i+(dir==="right"?1:-1)];
+   if(next)focus(next);
+   return;
+  }
+  const origin=point(active),opts=all().filter(el=>el!==active);
+  let best=null,score=Infinity;
+  for(const el of opts){
+   const p=point(el),dx=(p.x-origin.x)*(dir==="right"?1:-1),dy=Math.abs(p.y-origin.y);
+   if(dx<=3)continue;
+   const v=dx+dy*2.2;
+   if(v<score){score=v;best=el}
+  }
+  if(best)focus(best);
+ };
+ const moveVertical=(active,dir)=>{
+  if(active.classList.contains("poster")||active.classList.contains("officialCard")){
+   const current=active.closest(".rowsection")||active.closest(".officialGrid")||active.parentElement;
+   const sections=[...document.querySelectorAll(".rowsection")].filter(s=>!s.hidden&&s.getClientRects().length&&postersIn(s).length);
+   const currentIndex=sections.indexOf(current);
+   if(currentIndex>=0){
+    const nextSection=sections[currentIndex+(dir==="down"?1:-1)];
+    if(nextSection){
+     const items=postersIn(nextSection),screenCenter=window.innerWidth/2;
+     const next=items.reduce((best,el)=>Math.abs(point(el).x-screenCenter)<Math.abs(point(best).x-screenCenter)?el:best,items[0]);
+     focus(next);return;
+    }
+   }
+  }
+  const origin=point(active),opts=all().filter(el=>el!==active);
+  let best=null,score=Infinity;
+  for(const el of opts){
+   const p=point(el),dy=(p.y-origin.y)*(dir==="down"?1:-1),dx=Math.abs(p.x-origin.x);
+   if(dy<=3)continue;
+   const v=dy+dx*1.7;
+   if(v<score){score=v;best=el}
+  }
+  if(best)focus(best);
+ };
+ const move=dir=>{
+  const active=document.activeElement;
+  if(!active||active===document.body||!visible(active)){
+   const first=all().find(el=>el.closest(".topbar"))||all().find(el=>el.classList.contains("poster"))||all()[0];
+   focus(first);return;
+  }
+  if(dir==="left"||dir==="right")moveHorizontal(active,dir);
+  else moveVertical(active,dir);
+ };
+ const keyDirection=e=>{
+  const k=e.key||"";
+  if(k==="ArrowLeft"||e.keyCode===37)return "left";
+  if(k==="ArrowRight"||e.keyCode===39)return "right";
+  if(k==="ArrowUp"||e.keyCode===38)return "up";
+  if(k==="ArrowDown"||e.keyCode===40)return "down";
   return "";
  };
- const move=(direction)=>{
-  const all=candidates();
-  if(!all.length)return;
-  const active=document.activeElement;
-  if(!active||active===document.body||!all.includes(active)){
-   const first=all.find(el=>el.closest(".topbar"))||all.find(el=>el.closest(".hero"))||all.find(el=>el.classList.contains("poster"))||all[0];
-   focusElement(first);return;
-  }
-  const origin=center(active);
-  const vectors={left:{x:-1,y:0},right:{x:1,y:0},up:{x:0,y:-1},down:{x:0,y:1}};
-  const v=vectors[direction];
-  let best=null,bestScore=Infinity;
-  for(const el of all){
-   if(el===active)continue;
-   const p=center(el),dx=p.x-origin.x,dy=p.y-origin.y;
-   const primary=dx*v.x+dy*v.y;
-   if(primary<=5)continue;
-   const cross=Math.abs(dx*v.y-dy*v.x);
-   const score=primary+cross*1.65+(cross>primary?cross*.35:0);
-   if(score<bestScore){best=el;bestScore=score}
-  }
-  if(best)focusElement(best);
- };
- document.addEventListener("keydown",event=>{
-  const direction=directionFromKey(event);
-  if(!direction)return;
+ document.addEventListener("keydown",e=>{
   if(isEditable(document.activeElement))return;
-  event.preventDefault();
-  event.stopPropagation();
+  const modal=document.querySelector("#modal.open");
+  const back=["Escape","Backspace","BrowserBack","GoBack"].includes(e.key)||[8,27,461].includes(e.keyCode);
+  if(back&&modal){
+   e.preventDefault();e.stopPropagation();
+   document.querySelector("#close")?.click();
+   if(lastPoster&&visible(lastPoster))focus(lastPoster);
+   return;
+  }
+  const dir=keyDirection(e);
+  if(!dir)return;
+  e.preventDefault();e.stopPropagation();
   document.documentElement.classList.add("tv-navigation");
-  move(direction);
+  move(dir);
  },true);
- document.addEventListener("focusin",event=>{
-  if(event.target&&event.target.matches(selector))document.documentElement.classList.add("tv-navigation");
+ document.addEventListener("focusin",e=>{
+  if(e.target?.matches(selector)){
+   document.documentElement.classList.add("tv-navigation");
+   if(e.target.classList.contains("poster"))lastPoster=e.target;
+  }
  });
+ document.addEventListener("click",e=>{
+  const poster=e.target.closest?.(".poster");
+  if(poster)lastPoster=poster;
+ });
+ const modal=document.querySelector("#modal");
+ if(modal){
+  const observer=new MutationObserver(()=>{
+   if(modal.classList.contains("open")){
+    const close=modal.querySelector("#close");
+    if(close)focus(close);
+   }
+  });
+  observer.observe(modal,{attributes:true,attributeFilter:["class"]});
+ }
 })();
 </script>
 
