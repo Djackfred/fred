@@ -149,13 +149,15 @@ footer strong{color:#e6e7eb;font-size:12px;letter-spacing:1px}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 
 /* Floating back-to-top control — visible throughout the page while scrolling */
-.backToTop{position:fixed;left:50%;bottom:24px;z-index:1000;width:64px;height:64px;display:flex;align-items:center;justify-content:center;border:1px solid #ffffff55;border-radius:50%;color:#fff;background:linear-gradient(145deg,#ff647f,#cb1745);box-shadow:0 12px 36px #0009,0 0 0 6px #e52d551c;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,18px);transition:opacity .22s ease,visibility .22s ease,transform .22s ease,box-shadow .22s ease}
-.backToTop.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
-.backToTop:hover{box-shadow:0 16px 42px #000b,0 0 0 9px #e52d5528;transform:translate(-50%,-3px)}
-.backToTop:focus-visible{outline:3px solid #fff;outline-offset:4px}
-.backToTop svg{width:31px;height:31px;display:block}
-@media(max-width:620px){.backToTop{width:58px;height:58px;bottom:16px}.backToTop svg{width:28px;height:28px}}
-@media(prefers-reduced-motion:reduce){.backToTop{transition:none}}
+.scrollNavArrow{position:fixed;left:50%;bottom:24px;z-index:1000;width:64px;height:64px;display:flex;align-items:center;justify-content:center;border:1px solid #ffffff65;border-radius:50%;color:#fff;box-shadow:0 12px 36px #0009,0 0 0 6px #ffffff18;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,18px);transition:opacity .22s ease,visibility .22s ease,transform .22s ease,box-shadow .22s ease}
+.scrollNavArrow.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+.scrollNavArrow:hover{box-shadow:0 16px 42px #000b,0 0 0 9px #ffffff28;transform:translate(-50%,-3px)}
+.scrollNavArrow:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.scrollNavArrow svg{width:31px;height:31px;display:block}
+.scrollNavArrow.down{background:linear-gradient(145deg,#39b6ff,#1550c8);box-shadow:0 12px 36px #0009,0 0 0 6px #238bff22}
+.scrollNavArrow.up{background:linear-gradient(145deg,#ff647f,#cb1745);box-shadow:0 12px 36px #0009,0 0 0 6px #e52d551c}
+@media(max-width:620px){.scrollNavArrow{width:58px;height:58px;bottom:16px}.scrollNavArrow svg{width:28px;height:28px}}
+@media(prefers-reduced-motion:reduce){.scrollNavArrow{transition:none}}
 </style>
 </head>
 <body>
@@ -250,7 +252,17 @@ function openCard(item){
 function closeModal(){modal.classList.remove("open");document.body.style.overflow=""}
 document.querySelector("#close").onclick=closeModal;document.querySelector("#modalOk").onclick=closeModal;modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
 const heroPosterFallbacks={
- "avengers endgame extended":["https://media.everythingbrunei.com/public/0JaArjFgzHoJ3UFt6-2ek-QwTZKCI7yX3H4HIXYwJPn.jpeg"]
+ "lucky strike":[
+  "https://images.justwatch.com/poster/347233655/s718/lucky-strike.jpg",
+  "https://www.impawards.com/2026/lucky_strike_xlg.html"
+ ],
+ "l odyssee":[
+  "https://dx35vtwkllhj9.cloudfront.net/universalstudios/the-odyssey/images/regions/ca/onesheet.jpg"
+ ],
+ "avengers endgame extended":[
+  "https://cineamo-cdn.b-cdn.net/movie-customization-poster-image/d8453702-9f9e-4d16-853e-6694400b37a6?optimizer=image&width=3840",
+  "https://media.kg-portal.ru/movies/a/avengers4/posters/avengers4_96.jpg"
+ ]
 };
 function normalizePosterTitle(value){
  return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
@@ -266,25 +278,30 @@ function setHeroPosters(items){
  slots.forEach((slot,index)=>{
   const item=firstThree[index],image=slot.querySelector("img");
   if(!image)return;
-  slot.hidden=true;
-  image.onload=null;image.onerror=null;image.removeAttribute("src");
-  if(!item){slot.dataset.catalogueId="";slot.removeAttribute("title");return}
+  image.onload=null;image.onerror=null;
+  if(!item){slot.hidden=true;slot.dataset.catalogueId="";slot.removeAttribute("title");image.removeAttribute("src");return}
+  slot.hidden=false;
   image.alt="Affiche de "+item.title;
-  image.loading=index===1?"eager":"lazy";
-  image.referrerPolicy="strict-origin-when-cross-origin";
+  image.loading="eager";
+  image.decoding="async";
+  image.fetchPriority=index===1?"high":"auto";
+  image.referrerPolicy="no-referrer";
+  image.style.opacity="0";
   const sources=posterSourcesFor(item);
   let attempt=0;
   const tryNext=()=>{
    if(attempt<sources.length){image.src=sources[attempt++];return}
-   image.onload=null;image.onerror=null;image.removeAttribute("src");slot.hidden=true;
+   image.onload=null;image.onerror=null;
+   image.src=placeholderArt(item.title);
   };
-  image.onload=()=>{slot.hidden=false};
+  image.onload=()=>{image.style.opacity="1";slot.hidden=false};
   image.onerror=tryNext;
   slot.dataset.catalogueId=item.id||"";
   slot.title=item.title;
-  if(sources.length)tryNext();
+  tryNext();
  });
 }
+
 function card(item,index,rank=false){
  const posterCandidates=posterSourcesFor(item);
  if(!posterCandidates.length)return null;
@@ -523,21 +540,29 @@ async function loadReferenceCatalog(){
 }
 Promise.allSettled([loadReferenceCatalog(),loadFranceAndWeb()]).then(()=>loadOfficialAnnouncements());
 
-function bindBackToTop(){
- const button=document.getElementById("backToTop");
- if(!button)return;
- const updateVisibility=()=>button.classList.toggle("is-visible",window.scrollY>320);
+function bindScrollArrows(){
+ const up=document.getElementById("backToTop");
+ const down=document.getElementById("scrollToBottom");
+ if(!up||!down)return;
+ const updateVisibility=()=>{
+  const atTop=window.scrollY<=320;
+  down.classList.toggle("is-visible",atTop);
+  up.classList.toggle("is-visible",!atTop);
+ };
  window.addEventListener("scroll",updateVisibility,{passive:true});
+ window.addEventListener("resize",updateVisibility,{passive:true});
  updateVisibility();
- button.addEventListener("click",()=>{
-  const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  window.scrollTo({top:0,behavior:reduceMotion?"auto":"smooth"});
- });
+ const behavior=()=>window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
+ up.addEventListener("click",()=>window.scrollTo({top:0,behavior:behavior()}));
+ down.addEventListener("click",()=>window.scrollTo({top:Math.max(document.documentElement.scrollHeight,document.body.scrollHeight),behavior:behavior()}));
 }
-document.addEventListener("DOMContentLoaded",bindBackToTop,{once:true});
+document.addEventListener("DOMContentLoaded",bindScrollArrows,{once:true});
 </script>
 
-<button class="backToTop" id="backToTop" type="button" aria-label="Revenir en haut de la page" title="Revenir en haut">
+<button class="scrollNavArrow down is-visible" id="scrollToBottom" type="button" aria-label="Descendre en bas de la page" title="Descendre en bas">
+ <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m5.5 12.5 6.5 6.5 6.5-6.5"/></svg>
+</button>
+<button class="scrollNavArrow up" id="backToTop" type="button" aria-label="Revenir en haut de la page" title="Revenir en haut">
  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5.5 11.5 6.5-6.5 6.5 6.5"/></svg>
 </button>
 </body></html>
