@@ -903,6 +903,7 @@ function bindScrollArrows(){
   if(!topbar)return;
   topbar.style.setProperty("--header-progress",headerProgress.toFixed(3));
  };
+ setHeaderProgress();
  const animateHeader=()=>{
   headerFrame=0;
   const difference=targetProgress-headerProgress;
