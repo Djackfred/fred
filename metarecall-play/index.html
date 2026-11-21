@@ -980,6 +980,54 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
   #genres.genreExplorer,
   section.genreExplorer{display:none!important;visibility:hidden!important;height:0!important;min-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important}
 }
+
+/* Mobile app typography and rhythm — Netflix-inspired hierarchy, phone only */
+@media(max-width:700px){
+  body{font-size:15px;line-height:1.5;-webkit-text-size-adjust:100%}
+  .topbar .brandName{font-size:16px;letter-spacing:-.45px;line-height:1.05}
+  .topbar .brandName b{font-size:inherit}
+  .topbar .accountBtn{font-size:10px;padding:7px 10px;min-height:32px}
+  .topbar .searchbox{height:44px}
+  .topbar .searchbox input{font-size:14px}
+  .proofbar{gap:8px;margin-top:11px}
+  .proofitem{padding:11px 9px;gap:8px;min-height:70px}
+  .proofitem strong{font-size:10px;line-height:1.25;letter-spacing:.35px}
+  .proofitem small{font-size:10px;line-height:1.35;margin-top:3px}
+  .prooficon{width:29px;height:29px;flex-basis:29px;font-size:14px}
+  .content{margin-top:24px}
+  .rowsection{margin-bottom:29px}
+  .rowhead{margin:0 14px 11px;align-items:flex-end}
+  .rowhead .eyebrow{font-size:9px;letter-spacing:1.8px;line-height:1.35}
+  .rowtitle{font-size:21px;line-height:1.18;letter-spacing:-.45px;margin-top:4px}
+  .shelf{gap:11px;padding:6px 14px 15px}
+  .poster{flex-basis:clamp(132px,39vw,158px);border-radius:10px}
+  .posterText{left:10px;right:9px;bottom:11px}
+  .posterText small{font-size:9px;letter-spacing:1.1px;margin-bottom:5px}
+  .posterText strong{font-size:14px;line-height:1.22;letter-spacing:-.15px}
+  .rank{font-size:37px}
+  .officialTitle{font-size:15px}
+  .officialDescription{font-size:11px;line-height:1.5}
+  .officialMeta,.officialSource{font-size:9px}
+  .officialReleaseDate{font-size:12px}
+  .footerLinksHead h2{font-size:18px}
+  .footerLinkCopy small{font-size:9px}
+  .footerLinkCopy strong{font-size:14px}
+  .footerLinkCopy span{font-size:10px}
+  footer{font-size:11px;line-height:1.65}
+  .cookieNotice{gap:10px;padding:12px}
+  .cookieNotice p{font-size:11px;line-height:1.5}
+  .cookieNotice button{font-size:10px;padding:8px 12px}
+  .scrollNavArrow{width:50px;height:50px}
+}
+@media(max-width:380px){
+  .proofitem strong{font-size:9px}
+  .proofitem small{font-size:9px}
+  .rowtitle{font-size:20px}
+  .poster{flex-basis:132px}
+  .posterText strong{font-size:13px}
+  .cookieNotice p{font-size:10px}
+}
+
 </style>
 </head>
 <body>
