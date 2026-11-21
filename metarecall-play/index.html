@@ -242,8 +242,9 @@ function setHeroPosters(items){
  slots.forEach((slot,index)=>{
   const item=firstThree[index],image=slot.querySelector("img");
   if(!image)return;
-  if(!item){slot.hidden=true;return}
-  slot.hidden=false;
+  slot.hidden=true;
+  image.onload=null;image.onerror=null;image.removeAttribute("src");
+  if(!item){slot.dataset.catalogueId="";slot.removeAttribute("title");return}
   image.alt="Affiche de "+item.title;
   image.loading=index===1?"eager":"lazy";
   image.referrerPolicy="strict-origin-when-cross-origin";
@@ -251,34 +252,43 @@ function setHeroPosters(items){
   let attempt=0;
   const tryNext=()=>{
    if(attempt<sources.length){image.src=sources[attempt++];return}
-   image.onerror=null;
-   image.src=placeholderArt(item.title);
+   image.onload=null;image.onerror=null;image.removeAttribute("src");slot.hidden=true;
   };
+  image.onload=()=>{slot.hidden=false};
   image.onerror=tryNext;
-  tryNext();
   slot.dataset.catalogueId=item.id||"";
   slot.title=item.title;
+  if(sources.length)tryNext();
  });
 }
 function card(item,index,rank=false){
- const el=document.createElement("article");el.className="poster";el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-label","Ouvrir "+item.title);
+ const posterCandidates=posterSourcesFor(item);
+ if(!posterCandidates.length)return null;
+ const el=document.createElement("article");el.className="poster";el.hidden=true;el.style.display="none";el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-label","Ouvrir "+item.title);
  el.dataset.search=(item.title+" "+item.type+" "+(item.genre||"")+" "+(item.genreTags||[]).join(" ")).toLowerCase();
  el.dataset.genre=[...(item.genreTags||[]),item.genre||""].filter(Boolean).join(" ").toLowerCase();el.dataset.type=(item.type||"").toLowerCase();el.dataset.catalogueId=item.id||"";el.dataset.year=item.year||"";
  if(rank){const number=document.createElement("span");number.className="rank";number.textContent=String(index+1);el.appendChild(number)}
  const visual=document.createElement("div");visual.className="art";
  const image=document.createElement("img");image.loading=index<8?"eager":"lazy";image.alt="Affiche de "+item.title;image.referrerPolicy="strict-origin-when-cross-origin";
- const posterCandidates=posterSourcesFor(item);
  let posterAttempt=0;
- const loadNextPoster=()=>{if(posterAttempt<posterCandidates.length){image.src=posterCandidates[posterAttempt++]}else{image.onerror=null;image.src=placeholderArt(item.title)}};
- image.onerror=loadNextPoster;loadNextPoster();visual.appendChild(image);el.appendChild(visual);
+ const loadNextPoster=()=>{
+  if(posterAttempt<posterCandidates.length){image.src=posterCandidates[posterAttempt++];return}
+  image.onload=null;image.onerror=null;el.remove();
+  if(typeof applyFilters==="function")applyFilters(false);
+ };
+ image.onload=()=>{el.hidden=false;if(typeof applyFilters==="function")applyFilters(false)};
+ image.onerror=loadNextPoster;
+ visual.appendChild(image);el.appendChild(visual);
  const icon=document.createElement("span");icon.className="playicon";icon.textContent="↗";icon.setAttribute("aria-hidden","true");el.appendChild(icon);
  const text=document.createElement("div");text.className="posterText";
  const meta=document.createElement("small");meta.textContent=[item.type,item.genre||"À découvrir"].filter(Boolean).join(" · ").toUpperCase();
  const title=document.createElement("strong");title.textContent=item.title;
  text.append(meta,title);el.appendChild(text);
- el.onclick=()=>openCard(item);el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openCard(item)}};return el;
+ el.onclick=()=>openCard(item);el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openCard(item)}};
+ image.src=posterCandidates[posterAttempt++];
+ return el;
 }
-function fill(id,items,rank=false){const shelf=document.getElementById(id);items.forEach((x,i)=>shelf.appendChild(card(x,i,rank)))}
+function fill(id,items,rank=false){const shelf=document.getElementById(id);items.forEach((x,i)=>{const poster=card(x,i,rank);if(poster)shelf.appendChild(poster)})}
 
 document.querySelectorAll(".rowsection").forEach(section=>{const shelf=section.querySelector(".shelf"),left=section.querySelector(".left"),right=section.querySelector(".right");if(shelf&&left&&right){left.onclick=()=>shelf.scrollBy({left:-shelf.clientWidth*.8,behavior:"smooth"});right.onclick=()=>shelf.scrollBy({left:shelf.clientWidth*.8,behavior:"smooth"})}});
 document.querySelector("#heroPlay").onclick=()=>document.querySelector("#genres").scrollIntoView({behavior:"smooth"});
@@ -361,15 +371,9 @@ function makeKey(ep){
  if(ep.id!==undefined&&ep.id!==null)return "ep:"+ep.id;
  return "fallback:"+[ep.show&&ep.show.id,ep.season,ep.number,ep.airdate].join(":");
 }
-function posterFor(show,channel){
+function posterFor(show){
  if(show.image&&(show.image.original||show.image.medium))return show.image.original||show.image.medium;
- if(channel&&channel.logo&&channel.logo.medium)return channel.logo.medium;
- if(channel&&channel.logo&&channel.logo.original)return channel.logo.original;
  return "";
-}
-function placeholderArt(title){
- const svg='<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#252525"/><stop offset="1" stop-color="#090909"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/><circle cx="300" cy="300" r="170" fill="#e50914" opacity=".12"/><text x="50%" y="52%" fill="#fff" font-family="Arial" font-size="34" font-weight="bold" text-anchor="middle">'+String(title||"METARECALL").replace(/[<>&]/g,"")+'</text><text x="50%" y="59%" fill="#aaa" font-family="Arial" font-size="18" text-anchor="middle">METARECALL PLAY</text></svg>';
- return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
 }
 function toCatalogItem(ep,source){
  const show=ep.show||{},channel=show.webChannel||show.network||null;
@@ -382,7 +386,7 @@ function toCatalogItem(ep,source){
   id:ep.id,title:show.name||"Titre non renseigné",type:movie?"Film":"Série",
   genre:(show.genres||[]).slice(0,2).join(" · ")||(movie?"Film":"Série"),
   desc:cleanSummary(show.summary)||"Synopsis non communiqué par la source.",
-  imageUrl:posterFor(show,channel)||placeholderArt(show.name),
+  imageUrl:posterFor(show),
   displayDate,rawAirDate,localAirDate,source,
   channelName:channel&&channel.name?channel.name:"",
   channelCountry:channel&&channel.country&&channel.country.name?channel.country.name:"",
@@ -427,7 +431,7 @@ async function loadFranceAndWeb(){
  items.sort((a,b)=>(b.localAirDate||"").localeCompare(a.localAirDate||"")||a.title.localeCompare(b.title,"fr"));
  shelf.replaceChildren();
  if(items.length){
-  items.slice(0,36).forEach((item,i)=>shelf.appendChild(card(item,i)));
+  items.slice(0,36).forEach((item,i)=>{const poster=card(item,i);if(poster)shelf.appendChild(poster)});
  }else{
   const msg=document.createElement("p");msg.className="note";
   msg.textContent=failures===requests.length?"Le flux TVmaze est momentanément inaccessible. Réessayez dans quelques instants.":"Aucune nouveauté référencée sur cette période.";
@@ -444,7 +448,7 @@ async function loadReferenceCatalog(){
   if(!response.ok)throw new Error("HTTP "+response.status+" sur le catalogue de référence");
   const data=await response.json(),sections=data.sections||{};
   const toCard=item=>({id:item.id,title:item.title,type:item.type||"Film",genre:item.genre||"À découvrir",genreTags:item.genreTags||[],displayDate:item.year||"",year:item.year||"",desc:"Titre repris du catalogue public de référence. Consultez les options de visionnage légal en France via JustWatch.",imageUrl:item.imageUrl||"",posterCandidates:posterSourcesFor(item),officialUrl:null,source:"Ravpaz"});
-  const fillSection=(elementId,key,rank=false)=>{const shelf=document.getElementById(elementId);if(!shelf)return;shelf.replaceChildren();(sections[key]||[]).forEach((item,index)=>shelf.appendChild(card(toCard(item),index,rank)))};
+  const fillSection=(elementId,key,rank=false)=>{const shelf=document.getElementById(elementId);if(!shelf)return;shelf.replaceChildren();(sections[key]||[]).forEach((item,index)=>{const poster=card(toCard(item),index,rank);if(poster)shelf.appendChild(poster)})};
   fillSection("latestShelf","latest");fillSection("top15Shelf","top15",true);fillSection("featuredShelf","featured");fillSection("animationShelf","animation");fillSection("docsShelf","docs");fillSection("catalogueShelf","catalogue");setHeroPosters(sections.top15||[]);
   updateGenreCounts(sections);
   window.__ravpazSnapshot=data.snapshotDate||"";
