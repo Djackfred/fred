@@ -974,8 +974,12 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
 }
 
 
-/* Mobile: hide genre explorer */
-@media (max-width:700px){.genreExplorer{display:none!important}}
+/* Masquage robuste du filtre de genres sur smartphones, y compris navigateur en mode site ordinateur */
+@media (max-width:1100px), (hover:none) and (pointer:coarse){
+  .content > .genreExplorer,
+  #genres.genreExplorer,
+  section.genreExplorer{display:none!important;visibility:hidden!important;height:0!important;min-height:0!important;margin:0!important;padding:0!important;overflow:hidden!important}
+}
 </style>
 </head>
 <body>
