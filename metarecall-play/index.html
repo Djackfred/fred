@@ -197,7 +197,7 @@ function card(item,index,rank=false){
  el.dataset.genre=(item.genre||"").toLowerCase();el.dataset.type=(item.type||"").toLowerCase();el.dataset.catalogueId=item.id||"";el.dataset.year=item.year||"";
  if(rank){const number=document.createElement("span");number.className="rank";number.textContent=String(index+1);el.appendChild(number)}
  const visual=document.createElement("div");visual.className="art";
- const image=document.createElement("img");image.loading="lazy";image.alt="Affiche de "+item.title;image.src=item.imageUrl||placeholderArt(item.title);image.dataset.fallbackUsed="0";image.onerror=()=>{if(image.dataset.fallbackUsed==="0"&&item.fallbackImageUrl){image.dataset.fallbackUsed="1";image.src=item.fallbackImageUrl}else{image.onerror=null;image.src=placeholderArt(item.title)}};visual.appendChild(image);el.appendChild(visual);
+ const image=document.createElement("img");image.loading="lazy";image.alt="Affiche de "+item.title;image.src=item.imageUrl||placeholderArt(item.title);image.onerror=()=>{image.onerror=null;image.src=placeholderArt(item.title)};visual.appendChild(image);el.appendChild(visual);
  const icon=document.createElement("span");icon.className="playicon";icon.textContent="↗";icon.setAttribute("aria-hidden","true");el.appendChild(icon);
  const text=document.createElement("div");text.className="posterText";
  const meta=document.createElement("small");meta.textContent=[item.type,item.genre||"À découvrir"].filter(Boolean).join(" · ").toUpperCase();
@@ -209,7 +209,7 @@ function fill(id,items,rank=false){const shelf=document.getElementById(id);items
 
 document.querySelectorAll(".rowsection").forEach(section=>{const shelf=section.querySelector(".shelf"),left=section.querySelector(".left"),right=section.querySelector(".right");if(shelf&&left&&right){left.onclick=()=>shelf.scrollBy({left:-shelf.clientWidth*.8,behavior:"smooth"});right.onclick=()=>shelf.scrollBy({left:shelf.clientWidth*.8,behavior:"smooth"})}});
 document.querySelector("#heroPlay").onclick=()=>document.querySelector("#genres").scrollIntoView({behavior:"smooth"});
-document.querySelector("#heroInfo").onclick=()=>document.querySelector("#tendances").scrollIntoView({behavior:"smooth"});
+document.querySelector("#heroInfo").onclick=()=>document.querySelector("#top15").scrollIntoView({behavior:"smooth"});
 let activeGenre="all";
 function applyFilters(){
  const q=document.querySelector("#search").value.trim().toLowerCase();let visible=0;
@@ -330,6 +330,7 @@ async function loadReferenceCatalog(){
   const fillSection=(elementId,key,rank=false)=>{const shelf=document.getElementById(elementId);if(!shelf)return;shelf.replaceChildren();(sections[key]||[]).forEach((item,index)=>shelf.appendChild(card(toCard(item),index,rank)))};
   fillSection("latestShelf","latest");fillSection("top15Shelf","top15",true);fillSection("featuredShelf","featured");fillSection("animationShelf","animation");fillSection("docsShelf","docs");fillSection("catalogueShelf","catalogue");
   window.__ravpazSnapshot=data.snapshotDate||"";
+  applyFilters();
  }catch(error){console.error("Catalogue Ravpaz indisponible",error);["latestShelf","top15Shelf","featuredShelf","animationShelf","docsShelf","catalogueShelf"].forEach(id=>{const shelf=document.getElementById(id);if(shelf)shelf.innerHTML='<p class="note">Le catalogue de référence n’a pas pu être chargé. Réessayez dans quelques instants.</p>'})}
 }
 loadReferenceCatalog();
