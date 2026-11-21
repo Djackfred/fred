@@ -6,3 +6,7 @@
 .back-to-top-float:focus-visible{outline:3px solid white;outline-offset:4px}
 @media(max-width:560px){.back-to-top-float{right:14px;left:auto;bottom:18px;width:48px;height:48px;font-size:28px}}
 @media(prefers-reduced-motion:reduce){.back-to-top-float{transition:none;scroll-behavior:auto}}
+
+
+/* Mobile hero: keep the final capability tag clear of the scroll label */
+@media(max-width:560px){.hero-tags{row-gap:16px}.hero-tags span:last-child{margin-top:12px}.scroll-indicator{display:none}}
