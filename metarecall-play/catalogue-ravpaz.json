@@ -81,7 +81,6 @@
         "type": "Film",
         "posterFile": "3ykToOKrgIlKBOkxpRscXNAkzET.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/3ykToOKrgIlKBOkxpRscXNAkzET.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/3ykToOKrgIlKBOkxpRscXNAkzET.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -93,7 +92,6 @@
         "type": "Film",
         "posterFile": "EE0nu2jPKGio3ICEG193Z7DDSe.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/EE0nu2jPKGio3ICEG193Z7DDSe.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/EE0nu2jPKGio3ICEG193Z7DDSe.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -105,7 +103,6 @@
         "type": "Animation",
         "posterFile": "2rOCe6L9qwFoakYrWFVnICSbmLK.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2rOCe6L9qwFoakYrWFVnICSbmLK.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2rOCe6L9qwFoakYrWFVnICSbmLK.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -117,7 +114,6 @@
         "type": "Animation",
         "posterFile": "brQf6Odu4S6WzfVLuXLbOcbsOP2.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/brQf6Odu4S6WzfVLuXLbOcbsOP2.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/brQf6Odu4S6WzfVLuXLbOcbsOP2.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -129,7 +125,6 @@
         "type": "Film",
         "posterFile": "ocLHgy1m3A5cGLjxhHColTCy42r.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ocLHgy1m3A5cGLjxhHColTCy42r.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ocLHgy1m3A5cGLjxhHColTCy42r.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -141,7 +136,6 @@
         "type": "Film",
         "posterFile": "sOlqGOWwHgasYT2tyd9qXKLZCJ0.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/sOlqGOWwHgasYT2tyd9qXKLZCJ0.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/sOlqGOWwHgasYT2tyd9qXKLZCJ0.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -153,7 +147,6 @@
         "type": "Film",
         "posterFile": "kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -165,7 +158,6 @@
         "type": "Film",
         "posterFile": "cQjrmcD6aHxz5pNpVOzYndrVBwB.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/cQjrmcD6aHxz5pNpVOzYndrVBwB.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/cQjrmcD6aHxz5pNpVOzYndrVBwB.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -177,7 +169,6 @@
         "type": "Animation",
         "posterFile": "2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -189,7 +180,6 @@
         "type": "Film",
         "posterFile": "qL654LNOfBu49e12jnnQIv6mny.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/qL654LNOfBu49e12jnnQIv6mny.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/qL654LNOfBu49e12jnnQIv6mny.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -201,7 +191,6 @@
         "type": "Film",
         "posterFile": "b7k2NhmlnMMRup94QbbCfBuct05.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/b7k2NhmlnMMRup94QbbCfBuct05.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/b7k2NhmlnMMRup94QbbCfBuct05.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -213,7 +202,6 @@
         "type": "Film",
         "posterFile": "xisz1kj0k9o4nYYKZAfmii9dvDo.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/xisz1kj0k9o4nYYKZAfmii9dvDo.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/xisz1kj0k9o4nYYKZAfmii9dvDo.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -225,7 +213,6 @@
         "type": "Film",
         "posterFile": "rotc7GM3PMdvHs1a9yQVtvDb55W.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/rotc7GM3PMdvHs1a9yQVtvDb55W.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/rotc7GM3PMdvHs1a9yQVtvDb55W.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -237,7 +224,6 @@
         "type": "Film",
         "posterFile": "oviGe0fRUQn6dTqqCqRzMJ1RoSF.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/oviGe0fRUQn6dTqqCqRzMJ1RoSF.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/oviGe0fRUQn6dTqqCqRzMJ1RoSF.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -249,7 +235,6 @@
         "type": "Film",
         "posterFile": "1DTMMmW7AYs35RhZ7rotGT9BVn1.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/1DTMMmW7AYs35RhZ7rotGT9BVn1.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/1DTMMmW7AYs35RhZ7rotGT9BVn1.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -261,7 +246,6 @@
         "type": "Film",
         "posterFile": "bRa83oPFFPqaAF3wrpVWPqqfFel.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/bRa83oPFFPqaAF3wrpVWPqqfFel.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/bRa83oPFFPqaAF3wrpVWPqqfFel.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -273,7 +257,6 @@
         "type": "Animation",
         "posterFile": "yXYuDTwYTI5UdsIQjORTAhTdURG.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/yXYuDTwYTI5UdsIQjORTAhTdURG.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/yXYuDTwYTI5UdsIQjORTAhTdURG.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -285,7 +268,6 @@
         "type": "Film",
         "posterFile": "wWNizZ4IcSld3xXH1WEXziJiNJN.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/wWNizZ4IcSld3xXH1WEXziJiNJN.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/wWNizZ4IcSld3xXH1WEXziJiNJN.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -297,7 +279,6 @@
         "type": "Film",
         "posterFile": "rcWyZUCbhFfoyRqexCezevlmQfE.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/rcWyZUCbhFfoyRqexCezevlmQfE.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/rcWyZUCbhFfoyRqexCezevlmQfE.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -309,7 +290,6 @@
         "type": "Spectacle",
         "posterFile": "rQk3W9PX4pgU2BDHaab37uqNFbF.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/rQk3W9PX4pgU2BDHaab37uqNFbF.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/rQk3W9PX4pgU2BDHaab37uqNFbF.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -321,7 +301,6 @@
         "type": "Film",
         "posterFile": "ocg5JfJP19fodcv5uQUApkmZMdI.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ocg5JfJP19fodcv5uQUApkmZMdI.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ocg5JfJP19fodcv5uQUApkmZMdI.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -333,7 +312,6 @@
         "type": "Film",
         "posterFile": "Bk6LJFL.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/Bk6LJFL.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/Bk6LJFL.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -345,7 +323,6 @@
         "type": "Film",
         "posterFile": "zhxlzxBlO1sWB1rPn7RmAoeQ2na.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/zhxlzxBlO1sWB1rPn7RmAoeQ2na.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/zhxlzxBlO1sWB1rPn7RmAoeQ2na.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -357,7 +334,6 @@
         "type": "Film",
         "posterFile": "9Wi0fxpo1e7Wn2cGVNu7niwdEP2.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/9Wi0fxpo1e7Wn2cGVNu7niwdEP2.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/9Wi0fxpo1e7Wn2cGVNu7niwdEP2.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -369,7 +345,6 @@
         "type": "Animation",
         "posterFile": "uJ3Eb4zUtF1KFD5zd8CiYaFXWuu.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/uJ3Eb4zUtF1KFD5zd8CiYaFXWuu.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/uJ3Eb4zUtF1KFD5zd8CiYaFXWuu.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       }
@@ -383,7 +358,6 @@
         "type": "Film",
         "posterFile": "kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -395,7 +369,6 @@
         "type": "Film",
         "posterFile": "kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -407,7 +380,6 @@
         "type": "Film",
         "posterFile": "Bk6LJFL.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/Bk6LJFL.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/Bk6LJFL.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -419,7 +391,6 @@
         "type": "Film",
         "posterFile": "sOlqGOWwHgasYT2tyd9qXKLZCJ0.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/sOlqGOWwHgasYT2tyd9qXKLZCJ0.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/sOlqGOWwHgasYT2tyd9qXKLZCJ0.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -431,7 +402,6 @@
         "type": "Film",
         "posterFile": "4t1ASmI2IQEAoO8hirEGQ6nMEib.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/4t1ASmI2IQEAoO8hirEGQ6nMEib.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/4t1ASmI2IQEAoO8hirEGQ6nMEib.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -443,7 +413,6 @@
         "type": "Film",
         "posterFile": "uLNxn6niIICbkRcRKVOX9aXqRHb.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/uLNxn6niIICbkRcRKVOX9aXqRHb.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/uLNxn6niIICbkRcRKVOX9aXqRHb.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -455,7 +424,6 @@
         "type": "Animation",
         "posterFile": "2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -467,7 +435,6 @@
         "type": "Film",
         "posterFile": "qL654LNOfBu49e12jnnQIv6mny.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/qL654LNOfBu49e12jnnQIv6mny.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/qL654LNOfBu49e12jnnQIv6mny.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -479,7 +446,6 @@
         "type": "Film",
         "posterFile": "i7UyjfPio0VFHB9rBUZSFyhOoM8.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/i7UyjfPio0VFHB9rBUZSFyhOoM8.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/i7UyjfPio0VFHB9rBUZSFyhOoM8.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -491,7 +457,6 @@
         "type": "Spectacle",
         "posterFile": "yPVQ9t4AuVqEqYJ7odmQlXV6rps.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/yPVQ9t4AuVqEqYJ7odmQlXV6rps.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/yPVQ9t4AuVqEqYJ7odmQlXV6rps.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -503,7 +468,6 @@
         "type": "Film",
         "posterFile": "ghF1JYv7P5BgWHYfq9dqhqqNfz8.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ghF1JYv7P5BgWHYfq9dqhqqNfz8.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ghF1JYv7P5BgWHYfq9dqhqqNfz8.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -515,7 +479,6 @@
         "type": "Film",
         "posterFile": "ocg5JfJP19fodcv5uQUApkmZMdI.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ocg5JfJP19fodcv5uQUApkmZMdI.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ocg5JfJP19fodcv5uQUApkmZMdI.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -527,7 +490,6 @@
         "type": "Documentaire",
         "posterFile": "jVjEtCj.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/jVjEtCj.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/jVjEtCj.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -539,7 +501,6 @@
         "type": "Film",
         "posterFile": "cQjrmcD6aHxz5pNpVOzYndrVBwB.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/cQjrmcD6aHxz5pNpVOzYndrVBwB.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/cQjrmcD6aHxz5pNpVOzYndrVBwB.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -551,7 +512,6 @@
         "type": "Documentaire",
         "posterFile": "2W7YoBjI9dyCAxU9Cm6Xu6PTjgJ.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2W7YoBjI9dyCAxU9Cm6Xu6PTjgJ.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2W7YoBjI9dyCAxU9Cm6Xu6PTjgJ.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       }
@@ -565,7 +525,6 @@
         "type": "Film",
         "posterFile": "uLNxn6niIICbkRcRKVOX9aXqRHb.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/uLNxn6niIICbkRcRKVOX9aXqRHb.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/uLNxn6niIICbkRcRKVOX9aXqRHb.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -577,7 +536,6 @@
         "type": "Film",
         "posterFile": "kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -589,7 +547,6 @@
         "type": "Film",
         "posterFile": "4t1ASmI2IQEAoO8hirEGQ6nMEib.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/4t1ASmI2IQEAoO8hirEGQ6nMEib.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/4t1ASmI2IQEAoO8hirEGQ6nMEib.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -601,7 +558,6 @@
         "type": "Film",
         "posterFile": "i7UyjfPio0VFHB9rBUZSFyhOoM8.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/i7UyjfPio0VFHB9rBUZSFyhOoM8.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/i7UyjfPio0VFHB9rBUZSFyhOoM8.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -613,7 +569,6 @@
         "type": "Film",
         "posterFile": "9qc5CzjnxGpjpuwVlIziVr7ODcL.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/9qc5CzjnxGpjpuwVlIziVr7ODcL.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/9qc5CzjnxGpjpuwVlIziVr7ODcL.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -625,7 +580,6 @@
         "type": "Film",
         "posterFile": "zWuZWFKyga6GF3agrhJn8UtdMSu.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/zWuZWFKyga6GF3agrhJn8UtdMSu.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/zWuZWFKyga6GF3agrhJn8UtdMSu.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -637,7 +591,6 @@
         "type": "Film",
         "posterFile": "lGY2oK3D1xET2sDyKezYy6AYR32.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/lGY2oK3D1xET2sDyKezYy6AYR32.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/lGY2oK3D1xET2sDyKezYy6AYR32.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -649,7 +602,6 @@
         "type": "Film",
         "posterFile": "ghF1JYv7P5BgWHYfq9dqhqqNfz8.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ghF1JYv7P5BgWHYfq9dqhqqNfz8.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ghF1JYv7P5BgWHYfq9dqhqqNfz8.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -661,7 +613,6 @@
         "type": "Film",
         "posterFile": "iprKhXVhUuGo3LbPurtB7Zcq6ph.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/iprKhXVhUuGo3LbPurtB7Zcq6ph.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/iprKhXVhUuGo3LbPurtB7Zcq6ph.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -673,7 +624,6 @@
         "type": "Film",
         "posterFile": "rfRLWbxLZPq2eboKPsBvh1NgNwM.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/rfRLWbxLZPq2eboKPsBvh1NgNwM.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/rfRLWbxLZPq2eboKPsBvh1NgNwM.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -685,7 +635,6 @@
         "type": "Film",
         "posterFile": "fN4YJFr6d1Zx2fNBlzGLyShO6sc.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/fN4YJFr6d1Zx2fNBlzGLyShO6sc.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/fN4YJFr6d1Zx2fNBlzGLyShO6sc.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -697,7 +646,6 @@
         "type": "Film",
         "posterFile": "7tlkTHxcTSlrPYURo0VuglaLPXv.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/7tlkTHxcTSlrPYURo0VuglaLPXv.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/7tlkTHxcTSlrPYURo0VuglaLPXv.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -709,7 +657,6 @@
         "type": "Film",
         "posterFile": "ipiYeecAshSsZE9RuYwHIVrHisa.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ipiYeecAshSsZE9RuYwHIVrHisa.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ipiYeecAshSsZE9RuYwHIVrHisa.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -721,7 +668,6 @@
         "type": "Film",
         "posterFile": "jMOf0SSthlNp5uXhEXz4e3tqDX5.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/jMOf0SSthlNp5uXhEXz4e3tqDX5.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/jMOf0SSthlNp5uXhEXz4e3tqDX5.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -733,7 +679,6 @@
         "type": "Film",
         "posterFile": "ndDY118G0Xn6W8aKP3sLz0ESkGq.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ndDY118G0Xn6W8aKP3sLz0ESkGq.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ndDY118G0Xn6W8aKP3sLz0ESkGq.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -745,7 +690,6 @@
         "type": "Film",
         "posterFile": "twkjKuOf4hVAmXxOwpyRy682VZR.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/twkjKuOf4hVAmXxOwpyRy682VZR.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/twkjKuOf4hVAmXxOwpyRy682VZR.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -757,7 +701,6 @@
         "type": "Film",
         "posterFile": "6CDfEftzqo5qjZAzyW0W6lFVGl0.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/6CDfEftzqo5qjZAzyW0W6lFVGl0.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/6CDfEftzqo5qjZAzyW0W6lFVGl0.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -769,7 +712,6 @@
         "type": "Film",
         "posterFile": "tJxeLnt5K3LHfJdaAZY6bttM0Sv.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/tJxeLnt5K3LHfJdaAZY6bttM0Sv.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/tJxeLnt5K3LHfJdaAZY6bttM0Sv.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -781,7 +723,6 @@
         "type": "Film",
         "posterFile": "8GRMeKaDFnuzXBzqGiDMzCFDnwQ.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/8GRMeKaDFnuzXBzqGiDMzCFDnwQ.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/8GRMeKaDFnuzXBzqGiDMzCFDnwQ.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -793,7 +734,6 @@
         "type": "Film",
         "posterFile": "qkH4ntQtO5qnL17RFOvmkNHKpGt.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/qkH4ntQtO5qnL17RFOvmkNHKpGt.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/qkH4ntQtO5qnL17RFOvmkNHKpGt.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -805,7 +745,6 @@
         "type": "Film",
         "posterFile": "gIComZ1TfZdWmuD4L4mJ8sEv0km.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/gIComZ1TfZdWmuD4L4mJ8sEv0km.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/gIComZ1TfZdWmuD4L4mJ8sEv0km.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -817,7 +756,6 @@
         "type": "Film",
         "posterFile": "y5hZ5ay5mBsKRNOiv6X85RNTqms.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/y5hZ5ay5mBsKRNOiv6X85RNTqms.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/y5hZ5ay5mBsKRNOiv6X85RNTqms.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -829,7 +767,6 @@
         "type": "Film",
         "posterFile": "mDCR1frpUvGfIKksuM440VLb7X9.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/mDCR1frpUvGfIKksuM440VLb7X9.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/mDCR1frpUvGfIKksuM440VLb7X9.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -841,7 +778,6 @@
         "type": "Film",
         "posterFile": "pD5fSVgDW2L5993eAlDd2GFXwIp.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/pD5fSVgDW2L5993eAlDd2GFXwIp.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/pD5fSVgDW2L5993eAlDd2GFXwIp.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -853,7 +789,6 @@
         "type": "Film",
         "posterFile": "2sDgNilJGVFpl1x4DMzYHjk0L0f.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2sDgNilJGVFpl1x4DMzYHjk0L0f.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2sDgNilJGVFpl1x4DMzYHjk0L0f.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       }
@@ -867,7 +802,6 @@
         "type": "Animation",
         "posterFile": "2rOCe6L9qwFoakYrWFVnICSbmLK.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2rOCe6L9qwFoakYrWFVnICSbmLK.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2rOCe6L9qwFoakYrWFVnICSbmLK.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -879,7 +813,6 @@
         "type": "Animation",
         "posterFile": "brQf6Odu4S6WzfVLuXLbOcbsOP2.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/brQf6Odu4S6WzfVLuXLbOcbsOP2.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/brQf6Odu4S6WzfVLuXLbOcbsOP2.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -891,7 +824,6 @@
         "type": "Animation",
         "posterFile": "2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -903,7 +835,6 @@
         "type": "Animation",
         "posterFile": "yXYuDTwYTI5UdsIQjORTAhTdURG.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/yXYuDTwYTI5UdsIQjORTAhTdURG.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/yXYuDTwYTI5UdsIQjORTAhTdURG.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -915,7 +846,6 @@
         "type": "Animation",
         "posterFile": "uJ3Eb4zUtF1KFD5zd8CiYaFXWuu.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/uJ3Eb4zUtF1KFD5zd8CiYaFXWuu.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/uJ3Eb4zUtF1KFD5zd8CiYaFXWuu.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -927,7 +857,6 @@
         "type": "Film",
         "posterFile": "eU13lnD53Mt5dUa7l8UiqteV0ef.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/eU13lnD53Mt5dUa7l8UiqteV0ef.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/eU13lnD53Mt5dUa7l8UiqteV0ef.jpg",
         "displayDate": "2025",
         "source": "Ravpaz"
       },
@@ -939,7 +868,6 @@
         "type": "Film",
         "posterFile": "2kOXQ6KjT5DtqlFHBMyJOlQs2hq.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2kOXQ6KjT5DtqlFHBMyJOlQs2hq.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2kOXQ6KjT5DtqlFHBMyJOlQs2hq.jpg",
         "displayDate": "2024",
         "source": "Ravpaz"
       },
@@ -951,7 +879,6 @@
         "type": "Film",
         "posterFile": "1E7aTchsDC8Uos1uBpZG6LDdWRn.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/1E7aTchsDC8Uos1uBpZG6LDdWRn.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/1E7aTchsDC8Uos1uBpZG6LDdWRn.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -963,7 +890,6 @@
         "type": "Film",
         "posterFile": "6xlZ7Mi9aFkeOx96RceBfoqdUMp.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/6xlZ7Mi9aFkeOx96RceBfoqdUMp.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/6xlZ7Mi9aFkeOx96RceBfoqdUMp.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -975,7 +901,6 @@
         "type": "Film",
         "posterFile": "is6zhYnZamvzKco1Roiw0gRak21.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/is6zhYnZamvzKco1Roiw0gRak21.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/is6zhYnZamvzKco1Roiw0gRak21.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -987,7 +912,6 @@
         "type": "Film",
         "posterFile": "rqgivN4NhDrENg2qrp0FxX1tCuS.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/rqgivN4NhDrENg2qrp0FxX1tCuS.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/rqgivN4NhDrENg2qrp0FxX1tCuS.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -999,7 +923,6 @@
         "type": "Film",
         "posterFile": "ha3YGtx48KO3jOLkkByE07m1RrQ.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ha3YGtx48KO3jOLkkByE07m1RrQ.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ha3YGtx48KO3jOLkkByE07m1RrQ.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1011,7 +934,6 @@
         "type": "Film",
         "posterFile": "noH4lnhQepTk0W8L2GSyow7rLUN.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/noH4lnhQepTk0W8L2GSyow7rLUN.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/noH4lnhQepTk0W8L2GSyow7rLUN.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1023,7 +945,6 @@
         "type": "Film",
         "posterFile": "7xiKtQg7rT4vRluCVa1e3zRjrcU.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/7xiKtQg7rT4vRluCVa1e3zRjrcU.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/7xiKtQg7rT4vRluCVa1e3zRjrcU.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1035,7 +956,6 @@
         "type": "Film",
         "posterFile": "nBVTFYtHKoYmUG6wBx01zowye4s.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/nBVTFYtHKoYmUG6wBx01zowye4s.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/nBVTFYtHKoYmUG6wBx01zowye4s.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1047,7 +967,6 @@
         "type": "Film",
         "posterFile": "tB1R5MumbQn13PMvfus5ko0yzAe.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/tB1R5MumbQn13PMvfus5ko0yzAe.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/tB1R5MumbQn13PMvfus5ko0yzAe.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1059,7 +978,6 @@
         "type": "Film",
         "posterFile": "yng4wYjB9cjX7np9c9YqfJjX52o.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/yng4wYjB9cjX7np9c9YqfJjX52o.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/yng4wYjB9cjX7np9c9YqfJjX52o.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1071,7 +989,6 @@
         "type": "Film",
         "posterFile": "SefDqiH.png",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/SefDqiH.png",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/SefDqiH.png",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1083,7 +1000,6 @@
         "type": "Film",
         "posterFile": "uriZrzqKoMSQtugGAO2PNbRIs8E.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/uriZrzqKoMSQtugGAO2PNbRIs8E.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/uriZrzqKoMSQtugGAO2PNbRIs8E.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1095,7 +1011,6 @@
         "type": "Film",
         "posterFile": "qWtRA6rfUNm81A7ITDrq6WkfCNy.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/qWtRA6rfUNm81A7ITDrq6WkfCNy.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/qWtRA6rfUNm81A7ITDrq6WkfCNy.jpg",
         "displayDate": "2019",
         "source": "Ravpaz"
       },
@@ -1107,7 +1022,6 @@
         "type": "Film",
         "posterFile": "4cpGytCB0eqvRks4FAlJoUJiFPG.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/4cpGytCB0eqvRks4FAlJoUJiFPG.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/4cpGytCB0eqvRks4FAlJoUJiFPG.jpg",
         "displayDate": "2010",
         "source": "Ravpaz"
       },
@@ -1119,7 +1033,6 @@
         "type": "Film",
         "posterFile": "144DDQdfZxAK5xyPTETmygzGGuH.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/144DDQdfZxAK5xyPTETmygzGGuH.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/144DDQdfZxAK5xyPTETmygzGGuH.jpg",
         "displayDate": "2000",
         "source": "Ravpaz"
       },
@@ -1131,7 +1044,6 @@
         "type": "Film",
         "posterFile": "4cWLRhub0yY9VJpdw0nqoTPYyiN.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/4cWLRhub0yY9VJpdw0nqoTPYyiN.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/4cWLRhub0yY9VJpdw0nqoTPYyiN.jpg",
         "displayDate": "2096",
         "source": "Ravpaz"
       },
@@ -1143,7 +1055,6 @@
         "type": "Film",
         "posterFile": "pA05WmBZLEu32peDDh3I4VuVPsu.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/pA05WmBZLEu32peDDh3I4VuVPsu.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/pA05WmBZLEu32peDDh3I4VuVPsu.jpg",
         "displayDate": "2022",
         "source": "Ravpaz"
       },
@@ -1155,7 +1066,6 @@
         "type": "Film",
         "posterFile": "sGuZHYvu0mXeQCwvJ5yzk2Yoytq.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/sGuZHYvu0mXeQCwvJ5yzk2Yoytq.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/sGuZHYvu0mXeQCwvJ5yzk2Yoytq.jpg",
         "displayDate": "2015",
         "source": "Ravpaz"
       }
@@ -1169,7 +1079,6 @@
         "type": "Documentaire",
         "posterFile": "57FTarD968I3g3uwbHJfRjdur2f.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/57FTarD968I3g3uwbHJfRjdur2f.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/57FTarD968I3g3uwbHJfRjdur2f.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1181,7 +1090,6 @@
         "type": "Spectacle",
         "posterFile": "rQk3W9PX4pgU2BDHaab37uqNFbF.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/rQk3W9PX4pgU2BDHaab37uqNFbF.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/rQk3W9PX4pgU2BDHaab37uqNFbF.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1193,7 +1101,6 @@
         "type": "Documentaire",
         "posterFile": "jVjEtCj.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/jVjEtCj.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/jVjEtCj.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1205,7 +1112,6 @@
         "type": "Spectacle",
         "posterFile": "yPVQ9t4AuVqEqYJ7odmQlXV6rps.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/yPVQ9t4AuVqEqYJ7odmQlXV6rps.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/yPVQ9t4AuVqEqYJ7odmQlXV6rps.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1217,7 +1123,6 @@
         "type": "Documentaire",
         "posterFile": "2W7YoBjI9dyCAxU9Cm6Xu6PTjgJ.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2W7YoBjI9dyCAxU9Cm6Xu6PTjgJ.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2W7YoBjI9dyCAxU9Cm6Xu6PTjgJ.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1229,7 +1134,6 @@
         "type": "Documentaire",
         "posterFile": "6zrfcH6.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/6zrfcH6.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/6zrfcH6.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1241,7 +1145,6 @@
         "type": "Spectacle",
         "posterFile": "D3d6EGx.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/D3d6EGx.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/D3d6EGx.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1253,7 +1156,6 @@
         "type": "Spectacle",
         "posterFile": "xJXLas2Vh0V5ASunSIBiE0Nbalh.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/xJXLas2Vh0V5ASunSIBiE0Nbalh.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/xJXLas2Vh0V5ASunSIBiE0Nbalh.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1265,7 +1167,6 @@
         "type": "Documentaire",
         "posterFile": "6H1FWyC0weJeuPxhDkgsFN0Oric.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/6H1FWyC0weJeuPxhDkgsFN0Oric.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/6H1FWyC0weJeuPxhDkgsFN0Oric.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1277,7 +1178,6 @@
         "type": "Documentaire",
         "posterFile": "jjuO76zNkT3L0Hq0310On9puahT.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/jjuO76zNkT3L0Hq0310On9puahT.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/jjuO76zNkT3L0Hq0310On9puahT.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1289,7 +1189,6 @@
         "type": "Documentaire",
         "posterFile": "f6qFZKc1y4NS1hFB2Hvdsr8Isc8.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/f6qFZKc1y4NS1hFB2Hvdsr8Isc8.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/f6qFZKc1y4NS1hFB2Hvdsr8Isc8.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1301,7 +1200,6 @@
         "type": "Documentaire",
         "posterFile": "S0oaR2c.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/S0oaR2c.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/S0oaR2c.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1313,7 +1211,6 @@
         "type": "Spectacle",
         "posterFile": "oV4AEJxJZjxRraTsH49tCKlrrwz.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/oV4AEJxJZjxRraTsH49tCKlrrwz.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/oV4AEJxJZjxRraTsH49tCKlrrwz.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1325,7 +1222,6 @@
         "type": "Spectacle",
         "posterFile": "thMaJBDNg402ZWCtqjyOQs8ZRTx.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/thMaJBDNg402ZWCtqjyOQs8ZRTx.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/thMaJBDNg402ZWCtqjyOQs8ZRTx.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1337,7 +1233,6 @@
         "type": "Spectacle",
         "posterFile": "GQmprLw.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/GQmprLw.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/GQmprLw.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1349,7 +1244,6 @@
         "type": "Documentaire",
         "posterFile": "xHLK9OqYHkVyvLqsz6HsKKEnoZU.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/xHLK9OqYHkVyvLqsz6HsKKEnoZU.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/xHLK9OqYHkVyvLqsz6HsKKEnoZU.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1361,7 +1255,6 @@
         "type": "Documentaire",
         "posterFile": "uKUwU9T.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/uKUwU9T.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/uKUwU9T.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1373,7 +1266,6 @@
         "type": "Documentaire",
         "posterFile": "Mdv4wta.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/Mdv4wta.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/Mdv4wta.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1385,7 +1277,6 @@
         "type": "Documentaire",
         "posterFile": "ukDcdP5KS2CppyR6Upco6xRsPwK.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ukDcdP5KS2CppyR6Upco6xRsPwK.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ukDcdP5KS2CppyR6Upco6xRsPwK.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1397,7 +1288,6 @@
         "type": "Documentaire",
         "posterFile": "4LbwNKDDRysSYvMlqTsy0uph8zq.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/4LbwNKDDRysSYvMlqTsy0uph8zq.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/4LbwNKDDRysSYvMlqTsy0uph8zq.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1409,7 +1299,6 @@
         "type": "Documentaire",
         "posterFile": "3pnlJjsGtrUp3cPEOLzkR0sPQAK.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/3pnlJjsGtrUp3cPEOLzkR0sPQAK.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/3pnlJjsGtrUp3cPEOLzkR0sPQAK.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1421,7 +1310,6 @@
         "type": "Documentaire",
         "posterFile": "1QxozVBTyOM2U1ZP36ZvGzuEi6w.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/1QxozVBTyOM2U1ZP36ZvGzuEi6w.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/1QxozVBTyOM2U1ZP36ZvGzuEi6w.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1433,7 +1321,6 @@
         "type": "Documentaire",
         "posterFile": "A1n4bOedczRdAm3JRBmbg35deCD.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/A1n4bOedczRdAm3JRBmbg35deCD.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/A1n4bOedczRdAm3JRBmbg35deCD.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1445,7 +1332,6 @@
         "type": "Documentaire",
         "posterFile": "oadqt3V5c8j5ZIbYkdfQLcWzI4C.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/oadqt3V5c8j5ZIbYkdfQLcWzI4C.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/oadqt3V5c8j5ZIbYkdfQLcWzI4C.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1457,7 +1343,6 @@
         "type": "Documentaire",
         "posterFile": "8wSqjDRQsKF2OkT7wR1MYXUwbJG.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/8wSqjDRQsKF2OkT7wR1MYXUwbJG.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/8wSqjDRQsKF2OkT7wR1MYXUwbJG.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       }
@@ -1471,7 +1356,6 @@
         "type": "Film",
         "posterFile": "3ykToOKrgIlKBOkxpRscXNAkzET.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/3ykToOKrgIlKBOkxpRscXNAkzET.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/3ykToOKrgIlKBOkxpRscXNAkzET.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1483,7 +1367,6 @@
         "type": "Film",
         "posterFile": "EE0nu2jPKGio3ICEG193Z7DDSe.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/EE0nu2jPKGio3ICEG193Z7DDSe.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/EE0nu2jPKGio3ICEG193Z7DDSe.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1495,7 +1378,6 @@
         "type": "Animation",
         "posterFile": "2rOCe6L9qwFoakYrWFVnICSbmLK.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2rOCe6L9qwFoakYrWFVnICSbmLK.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2rOCe6L9qwFoakYrWFVnICSbmLK.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1507,7 +1389,6 @@
         "type": "Animation",
         "posterFile": "brQf6Odu4S6WzfVLuXLbOcbsOP2.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/brQf6Odu4S6WzfVLuXLbOcbsOP2.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/brQf6Odu4S6WzfVLuXLbOcbsOP2.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1519,7 +1400,6 @@
         "type": "Film",
         "posterFile": "ocLHgy1m3A5cGLjxhHColTCy42r.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ocLHgy1m3A5cGLjxhHColTCy42r.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ocLHgy1m3A5cGLjxhHColTCy42r.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1531,7 +1411,6 @@
         "type": "Film",
         "posterFile": "sOlqGOWwHgasYT2tyd9qXKLZCJ0.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/sOlqGOWwHgasYT2tyd9qXKLZCJ0.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/sOlqGOWwHgasYT2tyd9qXKLZCJ0.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1543,7 +1422,6 @@
         "type": "Film",
         "posterFile": "kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1555,7 +1433,6 @@
         "type": "Film",
         "posterFile": "cQjrmcD6aHxz5pNpVOzYndrVBwB.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/cQjrmcD6aHxz5pNpVOzYndrVBwB.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/cQjrmcD6aHxz5pNpVOzYndrVBwB.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1567,7 +1444,6 @@
         "type": "Animation",
         "posterFile": "2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2lZ0vzDcFQPcxp6NGsZvBwBFJaO.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1579,7 +1455,6 @@
         "type": "Film",
         "posterFile": "qL654LNOfBu49e12jnnQIv6mny.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/qL654LNOfBu49e12jnnQIv6mny.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/qL654LNOfBu49e12jnnQIv6mny.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1591,7 +1466,6 @@
         "type": "Documentaire",
         "posterFile": "57FTarD968I3g3uwbHJfRjdur2f.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/57FTarD968I3g3uwbHJfRjdur2f.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/57FTarD968I3g3uwbHJfRjdur2f.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1603,7 +1477,6 @@
         "type": "Film",
         "posterFile": "b7k2NhmlnMMRup94QbbCfBuct05.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/b7k2NhmlnMMRup94QbbCfBuct05.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/b7k2NhmlnMMRup94QbbCfBuct05.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1615,7 +1488,6 @@
         "type": "Film",
         "posterFile": "xisz1kj0k9o4nYYKZAfmii9dvDo.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/xisz1kj0k9o4nYYKZAfmii9dvDo.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/xisz1kj0k9o4nYYKZAfmii9dvDo.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1627,7 +1499,6 @@
         "type": "Film",
         "posterFile": "rotc7GM3PMdvHs1a9yQVtvDb55W.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/rotc7GM3PMdvHs1a9yQVtvDb55W.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/rotc7GM3PMdvHs1a9yQVtvDb55W.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1639,7 +1510,6 @@
         "type": "Film",
         "posterFile": "oviGe0fRUQn6dTqqCqRzMJ1RoSF.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/oviGe0fRUQn6dTqqCqRzMJ1RoSF.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/oviGe0fRUQn6dTqqCqRzMJ1RoSF.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1651,7 +1521,6 @@
         "type": "Film",
         "posterFile": "1DTMMmW7AYs35RhZ7rotGT9BVn1.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/1DTMMmW7AYs35RhZ7rotGT9BVn1.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/1DTMMmW7AYs35RhZ7rotGT9BVn1.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1663,7 +1532,6 @@
         "type": "Film",
         "posterFile": "bRa83oPFFPqaAF3wrpVWPqqfFel.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/bRa83oPFFPqaAF3wrpVWPqqfFel.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/bRa83oPFFPqaAF3wrpVWPqqfFel.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1675,7 +1543,6 @@
         "type": "Animation",
         "posterFile": "yXYuDTwYTI5UdsIQjORTAhTdURG.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/yXYuDTwYTI5UdsIQjORTAhTdURG.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/yXYuDTwYTI5UdsIQjORTAhTdURG.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1687,7 +1554,6 @@
         "type": "Film",
         "posterFile": "wWNizZ4IcSld3xXH1WEXziJiNJN.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/wWNizZ4IcSld3xXH1WEXziJiNJN.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/wWNizZ4IcSld3xXH1WEXziJiNJN.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1699,7 +1565,6 @@
         "type": "Film",
         "posterFile": "rcWyZUCbhFfoyRqexCezevlmQfE.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/rcWyZUCbhFfoyRqexCezevlmQfE.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/rcWyZUCbhFfoyRqexCezevlmQfE.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1711,7 +1576,6 @@
         "type": "Spectacle",
         "posterFile": "rQk3W9PX4pgU2BDHaab37uqNFbF.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/rQk3W9PX4pgU2BDHaab37uqNFbF.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/rQk3W9PX4pgU2BDHaab37uqNFbF.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1723,7 +1587,6 @@
         "type": "Film",
         "posterFile": "ocg5JfJP19fodcv5uQUApkmZMdI.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ocg5JfJP19fodcv5uQUApkmZMdI.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/ocg5JfJP19fodcv5uQUApkmZMdI.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1735,7 +1598,6 @@
         "type": "Film",
         "posterFile": "Bk6LJFL.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/Bk6LJFL.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/Bk6LJFL.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1747,7 +1609,6 @@
         "type": "Film",
         "posterFile": "zhxlzxBlO1sWB1rPn7RmAoeQ2na.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/zhxlzxBlO1sWB1rPn7RmAoeQ2na.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/zhxlzxBlO1sWB1rPn7RmAoeQ2na.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1759,7 +1620,6 @@
         "type": "Film",
         "posterFile": "9Wi0fxpo1e7Wn2cGVNu7niwdEP2.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/9Wi0fxpo1e7Wn2cGVNu7niwdEP2.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/9Wi0fxpo1e7Wn2cGVNu7niwdEP2.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1771,7 +1631,6 @@
         "type": "Animation",
         "posterFile": "uJ3Eb4zUtF1KFD5zd8CiYaFXWuu.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/uJ3Eb4zUtF1KFD5zd8CiYaFXWuu.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/uJ3Eb4zUtF1KFD5zd8CiYaFXWuu.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1783,7 +1642,6 @@
         "type": "Film",
         "posterFile": "aNQ0ZaF5g2VIq4CXU1VswPFWsx5.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/aNQ0ZaF5g2VIq4CXU1VswPFWsx5.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/aNQ0ZaF5g2VIq4CXU1VswPFWsx5.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1795,7 +1653,6 @@
         "type": "Film",
         "posterFile": "hKROmLddpzpjkxKKVFYFRAOXX1b.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/hKROmLddpzpjkxKKVFYFRAOXX1b.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/hKROmLddpzpjkxKKVFYFRAOXX1b.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1807,7 +1664,6 @@
         "type": "Documentaire",
         "posterFile": "jVjEtCj.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/jVjEtCj.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/jVjEtCj.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1819,7 +1675,6 @@
         "type": "Film",
         "posterFile": "t8dT2sEzre41i6zgQFyY7RHbORY.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/t8dT2sEzre41i6zgQFyY7RHbORY.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/t8dT2sEzre41i6zgQFyY7RHbORY.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1831,7 +1686,6 @@
         "type": "Film",
         "posterFile": "AwFpie51ZWRN7y8e7KReKFMxnT9.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/AwFpie51ZWRN7y8e7KReKFMxnT9.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/AwFpie51ZWRN7y8e7KReKFMxnT9.jpg",
         "displayDate": "2025",
         "source": "Ravpaz"
       },
@@ -1843,7 +1697,6 @@
         "type": "Film",
         "posterFile": "xBJnIvRdL0nDHgvivr6EgBQizes.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/xBJnIvRdL0nDHgvivr6EgBQizes.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/xBJnIvRdL0nDHgvivr6EgBQizes.jpg",
         "displayDate": "2024",
         "source": "Ravpaz"
       },
@@ -1855,7 +1708,6 @@
         "type": "Film",
         "posterFile": "aFrhFiIhdf2klvXq8VFcB06b5pS.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/aFrhFiIhdf2klvXq8VFcB06b5pS.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/aFrhFiIhdf2klvXq8VFcB06b5pS.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1867,7 +1719,6 @@
         "type": "Film",
         "posterFile": "alhhrpj1PSAn5bfz4Os1k7Bweoj.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/alhhrpj1PSAn5bfz4Os1k7Bweoj.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/alhhrpj1PSAn5bfz4Os1k7Bweoj.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1879,7 +1730,6 @@
         "type": "Film",
         "posterFile": "qYFM5cT.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/qYFM5cT.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/qYFM5cT.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1891,7 +1741,6 @@
         "type": "Film",
         "posterFile": "f7hGiCL.jpeg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/f7hGiCL.jpeg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/f7hGiCL.jpeg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1903,7 +1752,6 @@
         "type": "Spectacle",
         "posterFile": "yPVQ9t4AuVqEqYJ7odmQlXV6rps.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/yPVQ9t4AuVqEqYJ7odmQlXV6rps.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/yPVQ9t4AuVqEqYJ7odmQlXV6rps.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1915,7 +1763,6 @@
         "type": "Film",
         "posterFile": "uLNxn6niIICbkRcRKVOX9aXqRHb.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/uLNxn6niIICbkRcRKVOX9aXqRHb.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/uLNxn6niIICbkRcRKVOX9aXqRHb.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1927,7 +1774,6 @@
         "type": "Film",
         "posterFile": "w98RWv9o05OhXYfTvauDrotRZ13.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/w98RWv9o05OhXYfTvauDrotRZ13.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/w98RWv9o05OhXYfTvauDrotRZ13.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1939,7 +1785,6 @@
         "type": "Film",
         "posterFile": "bmFdsOFHipMvqult9MNnUhrwaFS.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/bmFdsOFHipMvqult9MNnUhrwaFS.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/bmFdsOFHipMvqult9MNnUhrwaFS.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1951,7 +1796,6 @@
         "type": "Film",
         "posterFile": "iI7gV6YoCUhiai9niLeIvVQ6XBX.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/iI7gV6YoCUhiai9niLeIvVQ6XBX.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/iI7gV6YoCUhiai9niLeIvVQ6XBX.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1963,7 +1807,6 @@
         "type": "Film",
         "posterFile": "g2ug1uswsNYUXTgvkEK3Bh0PIAu.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/g2ug1uswsNYUXTgvkEK3Bh0PIAu.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/g2ug1uswsNYUXTgvkEK3Bh0PIAu.jpg",
         "displayDate": "1988",
         "source": "Ravpaz"
       },
@@ -1975,7 +1818,6 @@
         "type": "Film",
         "posterFile": "yQ3GeVsebrhOPIBhIdoSslbndEv.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/yQ3GeVsebrhOPIBhIdoSslbndEv.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/yQ3GeVsebrhOPIBhIdoSslbndEv.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1987,7 +1829,6 @@
         "type": "Film",
         "posterFile": "xZbr3jKldhH6F2Qo2dFd3lllbh2.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/xZbr3jKldhH6F2Qo2dFd3lllbh2.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/xZbr3jKldhH6F2Qo2dFd3lllbh2.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -1999,7 +1840,6 @@
         "type": "Documentaire",
         "posterFile": "2W7YoBjI9dyCAxU9Cm6Xu6PTjgJ.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/2W7YoBjI9dyCAxU9Cm6Xu6PTjgJ.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/2W7YoBjI9dyCAxU9Cm6Xu6PTjgJ.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -2011,7 +1851,6 @@
         "type": "Film",
         "posterFile": "kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -2023,7 +1862,6 @@
         "type": "Film",
         "posterFile": "9cRE0DsM6CNIiY9Ah3cd8oc3n1Y.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/9cRE0DsM6CNIiY9Ah3cd8oc3n1Y.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/9cRE0DsM6CNIiY9Ah3cd8oc3n1Y.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -2035,7 +1873,6 @@
         "type": "Film",
         "posterFile": "1ERGPNiKtnEcsvJS1ywsmqmcIDO.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/1ERGPNiKtnEcsvJS1ywsmqmcIDO.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/1ERGPNiKtnEcsvJS1ywsmqmcIDO.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -2047,7 +1884,6 @@
         "type": "Film",
         "posterFile": "4t1ASmI2IQEAoO8hirEGQ6nMEib.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/4t1ASmI2IQEAoO8hirEGQ6nMEib.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/4t1ASmI2IQEAoO8hirEGQ6nMEib.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -2059,7 +1895,6 @@
         "type": "Film",
         "posterFile": "zivl8VZfE8rNthfAsrrc03pspkb.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/zivl8VZfE8rNthfAsrrc03pspkb.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/zivl8VZfE8rNthfAsrrc03pspkb.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       },
@@ -2071,7 +1906,6 @@
         "type": "Film",
         "posterFile": "fez7kLyGzpowduJapTFZZ1feCS0.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/fez7kLyGzpowduJapTFZZ1feCS0.jpg",
-        "fallbackImageUrl": "https://image.tmdb.org/t/p/w500/fez7kLyGzpowduJapTFZZ1feCS0.jpg",
         "displayDate": "2026",
         "source": "Ravpaz"
       }
