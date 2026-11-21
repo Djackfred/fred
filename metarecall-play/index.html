@@ -823,6 +823,156 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
 /* Masquer uniquement la grande bannière d'accueil sur smartphone. PC et autres rubriques inchangés. */
 @media(max-width:700px){.hero{display:none!important}}
 
+
+
+/* METARECALL PLAY — édition fêtes Noël 2026 / Bonne année 2027
+   CSS saisonnier limité aux smartphones : aucune règle desktop modifiée. */
+@media(max-width:700px){
+  :root{
+    --bg:#091522;
+    --surface:#101e2d;
+    --surface2:#17283a;
+    --line:#34465a;
+    --accent:#c92f50;
+    --accent2:#e8cd89;
+  }
+  body{
+    position:relative;
+    isolation:isolate;
+    background:
+      radial-gradient(ellipse at 50% -12%,rgba(70,112,157,.29),transparent 48%),
+      linear-gradient(180deg,#091725 0%,#0b1725 48%,#08131f 100%) !important;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:154px;
+    z-index:1;
+    pointer-events:none;
+    opacity:.76;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='154' viewBox='0 0 420 154'%3E%3Cpath d='M0 112 Q48 91 95 111 T190 109 T285 110 T420 103 V154 H0Z' fill='%230c2636'/%3E%3Cpath d='M0 132 Q70 111 138 130 T274 128 T420 124 V154 H0Z' fill='%23163142'/%3E%3Cg fill='%230e3040'%3E%3Cpath d='M10 132 35 73 60 132Z M29 132 35 91 42 132Z M67 137 100 55 133 137Z M91 137 100 78 109 137Z M145 132 169 75 193 132Z M161 132 169 91 177 132Z M263 135 294 58 325 135Z M284 135 294 82 304 135Z M333 136 365 65 397 136Z M352 136 365 88 378 136Z'/%3E%3C/g%3E%3Cg fill='%23dcebf4' opacity='.92'%3E%3Cpath d='m35 73-12 29 12-7 12 7Z M100 55 83 96 100 86 117 96Z M169 75 157 104 169 96 181 104Z M294 58 278 98 294 88 310 98Z M365 65 348 103 365 93 382 103Z'/%3E%3C/g%3E%3Cpath d='M0 139 Q70 126 140 139 T280 138 T420 135' fill='none' stroke='%23e5f1f8' stroke-width='2' opacity='.75'/%3E%3C/svg%3E");
+    background-repeat:repeat-x;
+    background-size:420px 154px;
+    background-position:center bottom;
+  }
+  body::after{
+    content:"";
+    position:fixed;
+    inset:-180px 0 0;
+    z-index:25;
+    pointer-events:none;
+    opacity:.48;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='180' viewBox='0 0 140 180'%3E%3Cg stroke='%23edf7ff' stroke-width='1.35' stroke-linecap='round' opacity='.9'%3E%3Cpath d='M25 28v16m-8-8h16m-13-5 10 10m0-10L20 36M105 112v18m-9-9h18m-15-6 12 12m0-12-12 12'/%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(circle,rgba(255,255,255,.9) 0 1px,transparent 1.8px),
+      radial-gradient(circle,rgba(221,240,255,.75) 0 1.4px,transparent 2px);
+    background-repeat:repeat;
+    background-size:140px 180px,95px 135px,180px 220px;
+    background-position:0 -180px,35px -135px,90px -220px;
+    animation:metarecallSnowfall 22s linear infinite;
+  }
+  @keyframes metarecallSnowfall{
+    from{background-position:0 -180px,35px -135px,90px -220px}
+    to{background-position:65px 100vh,-30px 110vh,155px 120vh}
+  }
+  .topbar{
+    background:rgba(7,19,31,.96) !important;
+    border-bottom:1px solid rgba(218,235,249,.24);
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+  }
+  .brandIcon{
+    position:relative;
+    background:linear-gradient(145deg,#d94d62,#871d3e) !important;
+    box-shadow:0 0 0 1px rgba(234,214,158,.58),0 5px 20px rgba(201,47,80,.28);
+  }
+  .brandIcon::after{
+    content:"✦";
+    position:absolute;
+    top:-7px;
+    right:-6px;
+    color:#f3e5b9;
+    font-size:12px;
+    line-height:1;
+    text-shadow:0 1px 8px rgba(255,255,255,.65);
+  }
+  .brandName b{color:#e8cd89 !important}
+  .searchbox{
+    background:rgba(17,32,48,.95) !important;
+    border-color:rgba(211,231,246,.22) !important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+  }
+  .accountBtn{
+    border-color:rgba(223,235,246,.2) !important;
+    background:rgba(24,43,61,.96) !important;
+  }
+  .accountBtn.primary{
+    background:linear-gradient(115deg,#c83c55,#8e1e3c) !important;
+    border-color:rgba(244,216,155,.5) !important;
+  }
+  .eyebrow{color:#e3ca8d !important}
+  .genreButton{
+    background:rgba(17,32,48,.94) !important;
+    border-color:rgba(211,231,246,.2) !important;
+  }
+  .genreButton.active{
+    color:#fff !important;
+    background:linear-gradient(120deg,rgba(141,36,61,.75),rgba(22,62,72,.88)) !important;
+    border-color:rgba(232,205,137,.7) !important;
+  }
+  .genreButton .genreCount{
+    background:rgba(220,235,247,.12) !important;
+    color:#e9e3d2 !important;
+  }
+  .rowtitle{color:#f2f7fb;text-shadow:0 2px 18px rgba(127,171,205,.12)}
+  .poster{
+    border-color:rgba(220,238,250,.19) !important;
+    box-shadow:0 8px 23px rgba(0,0,0,.5),0 0 0 1px rgba(220,238,250,.025);
+  }
+  .posterText small{color:#e8cd89 !important}
+  .officialCard,.footerLinkCard{
+    border-color:rgba(218,235,249,.2) !important;
+    background:linear-gradient(140deg,rgba(24,43,60,.96),rgba(12,25,38,.97)) !important;
+  }
+  .officialSource{
+    color:#f1d99b !important;
+    background:rgba(137,42,59,.25) !important;
+    border-color:rgba(232,205,137,.32) !important;
+  }
+  .officialReleaseDate{
+    background:rgba(220,235,247,.08) !important;
+    border:1px solid rgba(220,235,247,.08);
+  }
+  .officialReleaseDate span:first-child{color:#e8cd89 !important}
+  .footerLinks{border-top-color:rgba(218,235,249,.2) !important}
+  footer{
+    position:relative;
+    z-index:2;
+    background:rgba(6,15,25,.97) !important;
+    border-top-color:rgba(218,235,249,.2) !important;
+  }
+  footer::before{
+    content:"❄  JOYEUSES FÊTES  ·  NOËL 2026  ·  BONNE ANNÉE 2027  ❄";
+    display:block;
+    padding:0 0 11px;
+    color:#e8d5a5;
+    text-align:center;
+    font-size:7px;
+    font-weight:850;
+    letter-spacing:1.05px;
+    text-shadow:0 0 12px rgba(199,226,245,.28);
+  }
+  .modalbox,.accountDialog{
+    border-color:rgba(218,235,249,.24) !important;
+    background:linear-gradient(145deg,#17283a,#0e1b29) !important;
+  }
+}
+@media(max-width:700px) and (prefers-reduced-motion:reduce){
+  body::after{animation:none !important;opacity:.22}
+}
+
 </style>
 </head>
 <body>
