@@ -136,16 +136,36 @@ footer strong{color:#e6e7eb;font-size:12px;letter-spacing:1px}
 @media(max-width:900px){.nav{gap:17px}.brand{min-width:auto}.brandName{font-size:17px}nav{gap:13px}.heroArt{right:5%;width:42%}.heroContent{width:58%}.proofbar{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.nav{height:66px;padding:0 4%;gap:10px}.brandIcon{width:34px;height:34px;border-radius:10px}.brandName{font-size:15px}.brandName small{font-size:7px;letter-spacing:1.5px}.brandName .certifiedBy{font-size:7px;letter-spacing:1px;margin-bottom:3px}nav{display:none}.searchbox{padding:8px 11px}.searchbox input{width:105px;font-size:12px}.hero{margin-top:9px;min-height:370px;padding:34px 8%}.hero:before{inset:0 3%;border-radius:19px}.heroContent{width:100%;margin:0}.hero h1{font-size:39px;letter-spacing:-1.8px;max-width:400px}.hero p{font-size:13px;max-width:410px}.heroArt{opacity:.22;right:3%;width:65%;height:230px}.heroPoster{width:120px}.actions{margin-top:20px}.proofbar{padding:0 5%;gap:7px}.proofitem{padding:10px 9px;gap:8px}.proofitem strong{font-size:9px}.proofitem small{font-size:9px}.prooficon{width:28px;height:28px;flex-basis:28px}.content{margin-top:24px}.genreExplorer{padding:0 5% 18px}.genreHead h2{font-size:15px}.genreHead span{display:none}.genreButton{font-size:10px;padding:8px 12px}.rowsection{margin-bottom:25px}.rowhead{margin:0 5% 10px}.rowtitle{font-size:18px}.rowmeta{display:none}.shelf{gap:10px;padding-left:5%;padding-right:5%}.poster{flex-basis:145px;border-radius:9px}.posterText{left:10px;bottom:11px}.posterText strong{font-size:14px}.shelfArrow{display:none}.modalart{height:190px}.modalbody{padding:0 18px 22px}.modalbody h2{font-size:24px}}
 .officialGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 4.5% 10px}
-.officialCard{display:flex;flex-direction:column;gap:8px;min-width:0;padding:16px;border:1px solid #ffffff16;border-radius:14px;background:linear-gradient(125deg,#1c1e29,#12141b);box-shadow:0 12px 30px #0003}
-.officialCard small{font-size:9px;letter-spacing:1px;color:#aeb4c2;text-transform:uppercase}
-.officialCard strong{font-size:16px;line-height:1.2;color:#fff}
-.officialCard p{margin:0;color:#c4c7d0;font-size:12px;line-height:1.55}
-.officialCard .officialPending{font-size:10px;letter-spacing:0;text-transform:none;color:#aeb4c2}
-.officialActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
-.officialActions a{display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border:1px solid #ffffff22;border-radius:999px;color:#fff;font-size:11px;font-weight:750}
+.officialCard{display:flex;flex-direction:row;align-items:stretch;gap:14px;min-width:0;min-height:218px;padding:13px;border:1px solid #ffffff16;border-radius:16px;background:linear-gradient(125deg,#1c1e29,#12141b);box-shadow:0 12px 30px #0003;overflow:hidden}
+.officialPoster{position:relative;flex:0 0 112px;min-height:188px;aspect-ratio:2/3;align-self:stretch;border-radius:10px;overflow:hidden;background:#202431;box-shadow:0 8px 24px #0006}
+.officialPosterFallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:8px;padding:12px 9px;text-align:center;color:#fff;background:radial-gradient(circle at 50% 22%,#ffffff22,transparent 38%),linear-gradient(150deg,#2b3143,#10141f)}
+.officialPosterSymbol{font-size:32px;line-height:1.2;margin-top:5px;text-shadow:0 5px 20px #0008}
+.officialPosterBrand{font-size:7px;letter-spacing:1.5px;font-weight:850;color:#ffffffa8}
+.officialPosterTitle{font-size:13px!important;line-height:1.12!important;letter-spacing:-.2px;text-transform:uppercase;text-shadow:0 3px 12px #0008}
+.officialPosterMeta{font-size:8px;letter-spacing:1.3px;color:#ffffffad;text-transform:uppercase}
+.officialPosterImage{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.officialCard:hover .officialPosterImage{transform:scale(1.04)}
+.theme-paris .officialPosterFallback{background:radial-gradient(circle at 75% 18%,#d68b6b66,transparent 34%),linear-gradient(155deg,#654255,#1b1728 68%,#11131b)}
+.theme-regency .officialPosterFallback{background:radial-gradient(circle at 50% 20%,#e8cfa866,transparent 40%),linear-gradient(155deg,#56645d,#242b2a 65%,#111814)}
+.theme-documentary .officialPosterFallback{background:radial-gradient(circle at 50% 20%,#e9c46a66,transparent 38%),linear-gradient(155deg,#4a4b37,#20251f 68%,#101510)}
+.theme-noir .officialPosterFallback{background:radial-gradient(circle at 75% 20%,#e2a93a55,transparent 34%),linear-gradient(150deg,#183d6c,#101a31 65%,#070d18)}
+.theme-retro .officialPosterFallback{background:radial-gradient(circle at 75% 20%,#e9a43a66,transparent 35%),linear-gradient(150deg,#8a4a28,#34221f 68%,#121014)}
+.theme-fantasy .officialPosterFallback{background:radial-gradient(circle at 50% 20%,#d4d4f066,transparent 38%),linear-gradient(150deg,#394c6d,#202039 65%,#10111b)}
+.theme-comedy .officialPosterFallback{background:radial-gradient(circle at 50% 20%,#e5ab5266,transparent 35%),linear-gradient(150deg,#8a4939,#39232e 66%,#15121b)}
+.officialCardBody{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0;flex:1;padding:3px 2px}
+.officialCardHeader{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;flex-wrap:wrap}
+.officialMeta{font-size:9px;letter-spacing:1px;color:#aeb4c2;text-transform:uppercase}
+.officialSource{font-size:9px;color:#ff9aaa;background:#e52d551c;border:1px solid #e52d5538;border-radius:999px;padding:4px 7px}
+.officialTitle{font-size:17px;line-height:1.2;color:#fff;letter-spacing:-.3px}
+.officialReleaseDate{display:flex;align-items:center;gap:7px;width:100%;padding:7px 9px;border-radius:8px;background:#ffffff0a;color:#fff;font-size:11px;font-weight:750}
+.officialReleaseDate span:first-child{color:#ff8295;font-size:13px}
+.officialDescription{margin:0;color:#c4c7d0;font-size:11px;line-height:1.5}
+.officialVisualLabel{font-size:9px;color:#9099a9;letter-spacing:.2px}
+.officialActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:2px}
+.officialActions a{display:inline-flex;align-items:center;justify-content:center;padding:7px 10px;border:1px solid #ffffff22;border-radius:999px;color:#fff;font-size:10px;font-weight:750}
 .officialActions a:first-child{background:#e52d5525;border-color:#e52d5555}
-@media(max-width:900px){.officialGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:620px){.officialGrid{grid-template-columns:1fr;margin:0 5% 10px}}
+@media(max-width:1100px){.officialGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.officialGrid{grid-template-columns:1fr;margin:0 5% 10px}.officialCard{min-height:164px;gap:12px;padding:11px}.officialPoster{flex-basis:98px;min-height:146px}.officialPosterTitle{font-size:11px!important}.officialCardBody{gap:6px}.officialTitle{font-size:15px}.officialDescription{font-size:10px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 
 /* Floating back-to-top control — visible throughout the page while scrolling */
@@ -486,11 +506,11 @@ async function loadFranceAndWeb(){
  shelf.after(status);
  applyFilters();
 }
-async function loadOfficialAnnouncements(){
+async async function loadOfficialAnnouncements(){
  const section=document.getElementById("annonces-officielles"),root=document.getElementById("officialReleases");
  if(!section||!root)return;
  try{
-  const response=await fetch("./annonces-officielles.json?v=20261121",{cache:"no-store"});
+  const response=await fetch("./annonces-officielles.json?v=20261121-visuals",{cache:"no-store"});
   if(!response.ok)throw new Error("HTTP "+response.status+" sur les annonces officielles");
   const data=await response.json();
   const ravpaz=window.__ravpazTitleKeys||new Set(),tvmaze=window.__tvmazeTitleKeys||new Set(),seen=new Set();
@@ -505,17 +525,45 @@ async function loadOfficialAnnouncements(){
   if(!items.length){section.hidden=true;return}
   items.forEach(item=>{
    const article=document.createElement("article");article.className="officialCard";
-   const meta=document.createElement("small");meta.textContent=[item.type,item.genre].filter(Boolean).join(" · ");
-   const title=document.createElement("strong");title.textContent=item.displayTitle||item.title;
-   const date=document.createElement("p");date.textContent=item.displayDate||item.year||"Date à confirmer";
-   article.append(meta,title,date);
-   if(item.description){const description=document.createElement("p");description.textContent=item.description;article.appendChild(description)}
-   const source=document.createElement("small");source.className="officialPending";source.textContent=item.sourceLabel||"Source officielle";
-   const poster=document.createElement("small");poster.className="officialPending";poster.textContent=item.posterStatus||"Affiche non vérifiée — fiche texte uniquement";
+   const media=document.createElement("div");media.className="officialPoster theme-"+(item.posterTheme||"cinema");
+   media.setAttribute("aria-label",item.posterType||"Visuel de présentation");
+   const visualFallback=document.createElement("div");visualFallback.className="officialPosterFallback";
+   const symbol=document.createElement("span");symbol.className="officialPosterSymbol";symbol.textContent=item.posterSymbol||"✦";
+   const brand=document.createElement("small");brand.className="officialPosterBrand";brand.textContent="METARECALL PLAY";
+   const coverTitle=document.createElement("strong");coverTitle.className="officialPosterTitle";coverTitle.textContent=item.displayTitle||item.title;
+   const coverMeta=document.createElement("span");coverMeta.className="officialPosterMeta";coverMeta.textContent=item.type||"Nouveauté";
+   visualFallback.append(symbol,brand,coverTitle,coverMeta);
+   media.appendChild(visualFallback);
+   const posterUrls=Array.isArray(item.posterCandidates)?item.posterCandidates.filter(Boolean):[];
+   if(posterUrls.length){
+    const image=document.createElement("img");image.className="officialPosterImage";
+    image.alt=(item.posterType||"Visuel de présentation")+" — "+(item.displayTitle||item.title);
+    image.loading="lazy";image.decoding="async";image.referrerPolicy="no-referrer";
+    let attempt=0;
+    const tryNext=()=>{if(attempt<posterUrls.length){image.src=posterUrls[attempt++];return}image.remove()};
+    image.onerror=tryNext;
+    image.onload=()=>{media.classList.add("hasImage")};
+    tryNext();media.appendChild(image);
+   }
+   const body=document.createElement("div");body.className="officialCardBody";
+   const header=document.createElement("div");header.className="officialCardHeader";
+   const meta=document.createElement("small");meta.className="officialMeta";meta.textContent=[item.type,item.genre].filter(Boolean).join(" · ");
+   const source=document.createElement("span");source.className="officialSource";source.textContent=item.sourceLabel||"Source officielle";
+   header.append(meta,source);
+   const title=document.createElement("strong");title.className="officialTitle";title.textContent=item.displayTitle||item.title;
+   const date=document.createElement("div");date.className="officialReleaseDate";
+   const dateIcon=document.createElement("span");dateIcon.textContent="▣";dateIcon.setAttribute("aria-hidden","true");
+   const dateText=document.createElement("span");dateText.textContent=item.displayDate||item.year||"Date à confirmer";
+   date.append(dateIcon,dateText);
+   const description=document.createElement("p");description.className="officialDescription";description.textContent=item.description||"Informations complémentaires à venir.";
+   const visualLabel=document.createElement("small");visualLabel.className="officialVisualLabel";visualLabel.textContent=item.posterStatus||"Visuel de présentation METARECALL";
    const actions=document.createElement("div");actions.className="officialActions";
-   const justwatch=document.createElement("a");justwatch.href="https://www.justwatch.com/fr/recherche?q="+encodeURIComponent(item.justWatchQuery||item.displayTitle||item.title);justwatch.target="_blank";justwatch.rel="noopener noreferrer";justwatch.textContent="JustWatch France";justwatch.setAttribute("aria-label","Rechercher "+(item.displayTitle||item.title)+" sur JustWatch France");
-   const official=document.createElement("a");official.href=item.officialUrl||data.sourceUrl;official.target="_blank";official.rel="noopener noreferrer";official.textContent="Annonce officielle";
-   actions.append(justwatch,official);article.append(source,poster,actions);root.appendChild(article);
+   const justwatch=document.createElement("a");justwatch.href="https://www.justwatch.com/fr/recherche?q="+encodeURIComponent(item.justWatchQuery||item.displayTitle||item.title);justwatch.target="_blank";justwatch.rel="noopener noreferrer";justwatch.textContent="Où regarder ?";
+   justwatch.setAttribute("aria-label","Rechercher "+(item.displayTitle||item.title)+" sur JustWatch France");
+   const official=document.createElement("a");official.href=item.officialUrl||data.sourceUrl;official.target="_blank";official.rel="noopener noreferrer";official.textContent="Source officielle";
+   actions.append(justwatch,official);
+   body.append(header,title,date,description,visualLabel,actions);
+   article.append(media,body);root.appendChild(article);
   });
   const checked=document.getElementById("officialCheckedAt");
   if(checked&&data.checkedAtLabel)checked.textContent="Contrôle du "+data.checkedAtLabel;
@@ -526,6 +574,7 @@ async function loadOfficialAnnouncements(){
   section.hidden=false;
  }
 }
+
 async function loadReferenceCatalog(){
  try{
   const response=await fetch("./catalogue-ravpaz.json?v=20261121",{cache:"no-store"});
