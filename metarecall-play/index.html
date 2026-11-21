@@ -149,14 +149,16 @@ footer strong{color:#e6e7eb;font-size:12px;letter-spacing:1px}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 
 /* Floating back-to-top control — visible throughout the page while scrolling */
-.scrollNavArrow{position:fixed;left:50%;bottom:24px;z-index:1000;width:64px;height:64px;display:flex;align-items:center;justify-content:center;border:1px solid #ffffff65;border-radius:50%;color:#fff;box-shadow:0 12px 36px #0009,0 0 0 6px #ffffff18;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,18px);transition:opacity .22s ease,visibility .22s ease,transform .22s ease,box-shadow .22s ease}
+.scrollNavArrow{position:fixed;left:50%;bottom:24px;z-index:1000;width:64px;height:64px;display:flex;align-items:center;justify-content:center;border:1px solid #ffffff65;border-radius:50%;color:#fff;box-shadow:0 12px 36px #0009,0 0 0 6px #ffffff18;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,18px);transition:opacity .22s ease,visibility .22s ease,transform .22s ease,box-shadow .22s ease,left .22s ease}
 .scrollNavArrow.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
 .scrollNavArrow:hover{box-shadow:0 16px 42px #000b,0 0 0 9px #ffffff28;transform:translate(-50%,-3px)}
 .scrollNavArrow:focus-visible{outline:3px solid #fff;outline-offset:4px}
 .scrollNavArrow svg{width:31px;height:31px;display:block}
 .scrollNavArrow.down{background:linear-gradient(145deg,#39b6ff,#1550c8);box-shadow:0 12px 36px #0009,0 0 0 6px #238bff22}
 .scrollNavArrow.up{background:linear-gradient(145deg,#ff647f,#cb1745);box-shadow:0 12px 36px #0009,0 0 0 6px #e52d551c}
-@media(max-width:620px){.scrollNavArrow{width:58px;height:58px;bottom:16px}.scrollNavArrow svg{width:28px;height:28px}}
+body.hasScrollUp #scrollToBottom{left:calc(50% - 39px)}
+body.hasScrollUp #backToTop{left:calc(50% + 39px)}
+@media(max-width:620px){.scrollNavArrow{width:58px;height:58px;bottom:16px}.scrollNavArrow svg{width:28px;height:28px}body.hasScrollUp #scrollToBottom{left:calc(50% - 35px)}body.hasScrollUp #backToTop{left:calc(50% + 35px)}}
 @media(prefers-reduced-motion:reduce){.scrollNavArrow{transition:none}}
 </style>
 </head>
@@ -544,17 +546,37 @@ function bindScrollArrows(){
  const up=document.getElementById("backToTop");
  const down=document.getElementById("scrollToBottom");
  if(!up||!down)return;
+ const scrollStops=()=>{
+  const rows=[...document.querySelectorAll(".rowsection")].filter(section=>!section.hidden&&section.getClientRects().length);
+  const footerLinks=document.querySelector(".footerLinks");
+  if(footerLinks&&footerLinks.getClientRects().length)rows.push(footerLinks);
+  return rows;
+ };
+ const getNextStop=()=>{
+  const currentY=window.scrollY;
+  return scrollStops().find(section=>section.getBoundingClientRect().top>105)||null;
+ };
  const updateVisibility=()=>{
-  const atTop=window.scrollY<=320;
-  down.classList.toggle("is-visible",atTop);
-  up.classList.toggle("is-visible",!atTop);
+  const awayFromTop=window.scrollY>320;
+  const canStep=Boolean(getNextStop());
+  document.body.classList.toggle("hasScrollUp",awayFromTop);
+  down.classList.toggle("is-visible",canStep);
+  down.disabled=!canStep;
+  up.classList.toggle("is-visible",awayFromTop);
+ };
+ const behavior=()=>window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
+ const stepToNextRow=()=>{
+  const next=getNextStop();
+  if(!next){updateVisibility();return}
+  const targetY=Math.max(0,window.scrollY+next.getBoundingClientRect().top-76);
+  window.scrollTo({top:targetY,behavior:behavior()});
+  window.setTimeout(updateVisibility,450);
  };
  window.addEventListener("scroll",updateVisibility,{passive:true});
  window.addEventListener("resize",updateVisibility,{passive:true});
- updateVisibility();
- const behavior=()=>window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
+ down.addEventListener("click",stepToNextRow);
  up.addEventListener("click",()=>window.scrollTo({top:0,behavior:behavior()}));
- down.addEventListener("click",()=>window.scrollTo({top:Math.max(document.documentElement.scrollHeight,document.body.scrollHeight),behavior:behavior()}));
+ updateVisibility();
 }
 document.addEventListener("DOMContentLoaded",bindScrollArrows,{once:true});
 </script>
