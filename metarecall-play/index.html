@@ -705,7 +705,6 @@ function applyFilters(scrollToResults=false){
   if(activeGenre!=="all"){
    const selected=[...document.querySelectorAll(".genreButton")].find(button=>normalizeGenreKey(button.dataset.genre)===activeGenre);
    const label=selected?selected.dataset.label||selected.textContent.trim():activeGenre;
-   const label=selected?selected.getAttribute("data-label")||selected.textContent.replace(/\\s+\\d+$/,"").trim():activeGenre;
    empty.textContent="Aucun film classé "+label+" dans les fiches actuellement chargées. Le catalogue se complète à chaque synchronisation.";
   }else{
    empty.textContent="Aucun titre ne correspond à votre recherche.";
