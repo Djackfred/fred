@@ -27,7 +27,7 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#fff;font:15px/1.45 Arial,Helvetica,sans-serif}button,input{font:inherit}a{color:inherit;text-decoration:none}
 header{position:fixed;z-index:20;inset:0 0 auto;height:68px;background:linear-gradient(180deg,#080808f5,#080808c9 70%,transparent)}
 .nav{height:68px;max-width:1500px;margin:auto;padding:0 4.5%;display:flex;align-items:center;gap:34px}
-.logo{font-size:25px;font-weight:900;letter-spacing:-1.5px;color:var(--red);white-space:nowrap}.logo span{color:#fff;font-size:13px;letter-spacing:2px;margin-left:5px}
+.brand{display:flex;flex-direction:column;justify-content:center;line-height:1}.byline{font-size:10px;font-style:italic;font-weight:500;letter-spacing:1.15px;color:#aeb8d0;margin:0 0 4px 2px}.logo{font-size:25px;font-weight:900;letter-spacing:-1.5px;color:var(--red);white-space:nowrap}.logo span{color:#fff;font-size:13px;letter-spacing:2px;margin-left:5px}
 nav{display:flex;gap:20px;font-size:14px;color:#e5e5e5}nav a:hover{color:#aaa}
 .navright{margin-left:auto;display:flex;align-items:center;gap:18px}.searchbox{display:flex;align-items:center;border:1px solid #aaa;background:#090909d9;padding:7px 10px;gap:8px}.searchbox input{width:145px;border:0;outline:0;background:transparent;color:white}.searchbox input::placeholder{color:#ccc}
 main{overflow:hidden}.hero{height:min(78vw,690px);min-height:560px;max-height:760px;position:relative;display:flex;align-items:center;background:linear-gradient(90deg,#080808 0%,#080808e8 27%,#08080855 62%,#08080822 100%),linear-gradient(0deg,#090909 0%,transparent 42%),url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=2000&q=85') center 38%/cover}
@@ -51,7 +51,7 @@ footer{padding:35px 5%;border-top:1px solid #222;color:#777;font-size:12px;line-
 </style>
 </head>
 <body>
-<header><div class="nav"><a class="logo" href="#">METARECALL<span>PLAY</span></a><nav><a href="#accueil">Accueil</a><a href="#tendances">Tendances</a><a href="#films">Films</a><a href="#series">Séries</a><a href="#musique">Musique & clips</a></nav><div class="navright"><label class="searchbox">⌕ <input id="search" type="search" placeholder="Titres, genres..." aria-label="Rechercher un titre"></label></div></div></header>
+<header><div class="nav"><div class="brand"><div class="byline">By Frédéric Jacquet</div><a class="logo" href="#">METARECALL<span>PLAY</span></a></div><nav><a href="#accueil">Accueil</a><a href="#tendances">Tendances</a><a href="#films">Films</a><a href="#series">Séries</a><a href="#musique">Musique & clips</a></nav><div class="navright"><label class="searchbox">⌕ <input id="search" type="search" placeholder="Titres, genres..." aria-label="Rechercher un titre"></label></div></div></header>
 <main id="accueil">
 <section class="hero"><div class="heroContent"><div class="tagline">METARECALL ORIGINAL EXPERIENCE</div><h1>VOTRE PROCHAINE HISTOIRE COMMENCE ICI.</h1><p>Explorez un univers de films, séries, musique et créations. Une nouvelle façon de découvrir vos prochains coups de cœur.</p><div class="actions"><button class="btn play" id="heroPlay">▶ &nbsp; Explorer</button><button class="btn more" id="heroInfo">ⓘ &nbsp; En savoir plus</button></div></div></section>
 <div class="content">
