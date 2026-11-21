@@ -25,6 +25,7 @@
  <path d="M28 80 L55 26 L84 80 M40 58 H72" fill="none" stroke="url(#neon)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
  <path d="M72 92 H95" stroke="#ed42e8" stroke-width="6" stroke-linecap="round"/>
 </g>
+<text x="86" y="78" fill="#aab5d8" font-family="Arial,Helvetica,sans-serif" font-size="22" font-style="italic" letter-spacing="2">By Frédéric Jacquet</text>
 <text x="80" y="310" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="76" font-weight="800" letter-spacing="-3">METARECALL</text>
 <text x="80" y="405" fill="url(#neon)" font-family="Arial,Helvetica,sans-serif" font-size="104" font-weight="900" letter-spacing="3">PLAY</text>
 <text x="86" y="475" fill="#f3f5ff" font-family="Arial,Helvetica,sans-serif" font-size="29" letter-spacing="1">FILMS  ·  SÉRIES  ·  MUSIQUE  ·  CRÉATIONS</text>
