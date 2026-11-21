@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#080d20"/><stop offset="1" stop-color="#220b3b"/></linearGradient><linearGradient id="n" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#20d9ff"/><stop offset=".55" stop-color="#6575ff"/><stop offset="1" stop-color="#ed42e8"/></linearGradient><filter id="s"><feGaussianBlur stdDeviation="12"/></filter></defs>
+<rect width="512" height="512" rx="112" fill="url(#b)"/>
+<circle cx="256" cy="220" r="170" fill="#287dff" opacity=".18" filter="url(#s)"/>
+<rect x="35" y="35" width="442" height="442" rx="92" fill="none" stroke="url(#n)" stroke-width="10"/>
+<path d="M112 350 L211 130 L310 350 M155 260 H267" fill="none" stroke="url(#n)" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M310 340 L405 390 L310 440 Z" fill="#ed42e8"/>
+<text x="256" y="475" text-anchor="middle" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="34" font-weight="800" letter-spacing="2">PLAY</text>
+</svg>
