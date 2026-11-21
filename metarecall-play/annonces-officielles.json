@@ -1,9 +1,9 @@
 {
-  "source": "Netflix France",
+  "source": "Veille officielle France · Netflix & Apple TV",
   "sourceUrl": "https://about.netflix.com/fr/news/calendrier-de-sorties-originals-france",
   "checkedAt": "2026-11-21",
   "checkedAtLabel": "21 novembre 2026",
-  "note": "Annonces officielles France et annonces mondiales explicitement annoncées pour une sortie mondiale incluant la France. Chaque carte conserve une affiche ou un visuel éditorial METARECALL clairement identifié ; aucune disponibilité sur une plateforme tierce n'est déduite.",
+  "note": "Veille des annonces officielles France. Les titres dont la sortie est explicitement annoncée en France ou globalement sont distingués des simples annonces internationales. Les fiches conservent un visuel de presse vérifié ou un visuel éditorial METARECALL clairement identifié ; aucune disponibilité sur une plateforme tierce n'est déduite.",
   "items": [
     {
       "id": "netflix-82013434",
@@ -255,10 +255,117 @@
       "posterSymbol": "👻",
       "posterTheme": "ghostbusters",
       "visualUpdatedAt": "2026-11-21"
+    },
+    {
+      "id": "apple-bad-monkey-s2-2026",
+      "title": "Carl Hiaasen’s Bad Monkey — Saison 2",
+      "displayTitle": "Carl Hiaasen’s Bad Monkey — Saison 2",
+      "aliases": [
+        "Carl Hiaasen’s Bad Monkey",
+        "Bad Monkey",
+        "Bad Monkey saison 2"
+      ],
+      "year": "2026",
+      "type": "Série",
+      "genre": "Comédie",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-12-02",
+      "displayDate": "2 décembre 2026 · Apple TV",
+      "description": "La comédie de Bill Lawrence revient pour une deuxième saison de 10 épisodes, avec Vince Vaughn. Première diffusion mondiale annoncée le 2 décembre 2026.",
+      "sourceLabel": "Apple TV France",
+      "officialUrl": "https://www.apple.com/fr/tv-pr/originals/bad-monkey/",
+      "justWatchQuery": "Bad Monkey",
+      "posterCandidates": [
+        "https://images.apple.com/tv-pr/articles/2026/08/apple-tvs-acclaimed-comedy-bad-monkey-starring-and-executive-produced-by-vince-vaughn-returns-for-season-two-on-wednesday-december-2-2026/images/big-image/big-image-01/081926_Bad_Monkey_Season_Two_Announcement_Big_Image_01_big_image_post.jpg.large.jpg",
+        "https://images.apple.com/tv-pr/articles/2026/08/apple-tvs-acclaimed-comedy-bad-monkey-starring-and-executive-produced-by-vince-vaughn-returns-for-season-two-on-wednesday-december-2-2026/images/big-image/big-image-02/081926_Bad_Monkey_Season_Two_Announcement_Big_Image_02_big_image_post.jpg.large.jpg",
+        "https://images.apple.com/tv-pr/articles/2026/08/apple-tvs-acclaimed-comedy-bad-monkey-starring-and-executive-produced-by-vince-vaughn-returns-for-season-two-on-wednesday-december-2-2026/images/big-image/big-image-03/081926_Bad_Monkey_Season_Two_Announcement_Big_Image_03_big_image_post.jpg.large.jpg"
+      ],
+      "posterStatus": "Images de premier regard officielles Apple TV · saison 2",
+      "posterType": "Images de premier regard",
+      "posterSymbol": "🐒",
+      "posterTheme": "retro",
+      "visualUpdatedAt": "2026-11-21"
+    },
+    {
+      "id": "apple-neuromancien-2027",
+      "title": "Neuromancien",
+      "displayTitle": "Neuromancien",
+      "aliases": [
+        "Neuromancer"
+      ],
+      "year": "2027",
+      "type": "Série",
+      "genre": "Science-fiction · Thriller",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2027-01-22",
+      "displayDate": "22 janvier 2027 · Apple TV",
+      "description": "Série Apple Original de science-fiction et de thriller, annoncée pour le 22 janvier 2027.",
+      "sourceLabel": "Apple TV France",
+      "officialUrl": "https://www.apple.com/fr/tv-pr/originals/neuromancer/",
+      "justWatchQuery": "Neuromancien",
+      "posterCandidates": [
+        "https://images.apple.com/fr/tv-pr/shows-and-films/n/neuromancer/images/season-01/show-home-graphic-header/key-art-01/4x1/Apple_TV_Neuromancer_key_art_graphic_header_4_1_show_home.jpg.large_2x.jpg"
+      ],
+      "posterStatus": "Image de premier regard officielle Apple TV Press · visuel horizontal, pas une affiche portrait",
+      "posterType": "Image de premier regard",
+      "posterSymbol": "⌁",
+      "posterTheme": "noir",
+      "visualUpdatedAt": "2026-11-21"
+    },
+    {
+      "id": "apple-fraggle-rock-holiday-gift-2026",
+      "title": "Fraggle Rock : un cadeau pour les Fêtes",
+      "displayTitle": "Fraggle Rock : un cadeau pour les Fêtes",
+      "aliases": [
+        "Fraggle Rock: A Holiday Gift"
+      ],
+      "year": "2026",
+      "type": "Spécial",
+      "genre": "Enfants et famille · Fêtes",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-12-04",
+      "displayDate": "4 décembre 2026 · Apple TV",
+      "description": "Un spécial familial de l’univers Fraggle Rock, annoncé par Apple TV pour le 4 décembre 2026.",
+      "sourceLabel": "Apple TV France",
+      "officialUrl": "https://www.apple.com/fr/tv-pr/originals/fraggle-rock-a-holiday-gift/",
+      "justWatchQuery": "Fraggle Rock : un cadeau pour les Fêtes",
+      "posterCandidates": [],
+      "posterStatus": "Visuel éditorial METARECALL · aucune affiche promotionnelle vérifiée",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "❄",
+      "posterTheme": "fantasy",
+      "visualUpdatedAt": "2026-11-21"
+    },
+    {
+      "id": "apple-the-wanted-man-2027",
+      "title": "The Wanted Man",
+      "displayTitle": "The Wanted Man",
+      "aliases": [],
+      "year": "2027",
+      "type": "Série",
+      "genre": "Genre non communiqué",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2027-01-06",
+      "displayDate": "6 janvier 2027 · Apple TV",
+      "description": "Série Apple Original listée dans le catalogue presse Apple TV France. Synopsis et genre détaillé à confirmer.",
+      "sourceLabel": "Apple TV France · catalogue presse",
+      "officialUrl": "https://www.apple.com/fr/tv-pr/originals/filters/series/2021/",
+      "justWatchQuery": "The Wanted Man",
+      "posterCandidates": [],
+      "posterStatus": "Visuel éditorial METARECALL · aucune affiche promotionnelle vérifiée",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "🔎",
+      "posterTheme": "noir",
+      "visualUpdatedAt": "2026-11-21"
     }
   ],
   "visualNote": "Chaque fiche comporte une jaquette ou un visuel graphique de présentation. Les visuels issus de médias tiers sont explicitement identifiés (affiche promotionnelle, image de premier regard ou photo d'artiste). Les visuels éditoriaux METARECALL ne sont pas présentés comme des affiches officielles.",
   "additionalSources": [
-    "https://about.netflix.com/fr/news/netflix-previews-its-animation-slate-for-2026-and-beyond"
+    "https://about.netflix.com/fr/news/netflix-previews-its-animation-slate-for-2026-and-beyond",
+    "https://www.apple.com/fr/tv-pr/originals/bad-monkey/",
+    "https://www.apple.com/fr/tv-pr/originals/neuromancer/",
+    "https://www.apple.com/fr/tv-pr/originals/fraggle-rock-a-holiday-gift/",
+    "https://www.apple.com/fr/tv-pr/originals/filters/series/2021/",
+    "https://www.apple.com/tv-pr/news/2026/08/apple-tvs-acclaimed-comedy-bad-monkey-starring-and-executive-produced-by-vince-vaughn-returns-for-season-two-on-wednesday-december-2-2026/"
   ]
 }
