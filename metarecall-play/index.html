@@ -1028,6 +1028,59 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
   .cookieNotice p{font-size:10px}
 }
 
+
+/* Signature de Noël Frédéric Jacquet — application mobile uniquement */
+.mobile-holiday-signature{display:none}
+@media(max-width:700px){
+  .mobile-holiday-signature{
+    position:relative;isolation:isolate;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;min-height:112px;
+    margin:5px 13px 22px;padding:14px 8px 10px;overflow:hidden;
+    border:1px solid rgba(232,205,137,.20);border-radius:16px;
+    background:radial-gradient(ellipse at 50% 110%,rgba(30,104,72,.24),transparent 68%),
+      linear-gradient(120deg,rgba(14,35,39,.62),rgba(13,27,39,.40));
+    box-shadow:0 8px 22px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.035);
+  }
+  .mobile-holiday-signature .holiday-tree{
+    position:absolute;z-index:-1;left:50%;top:5px;transform:translateX(-50%);
+    width:92px;height:94px;opacity:.28;
+    background:linear-gradient(180deg,#e8cd89 0%,#2d9b69 45%,#145b43 100%);
+    clip-path:polygon(50% 0,58% 22%,72% 22%,63% 39%,82% 39%,68% 57%,91% 57%,66% 78%,66% 100%,34% 100%,34% 78%,9% 57%,32% 57%,18% 39%,37% 39%,28% 22%,42% 22%);
+    animation:holidayTreeGlow 3.6s ease-in-out infinite;
+  }
+  .mobile-holiday-signature .holiday-star{
+    position:absolute;top:5px;left:calc(50% - 5px);color:#ffe9a8;
+    font-size:17px;text-shadow:0 0 8px #ffe9a8,0 0 18px #e8cd89;
+    animation:holidayStar 2.2s ease-in-out infinite;
+  }
+  .mobile-holiday-signature .holiday-lights{
+    position:absolute;top:27px;left:0;width:100%;text-align:center;
+    color:#f4d78f;font-size:13px;letter-spacing:2px;
+    text-shadow:0 0 7px #f4d78f,0 0 13px #e8cd89;
+    animation:holidayLights 1.8s steps(2,end) infinite;
+  }
+  .mobile-holiday-signature .holiday-name{
+    margin-top:23px;position:relative;color:#f6e6bd;
+    font-family:"Brush Script MT","Segoe Script","URW Chancery L",cursive;
+    font-size:clamp(29px,8vw,39px);font-weight:600;line-height:1.12;
+    letter-spacing:.2px;text-align:center;
+    text-shadow:0 2px 3px rgba(0,0,0,.55),0 0 9px rgba(232,205,137,.68);
+    animation:holidayNameGlow 3.4s ease-in-out infinite;
+  }
+  .mobile-holiday-signature .holiday-caption{
+    margin-top:5px;color:#d9c99f;font-size:7px;font-weight:800;
+    letter-spacing:2.1px;text-align:center;text-shadow:0 1px 6px #000;
+  }
+}
+@keyframes holidayTreeGlow{0%,100%{opacity:.19;filter:brightness(.85)}50%{opacity:.42;filter:brightness(1.35)}}
+@keyframes holidayStar{0%,100%{transform:scale(.86) rotate(-8deg);opacity:.75}50%{transform:scale(1.2) rotate(8deg);opacity:1}}
+@keyframes holidayLights{0%,100%{opacity:.48;filter:hue-rotate(0deg)}50%{opacity:1;filter:hue-rotate(35deg)}}
+@keyframes holidayNameGlow{0%,100%{text-shadow:0 2px 3px rgba(0,0,0,.55),0 0 7px rgba(232,205,137,.45)}50%{text-shadow:0 2px 3px rgba(0,0,0,.55),0 0 15px rgba(232,205,137,.95),0 0 24px rgba(53,157,105,.45)}}
+@media(max-width:700px) and (prefers-reduced-motion:reduce){
+ .mobile-holiday-signature .holiday-tree,.mobile-holiday-signature .holiday-star,
+ .mobile-holiday-signature .holiday-lights,.mobile-holiday-signature .holiday-name{animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -1063,6 +1116,13 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
 <div class="proofitem"><span class="prooficon">↗</span><span><strong>OÙ REGARDER ?</strong><small>Vérification via JustWatch</small></span></div>
 </div>
 <div class="content">
+<section class="mobile-holiday-signature" aria-label="Signature de Noël Frédéric Jacquet">
+  <span class="holiday-tree" aria-hidden="true"></span>
+  <span class="holiday-star" aria-hidden="true">✦</span>
+  <span class="holiday-lights" aria-hidden="true">✧　·　✦　·　✧　·　✦　·　✧</span>
+  <span class="holiday-name">Frédéric Jacquet</span>
+  <span class="holiday-caption">CERTIFIÉ BY FRÉDÉRIC JACQUET</span>
+</section>
 <section class="genreExplorer" id="genres"><div class="genreHead"><div><span class="eyebrow">Explorer par genre</span><h2>Choisissez votre univers</h2></div><span>Rubriques du catalogue de référence</span></div>
 <div class="genreChips" role="group" aria-label="Filtrer par genre">
 <button class="genreButton active" data-genre="all" type="button">Tout voir</button>
