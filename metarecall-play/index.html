@@ -59,9 +59,7 @@ main{overflow:hidden}
 .btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px #0007}
 .heroArt{position:absolute;right:7%;top:50%;transform:translateY(-50%);width:39%;height:285px;display:flex;align-items:center;justify-content:center;perspective:850px;pointer-events:none}
 .heroPoster{position:absolute;width:clamp(112px,13vw,174px);aspect-ratio:2/3;border-radius:12px;overflow:hidden;border:1px solid #ffffff40;box-shadow:0 20px 50px #000a;background:#242630}
-.heroPoster{background:linear-gradient(145deg,#30394d,#11141d)}
-.heroPosterFallbackTitle{position:absolute;z-index:0;inset:auto 5px 8px;color:#fff;font-size:9px;line-height:1.15;font-weight:850;text-align:center;text-shadow:0 2px 8px #000;overflow-wrap:anywhere}
-.heroPoster img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+.heroPoster img{width:100%;height:100%;object-fit:cover;display:block}
 .heroPoster.one{left:4%;transform:rotateY(19deg) rotateZ(-7deg) translateY(8px);opacity:.82}
 .heroPoster.two{left:34%;z-index:2;transform:translateY(-8px) scale(1.06)}
 .heroPoster.three{right:2%;transform:rotateY(-18deg) rotateZ(7deg) translateY(8px);opacity:.88}
@@ -821,107 +819,6 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
   .rowtitle{font-size:16px}
 }
 
-
-/* Responsive refresh — stable scrolling, compact first screen and touch layouts */
-html{scroll-behavior:auto!important;scroll-padding-top:132px}body{overflow-x:hidden}
-.topbar{position:sticky;top:0;z-index:40;background:#0c0d12!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;transform:none!important}
-.topbar .nav{--header-progress:0!important;overflow:visible!important;transition:none!important}
-/* Both floating navigation controls stay grouped around the horizontal center. */
-.scrollNavArrow#scrollToBottom,.scrollNavArrow#backToTop{display:flex}
-body.atLastStep #backToTop{left:50%}
-@media(max-width:760px){
- .scrollNavArrow{width:48px;height:48px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
- .scrollNavArrow svg{width:24px;height:24px}
- body.hasScrollUp #scrollToBottom{left:calc(50% - 29px)}
- body.hasScrollUp #backToTop{left:calc(50% + 29px)}
- body.atLastStep #backToTop{left:50%}
-}
-@media (min-width:761px) and (max-width:1100px){
-.topbar .nav{display:grid;grid-template-columns:minmax(0,1fr) max-content;grid-template-areas:"brand account" "search search" "menu menu";grid-template-rows:34px 40px 30px;min-height:0!important;height:auto!important;gap:7px 12px;padding:9px 3% 8px;overflow:visible!important}
-.topbar .brand{grid-area:brand;justify-self:start;min-width:0}.topbar .searchbox{grid-area:search;justify-self:stretch;width:100%;height:38px;max-width:none}
-.topbar .accountControls{grid-area:account;justify-self:end;gap:5px;max-width:48vw}.topbar .accountBtn{min-height:29px;padding:6px 8px;font-size:9px}
-.topbar .nav>nav{grid-area:menu;display:flex!important;justify-content:flex-start;flex-wrap:nowrap!important;width:100%;height:30px;max-height:none!important;min-height:0;overflow-x:auto;overflow-y:hidden;white-space:nowrap;gap:18px;padding:0 0 2px!important;opacity:1!important;scrollbar-width:none}
-.topbar .nav>nav::-webkit-scrollbar{display:none}.topbar .nav>nav a{flex:0 0 auto;font-size:10px;padding:5px 0}
-.hero{min-height:0;height:auto;margin:12px 18px 0;padding:27px 28px;max-width:none}.heroContent{width:62%;margin-left:0}
-.hero h1{font-size:clamp(30px,4vw,42px);letter-spacing:-1.5px}.hero p{font-size:13px;line-height:1.55}
-.heroArt{right:3%;width:34%;height:205px}.heroPoster{width:clamp(82px,11vw,118px)}
-.proofbar{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 18px;gap:7px;margin-top:9px}.proofitem{padding:9px 11px}
-.content{margin-top:20px}.genreExplorer{padding:0 20px 18px}.rowhead{margin-left:20px;margin-right:20px}
-.shelf{padding-left:20px;padding-right:20px}.officialGrid{grid-template-columns:repeat(2,minmax(0,1fr));margin-left:20px;margin-right:20px}
-}
-@media(max-width:760px){
-html{scroll-padding-top:126px}
-.topbar .nav{display:grid;grid-template-columns:minmax(0,1fr) max-content;grid-template-areas:"brand account" "search search" "menu menu";grid-template-rows:32px 37px 27px;min-height:0!important;height:auto!important;gap:6px 8px;padding:8px 12px 7px;overflow:visible!important}
-.topbar .brand{grid-area:brand;justify-self:start;min-width:0;gap:7px}.topbar .brandIcon{width:29px;height:29px;flex:0 0 29px;border-radius:9px;font-size:11px}
-.topbar .brandName{font-size:13px;letter-spacing:-.35px;line-height:1}.topbar .brandName .certifiedBy,.topbar .brandName small:last-child{display:none!important}
-.topbar .nav>nav{grid-area:menu;display:flex!important;justify-content:flex-start;align-items:center;flex-wrap:nowrap!important;gap:15px;width:100%;height:27px;max-height:none!important;min-height:0;overflow-x:auto;overflow-y:hidden;white-space:nowrap;padding:0 1px 2px!important;margin:0;opacity:1!important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.topbar .nav>nav::-webkit-scrollbar{display:none}.topbar .nav>nav a{flex:0 0 auto;font-size:9px;line-height:1;padding:5px 0}
-.topbar .searchbox{grid-area:search;justify-self:stretch;width:100%;max-width:none;min-width:0;height:37px;padding:0 11px;border-radius:10px;gap:7px}
-.topbar .searchbox input{width:100%;min-width:0;height:100%;font-size:12px}
-.topbar .accountControls{grid-area:account;justify-self:end;display:flex;align-items:center;justify-content:flex-end;flex-wrap:nowrap;gap:4px;min-width:0;max-width:55vw;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
-.topbar .accountControls::-webkit-scrollbar{display:none}.topbar .accountBtn{flex:0 0 auto;min-height:26px;padding:5px 7px;font-size:8px;line-height:1}
-.topbar #loginOpenBtn{font-size:0;padding:5px 8px}.topbar #loginOpenBtn::after{content:"Connexion";font-size:8px}
-.topbar #signupOpenBtn{font-size:0;padding:5px 8px}.topbar #signupOpenBtn::after{content:"Inscription";font-size:8px}
-.topbar #dataOpenBtn,.topbar #adminOpenBtn,.topbar #logoutBtn{font-size:8px}
-.hero{display:flex;align-items:flex-start;min-height:0;height:auto;margin:10px 12px 0;padding:18px 16px 17px;border-radius:14px}
-.hero:before{inset:0;border-radius:14px;background:radial-gradient(ellipse at 92% 10%,#67283e40 0%,transparent 42%),linear-gradient(135deg,#1a1c25,#12141c 68%,#10131b);box-shadow:none}
-.heroContent{width:100%;max-width:100%;margin:0}.tagline{font-size:7.5px;letter-spacing:1.35px;line-height:1.4}
-.hero h1{max-width:100%;margin:7px 0 8px;font-size:clamp(23px,6.2vw,30px);line-height:1.08;letter-spacing:-.9px}
-.hero p{max-width:100%;font-size:11px;line-height:1.45}.actions{gap:7px;margin-top:12px}.btn{min-height:34px;padding:8px 11px;font-size:9px}
-.proofbar{display:none!important}
-.hero{flex-direction:column}
-.heroArt{display:flex!important;position:relative;top:auto;right:auto;transform:none;width:100%;height:88px;margin:10px auto 0;opacity:1;perspective:650px;flex:0 0 88px}
-.heroPoster{width:52px;height:78px;aspect-ratio:auto;border-radius:7px}
-.heroPoster.one{left:calc(50% - 79px);transform:rotateY(15deg) rotateZ(-7deg);opacity:.9}
-.heroPoster.two{left:calc(50% - 26px);transform:translateY(-5px) scale(1.04);opacity:1}
-.heroPoster.three{right:calc(50% - 79px);transform:rotateY(-14deg) rotateZ(7deg);opacity:.9}
-.content{width:100%;max-width:100%;margin:16px auto 0;padding:0 0 28px}
-.genreExplorer{margin:0 auto 8px;padding:0 12px 14px}.genreHead{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin:0 1px 8px}
-.genreHead .eyebrow{font-size:7px;letter-spacing:1.5px}.genreHead h2{font-size:14px;line-height:1.2;margin:3px 0 0}
-.genreHead>span{font-size:8px;max-width:105px;text-align:right}
-.genreChips{display:flex;flex-wrap:nowrap;justify-content:flex-start;align-items:center;gap:6px;width:100%;overflow-x:auto;overflow-y:hidden;padding:1px 0 7px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.genreChips::-webkit-scrollbar{display:none}.genreButton{flex:0 0 auto;min-height:29px;padding:6px 9px;font-size:9px}
-.genreButton .genreCount{min-width:15px;height:15px;margin-left:4px;font-size:8px}
-.rowsection{margin:0 0 21px}.rowhead{display:flex;align-items:center;gap:8px;margin:0 12px 8px}
-.rowhead .eyebrow{font-size:7px;letter-spacing:1.4px}.rowtitle{font-size:16px;line-height:1.2;margin:3px 0 0;letter-spacing:-.25px}
-.rowmeta{display:none}.shelf{display:flex;gap:9px;padding:5px 12px 12px;scroll-padding-left:12px}
-.poster{flex:0 0 clamp(108px,32vw,128px);border-radius:8px;box-shadow:0 5px 16px #0005}
-.posterText{left:8px;right:7px;bottom:8px}.posterText small{font-size:7px;margin-bottom:4px}.posterText strong{font-size:11px;line-height:1.17}
-.poster .playicon{width:26px;height:26px;opacity:1;font-size:10px}.shelfArrow{display:none!important}
-.officialGrid{grid-template-columns:1fr;gap:8px;margin:0 12px 10px}.officialCard{min-height:124px;gap:9px;padding:8px;border-radius:11px}
-.officialPoster{flex:0 0 72px;min-height:108px;border-radius:7px}.officialPosterTitle{font-size:9px!important}.officialPosterSymbol{font-size:25px}
-.officialCardBody{gap:4px;padding:1px}.officialCardHeader{gap:5px}.officialMeta,.officialSource{font-size:7px}
-.officialTitle{font-size:12px;line-height:1.2}.officialReleaseDate{padding:5px 7px;font-size:9px}
-.officialDescription{font-size:9px;line-height:1.35}.officialActions{gap:5px}.officialActions a{padding:6px 8px;font-size:8px}
-.note,.empty,.musicPlaceholder{margin-left:12px;margin-right:12px}
-.footerLinks{margin:0 12px 20px;padding:18px 0 0}.footerLinksHead h2{font-size:16px}.footerLinkGrid{grid-template-columns:1fr;gap:8px}
-.footerLinkCard{padding:11px;border-radius:11px;gap:10px}.footerLinkIcon{width:37px;height:37px;flex-basis:37px}.footerLinkIcon svg{width:22px;height:22px}
-.footerLinkCopy small{font-size:8px}.footerLinkCopy strong{font-size:12px}.footerLinkCopy span{font-size:9px}
-footer{padding:20px 12px;font-size:9px}.privacyFooter{padding-bottom:14px}.legalLinks{gap:8px}.legalLinks a{font-size:9px}
-.modal{padding:9px}.modalbox{width:100%;max-height:90dvh;overflow:auto;border-radius:13px}.modalart{height:145px}
-.modalbody{padding:0 13px 16px}.modalbody h2{font-size:19px}.modalbody p{font-size:11px}
-.accountOverlay{padding:9px}.accountDialog{width:100%;max-width:440px;max-height:91dvh;padding:20px 14px}
-.adminDialog{max-width:100%}.adminStats{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.adminStat{padding:8px 6px}
-.adminStat strong{font-size:15px}.adminStat span{font-size:7px}.adminTable{font-size:8px}.adminTable th,.adminTable td{padding:6px}
-.dataActions{grid-template-columns:1fr 1fr;gap:6px}.dataActions button{font-size:8px;padding:7px}
-.cookieNotice{width:calc(100% - 18px);left:9px;bottom:9px;transform:none;gap:7px;padding:9px;border-radius:10px}
-.cookieNotice p{font-size:9px;line-height:1.35}.cookieNotice button{font-size:9px;padding:6px 8px}
-.scrollNavArrow#backToTop{width:44px;height:44px;right:12px!important;bottom:calc(12px + env(safe-area-inset-bottom,0px))!important}
-}
-@media(max-width:390px){
-.topbar .nav{grid-template-rows:30px 36px 25px;padding:7px 9px 6px;gap:5px 6px}
-.topbar .brandIcon{width:27px;height:27px;flex-basis:27px}.topbar .brandName{font-size:12px}
-.topbar .nav>nav{gap:13px;height:25px}.topbar .nav>nav a{font-size:8px}
-.topbar .accountControls{max-width:57vw}.topbar .accountBtn{padding:4px 6px;font-size:7.5px}
-.topbar #loginOpenBtn::after,.topbar #signupOpenBtn::after{font-size:7.5px}.topbar .searchbox{height:36px}
-.hero{margin:8px 9px 0;padding:15px 13px 14px}.hero h1{font-size:24px}.hero p{font-size:10px}
-.actions{margin-top:10px}.genreExplorer{padding-left:9px;padding-right:9px}
-.rowhead{margin-left:10px;margin-right:10px}.shelf{padding-left:10px;padding-right:10px}
-.poster{flex-basis:112px}.officialGrid{margin-left:9px;margin-right:9px}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.scrollNavArrow#backToTop{transition:none!important}}
-
-
 </style>
 </head>
 <body>
@@ -945,10 +842,10 @@ footer{padding:20px 12px;font-size:9px}.privacyFooter{padding-bottom:14px}.legal
 <h1>Votre prochaine histoire commence ici.</h1>
 <p>Explorez les nouveautés cinéma et séries, retrouvez les dates de diffusion et vérifiez où regarder chaque œuvre légalement en France.</p>
 <div class="actions"><button class="btn play" id="heroPlay">⌕ &nbsp; Explorer le catalogue</button><button class="btn more" id="heroInfo">ⓘ &nbsp; Notre sélection</button></div>
-</div><div class="heroArt" role="group" aria-label="Trois premières affiches du TOP 15">
-<div class="heroPoster one"><span class="heroPosterFallbackTitle" aria-hidden="true"></span><img alt="Affiche du rang 1 du TOP 15"></div>
-<div class="heroPoster two"><span class="heroPosterFallbackTitle" aria-hidden="true"></span><img alt="Affiche du rang 2 du TOP 15"></div>
-<div class="heroPoster three"><span class="heroPosterFallbackTitle" aria-hidden="true"></span><img alt="Affiche du rang 3 du TOP 15"></div>
+</div><div class="heroArt" aria-hidden="true">
+<div class="heroPoster one"><img src="https://www.ravpaz.com/1sjuv496ooa1/home/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg" alt="Affiche de Lucky Strike"></div>
+<div class="heroPoster two"><img src="https://www.ravpaz.com/1sjuv496ooa1/home/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg" alt="Affiche de L'Odyssée"></div>
+<div class="heroPoster three"><img src="https://media.everythingbrunei.com/public/0JaArjFgzHoJ3UFt6-2ek-QwTZKCI7yX3H4HIXYwJPn.jpeg" alt="Affiche de Avengers : Endgame Extended"></div>
 </div></section>
 <div class="proofbar" aria-label="Les repères METARECALL PLAY">
 <div class="proofitem"><span class="prooficon">✦</span><span><strong>NOUVEAUTÉS</strong><small>France et diffusion web</small></span></div>
@@ -1027,9 +924,17 @@ function openCard(item){
 function closeModal(){modal.classList.remove("open");document.body.style.overflow=""}
 document.querySelector("#close").onclick=closeModal;document.querySelector("#modalOk").onclick=closeModal;modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
 const heroPosterFallbacks={
- "lucky strike":["https://images.justwatch.com/poster/347233655/s718/lucky-strike.jpg"],
- "l odyssee":["https://images.static-bluray.com/products/20/165306_4_large.jpg"],
- "avengers endgame extended":["https://newsroom.disney.fr/download-image/6a8dc44e9a934259cc05a589","https://cineamo-cdn.b-cdn.net/movie-customization-poster-image/d8453702-9f9e-4d16-853e-6694400b37a6?optimizer=image&width=3840"]
+ "lucky strike":[
+  "https://images.justwatch.com/poster/347233655/s718/lucky-strike.jpg",
+  "https://www.impawards.com/2026/lucky_strike_xlg.html"
+ ],
+ "l odyssee":[
+  "https://dx35vtwkllhj9.cloudfront.net/universalstudios/the-odyssey/images/regions/ca/onesheet.jpg"
+ ],
+ "avengers endgame extended":[
+  "https://cineamo-cdn.b-cdn.net/movie-customization-poster-image/d8453702-9f9e-4d16-853e-6694400b37a6?optimizer=image&width=3840",
+  "https://media.kg-portal.ru/movies/a/avengers4/posters/avengers4_96.jpg"
+ ]
 };
 function normalizePosterTitle(value){
  return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
@@ -1037,40 +942,35 @@ function normalizePosterTitle(value){
 function posterSourcesFor(item){
  const key=normalizePosterTitle(item&&item.title);
  const extras=heroPosterFallbacks[key]||[];
- const candidates=[...(Array.isArray(item&&item.posterCandidates)?item.posterCandidates:[]),item&&item.imageUrl].filter(Boolean);
- const safeCandidates=candidates.filter(src=>{
-  if(/^https?:\/\/image\.tmdb\.org\//i.test(src))return Boolean(item&&item.tmdbId&&item.tmdbPosterPath&&src.includes(item.tmdbPosterPath));
-  return true;
- });
- return [...new Set([...safeCandidates,...extras])];
-}
-function placeholderArt(title){
- const raw=String(title||"TOP 15").trim()||"TOP 15";
- const escaped=raw.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
- const words=escaped.split(/\s+/),lines=[];let line="";
- words.forEach(word=>{const next=(line+" "+word).trim();if(next.length>20&&line&&lines.length<2){lines.push(line);line=word}else line=next});
- if(line)lines.push(line);
- const text=lines.slice(0,3).map((value,index)=>'<text x="180" y="'+(292+(index-(Math.min(lines.length,3)-1)/2)*34)+'" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="22" font-weight="700">'+value+'</text>').join("");
- const svg='<svg xmlns="http://www.w3.org/2000/svg" width="360" height="540" viewBox="0 0 360 540"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#343d54"/><stop offset="1" stop-color="#11131d"/></linearGradient><radialGradient id="r"><stop offset="0" stop-color="#e52d55" stop-opacity=".45"/><stop offset="1" stop-color="#e52d55" stop-opacity="0"/></radialGradient></defs><rect width="360" height="540" fill="url(#g)"/><circle cx="180" cy="190" r="210" fill="url(#r)"/><path d="M28 38h304v464H28z" fill="none" stroke="#ffffff35" stroke-width="2"/><text x="180" y="86" text-anchor="middle" fill="#ff8aa0" font-family="Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="3">METARECALL PLAY</text><path d="M85 145h190M85 395h190" stroke="#ffffff35"/><text x="180" y="244" text-anchor="middle" fill="#ffffffa8" font-family="Arial,sans-serif" font-size="12" letter-spacing="3">TOP 15</text>'+text+'<text x="180" y="455" text-anchor="middle" fill="#ffffff90" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">VISUEL ÉDITORIAL</text></svg>';
- return "data:image/svg+xml;charset=UTF-8,"+encodeURIComponent(svg);
+ return [...new Set([...(Array.isArray(item&&item.posterCandidates)?item.posterCandidates:[]),item&&item.imageUrl,...extras].filter(Boolean))];
 }
 function setHeroPosters(items){
- const slots=[...document.querySelectorAll(".heroPoster")].slice(0,3);
+ const slots=[...document.querySelectorAll(".heroPoster")];
  const firstThree=(Array.isArray(items)?items:[]).slice(0,3);
  slots.forEach((slot,index)=>{
   const item=firstThree[index],image=slot.querySelector("img");
   if(!image)return;
-  const fallback=slot.querySelector(".heroPosterFallbackTitle");
-  const title=item&&item.title?item.title:"TOP 15 · Rang "+(index+1);
-  if(fallback)fallback.textContent=title;
-  slot.hidden=false;slot.dataset.catalogueId=item&&item.id?item.id:"";slot.title=title;
-  image.onload=null;image.onerror=null;image.alt=item?"Affiche de "+title:"Visuel éditorial METARECALL PLAY — "+title;
-  image.loading="eager";image.decoding="async";image.fetchPriority=index===1?"high":"auto";image.referrerPolicy="no-referrer";image.style.opacity="0";
-  if(!item){image.onload=()=>{image.style.opacity="1"};image.src=placeholderArt(title);return}
-  const sources=posterSourcesFor(item);let attempt=0;
-  const showEditorialFallback=()=>{image.onload=()=>{image.style.opacity="1";slot.hidden=false};image.onerror=null;image.src=placeholderArt(title)};
-  const tryNext=()=>{if(attempt<sources.length){image.src=sources[attempt++];return}showEditorialFallback()};
-  image.onload=()=>{image.style.opacity="1";slot.hidden=false};image.onerror=tryNext;tryNext();
+  image.onload=null;image.onerror=null;
+  if(!item){slot.hidden=true;slot.dataset.catalogueId="";slot.removeAttribute("title");image.removeAttribute("src");return}
+  slot.hidden=false;
+  image.alt="Affiche de "+item.title;
+  image.loading="eager";
+  image.decoding="async";
+  image.fetchPriority=index===1?"high":"auto";
+  image.referrerPolicy="no-referrer";
+  image.style.opacity="0";
+  const sources=posterSourcesFor(item);
+  let attempt=0;
+  const tryNext=()=>{
+   if(attempt<sources.length){image.src=sources[attempt++];return}
+   image.onload=null;image.onerror=null;
+   image.src=placeholderArt(item.title);
+  };
+  image.onload=()=>{image.style.opacity="1";slot.hidden=false};
+  image.onerror=tryNext;
+  slot.dataset.catalogueId=item.id||"";
+  slot.title=item.title;
+  tryNext();
  });
 }
 
@@ -1137,7 +1037,6 @@ function applyFilters(scrollToResults=false){
   const first=[...document.querySelectorAll(".rowsection")].find(section=>!section.hidden&&[...section.querySelectorAll(".poster")].some(el=>el.style.display!=="none"));
   if(first)first.scrollIntoView({behavior:"smooth",block:"start"});
  }
- if(typeof window.updateScrollArrows==="function")window.updateScrollArrows();
 }
 function updateGenreCounts(sections){
  // Comptage sur le catalogue source, avec déduplication par identifiant.
@@ -1282,7 +1181,7 @@ async function loadOfficialAnnouncements(){
    return !names.some(name=>ravpaz.has(name)||tvmaze.has(name));
   });
   root.replaceChildren();
-  if(!items.length){section.hidden=true;if(typeof window.updateScrollArrows==="function")window.updateScrollArrows();return}
+  if(!items.length){section.hidden=true;return}
   items.forEach(item=>{
    const article=document.createElement("article");article.className="officialCard";
    const media=document.createElement("div");media.className="officialPoster theme-"+(item.posterTheme||"cinema");
@@ -1328,12 +1227,10 @@ async function loadOfficialAnnouncements(){
   const checked=document.getElementById("officialCheckedAt");
   if(checked&&data.checkedAtLabel)checked.textContent="Contrôle du "+data.checkedAtLabel;
   section.hidden=false;
-  applyFilters(false);
  }catch(error){
   console.error("Annonces officielles indisponibles",error);
   root.innerHTML='<p class="note">Le calendrier officiel est momentanément indisponible. Réessayez lors du prochain contrôle.</p>';
   section.hidden=false;
-  applyFilters(false);
  }
 }
 
@@ -1354,35 +1251,92 @@ async function loadReferenceCatalog(){
 Promise.allSettled([loadReferenceCatalog(),loadFranceAndWeb()]).then(()=>loadOfficialAnnouncements());
 
 function bindScrollArrows(){
- const up=document.getElementById("backToTop"),down=document.getElementById("scrollToBottom");
- if(!up&&!down)return;
- const reduceMotion=()=>window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
- const isVisible=element=>{if(!element||element.hidden)return false;const style=window.getComputedStyle(element);return style.display!=="none"&&style.visibility!=="hidden"&&element.getClientRects().length>0};
- const getStops=()=>{const rows=[...document.querySelectorAll(".rowsection")].filter(isVisible);const footer=document.querySelector(".footerLinks");if(isVisible(footer))rows.push(footer);return rows};
+ const up=document.getElementById("backToTop");
+ const down=document.getElementById("scrollToBottom");
+ if(!up||!down)return;
+ const scrollStops=()=>{
+  const rows=[...document.querySelectorAll(".rowsection")].filter(section=>!section.hidden&&section.getClientRects().length);
+  const footerLinks=document.querySelector(".footerLinks");
+  if(footerLinks&&footerLinks.getClientRects().length)rows.push(footerLinks);
+  return rows;
+ };
  const getNextStop=()=>{
-  const stops=getStops();if(!stops.length)return null;if((window.scrollY||0)<=8)return stops[0];
-  if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-24)return null;
-  return stops.find(element=>element.getBoundingClientRect().top>150)||null;
+  const currentY=window.scrollY;
+  return scrollStops().find(section=>section.getBoundingClientRect().top>105)||null;
  };
- let framePending=false;
- const update=()=>{
-  if(framePending)return;framePending=true;
-  window.requestAnimationFrame(()=>{
-   framePending=false;const awayFromTop=(window.scrollY||0)>320,hasNext=Boolean(getNextStop());
-   document.body.classList.toggle("hasScrollUp",awayFromTop);document.body.classList.toggle("atLastStep",awayFromTop&&!hasNext);
-   if(up){up.classList.toggle("is-visible",awayFromTop);up.setAttribute("aria-hidden",String(!awayFromTop));up.tabIndex=awayFromTop?0:-1}
-   if(down){down.classList.toggle("is-visible",hasNext);down.disabled=!hasNext;down.setAttribute("aria-hidden",String(!hasNext));down.tabIndex=hasNext?0:-1}
-  });
+ const topbar=document.querySelector(".topbar");
+ let lastScrollY=window.scrollY;
+ let downTravel=0;
+ let upTravel=0;
+ let headerProgress=window.scrollY>100?1:0;
+ let targetProgress=headerProgress;
+ let headerFrame=0;
+ const setHeaderProgress=()=>{
+  if(!topbar)return;
+  topbar.style.setProperty("--header-progress",headerProgress.toFixed(3));
  };
- window.updateScrollArrows=update;window.addEventListener("scroll",update,{passive:true});window.addEventListener("resize",update,{passive:true});
- if(down)down.addEventListener("click",()=>{const next=getNextStop();if(!next){update();return}next.scrollIntoView({behavior:reduceMotion()?"auto":"smooth",block:"start"});update()});
- if(up)up.addEventListener("click",()=>window.scrollTo({top:0,behavior:reduceMotion()?"auto":"smooth"}));
- update();
+ setHeaderProgress();
+ const animateHeader=()=>{
+  headerFrame=0;
+  const difference=targetProgress-headerProgress;
+  const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduceMotion){
+   headerProgress=targetProgress;
+  }else{
+   headerProgress+=difference*0.19;
+   if(Math.abs(targetProgress-headerProgress)<0.004)headerProgress=targetProgress;
+  }
+  setHeaderProgress();
+  if(headerProgress!==targetProgress)headerFrame=window.requestAnimationFrame(animateHeader);
+ };
+ const updateHeaderTarget=(currentY)=>{
+  const delta=currentY-lastScrollY;
+  lastScrollY=currentY;
+  // Mobile uses a compact, fixed-height header; scrolling must never resize it.
+  if(window.matchMedia&&window.matchMedia("(max-width: 700px)").matches){
+   downTravel=0;upTravel=0;targetProgress=0;
+   if(headerProgress!==0&&!headerFrame)headerFrame=window.requestAnimationFrame(animateHeader);
+   return;
+  }
+  if(currentY<=8){
+   downTravel=0;upTravel=0;targetProgress=0;
+  }else if(delta>0.5){
+   downTravel+=delta;upTravel=0;
+   if(downTravel>=18)targetProgress=1;
+  }else if(delta< -0.5){
+   upTravel+=-delta;downTravel=0;
+   if(upTravel>=18)targetProgress=0;
+  }
+  if(targetProgress!==headerProgress&&!headerFrame)headerFrame=window.requestAnimationFrame(animateHeader);
+ };
+ const updateVisibility=()=>{
+  const currentY=window.scrollY;
+  updateHeaderTarget(currentY);
+  const awayFromTop=currentY>320;
+  const canStep=Boolean(getNextStop());
+  document.body.classList.toggle("hasScrollUp",awayFromTop);
+  down.classList.toggle("is-visible",canStep);
+  down.disabled=!canStep;
+  up.classList.toggle("is-visible",awayFromTop);
+ };
+ const behavior=()=>window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
+ const stepToNextRow=()=>{
+  const next=getNextStop();
+  if(!next){updateVisibility();return}
+  const targetY=Math.max(0,window.scrollY+next.getBoundingClientRect().top-76);
+  window.scrollTo({top:targetY,behavior:behavior()});
+  window.setTimeout(updateVisibility,450);
+ };
+ window.addEventListener("scroll",updateVisibility,{passive:true});
+ window.addEventListener("resize",updateVisibility,{passive:true});
+ down.addEventListener("click",stepToNextRow);
+ up.addEventListener("click",()=>window.scrollTo({top:0,behavior:behavior()}));
+ updateVisibility();
 }
 document.addEventListener("DOMContentLoaded",bindScrollArrows,{once:true});
 </script>
 
-<button class="scrollNavArrow down is-visible" id="scrollToBottom" type="button" aria-label="Aller à la prochaine rubrique" title="Rubrique suivante">
+<button class="scrollNavArrow down is-visible" id="scrollToBottom" type="button" aria-label="Descendre en bas de la page" title="Descendre en bas">
  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m5.5 12.5 6.5 6.5 6.5-6.5"/></svg>
 </button>
 <button class="scrollNavArrow up" id="backToTop" type="button" aria-label="Revenir en haut de la page" title="Revenir en haut">
