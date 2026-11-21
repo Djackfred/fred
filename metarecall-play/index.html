@@ -456,6 +456,46 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
   .topbar .accountControls,.topbar .nav>nav{transition:none!important}
 }
 
+
+/* Genre filters: centered, wrapped, never clipped on desktop */
+.genreExplorer{
+  width:100%;
+  max-width:var(--max);
+  margin:0 auto 6px;
+  padding:0 clamp(16px,4.5%,64px) 24px;
+}
+.genreChips{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:10px 9px;
+  width:100%;
+  max-width:100%;
+  overflow:visible;
+  padding:3px 0 9px;
+  scrollbar-width:none;
+}
+.genreChips::-webkit-scrollbar{display:none}
+.genreButton{
+  flex:0 1 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  white-space:nowrap;
+  padding:8px 13px;
+  font-size:11px;
+  line-height:1.2;
+}
+.genreButton .genreCount{flex:0 0 auto;font-variant-numeric:tabular-nums}
+@media(max-width:700px){
+  .genreExplorer{padding:0 4% 20px}
+  .genreHead{align-items:flex-start}
+  .genreHead span{display:block;font-size:9px;text-align:right}
+  .genreChips{gap:7px;justify-content:center}
+  .genreButton{padding:8px 11px;font-size:10px}
+}
+
 </style>
 </head>
 <body>
@@ -611,12 +651,15 @@ function setHeroPosters(items){
  });
 }
 
+function normalizeGenreKey(value){
+ return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+}
 function card(item,index,rank=false){
  const posterCandidates=posterSourcesFor(item);
  if(!posterCandidates.length)return null;
  const el=document.createElement("article");el.className="poster";el.hidden=true;el.style.display="none";el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-label","Ouvrir "+item.title);
  el.dataset.search=(item.title+" "+item.type+" "+(item.genre||"")+" "+(item.genreTags||[]).join(" ")).toLowerCase();
- el.dataset.genre=[...(item.genreTags||[]),item.genre||""].filter(Boolean).join(" ").toLowerCase();el.dataset.type=(item.type||"").toLowerCase();el.dataset.catalogueId=item.id||"";el.dataset.year=item.year||"";
+ el.dataset.genre=[...new Set([...(item.genreTags||[]),item.genre||""].map(normalizeGenreKey).filter(Boolean))].join("|");el.dataset.type=normalizeGenreKey(item.type||"");el.dataset.catalogueId=item.id||"";el.dataset.year=item.year||"";
  if(rank){const number=document.createElement("span");number.className="rank";number.textContent=String(index+1);el.appendChild(number)}
  const visual=document.createElement("div");visual.className="art";
  const image=document.createElement("img");image.loading=index<8?"eager":"lazy";image.alt="Affiche de "+item.title;image.referrerPolicy="strict-origin-when-cross-origin";
@@ -648,7 +691,7 @@ function applyFilters(scrollToResults=false){
  const q=document.querySelector("#search").value.trim().toLowerCase();let visible=0;
  document.querySelectorAll(".poster").forEach(el=>{
   const textMatch=!q||el.dataset.search.includes(q);
-  const genreMatch=activeGenre==="all"||el.dataset.genre.includes(activeGenre)||el.dataset.type.includes(activeGenre);
+  const genreMatch=activeGenre==="all"||el.dataset.genre.split("|").includes(activeGenre)||el.dataset.type===activeGenre;
   const show=textMatch&&genreMatch;el.style.display=show?"":"none";if(show)visible++;
  });
  const filtering=activeGenre!=="all"||Boolean(q);
@@ -660,7 +703,8 @@ function applyFilters(scrollToResults=false){
  empty.style.display=visible?"none":"block";
  if(!visible){
   if(activeGenre!=="all"){
-   const selected=document.querySelector('.genreButton[data-genre="'+activeGenre.replace(/"/g,'\\"')+'"]');
+   const selected=[...document.querySelectorAll(".genreButton")].find(button=>normalizeGenreKey(button.dataset.genre)===activeGenre);
+   const label=selected?selected.dataset.label||selected.textContent.trim():activeGenre;
    const label=selected?selected.getAttribute("data-label")||selected.textContent.replace(/\\s+\\d+$/,"").trim():activeGenre;
    empty.textContent="Aucun film classé "+label+" dans les fiches actuellement chargées. Le catalogue se complète à chaque synchronisation.";
   }else{
@@ -673,34 +717,40 @@ function applyFilters(scrollToResults=false){
  }
 }
 function updateGenreCounts(sections){
+ // Comptage sur le catalogue source, avec déduplication par identifiant.
+ // Un même titre peut être présent dans plusieurs rayons.
  const unique=new Map();
  Object.values(sections||{}).flat().forEach(item=>{
-  const key=String(item.title||item.id||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim();
+  const id=String(item.id||"").trim();
+  const key=id||normalizeGenreKey(item.title);
   if(!key)return;
-  const tags=[...(item.genreTags||[]),item.genre||""].filter(Boolean);
-  if(!unique.has(key))unique.set(key,new Set(tags));
+  const tags=new Set([...(item.genreTags||[]),item.genre||""].map(normalizeGenreKey).filter(Boolean));
+  if(!unique.has(key))unique.set(key,tags);
   else tags.forEach(tag=>unique.get(key).add(tag));
  });
  const counts=new Map();
- unique.forEach(tags=>tags.forEach(tag=>{
-  const key=String(tag).normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim();
-  counts.set(key,(counts.get(key)||0)+1);
- }));
+ unique.forEach(tags=>tags.forEach(tag=>counts.set(tag,(counts.get(tag)||0)+1)));
+
  document.querySelectorAll(".genreButton").forEach(button=>{
-  const key=String(button.dataset.genre||"all").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim();
+  const key=normalizeGenreKey(button.dataset.genre||"all");
   const count=key==="all"?unique.size:(counts.get(key)||0);
   let badge=button.querySelector(".genreCount");
-  if(!badge){badge=document.createElement("span");badge.className="genreCount";badge.setAttribute("aria-hidden","true");button.appendChild(badge);}
+  if(!badge){
+   badge=document.createElement("span");
+   badge.className="genreCount";
+   badge.setAttribute("aria-hidden","true");
+   button.appendChild(badge);
+  }
   badge.textContent=String(count);
   button.dataset.count=String(count);
-  button.dataset.label=button.childNodes[0]?.textContent?.trim()||button.textContent.trim();
+  button.dataset.label=button.dataset.label||button.childNodes[0]?.textContent?.trim()||button.textContent.trim();
   button.setAttribute("aria-label",button.dataset.label+", "+count+" titre(s)");
  });
 }
 document.querySelector("#search").addEventListener("input",()=>applyFilters(false));
 document.querySelectorAll(".genreButton").forEach(button=>button.addEventListener("click",()=>{
  document.querySelectorAll(".genreButton").forEach(item=>item.classList.remove("active"));
- button.classList.add("active");activeGenre=button.dataset.genre||"all";applyFilters(true);
+ button.classList.add("active");activeGenre=normalizeGenreKey(button.dataset.genre||"all");applyFilters(true);
 }));
 
 function localDateString(date){const y=date.getFullYear(),m=String(date.getMonth()+1).padStart(2,"0"),d=String(date.getDate()).padStart(2,"0");return y+"-"+m+"-"+d}
