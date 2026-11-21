@@ -77,6 +77,8 @@ main{overflow:hidden}
 .genreChips::-webkit-scrollbar{display:none}
 .genreButton{flex:0 0 auto;border:1px solid #ffffff18;background:#171922;color:#c4c8d2;border-radius:999px;padding:8px 14px;font-size:11px;font-weight:650;cursor:pointer;transition:.2s}
 .genreButton:hover,.genreButton.active{background:#e52d5525;border-color:#ed5270;color:#fff}
+.genreButton .genreCount{display:inline-grid;place-items:center;min-width:18px;height:18px;margin-left:6px;padding:0 5px;border-radius:999px;background:#ffffff14;color:#b8bfcd;font-size:10px;font-weight:800}.genreButton.active .genreCount{background:#e52d5540;color:#fff}
+.rowsection[hidden]{display:none!important}
 .rowsection{margin:0 0 31px;position:relative}
 .rowhead{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:0 4.5% 13px}
 .rowtitle{font-size:21px;font-weight:800;letter-spacing:-.65px;margin:4px 0 0}
@@ -113,6 +115,22 @@ main{overflow:hidden}
 .modalbody h2{font-size:30px;letter-spacing:-.8px;margin:0 0 10px}
 .modalbody p{color:#d0d2da;max-width:650px}
 .close{position:absolute;right:14px;top:14px;z-index:2;border:1px solid #ffffff40;border-radius:50%;width:36px;height:36px;background:#171922eb;color:white;font-size:23px;cursor:pointer}
+.footerLinks{max-width:var(--max);margin:0 auto 30px;padding:25px 4.5% 0;border-top:1px solid #ffffff12}
+.footerLinksHead{margin-bottom:14px}.footerLinksHead h2{font-size:20px;margin:5px 0 0;letter-spacing:-.5px}
+.footerLinkGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.footerLinkCard{display:flex;align-items:center;gap:14px;min-width:0;padding:17px 18px;border-radius:16px;border:1px solid #ffffff16;background:linear-gradient(125deg,#1c1e29,#12141b);box-shadow:0 12px 30px #0003;transition:transform .2s,border-color .2s,box-shadow .2s}
+.footerLinkCard:hover{transform:translateY(-3px);border-color:#ffffff40;box-shadow:0 17px 36px #0005}
+.footerLinkIcon{width:48px;height:48px;flex:0 0 48px;display:grid;place-items:center;border-radius:13px}
+.footerLinkIcon svg{width:27px;height:27px}
+.ravpazIcon{color:#fff;background:linear-gradient(140deg,#e52d55,#642c54)}
+.justwatchIcon{color:#171923;background:linear-gradient(140deg,#ffe16a,#ffbd36)}
+.footerLinkCopy{display:flex;flex-direction:column;gap:3px;min-width:0}
+.footerLinkCopy small{font-size:9px;letter-spacing:1.3px;font-weight:800;color:#aeb4c2}
+.footerLinkCopy strong{font-size:16px;color:#fff;white-space:nowrap}
+.footerLinkCopy span{font-size:11px;color:#9da4b2}
+.footerLinkArrow{margin-left:auto;color:#ff8194;font-size:20px}
+.justwatchLink .footerLinkArrow{color:#ffcb4a}
+@media(max-width:620px){.footerLinkGrid{grid-template-columns:1fr}.footerLinkCard{padding:14px}}
 footer{padding:31px 5%;border-top:1px solid #ffffff12;background:#090a0f;color:#858b99;font-size:11px;line-height:1.8}
 footer strong{color:#e6e7eb;font-size:12px;letter-spacing:1px}
 @media(max-width:900px){.nav{gap:17px}.brand{min-width:auto}.brandName{font-size:17px}nav{gap:13px}.heroArt{right:5%;width:42%}.heroContent{width:58%}.proofbar{grid-template-columns:repeat(2,1fr)}}
@@ -164,7 +182,23 @@ footer strong{color:#e6e7eb;font-size:12px;letter-spacing:1px}
 <section class="rowsection" id="series-tvmaze"><div class="rowhead"><div><span class="eyebrow">Calendrier télévisé complémentaire</span><h2 class="rowtitle">Épisodes récents — TVmaze</h2></div><span class="rowmeta">France · hier, aujourd'hui, demain</span></div><button class="shelfArrow left" aria-label="Défiler à gauche">‹</button><div class="shelf" id="newShows"><p class="note">Chargement des diffusions TVmaze…</p></div><button class="shelfArrow right" aria-label="Défiler à droite">›</button></section>
 <p class="empty" id="empty">Aucun titre ne correspond à votre recherche ou à ce filtre.</p>
 </div></main>
-<footer><strong>METARECALL PLAY</strong><br>Catalogue de découverte certifié by Frédéric Jacquet. Les rubriques, titres, années et genres reprennent le relevé public de la page de référence Ravpaz. Les affiches sont chargées depuis leur source image publique, avec une source de repli lorsque disponible.<br>METARECALL PLAY ne diffuse pas les œuvres. Le bouton « Vérifier sur JustWatch France » permet de rechercher des options légales ; aucune disponibilité sur une plateforme n’est affirmée sans vérification.</footer>
+<footer>
+<section class="footerLinks" aria-label="Accès externes et sources">
+ <div class="footerLinksHead"><span class="eyebrow">LIENS DE RÉFÉRENCE</span><h2>Explorer aussi</h2></div>
+ <div class="footerLinkGrid">
+  <a class="footerLinkCard ravpazLink" href="https://www.ravpaz.com/" target="_blank" rel="noopener noreferrer">
+   <span class="footerLinkIcon ravpazIcon" aria-hidden="true"><svg viewBox="0 0 48 48" role="img"><rect x="7" y="8" width="34" height="32" rx="8" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M19 15v18l15-9z" fill="currentColor"/><path d="M12 4v4M21 4v4M30 4v4M39 4v4M12 40v4M21 40v4M30 40v4M39 40v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
+   <span class="footerLinkCopy"><small>SOURCE DU CATALOGUE</small><strong>Ravpaz</strong><span>Accéder au site de référence</span></span>
+   <span class="footerLinkArrow" aria-hidden="true">↗</span>
+  </a>
+  <a class="footerLinkCard justwatchLink" href="https://www.justwatch.com/fr" target="_blank" rel="noopener noreferrer">
+   <span class="footerLinkIcon justwatchIcon" aria-hidden="true"><svg viewBox="0 0 48 48" role="img"><circle cx="21" cy="21" r="12" fill="none" stroke="currentColor" stroke-width="4"/><path d="m30 30 11 11" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><path d="M17 16v10l9-5z" fill="currentColor"/></svg></span>
+   <span class="footerLinkCopy"><small>OPTIONS DE VISIONNAGE LÉGALES</small><strong>JustWatch France</strong><span>Où regarder un film ou une série</span></span>
+   <span class="footerLinkArrow" aria-hidden="true">↗</span>
+  </a>
+ </div>
+</section>
+<strong>METARECALL PLAY</strong><br>Catalogue de découverte certifié by Frédéric Jacquet. Les rubriques, titres, années et genres reprennent le relevé public de la page de référence Ravpaz. Les affiches sont chargées depuis leur source image publique, avec une source de repli lorsque disponible.<br>METARECALL PLAY ne diffuse pas les œuvres. Le bouton « Vérifier sur JustWatch France » permet de rechercher des options légales ; aucune disponibilité sur une plateforme n’est affirmée sans vérification.</footer>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalbox"><button class="close" id="close" aria-label="Fermer">×</button><div class="modalart" id="modalArt"></div><div class="modalbody"><span class="badge">FICHE DU PROGRAMME</span><h2 id="modalTitle"></h2><p id="modalMeta" style="font-size:12px;color:#aaa"></p><p id="modalDesc"></p><a class="btn play" id="whereWatch" href="https://www.justwatch.com/fr" target="_blank" rel="noopener">Vérifier sur JustWatch France</a> <a class="btn more" id="officialLink" href="#" target="_blank" rel="noopener">Fiche officielle</a> <button class="btn more" id="modalOk">Fermer</button></div></div></div>
 <script>
 const art={
@@ -228,8 +262,8 @@ function setHeroPosters(items){
 }
 function card(item,index,rank=false){
  const el=document.createElement("article");el.className="poster";el.tabIndex=0;el.setAttribute("role","button");el.setAttribute("aria-label","Ouvrir "+item.title);
- el.dataset.search=(item.title+" "+item.type+" "+(item.genre||"")).toLowerCase();
- el.dataset.genre=(item.genre||"").toLowerCase();el.dataset.type=(item.type||"").toLowerCase();el.dataset.catalogueId=item.id||"";el.dataset.year=item.year||"";
+ el.dataset.search=(item.title+" "+item.type+" "+(item.genre||"")+" "+(item.genreTags||[]).join(" ")).toLowerCase();
+ el.dataset.genre=[...(item.genreTags||[]),item.genre||""].filter(Boolean).join(" ").toLowerCase();el.dataset.type=(item.type||"").toLowerCase();el.dataset.catalogueId=item.id||"";el.dataset.year=item.year||"";
  if(rank){const number=document.createElement("span");number.className="rank";number.textContent=String(index+1);el.appendChild(number)}
  const visual=document.createElement("div");visual.className="art";
  const image=document.createElement("img");image.loading=index<8?"eager":"lazy";image.alt="Affiche de "+item.title;image.referrerPolicy="strict-origin-when-cross-origin";
@@ -250,19 +284,63 @@ document.querySelectorAll(".rowsection").forEach(section=>{const shelf=section.q
 document.querySelector("#heroPlay").onclick=()=>document.querySelector("#genres").scrollIntoView({behavior:"smooth"});
 document.querySelector("#heroInfo").onclick=()=>document.querySelector("#top15").scrollIntoView({behavior:"smooth"});
 let activeGenre="all";
-function applyFilters(){
+function applyFilters(scrollToResults=false){
  const q=document.querySelector("#search").value.trim().toLowerCase();let visible=0;
  document.querySelectorAll(".poster").forEach(el=>{
   const textMatch=!q||el.dataset.search.includes(q);
   const genreMatch=activeGenre==="all"||el.dataset.genre.includes(activeGenre)||el.dataset.type.includes(activeGenre);
   const show=textMatch&&genreMatch;el.style.display=show?"":"none";if(show)visible++;
  });
- document.querySelector("#empty").style.display=visible?"none":"block";
+ const filtering=activeGenre!=="all"||Boolean(q);
+ document.querySelectorAll(".rowsection").forEach(section=>{
+  const hasMatch=[...section.querySelectorAll(".poster")].some(el=>el.style.display!=="none");
+  section.hidden=filtering&&!hasMatch;
+ });
+ const empty=document.querySelector("#empty");
+ empty.style.display=visible?"none":"block";
+ if(!visible){
+  if(activeGenre!=="all"){
+   const selected=document.querySelector('.genreButton[data-genre="'+activeGenre.replace(/"/g,'\\"')+'"]');
+   const label=selected?selected.getAttribute("data-label")||selected.textContent.replace(/\\s+\\d+$/,"").trim():activeGenre;
+   empty.textContent="Aucun film classé "+label+" dans les fiches actuellement chargées. Le catalogue se complète à chaque synchronisation.";
+  }else{
+   empty.textContent="Aucun titre ne correspond à votre recherche.";
+  }
+ }
+ if(scrollToResults&&visible){
+  const first=[...document.querySelectorAll(".rowsection")].find(section=>!section.hidden&&[...section.querySelectorAll(".poster")].some(el=>el.style.display!=="none"));
+  if(first)first.scrollIntoView({behavior:"smooth",block:"start"});
+ }
 }
-document.querySelector("#search").addEventListener("input",applyFilters);
+function updateGenreCounts(sections){
+ const unique=new Map();
+ Object.values(sections||{}).flat().forEach(item=>{
+  const key=String(item.title||item.id||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim();
+  if(!key)return;
+  const tags=[...(item.genreTags||[]),item.genre||""].filter(Boolean);
+  if(!unique.has(key))unique.set(key,new Set(tags));
+  else tags.forEach(tag=>unique.get(key).add(tag));
+ });
+ const counts=new Map();
+ unique.forEach(tags=>tags.forEach(tag=>{
+  const key=String(tag).normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim();
+  counts.set(key,(counts.get(key)||0)+1);
+ }));
+ document.querySelectorAll(".genreButton").forEach(button=>{
+  const key=String(button.dataset.genre||"all").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().trim();
+  const count=key==="all"?unique.size:(counts.get(key)||0);
+  let badge=button.querySelector(".genreCount");
+  if(!badge){badge=document.createElement("span");badge.className="genreCount";badge.setAttribute("aria-hidden","true");button.appendChild(badge);}
+  badge.textContent=String(count);
+  button.dataset.count=String(count);
+  button.dataset.label=button.childNodes[0]?.textContent?.trim()||button.textContent.trim();
+  button.setAttribute("aria-label",button.dataset.label+", "+count+" titre(s)");
+ });
+}
+document.querySelector("#search").addEventListener("input",()=>applyFilters(false));
 document.querySelectorAll(".genreButton").forEach(button=>button.addEventListener("click",()=>{
  document.querySelectorAll(".genreButton").forEach(item=>item.classList.remove("active"));
- button.classList.add("active");activeGenre=button.dataset.genre||"all";applyFilters();
+ button.classList.add("active");activeGenre=button.dataset.genre||"all";applyFilters(true);
 }));
 
 function localDateString(date){const y=date.getFullYear(),m=String(date.getMonth()+1).padStart(2,"0"),d=String(date.getDate()).padStart(2,"0");return y+"-"+m+"-"+d}
@@ -365,11 +443,12 @@ async function loadReferenceCatalog(){
   const response=await fetch("./catalogue-ravpaz.json?v=20261121",{cache:"no-store"});
   if(!response.ok)throw new Error("HTTP "+response.status+" sur le catalogue de référence");
   const data=await response.json(),sections=data.sections||{};
-  const toCard=item=>({id:item.id,title:item.title,type:item.type||"Film",genre:item.genre||"À découvrir",displayDate:item.year||"",year:item.year||"",desc:"Titre repris du catalogue public de référence. Consultez les options de visionnage légal en France via JustWatch.",imageUrl:item.imageUrl||"",posterCandidates:posterSourcesFor(item),officialUrl:null,source:"Ravpaz"});
+  const toCard=item=>({id:item.id,title:item.title,type:item.type||"Film",genre:item.genre||"À découvrir",genreTags:item.genreTags||[],displayDate:item.year||"",year:item.year||"",desc:"Titre repris du catalogue public de référence. Consultez les options de visionnage légal en France via JustWatch.",imageUrl:item.imageUrl||"",posterCandidates:posterSourcesFor(item),officialUrl:null,source:"Ravpaz"});
   const fillSection=(elementId,key,rank=false)=>{const shelf=document.getElementById(elementId);if(!shelf)return;shelf.replaceChildren();(sections[key]||[]).forEach((item,index)=>shelf.appendChild(card(toCard(item),index,rank)))};
   fillSection("latestShelf","latest");fillSection("top15Shelf","top15",true);fillSection("featuredShelf","featured");fillSection("animationShelf","animation");fillSection("docsShelf","docs");fillSection("catalogueShelf","catalogue");setHeroPosters(sections.top15||[]);
+  updateGenreCounts(sections);
   window.__ravpazSnapshot=data.snapshotDate||"";
-  applyFilters();
+  applyFilters(false);
  }catch(error){console.error("Catalogue Ravpaz indisponible",error);["latestShelf","top15Shelf","featuredShelf","animationShelf","docsShelf","catalogueShelf"].forEach(id=>{const shelf=document.getElementById(id);if(shelf)shelf.innerHTML='<p class="note">Le catalogue de référence n’a pas pu être chargé. Réessayez dans quelques instants.</p>'})}
 }
 loadReferenceCatalog();
