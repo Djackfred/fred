@@ -863,7 +863,7 @@
         "id": "77617920",
         "title": "Insidious : L'Invasion du Lointain",
         "year": "2026",
-        "genre": "À découvrir",
+        "genre": "Horreur",
         "type": "Film",
         "posterFile": "lGY2oK3D1xET2sDyKezYy6AYR32.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/lGY2oK3D1xET2sDyKezYy6AYR32.jpg",
@@ -874,7 +874,15 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/lGY2oK3D1xET2sDyKezYy6AYR32.jpg",
           "https://image.tmdb.org/t/p/w500/lGY2oK3D1xET2sDyKezYy6AYR32.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FlGY2oK3D1xET2sDyKezYy6AYR32.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "sourceCategoryLabel": "À découvrir",
+        "genreTags": [
+          "Horreur"
+        ],
+        "genreClassificationSources": [
+          "https://www.sonypictures.fr/film/insidious-l-invasion-du-lointain"
+        ],
+        "genreClassificationVerifiedAt": "2026-11-21"
       },
       {
         "id": "77613568",
@@ -897,7 +905,7 @@
         "id": "77343744",
         "title": "La Pat’ Patrouille : Le film mission Dino",
         "year": "2026",
-        "genre": "À découvrir",
+        "genre": "Animation",
         "type": "Film",
         "posterFile": "iprKhXVhUuGo3LbPurtB7Zcq6ph.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/iprKhXVhUuGo3LbPurtB7Zcq6ph.jpg",
@@ -908,7 +916,18 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/iprKhXVhUuGo3LbPurtB7Zcq6ph.jpg",
           "https://image.tmdb.org/t/p/w500/iprKhXVhUuGo3LbPurtB7Zcq6ph.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FiprKhXVhUuGo3LbPurtB7Zcq6ph.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "sourceCategoryLabel": "À découvrir",
+        "genreTags": [
+          "Animation",
+          "Aventure",
+          "Comédie"
+        ],
+        "genreClassificationSources": [
+          "https://www.paramountpictures.fr/film/la-pat-patrouille-le-film-mission-dino/",
+          "https://www.allocine.fr/film/fichefilm_gen_cfilm=320681.html"
+        ],
+        "genreClassificationVerifiedAt": "2026-11-21"
       },
       {
         "id": "77182720",
@@ -965,7 +984,7 @@
         "id": "77073920",
         "title": "Toy Story 5",
         "year": "2026",
-        "genre": "À découvrir",
+        "genre": "Animation",
         "type": "Film",
         "posterFile": "ipiYeecAshSsZE9RuYwHIVrHisa.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/ipiYeecAshSsZE9RuYwHIVrHisa.jpg",
@@ -976,7 +995,17 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/ipiYeecAshSsZE9RuYwHIVrHisa.jpg",
           "https://image.tmdb.org/t/p/w500/ipiYeecAshSsZE9RuYwHIVrHisa.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FipiYeecAshSsZE9RuYwHIVrHisa.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "sourceCategoryLabel": "À découvrir",
+        "genreTags": [
+          "Animation",
+          "Aventure",
+          "Comédie"
+        ],
+        "genreClassificationSources": [
+          "https://www.disney.fr/films/toy-story-5"
+        ],
+        "genreClassificationVerifiedAt": "2026-11-21"
       },
       {
         "id": "76995584",
@@ -1016,7 +1045,7 @@
         "id": "76921600",
         "title": "Evil Dead Burn",
         "year": "2026",
-        "genre": "À découvrir",
+        "genre": "Horreur",
         "type": "Film",
         "posterFile": "twkjKuOf4hVAmXxOwpyRy682VZR.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/twkjKuOf4hVAmXxOwpyRy682VZR.jpg",
@@ -1027,7 +1056,16 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/twkjKuOf4hVAmXxOwpyRy682VZR.jpg",
           "https://image.tmdb.org/t/p/w500/twkjKuOf4hVAmXxOwpyRy682VZR.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FtwkjKuOf4hVAmXxOwpyRy682VZR.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "sourceCategoryLabel": "À découvrir",
+        "genreTags": [
+          "Horreur"
+        ],
+        "genreClassificationSources": [
+          "https://metrofilms.com/film/evil-dead-burn/",
+          "https://www.allocine.fr/film/fichefilm_gen_cfilm=326465.html"
+        ],
+        "genreClassificationVerifiedAt": "2026-11-21"
       },
       {
         "id": "76817152",
@@ -1050,7 +1088,7 @@
         "id": "76769280",
         "title": "Les Maîtres de l'Univers",
         "year": "2026",
-        "genre": "À découvrir",
+        "genre": "Fantastique",
         "type": "Film",
         "posterFile": "tJxeLnt5K3LHfJdaAZY6bttM0Sv.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/tJxeLnt5K3LHfJdaAZY6bttM0Sv.jpg",
@@ -1061,7 +1099,19 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/tJxeLnt5K3LHfJdaAZY6bttM0Sv.jpg",
           "https://image.tmdb.org/t/p/w500/tJxeLnt5K3LHfJdaAZY6bttM0Sv.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FtJxeLnt5K3LHfJdaAZY6bttM0Sv.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "sourceCategoryLabel": "À découvrir",
+        "genreTags": [
+          "Fantastique",
+          "Science-Fiction",
+          "Action",
+          "Aventure"
+        ],
+        "genreClassificationSources": [
+          "https://www.bbfc.co.uk/release/masters-of-the-universe-q29sbgvjdglvbjpwwc0xmta5nzu0",
+          "https://investors.mattel.com/news/news-details/2026/Matttel-Debuts-Official-Trailer-for-Masters-of-the-Universe-In-Theaters-Worldwide-June-5-2026/default.aspx"
+        ],
+        "genreClassificationVerifiedAt": "2026-11-21"
       },
       {
         "id": "76751872",
@@ -1084,7 +1134,7 @@
         "id": "76747520",
         "title": "The Mandalorian and Grogu",
         "year": "2026",
-        "genre": "À découvrir",
+        "genre": "Science-Fiction",
         "type": "Film",
         "posterFile": "qkH4ntQtO5qnL17RFOvmkNHKpGt.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/qkH4ntQtO5qnL17RFOvmkNHKpGt.jpg",
@@ -1095,7 +1145,18 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/qkH4ntQtO5qnL17RFOvmkNHKpGt.jpg",
           "https://image.tmdb.org/t/p/w500/qkH4ntQtO5qnL17RFOvmkNHKpGt.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FqkH4ntQtO5qnL17RFOvmkNHKpGt.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "sourceCategoryLabel": "À découvrir",
+        "genreTags": [
+          "Science-Fiction",
+          "Aventure",
+          "Action"
+        ],
+        "genreClassificationSources": [
+          "https://www.disneyplus.com/fr-fr/browse/entity-d830ec57-499e-498c-b6b3-2b85a18a5f51",
+          "https://www.starwars.com/films/Star-Wars-The-Mandalorian-and-Grogu"
+        ],
+        "genreClassificationVerifiedAt": "2026-11-21"
       },
       {
         "id": "76725760",
@@ -1135,7 +1196,7 @@
         "id": "76477696",
         "title": "Obsession",
         "year": "2026",
-        "genre": "À découvrir",
+        "genre": "Horreur",
         "type": "Film",
         "posterFile": "mDCR1frpUvGfIKksuM440VLb7X9.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/mDCR1frpUvGfIKksuM440VLb7X9.jpg",
@@ -1146,7 +1207,16 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/mDCR1frpUvGfIKksuM440VLb7X9.jpg",
           "https://image.tmdb.org/t/p/w500/mDCR1frpUvGfIKksuM440VLb7X9.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FmDCR1frpUvGfIKksuM440VLb7X9.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "sourceCategoryLabel": "À découvrir",
+        "genreTags": [
+          "Horreur"
+        ],
+        "genreClassificationSources": [
+          "https://www.focusfeatures.com/obsession",
+          "https://www.allocine.fr/film/fichefilm_gen_cfilm=1000028234.html"
+        ],
+        "genreClassificationVerifiedAt": "2026-11-21"
       },
       {
         "id": "76460288",
@@ -1307,7 +1377,7 @@
         "id": "77865984",
         "title": "L'Île des Souvenirs",
         "year": "2026",
-        "genre": "À découvrir",
+        "genre": "Fantastique",
         "type": "Film",
         "posterFile": "1E7aTchsDC8Uos1uBpZG6LDdWRn.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/1E7aTchsDC8Uos1uBpZG6LDdWRn.jpg",
@@ -1318,7 +1388,18 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/1E7aTchsDC8Uos1uBpZG6LDdWRn.jpg",
           "https://image.tmdb.org/t/p/w500/1E7aTchsDC8Uos1uBpZG6LDdWRn.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2F1E7aTchsDC8Uos1uBpZG6LDdWRn.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "sourceCategoryLabel": "À découvrir",
+        "genreTags": [
+          "Fantastique",
+          "Animation",
+          "Aventure"
+        ],
+        "genreClassificationSources": [
+          "https://www.allocine.fr/film/fichefilm_gen_cfilm=296642.html",
+          "https://www.youtube.com/watch?v=grkFioQ20DE"
+        ],
+        "genreClassificationVerifiedAt": "2026-11-21"
       },
       {
         "id": "77831168",
@@ -1392,7 +1473,7 @@
         "id": "77670144",
         "title": "Tad l'explorateur et la Lampe Magique",
         "year": "2026",
-        "genre": "À découvrir",
+        "genre": "Fantastique",
         "type": "Film",
         "posterFile": "noH4lnhQepTk0W8L2GSyow7rLUN.jpg",
         "imageUrl": "https://www.ravpaz.com/1sjuv496ooa1/home/noH4lnhQepTk0W8L2GSyow7rLUN.jpg",
@@ -1403,7 +1484,19 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/noH4lnhQepTk0W8L2GSyow7rLUN.jpg",
           "https://image.tmdb.org/t/p/w500/noH4lnhQepTk0W8L2GSyow7rLUN.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FnoH4lnhQepTk0W8L2GSyow7rLUN.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "sourceCategoryLabel": "À découvrir",
+        "genreTags": [
+          "Fantastique",
+          "Animation",
+          "Aventure",
+          "Comédie"
+        ],
+        "genreClassificationSources": [
+          "https://www.cineanimation.fr/film/tad-l-explorateur-et-la-lampe-magique",
+          "https://www.paramountpictures.fr/film/tad-lexplorateur-et-la-lampe-magique/"
+        ],
+        "genreClassificationVerifiedAt": "2026-11-21"
       },
       {
         "id": "77578752",
@@ -2906,5 +2999,6 @@
         ]
       }
     ]
-  }
+  },
+  "genreEnrichmentNote": "Les fiches conservent le relevé de la source Ravpaz dans sourceCategoryLabel. Les classifications complémentaires sont vérifiées via les distributeurs, studios ou fiches cinématographiques cités par fiche. Quand plusieurs genres sont vérifiés, genreTags est utilisé par les filtres."
 }
