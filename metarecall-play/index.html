@@ -136,6 +136,15 @@ footer strong{color:#e6e7eb;font-size:12px;letter-spacing:1px}
 @media(max-width:900px){.nav{gap:17px}.brand{min-width:auto}.brandName{font-size:17px}nav{gap:13px}.heroArt{right:5%;width:42%}.heroContent{width:58%}.proofbar{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.nav{height:66px;padding:0 4%;gap:10px}.brandIcon{width:34px;height:34px;border-radius:10px}.brandName{font-size:15px}.brandName small{font-size:7px;letter-spacing:1.5px}.brandName .certifiedBy{font-size:7px;letter-spacing:1px;margin-bottom:3px}nav{display:none}.searchbox{padding:8px 11px}.searchbox input{width:105px;font-size:12px}.hero{margin-top:9px;min-height:370px;padding:34px 8%}.hero:before{inset:0 3%;border-radius:19px}.heroContent{width:100%;margin:0}.hero h1{font-size:39px;letter-spacing:-1.8px;max-width:400px}.hero p{font-size:13px;max-width:410px}.heroArt{opacity:.22;right:3%;width:65%;height:230px}.heroPoster{width:120px}.actions{margin-top:20px}.proofbar{padding:0 5%;gap:7px}.proofitem{padding:10px 9px;gap:8px}.proofitem strong{font-size:9px}.proofitem small{font-size:9px}.prooficon{width:28px;height:28px;flex-basis:28px}.content{margin-top:24px}.genreExplorer{padding:0 5% 18px}.genreHead h2{font-size:15px}.genreHead span{display:none}.genreButton{font-size:10px;padding:8px 12px}.rowsection{margin-bottom:25px}.rowhead{margin:0 5% 10px}.rowtitle{font-size:18px}.rowmeta{display:none}.shelf{gap:10px;padding-left:5%;padding-right:5%}.poster{flex-basis:145px;border-radius:9px}.posterText{left:10px;bottom:11px}.posterText strong{font-size:14px}.shelfArrow{display:none}.modalart{height:190px}.modalbody{padding:0 18px 22px}.modalbody h2{font-size:24px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
+/* Floating back-to-top control — visible throughout the page while scrolling */
+.backToTop{position:fixed;left:50%;bottom:24px;z-index:1000;width:64px;height:64px;display:flex;align-items:center;justify-content:center;border:1px solid #ffffff55;border-radius:50%;color:#fff;background:linear-gradient(145deg,#ff647f,#cb1745);box-shadow:0 12px 36px #0009,0 0 0 6px #e52d551c;cursor:pointer;opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,18px);transition:opacity .22s ease,visibility .22s ease,transform .22s ease,box-shadow .22s ease}
+.backToTop.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+.backToTop:hover{box-shadow:0 16px 42px #000b,0 0 0 9px #e52d5528;transform:translate(-50%,-3px)}
+.backToTop:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.backToTop svg{width:31px;height:31px;display:block}
+@media(max-width:620px){.backToTop{width:58px;height:58px;bottom:16px}.backToTop svg{width:28px;height:28px}}
+@media(prefers-reduced-motion:reduce){.backToTop{transition:none}}
 </style>
 </head>
 <body>
@@ -457,5 +466,22 @@ async function loadReferenceCatalog(){
 }
 loadReferenceCatalog();
 loadFranceAndWeb();
+
+function bindBackToTop(){
+ const button=document.getElementById("backToTop");
+ if(!button)return;
+ const updateVisibility=()=>button.classList.toggle("is-visible",window.scrollY>320);
+ window.addEventListener("scroll",updateVisibility,{passive:true});
+ updateVisibility();
+ button.addEventListener("click",()=>{
+  const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({top:0,behavior:reduceMotion?"auto":"smooth"});
+ });
+}
+bindBackToTop();
 </script>
+
+<button class="backToTop" id="backToTop" type="button" aria-label="Revenir en haut de la page" title="Revenir en haut">
+ <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5.5 11.5 6.5-6.5 6.5 6.5"/></svg>
+</button>
 </body></html>
