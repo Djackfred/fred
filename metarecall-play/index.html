@@ -819,6 +819,94 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
   .rowtitle{font-size:16px}
 }
 
+
+/* Responsive refresh — stable scrolling, compact first screen and touch layouts */
+html{scroll-behavior:auto!important;scroll-padding-top:132px}body{overflow-x:hidden}
+.topbar{position:sticky;top:0;z-index:40;background:#0c0d12!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;transform:none!important}
+.topbar .nav{--header-progress:0!important;overflow:visible!important;transition:none!important}
+.scrollNavArrow#scrollToBottom{display:none!important}
+.scrollNavArrow#backToTop{left:auto!important;right:calc(16px + env(safe-area-inset-right,0px))!important;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important;width:48px;height:48px;transform:translateY(8px);transition:opacity .16s ease,visibility .16s ease,transform .16s ease!important}
+.scrollNavArrow#backToTop.is-visible{transform:translateY(0)!important}
+body.hasScrollUp #backToTop{left:auto!important;right:calc(16px + env(safe-area-inset-right,0px))!important}
+@media (min-width:761px) and (max-width:1100px){
+.topbar .nav{display:grid;grid-template-columns:minmax(0,1fr) max-content;grid-template-areas:"brand account" "search search" "menu menu";grid-template-rows:34px 40px 30px;min-height:0!important;height:auto!important;gap:7px 12px;padding:9px 3% 8px;overflow:visible!important}
+.topbar .brand{grid-area:brand;justify-self:start;min-width:0}.topbar .searchbox{grid-area:search;justify-self:stretch;width:100%;height:38px;max-width:none}
+.topbar .accountControls{grid-area:account;justify-self:end;gap:5px;max-width:48vw}.topbar .accountBtn{min-height:29px;padding:6px 8px;font-size:9px}
+.topbar .nav>nav{grid-area:menu;display:flex!important;justify-content:flex-start;flex-wrap:nowrap!important;width:100%;height:30px;max-height:none!important;min-height:0;overflow-x:auto;overflow-y:hidden;white-space:nowrap;gap:18px;padding:0 0 2px!important;opacity:1!important;scrollbar-width:none}
+.topbar .nav>nav::-webkit-scrollbar{display:none}.topbar .nav>nav a{flex:0 0 auto;font-size:10px;padding:5px 0}
+.hero{min-height:0;height:auto;margin:12px 18px 0;padding:27px 28px;max-width:none}.heroContent{width:62%;margin-left:0}
+.hero h1{font-size:clamp(30px,4vw,42px);letter-spacing:-1.5px}.hero p{font-size:13px;line-height:1.55}
+.heroArt{right:3%;width:34%;height:205px}.heroPoster{width:clamp(82px,11vw,118px)}
+.proofbar{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 18px;gap:7px;margin-top:9px}.proofitem{padding:9px 11px}
+.content{margin-top:20px}.genreExplorer{padding:0 20px 18px}.rowhead{margin-left:20px;margin-right:20px}
+.shelf{padding-left:20px;padding-right:20px}.officialGrid{grid-template-columns:repeat(2,minmax(0,1fr));margin-left:20px;margin-right:20px}
+}
+@media(max-width:760px){
+html{scroll-padding-top:126px}
+.topbar .nav{display:grid;grid-template-columns:minmax(0,1fr) max-content;grid-template-areas:"brand account" "search search" "menu menu";grid-template-rows:32px 37px 27px;min-height:0!important;height:auto!important;gap:6px 8px;padding:8px 12px 7px;overflow:visible!important}
+.topbar .brand{grid-area:brand;justify-self:start;min-width:0;gap:7px}.topbar .brandIcon{width:29px;height:29px;flex:0 0 29px;border-radius:9px;font-size:11px}
+.topbar .brandName{font-size:13px;letter-spacing:-.35px;line-height:1}.topbar .brandName .certifiedBy,.topbar .brandName small:last-child{display:none!important}
+.topbar .nav>nav{grid-area:menu;display:flex!important;justify-content:flex-start;align-items:center;flex-wrap:nowrap!important;gap:15px;width:100%;height:27px;max-height:none!important;min-height:0;overflow-x:auto;overflow-y:hidden;white-space:nowrap;padding:0 1px 2px!important;margin:0;opacity:1!important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.topbar .nav>nav::-webkit-scrollbar{display:none}.topbar .nav>nav a{flex:0 0 auto;font-size:9px;line-height:1;padding:5px 0}
+.topbar .searchbox{grid-area:search;justify-self:stretch;width:100%;max-width:none;min-width:0;height:37px;padding:0 11px;border-radius:10px;gap:7px}
+.topbar .searchbox input{width:100%;min-width:0;height:100%;font-size:12px}
+.topbar .accountControls{grid-area:account;justify-self:end;display:flex;align-items:center;justify-content:flex-end;flex-wrap:nowrap;gap:4px;min-width:0;max-width:55vw;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+.topbar .accountControls::-webkit-scrollbar{display:none}.topbar .accountBtn{flex:0 0 auto;min-height:26px;padding:5px 7px;font-size:8px;line-height:1}
+.topbar #loginOpenBtn{font-size:0;padding:5px 8px}.topbar #loginOpenBtn::after{content:"Connexion";font-size:8px}
+.topbar #signupOpenBtn{font-size:0;padding:5px 8px}.topbar #signupOpenBtn::after{content:"Inscription";font-size:8px}
+.topbar #dataOpenBtn,.topbar #adminOpenBtn,.topbar #logoutBtn{font-size:8px}
+.hero{display:flex;align-items:flex-start;min-height:0;height:auto;margin:10px 12px 0;padding:18px 16px 17px;border-radius:14px}
+.hero:before{inset:0;border-radius:14px;background:radial-gradient(ellipse at 92% 10%,#67283e40 0%,transparent 42%),linear-gradient(135deg,#1a1c25,#12141c 68%,#10131b);box-shadow:none}
+.heroContent{width:100%;max-width:100%;margin:0}.tagline{font-size:7.5px;letter-spacing:1.35px;line-height:1.4}
+.hero h1{max-width:100%;margin:7px 0 8px;font-size:clamp(23px,6.2vw,30px);line-height:1.08;letter-spacing:-.9px}
+.hero p{max-width:100%;font-size:11px;line-height:1.45}.actions{gap:7px;margin-top:12px}.btn{min-height:34px;padding:8px 11px;font-size:9px}
+.heroArt,.proofbar{display:none!important}
+.content{width:100%;max-width:100%;margin:16px auto 0;padding:0 0 28px}
+.genreExplorer{margin:0 auto 8px;padding:0 12px 14px}.genreHead{display:flex;align-items:flex-end;justify-content:space-between;gap:8px;margin:0 1px 8px}
+.genreHead .eyebrow{font-size:7px;letter-spacing:1.5px}.genreHead h2{font-size:14px;line-height:1.2;margin:3px 0 0}
+.genreHead>span{font-size:8px;max-width:105px;text-align:right}
+.genreChips{display:flex;flex-wrap:nowrap;justify-content:flex-start;align-items:center;gap:6px;width:100%;overflow-x:auto;overflow-y:hidden;padding:1px 0 7px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.genreChips::-webkit-scrollbar{display:none}.genreButton{flex:0 0 auto;min-height:29px;padding:6px 9px;font-size:9px}
+.genreButton .genreCount{min-width:15px;height:15px;margin-left:4px;font-size:8px}
+.rowsection{margin:0 0 21px}.rowhead{display:flex;align-items:center;gap:8px;margin:0 12px 8px}
+.rowhead .eyebrow{font-size:7px;letter-spacing:1.4px}.rowtitle{font-size:16px;line-height:1.2;margin:3px 0 0;letter-spacing:-.25px}
+.rowmeta{display:none}.shelf{display:flex;gap:9px;padding:5px 12px 12px;scroll-padding-left:12px}
+.poster{flex:0 0 clamp(108px,32vw,128px);border-radius:8px;box-shadow:0 5px 16px #0005}
+.posterText{left:8px;right:7px;bottom:8px}.posterText small{font-size:7px;margin-bottom:4px}.posterText strong{font-size:11px;line-height:1.17}
+.poster .playicon{width:26px;height:26px;opacity:1;font-size:10px}.shelfArrow{display:none!important}
+.officialGrid{grid-template-columns:1fr;gap:8px;margin:0 12px 10px}.officialCard{min-height:124px;gap:9px;padding:8px;border-radius:11px}
+.officialPoster{flex:0 0 72px;min-height:108px;border-radius:7px}.officialPosterTitle{font-size:9px!important}.officialPosterSymbol{font-size:25px}
+.officialCardBody{gap:4px;padding:1px}.officialCardHeader{gap:5px}.officialMeta,.officialSource{font-size:7px}
+.officialTitle{font-size:12px;line-height:1.2}.officialReleaseDate{padding:5px 7px;font-size:9px}
+.officialDescription{font-size:9px;line-height:1.35}.officialActions{gap:5px}.officialActions a{padding:6px 8px;font-size:8px}
+.note,.empty,.musicPlaceholder{margin-left:12px;margin-right:12px}
+.footerLinks{margin:0 12px 20px;padding:18px 0 0}.footerLinksHead h2{font-size:16px}.footerLinkGrid{grid-template-columns:1fr;gap:8px}
+.footerLinkCard{padding:11px;border-radius:11px;gap:10px}.footerLinkIcon{width:37px;height:37px;flex-basis:37px}.footerLinkIcon svg{width:22px;height:22px}
+.footerLinkCopy small{font-size:8px}.footerLinkCopy strong{font-size:12px}.footerLinkCopy span{font-size:9px}
+footer{padding:20px 12px;font-size:9px}.privacyFooter{padding-bottom:14px}.legalLinks{gap:8px}.legalLinks a{font-size:9px}
+.modal{padding:9px}.modalbox{width:100%;max-height:90dvh;overflow:auto;border-radius:13px}.modalart{height:145px}
+.modalbody{padding:0 13px 16px}.modalbody h2{font-size:19px}.modalbody p{font-size:11px}
+.accountOverlay{padding:9px}.accountDialog{width:100%;max-width:440px;max-height:91dvh;padding:20px 14px}
+.adminDialog{max-width:100%}.adminStats{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.adminStat{padding:8px 6px}
+.adminStat strong{font-size:15px}.adminStat span{font-size:7px}.adminTable{font-size:8px}.adminTable th,.adminTable td{padding:6px}
+.dataActions{grid-template-columns:1fr 1fr;gap:6px}.dataActions button{font-size:8px;padding:7px}
+.cookieNotice{width:calc(100% - 18px);left:9px;bottom:9px;transform:none;gap:7px;padding:9px;border-radius:10px}
+.cookieNotice p{font-size:9px;line-height:1.35}.cookieNotice button{font-size:9px;padding:6px 8px}
+.scrollNavArrow#backToTop{width:44px;height:44px;right:12px!important;bottom:calc(12px + env(safe-area-inset-bottom,0px))!important}
+}
+@media(max-width:390px){
+.topbar .nav{grid-template-rows:30px 36px 25px;padding:7px 9px 6px;gap:5px 6px}
+.topbar .brandIcon{width:27px;height:27px;flex-basis:27px}.topbar .brandName{font-size:12px}
+.topbar .nav>nav{gap:13px;height:25px}.topbar .nav>nav a{font-size:8px}
+.topbar .accountControls{max-width:57vw}.topbar .accountBtn{padding:4px 6px;font-size:7.5px}
+.topbar #loginOpenBtn::after,.topbar #signupOpenBtn::after{font-size:7.5px}.topbar .searchbox{height:36px}
+.hero{margin:8px 9px 0;padding:15px 13px 14px}.hero h1{font-size:24px}.hero p{font-size:10px}
+.actions{margin-top:10px}.genreExplorer{padding-left:9px;padding-right:9px}
+.rowhead{margin-left:10px;margin-right:10px}.shelf{padding-left:10px;padding-right:10px}
+.poster{flex-basis:112px}.officialGrid{margin-left:9px;margin-right:9px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.scrollNavArrow#backToTop{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -1253,85 +1341,22 @@ Promise.allSettled([loadReferenceCatalog(),loadFranceAndWeb()]).then(()=>loadOff
 function bindScrollArrows(){
  const up=document.getElementById("backToTop");
  const down=document.getElementById("scrollToBottom");
- if(!up||!down)return;
- const scrollStops=()=>{
-  const rows=[...document.querySelectorAll(".rowsection")].filter(section=>!section.hidden&&section.getClientRects().length);
-  const footerLinks=document.querySelector(".footerLinks");
-  if(footerLinks&&footerLinks.getClientRects().length)rows.push(footerLinks);
-  return rows;
+ if(down)down.hidden=true;
+ if(!up)return;
+ let framePending=false;
+ const reduceMotion=()=>window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ const update=()=>{
+  if(framePending)return;
+  framePending=true;
+  window.requestAnimationFrame(()=>{
+   framePending=false;
+   up.classList.toggle("is-visible",(window.scrollY||0)>360);
+  });
  };
- const getNextStop=()=>{
-  const currentY=window.scrollY;
-  return scrollStops().find(section=>section.getBoundingClientRect().top>105)||null;
- };
- const topbar=document.querySelector(".topbar");
- let lastScrollY=window.scrollY;
- let downTravel=0;
- let upTravel=0;
- let headerProgress=window.scrollY>100?1:0;
- let targetProgress=headerProgress;
- let headerFrame=0;
- const setHeaderProgress=()=>{
-  if(!topbar)return;
-  topbar.style.setProperty("--header-progress",headerProgress.toFixed(3));
- };
- setHeaderProgress();
- const animateHeader=()=>{
-  headerFrame=0;
-  const difference=targetProgress-headerProgress;
-  const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(reduceMotion){
-   headerProgress=targetProgress;
-  }else{
-   headerProgress+=difference*0.19;
-   if(Math.abs(targetProgress-headerProgress)<0.004)headerProgress=targetProgress;
-  }
-  setHeaderProgress();
-  if(headerProgress!==targetProgress)headerFrame=window.requestAnimationFrame(animateHeader);
- };
- const updateHeaderTarget=(currentY)=>{
-  const delta=currentY-lastScrollY;
-  lastScrollY=currentY;
-  // Mobile uses a compact, fixed-height header; scrolling must never resize it.
-  if(window.matchMedia&&window.matchMedia("(max-width: 700px)").matches){
-   downTravel=0;upTravel=0;targetProgress=0;
-   if(headerProgress!==0&&!headerFrame)headerFrame=window.requestAnimationFrame(animateHeader);
-   return;
-  }
-  if(currentY<=8){
-   downTravel=0;upTravel=0;targetProgress=0;
-  }else if(delta>0.5){
-   downTravel+=delta;upTravel=0;
-   if(downTravel>=18)targetProgress=1;
-  }else if(delta< -0.5){
-   upTravel+=-delta;downTravel=0;
-   if(upTravel>=18)targetProgress=0;
-  }
-  if(targetProgress!==headerProgress&&!headerFrame)headerFrame=window.requestAnimationFrame(animateHeader);
- };
- const updateVisibility=()=>{
-  const currentY=window.scrollY;
-  updateHeaderTarget(currentY);
-  const awayFromTop=currentY>320;
-  const canStep=Boolean(getNextStop());
-  document.body.classList.toggle("hasScrollUp",awayFromTop);
-  down.classList.toggle("is-visible",canStep);
-  down.disabled=!canStep;
-  up.classList.toggle("is-visible",awayFromTop);
- };
- const behavior=()=>window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
- const stepToNextRow=()=>{
-  const next=getNextStop();
-  if(!next){updateVisibility();return}
-  const targetY=Math.max(0,window.scrollY+next.getBoundingClientRect().top-76);
-  window.scrollTo({top:targetY,behavior:behavior()});
-  window.setTimeout(updateVisibility,450);
- };
- window.addEventListener("scroll",updateVisibility,{passive:true});
- window.addEventListener("resize",updateVisibility,{passive:true});
- down.addEventListener("click",stepToNextRow);
- up.addEventListener("click",()=>window.scrollTo({top:0,behavior:behavior()}));
- updateVisibility();
+ window.addEventListener("scroll",update,{passive:true});
+ window.addEventListener("resize",update,{passive:true});
+ up.addEventListener("click",()=>window.scrollTo({top:0,behavior:reduceMotion()?"auto":"smooth"}));
+ update();
 }
 document.addEventListener("DOMContentLoaded",bindScrollArrows,{once:true});
 </script>
