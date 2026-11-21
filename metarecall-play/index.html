@@ -174,6 +174,7 @@ stage:"https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&
 road:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=85",
 night:"https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=700&q=85"
 };
+const modal=document.querySelector("#modal");
 function openCard(item){
  document.querySelector("#modalTitle").textContent=item.title;
  document.querySelector("#modalMeta").textContent=[item.type,item.genre,item.displayDate,item.channelName].filter(Boolean).join(" · ");
@@ -201,7 +202,7 @@ function card(item,index,rank=false){
 }
 function fill(id,items,rank=false){const shelf=document.getElementById(id);items.forEach((x,i)=>shelf.appendChild(card(x,i,rank)))}
 
-document.querySelectorAll(".rowsection").forEach(section=>{const shelf=section.querySelector(".shelf");section.querySelector(".left").onclick=()=>shelf.scrollBy({left:-shelf.clientWidth*.8,behavior:"smooth"});section.querySelector(".right").onclick=()=>shelf.scrollBy({left:shelf.clientWidth*.8,behavior:"smooth"})});
+document.querySelectorAll(".rowsection").forEach(section=>{const shelf=section.querySelector(".shelf"),left=section.querySelector(".left"),right=section.querySelector(".right");if(shelf&&left&&right){left.onclick=()=>shelf.scrollBy({left:-shelf.clientWidth*.8,behavior:"smooth"});right.onclick=()=>shelf.scrollBy({left:shelf.clientWidth*.8,behavior:"smooth"})}});
 document.querySelector("#heroPlay").onclick=()=>document.querySelector("#genres").scrollIntoView({behavior:"smooth"});
 document.querySelector("#heroInfo").onclick=()=>document.querySelector("#tendances").scrollIntoView({behavior:"smooth"});
 let activeGenre="all";
@@ -313,6 +314,7 @@ async function loadFranceAndWeb(){
  const status=document.createElement("p");status.className="note";
  status.textContent=items.length+" programmes référencés · diffusion France et plateformes web mondiales · hier, aujourd’hui et demain."+(failures?" "+failures+" flux en erreur sur "+requests.length+" ; les autres résultats restent affichés.":" Tous les flux ont répondu.");
  shelf.after(status);
+ applyFilters();
 }
 const confirmedReleases=[
  {title:"Menteurs parfaits",type:"Film",genre:"Thriller · Jesús Colmenar",displayDate:"Disponible depuis le 20 novembre 2026 · Prime Video",desc:"Jude Derry infiltre une université privée et le cercle des frères Cash pour découvrir la vérité sur la mort de son frère. Thriller espagnol réalisé par Jesús Colmenar.",imageUrl:"https://fr.web.img3.acsta.net/c_310_420/img/63/f9/63f952b9a84ce3f0b3901e678ae02e82.png",officialUrl:"https://www.primevideo.com/-/fr/detail/0FF2SKGT92MS7VE0SZWCAIKZ7R"},
