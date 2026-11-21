@@ -236,6 +236,18 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
 @media(max-width:900px){.accountControls{gap:5px}.accountBtn{padding:7px 9px;font-size:9px}.accountEmail{display:none}}
 @media(max-width:620px){.accountControls{gap:4px}.accountBtn{min-height:33px;padding:6px 8px;font-size:8.5px}.searchbox input{width:83px}.accountDialog{padding:24px 18px}.accountDialog h2{font-size:23px}.adminStats{grid-template-columns:1fr}.cookieNotice{align-items:flex-start;bottom:9px}.cookieNotice button{margin-top:2px}}
 
+
+/* RGPD links and subscriber data rights */
+.accountBtn.dataBtn{border-color:#e76d873d;background:#e52d5517}
+.legalLinks{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+.legalLinks a{font-size:10px;color:#ff9aaa;text-decoration:underline}
+.dataDialog{width:min(600px,100%)}
+.dataActions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.dataActions button{min-height:44px;border:1px solid #ffffff28;border-radius:12px;padding:10px;background:#ffffff0d;color:#fff;font-size:11px;font-weight:800;cursor:pointer}
+.dataActions .danger{background:#6e2034;border-color:#a93a56}
+.dataFootnote{font-size:10px!important;color:#8f97a7!important}
+@media(max-width:700px){.accountControls{gap:3px}.accountBtn.dataBtn{padding:5px 7px;font-size:8px}.dataActions{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -248,6 +260,7 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
 <button class="accountBtn primary" id="loginOpenBtn" type="button">Connexion abonnés</button>
 <button class="accountBtn" id="signupOpenBtn" type="button">Inscription</button>
 <span class="accountEmail" id="accountEmail" hidden></span>
+<button class="accountBtn dataBtn" id="dataOpenBtn" type="button" hidden>Mes données</button>
 <button class="accountBtn subtle" id="adminOpenBtn" type="button" hidden>Espace admin</button>
 <button class="accountBtn" id="logoutBtn" type="button" hidden>Déconnexion</button>
 </div></div>
@@ -310,7 +323,8 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
   </a>
  </div>
 </section>
-<strong>METARECALL PLAY</strong><br>Catalogue de découverte certifié by Frédéric Jacquet. Les rubriques, titres, années et genres reprennent le relevé public de la page de référence Ravpaz. Les affiches sont chargées depuis leur source image publique, avec une source de repli lorsque disponible.<br>METARECALL PLAY ne diffuse pas les œuvres. Le bouton « Vérifier sur JustWatch France » permet de rechercher des options légales ; aucune disponibilité sur une plateforme n’est affirmée sans vérification.<div class="privacyFooter">Comptes abonnés sécurisés · <button id="privacyFooterBtn" type="button">Confidentialité et cookies</button> · Contact : <a href="mailto:contact@metarecall.fr">contact@metarecall.fr</a></div>
+<strong>METARECALL PLAY</strong><br>Catalogue de découverte certifié by Frédéric Jacquet. Les rubriques, titres, années et genres reprennent le relevé public de la page de référence Ravpaz. Les affiches sont chargées depuis leur source image publique, avec une source de repli lorsque disponible.<br>METARECALL PLAY ne diffuse pas les œuvres. Le bouton « Vérifier sur JustWatch France » permet de rechercher des options légales ; aucune disponibilité sur une plateforme n’est affirmée sans vérification.<div class="privacyFooter">Comptes abonnés sécurisés
+<div class="legalLinks"><a href="./mentions-legales.html">Mentions légales</a><a href="./confidentialite.html">Politique de confidentialité</a><a href="mailto:contact@metarecall.fr">Contact et droits RGPD</a></div></div>
 </footer>
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modalbox"><button class="close" id="close" aria-label="Fermer">×</button><div class="modalart" id="modalArt"></div><div class="modalbody"><span class="badge">FICHE DU PROGRAMME</span><h2 id="modalTitle"></h2><p id="modalMeta" style="font-size:12px;color:#aaa"></p><p id="modalDesc"></p><a class="btn play" id="whereWatch" href="https://www.justwatch.com/fr" target="_blank" rel="noopener">Vérifier sur JustWatch France</a> <a class="btn more" id="officialLink" href="#" target="_blank" rel="noopener">Fiche officielle</a> <button class="btn more" id="modalOk">Fermer</button></div></div></div>
 <script>
@@ -717,20 +731,20 @@ document.addEventListener("DOMContentLoaded",bindScrollArrows,{once:true});
       </label>
       <label class="privacyAck" id="privacyAckWrap" hidden>
         <input id="privacyAck" type="checkbox">
-        <span>Je confirme avoir pris connaissance des informations de confidentialité ci-dessous.</span>
+        <span>J'ai lu la <a href="./confidentialite.html" target="_blank" rel="noopener">politique de confidentialité</a> (version 2026-11-21).</span>
       </label>
       <button class="accountSubmit" id="authSubmit" type="submit">Se connecter</button>
     </form>
     <p class="accountMessage" id="authMessage" role="status" aria-live="polite"></p>
     <button class="accountSwitch" id="switchAuthMode" type="button">Créer un compte abonné</button>
     <details id="privacyDisclosure">
-      <summary>Confidentialité et cookies</summary>
-      <p><strong>Données utilisées :</strong> adresse e-mail, identifiant de compte, date de création et historique des inscriptions/connexions. Ces informations servent à gérer les comptes abonnés et à sécuriser les accès.</p>
-      <p><strong>Conservation :</strong> le compte reste actif jusqu'à sa suppression. Les événements de connexion sont automatiquement purgés après 12 mois.</p>
-      <p><strong>Hébergement :</strong> Supabase, projet hébergé dans l'Union européenne (Paris). Les données ne sont ni revendues ni utilisées pour de la publicité.</p>
-      <p><strong>Cookies et stockage :</strong> aucun traceur publicitaire ni outil de mesure d'audience n'est installé. Le stockage de session nécessaire à l'authentification est utilisé pour maintenir votre connexion.</p>
-      <p><strong>Vos droits :</strong> accès, rectification, effacement et demandes relatives à vos données via <a href="mailto:contact@metarecall.fr">contact@metarecall.fr</a>.</p>
-      <p><strong>Responsable du traitement :</strong> METARECALL, éditeur de METARECALL PLAY. Contact : contact@metarecall.fr.</p>
+      <summary>Informations sur les données et la session</summary>
+      <p><strong>Données :</strong> adresse e-mail, identifiant de compte, dates de création et de connexion, et historique limité aux événements d'inscription/connexion.</p>
+      <p><strong>Conservation :</strong> les comptes restent actifs jusqu'à leur suppression ; les événements de connexion sont purgés après 12 mois.</p>
+      <p><strong>Hébergement :</strong> base et authentification Supabase configurées à Paris. Certains traitements de support et prestataires peuvent être réalisés hors de cette région, notamment aux États-Unis ou à Singapour selon les prestataires.</p>
+      <p><strong>Stockage local :</strong> Supabase Auth conserve la session dans le stockage local du navigateur pour maintenir la connexion. Aucun cookie publicitaire, traceur de profilage ou outil de mesure d'audience n'est actuellement intégré par METARECALL PLAY.</p>
+      <p><strong>Vos droits :</strong> accéder à vos données, les exporter, les rectifier ou demander leur suppression depuis « Mes données » ou par <a href="mailto:contact@metarecall.fr">contact@metarecall.fr</a>.</p>
+      <p><a href="./confidentialite.html">Lire la politique complète de confidentialité</a> · <a href="./mentions-legales.html">Mentions légales</a></p>
     </details>
   </section>
 </div>
@@ -771,8 +785,26 @@ document.addEventListener("DOMContentLoaded",bindScrollArrows,{once:true});
   </section>
 </div>
 
+
+<div class="accountOverlay" id="dataOverlay" role="dialog" aria-modal="true" aria-labelledby="dataTitle">
+  <section class="accountDialog dataDialog">
+    <button class="accountClose" id="closeDataBtn" type="button" aria-label="Fermer">×</button>
+    <span class="eyebrow">ESPACE ABONNÉ · RGPD</span>
+    <h2 id="dataTitle">Mes données personnelles</h2>
+    <p id="dataAccountEmail"></p>
+    <p>Vous pouvez télécharger les données associées à votre compte ou demander sa suppression définitive. La suppression retire aussi l'historique de connexion et la trace de prise de connaissance de la politique rattachés à ce compte.</p>
+    <div class="dataActions">
+      <button id="exportDataBtn" type="button">Exporter mes données</button>
+      <button class="danger" id="deleteAccountBtn" type="button">Supprimer mon compte</button>
+    </div>
+    <p class="accountMessage" id="dataMessage" role="status" aria-live="polite"></p>
+    <p class="dataFootnote">La suppression du compte est irréversible. Certaines copies de sauvegarde techniques peuvent être purgées suivant le cycle du prestataire. Pour une demande d'accès ou de rectification : contact@metarecall.fr.</p>
+    <div class="legalLinks"><a href="./confidentialite.html">Politique de confidentialité</a><a href="./mentions-legales.html">Mentions légales</a></div>
+  </section>
+</div>
+
 <div class="cookieNotice" id="cookieNotice" role="status">
-  <p><strong>Confidentialité :</strong> METARECALL PLAY n'utilise pas de cookies publicitaires ni de mesure d'audience. Seul le stockage indispensable à la connexion des abonnés est utilisé.</p>
+  <p><strong>Vie privée :</strong> aucun cookie publicitaire ou outil de mesure d'audience n'est utilisé par METARECALL PLAY. La connexion des abonnés s'appuie sur le stockage local du navigateur pour conserver la session. <a href="./confidentialite.html">Détails et politique de confidentialité</a>.</p>
   <button id="closeCookieNotice" type="button">Compris</button>
 </div>
 
@@ -790,10 +822,12 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
 const byId = (id) => document.getElementById(id);
 const authOverlay = byId("authOverlay");
 const adminOverlay = byId("adminOverlay");
+const dataOverlay = byId("dataOverlay");
 const authMessage = byId("authMessage");
 let authMode = "login";
 let currentUser = null;
 let adminData = null;
+let lastAdminCheckUid = null;
 
 function setMessage(element, message, kind = "info") {
   element.textContent = message || "";
@@ -821,6 +855,7 @@ function setAuthMode(mode) {
   setMessage(authMessage, "");
 }
 function closeAdmin() { adminOverlay.classList.remove("open"); }
+function closeData() { dataOverlay.classList.remove("open"); }
 function formatDate(value) {
   if (!value) return "—";
   const date = new Date(value);
@@ -893,9 +928,13 @@ async function loadAdminData(openPanel = true) {
 async function checkAdminAccess() {
   if (!currentUser || (currentUser.email || "").toLowerCase() !== INITIAL_ADMIN_EMAIL) {
     byId("adminOpenBtn").hidden = true;
+    lastAdminCheckUid = null;
     return;
   }
-  await loadAdminData(false);
+  if (lastAdminCheckUid === currentUser.id) return;
+  lastAdminCheckUid = currentUser.id;
+  const allowed = await loadAdminData(false);
+  byId("adminOpenBtn").hidden = !allowed;
 }
 function setAccount(user) {
   currentUser = user || null;
@@ -905,9 +944,14 @@ function setAccount(user) {
   byId("accountEmail").hidden = !signedIn;
   byId("accountEmail").textContent = signedIn ? currentUser.email || "Abonné connecté" : "";
   byId("logoutBtn").hidden = !signedIn;
+  byId("dataOpenBtn").hidden = !signedIn;
+  if (signedIn) byId("dataAccountEmail").textContent = currentUser.email || "";
   if (!signedIn) {
     byId("adminOpenBtn").hidden = true;
+    byId("dataOpenBtn").hidden = true;
+    lastAdminCheckUid = null;
     closeAdmin();
+    closeData();
   } else {
     checkAdminAccess();
   }
@@ -927,15 +971,84 @@ byId("signupOpenBtn").addEventListener("click", () => openAuth("signup"));
 byId("closeAuthBtn").addEventListener("click", closeAuth);
 byId("switchAuthMode").addEventListener("click", () => setAuthMode(authMode === "login" ? "signup" : "login"));
 authOverlay.addEventListener("click", event => { if (event.target === authOverlay) closeAuth(); });
-byId("privacyFooterBtn")?.addEventListener("click", () => {
-  openAuth("login");
-  byId("privacyDisclosure").open = true;
-});
 byId("adminOpenBtn").addEventListener("click", () => loadAdminData(true));
 byId("adminRefreshBtn").addEventListener("click", () => loadAdminData(true));
 byId("closeAdminBtn").addEventListener("click", closeAdmin);
 adminOverlay.addEventListener("click", event => { if (event.target === adminOverlay) closeAdmin(); });
+byId("dataOpenBtn").addEventListener("click", () => {
+  if (!currentUser) return;
+  byId("dataAccountEmail").textContent = currentUser.email || "";
+  setMessage(byId("dataMessage"), "");
+  dataOverlay.classList.add("open");
+});
+byId("closeDataBtn").addEventListener("click", closeData);
+dataOverlay.addEventListener("click", event => { if (event.target === dataOverlay) closeData(); });
 byId("closeCookieNotice").addEventListener("click", () => byId("cookieNotice").remove());
+
+byId("exportDataBtn").addEventListener("click", async () => {
+  if (!currentUser) return;
+  const button = byId("exportDataBtn");
+  button.disabled = true;
+  setMessage(byId("dataMessage"), "Préparation de votre export…");
+  try {
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    if (userError || !userData?.user) throw userError || new Error("Session indisponible.");
+    const userId = userData.user.id;
+    const [{ data: events, error: eventsError }, { data: acknowledgements, error: ackError }] = await Promise.all([
+      supabase.from("login_events").select("event_type, created_at").eq("user_id", userId).order("created_at", { ascending: false }),
+      supabase.from("privacy_acknowledgements").select("notice_version, acknowledged_at").eq("user_id", userId).order("acknowledged_at", { ascending: false })
+    ]);
+    if (eventsError || ackError) throw eventsError || ackError;
+    const payload = {
+      exported_at: new Date().toISOString(),
+      account: {
+        id: userData.user.id,
+        email: userData.user.email,
+        created_at: userData.user.created_at,
+        email_confirmed_at: userData.user.email_confirmed_at,
+        last_sign_in_at: userData.user.last_sign_in_at
+      },
+      login_events: events || [],
+      privacy_notice_acknowledgements: acknowledgements || []
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "metarecall-play-mes-donnees.json";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(url);
+    setMessage(byId("dataMessage"), "Votre export JSON a été préparé.", "success");
+  } catch (error) {
+    setMessage(byId("dataMessage"), error?.message || "L'export a échoué. Contactez contact@metarecall.fr.", "error");
+  } finally {
+    button.disabled = false;
+  }
+});
+
+byId("deleteAccountBtn").addEventListener("click", async () => {
+  if (!currentUser) return;
+  const confirmed = window.confirm("Supprimer définitivement votre compte METARECALL PLAY ? Cette action est irréversible et supprimera également votre historique de connexion.");
+  if (!confirmed) return;
+  const button = byId("deleteAccountBtn");
+  button.disabled = true;
+  setMessage(byId("dataMessage"), "Suppression sécurisée en cours…");
+  try {
+    const { data, error } = await supabase.functions.invoke("account-delete", { body: {} });
+    if (error || !data || data.error || !data.success) throw new Error(data?.error || error?.message || "Suppression impossible.");
+    await supabase.auth.signOut({ scope: "local" });
+    setAccount(null);
+    setMessage(byId("dataMessage"), "Votre compte a été supprimé.", "success");
+    closeData();
+    alert("Votre compte et les données associées ont été supprimés.");
+  } catch (error) {
+    setMessage(byId("dataMessage"), error?.message || "La suppression a échoué. Contactez contact@metarecall.fr.", "error");
+  } finally {
+    button.disabled = false;
+  }
+});
 
 byId("authForm").addEventListener("submit", async event => {
   event.preventDefault();
@@ -950,7 +1063,17 @@ byId("authForm").addEventListener("submit", async event => {
         setMessage(authMessage, "Merci de confirmer que vous avez lu les informations de confidentialité.", "error");
         return;
       }
-      const { data, error } = await supabase.auth.signUp({ email, password });
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: window.location.origin + "/",
+          data: {
+            privacy_notice_version: "2026-11-21",
+            privacy_acknowledged_at: new Date().toISOString()
+          }
+        }
+      });
       if (error) throw error;
       if (data.session && data.user) {
         setAccount(data.user);
@@ -987,7 +1110,7 @@ byId("logoutBtn").addEventListener("click", async () => {
 });
 
 document.addEventListener("keydown", event => {
-  if (event.key === "Escape") { closeAuth(); closeAdmin(); }
+  if (event.key === "Escape") { closeAuth(); closeAdmin(); closeData(); }
 });
 
 supabase.auth.onAuthStateChange((_event, session) => {
