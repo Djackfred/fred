@@ -2352,6 +2352,24 @@ body{
 }
 @media(min-width:621px){#mobileBottomNav{display:none!important}}
 
+
+/* RESTORE ORBIT CONTROLS — mobile hide rule must not hide the buttons inside the capsule */
+@media(max-width:700px){
+  #orbitNav{display:flex!important;visibility:visible!important;opacity:1!important;z-index:10010!important}
+  #orbitNav .scrollNavArrow{
+    display:flex!important;visibility:visible!important;opacity:1!important;
+    pointer-events:auto!important;position:relative!important;
+  }
+  #orbitNav #scrollToBottom:not(.is-visible),
+  #orbitNav #backToTop:not(.is-visible){visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+  #orbitNav.is-moving{display:flex!important}
+}
+/* Keep the approved METARECALL PLAY vector signature intact in the mobile header */
+@media(max-width:620px){
+  .topbar:not(.is-compact) .brandLogo{display:block!important;width:190px!important;height:42px!important;max-width:58vw!important;max-height:42px!important}
+  .topbar.is-compact .brandLogo{display:block!important;width:166px!important;height:35px!important;max-width:54vw!important;max-height:35px!important}
+}
+
 </style>
 </head>
 <body>
