@@ -3028,7 +3028,7 @@ function bindHeroPosterCarousel(){
     area.classList.remove("turn-next","turn-prev","turn-arrive");
     // Laisser une image de rendu au navigateur, sans snap ni effet de flou.
     requestAnimationFrame(()=>requestAnimationFrame(()=>{heroTurnBusy=false}));
-   },520);
+   },900);
   }).catch(()=>{heroTurnBusy=false});
  };
  area.addEventListener("pointerdown",event=>{
@@ -3050,17 +3050,33 @@ function bindHeroPosterCarousel(){
   }
  });
  area.addEventListener("pointercancel",()=>{pointerId=null});
+ const openHeroPosterInTop15=slot=>{
+  const section=document.getElementById("top15");
+  const shelf=document.getElementById("top15Shelf");
+  if(!section)return;
+  const id=slot?.dataset.catalogueId||"";
+  const title=normalizePosterTitle(slot?.dataset.title||"");
+  const cards=shelf?[...shelf.querySelectorAll(".poster")]:[];
+  const target=cards.find(card=>(id&&card.dataset.catalogueId===id)||
+   normalizePosterTitle(card.querySelector(".posterText strong")?.textContent||"")===title);
+  if(target){
+   target.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});
+   target.focus({preventScroll:true});
+  }else{
+   section.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+ };
  area.addEventListener("click",event=>{
   const poster=event.target.closest(".heroPoster");
   if(!poster||heroPosterSuppressClick)return;
   event.preventDefault();event.stopPropagation();
-  document.getElementById("top15")?.scrollIntoView({behavior:"smooth",block:"start"});
+  openHeroPosterInTop15(poster);
  });
  area.querySelectorAll(".heroPoster").forEach(slot=>{
   slot.addEventListener("keydown",event=>{
    if(event.key==="Enter"||event.key===" "){
     event.preventDefault();
-    document.getElementById("top15")?.scrollIntoView({behavior:"smooth",block:"start"});
+    openHeroPosterInTop15(slot);
    }
   });
  });
@@ -4197,4 +4213,43 @@ supabase.auth.getSession().then(({ data, error }) => {
  observer.observe(footer);
 })();
 </script>
+
+<style>
+/* METARECALL PLAY — mouvement doux, affiches à taille constante */
+.heroPoster.two{transform:translateY(-8px)!important}
+.heroArt.turn-next .heroPoster.one,
+.heroArt.turn-next .heroPoster.two,
+.heroArt.turn-next .heroPoster.three,
+.heroArt.turn-prev .heroPoster.one,
+.heroArt.turn-prev .heroPoster.two,
+.heroArt.turn-prev .heroPoster.three{
+ animation-duration:.9s!important;
+ animation-timing-function:cubic-bezier(.22,.61,.36,1)!important;
+}
+@keyframes posterOrbitOutLeft{
+ 0%{transform:translateX(0) rotateY(19deg) rotateZ(-7deg);opacity:.82}
+ 100%{transform:translateX(-90px) rotateY(70deg) rotateZ(-7deg);opacity:0}
+}
+@keyframes posterOrbitLeft{
+ 0%{transform:translateX(0) translateY(-8px);opacity:1}
+ 100%{transform:translateX(-115px) rotateY(25deg) rotateZ(-5deg);opacity:.82}
+}
+@keyframes posterOrbitCenter{
+ 0%{transform:translateX(0) rotateY(-18deg) rotateZ(7deg);opacity:.88}
+ 100%{transform:translateX(-95px) rotateY(0) rotateZ(0);opacity:1}
+}
+@keyframes posterOrbitCenterBack{
+ 0%{transform:translateX(0) rotateY(19deg) rotateZ(-7deg);opacity:.82}
+ 100%{transform:translateX(95px) rotateY(0) rotateZ(0);opacity:1}
+}
+@keyframes posterOrbitRightBack{
+ 0%{transform:translateX(0) translateY(-8px);opacity:1}
+ 100%{transform:translateX(115px) rotateY(-25deg) rotateZ(5deg);opacity:.82}
+}
+@keyframes posterOrbitOutRight{
+ 0%{transform:translateX(0) rotateY(-18deg) rotateZ(7deg);opacity:.88}
+ 100%{transform:translateX(90px) rotateY(-70deg) rotateZ(7deg);opacity:0}
+}
+@keyframes posterSettle{from{filter:none}to{filter:none}}
+</style>
 </body></html>
