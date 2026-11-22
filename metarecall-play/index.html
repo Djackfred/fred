@@ -1713,6 +1713,121 @@ html.tv-navigation{scroll-behavior:smooth}
   body::before{opacity:.48}
 }
 
+
+/* NOËL 2026 — version douce : fond charbon, halo rouge transparent et boules suspendues */
+@media(max-width:700px){
+  body{
+    background-color:#080a0e!important;
+    background-image:
+      radial-gradient(ellipse at 50% 18%,rgba(123,13,36,.24),transparent 54%),
+      linear-gradient(180deg,rgba(72,6,21,.22) 0%,rgba(9,10,14,.91) 48%,#080a0e 100%)!important;
+    background-attachment:fixed!important;
+    background-repeat:no-repeat!important;
+    background-size:100% 100%!important;
+  }
+  .topbar{
+    background:rgba(8,10,14,.96)!important;
+    border-bottom:1px solid rgba(221,183,145,.16)!important;
+    box-shadow:0 7px 24px rgba(0,0,0,.38)!important;
+  }
+  .brandIcon{
+    background:linear-gradient(145deg,#8f243a,#35111d)!important;
+    box-shadow:0 0 0 1px rgba(225,191,148,.36),0 5px 18px rgba(0,0,0,.35)!important;
+  }
+  .brandName b,.eyebrow,.posterText small{color:#d9bd91!important}
+  .searchbox{background:rgba(15,17,23,.92)!important;border-color:rgba(220,220,230,.16)!important}
+  .accountBtn{background:rgba(24,20,27,.94)!important;border-color:rgba(225,215,215,.16)!important}
+  .accountBtn.primary{
+    color:#f8edf0!important;
+    background:linear-gradient(120deg,rgba(129,26,51,.78),rgba(61,15,29,.9))!important;
+    border-color:rgba(225,184,153,.28)!important;
+  }
+  .rowtitle{color:#f4f1f0!important;text-shadow:0 2px 16px rgba(0,0,0,.7)!important}
+  .officialCard,.footerLinkCard{
+    background:linear-gradient(135deg,rgba(61,15,29,.82),rgba(12,13,18,.96) 72%)!important;
+    border-color:rgba(220,190,174,.18)!important;
+    box-shadow:0 10px 25px rgba(0,0,0,.32)!important;
+  }
+  .officialSource{
+    background:rgba(115,32,51,.28)!important;
+    border-color:rgba(211,171,148,.22)!important;
+    color:#e4c9ac!important;
+  }
+  .officialReleaseDate{background:rgba(255,255,255,.055)!important}
+  footer{background:rgba(7,8,12,.97)!important;border-top-color:rgba(221,183,145,.15)!important}
+  footer::before{color:#d9bd91!important;text-shadow:none!important}
+  /* Décor suspendu : boules rouges, champagne et ivoire, mouvement lent. */
+  body::after{
+    content:"";position:fixed;inset:-360px 0 0;z-index:25;pointer-events:none;
+    opacity:.62;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='360' viewBox='0 0 260 360'%3E%3Cdefs%3E%3CradialGradient id='r' cx='32%25' cy='26%25' r='75%25'%3E%3Cstop stop-color='%23e58a91'/%3E%3Cstop offset='.35' stop-color='%239d203b'/%3E%3Cstop offset='1' stop-color='%23390d1c'/%3E%3C/radialGradient%3E%3CradialGradient id='g' cx='30%25' cy='25%25' r='75%25'%3E%3Cstop stop-color='%23fff0c9'/%3E%3Cstop offset='.38' stop-color='%23b78b4d'/%3E%3Cstop offset='1' stop-color='%234b351f'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg fill='none' stroke='%23c9aa7d' stroke-width='1.4' opacity='.72'%3E%3Cpath d='M42 0v64m143 0v57m34 80v49'/%3E%3C/g%3E%3Cg stroke='%23e3c99b' stroke-width='1' opacity='.8'%3E%3Cpath d='M36 60h12v7H36zM179 117h12v7h-12zM213 246h12v7h-12z' fill='%23b18b55'/%3E%3C/g%3E%3Cg stroke='%23f2d9b4' stroke-width='1.2'%3E%3Ccircle cx='42' cy='88' r='21' fill='url(%23r)'/%3E%3Ccircle cx='185' cy='151' r='25' fill='url(%23g)'/%3E%3Ccircle cx='219' cy='278' r='18' fill='url(%23r)'/%3E%3C/g%3E%3Cg fill='%23fff' opacity='.42'%3E%3Cellipse cx='34' cy='79' rx='5' ry='9'/%3E%3Cellipse cx='177' cy='140' rx='6' ry='11'/%3E%3Cellipse cx='214' cy='270' rx='4' ry='7'/%3E%3C/g%3E%3Cg stroke='%23eee5d8' stroke-width='1' opacity='.32' stroke-linecap='round'%3E%3Cpath d='M115 37v12m-6-6h12m-9-4 6 8m0-8-6 8M88 226v10m-5-5h10m-7-4 4 8m0-8-4 8'/%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(circle,rgba(255,255,255,.5) 0 1px,transparent 1.8px);
+    background-repeat:repeat;
+    background-size:260px 360px,120px 170px;
+    background-position:0 -360px,40px -170px;
+    animation:metarecallBaublesFall 30s linear infinite;
+  }
+  @keyframes metarecallBaublesFall{
+    from{background-position:0 -360px,40px -170px}
+    to{background-position:54px 110vh,-25px 120vh}
+  }
+  /* Père Noël conservé en filigrane, beaucoup moins lumineux. */
+  body::before{opacity:.34!important;filter:saturate(.7) brightness(.72) drop-shadow(0 3px 7px rgba(0,0,0,.5))!important}
+  @media(prefers-reduced-motion:reduce){body::after{animation:none!important;opacity:.28}}
+}
+
+/* Pochettes éditoriales de secours : une vraie composition graphique lorsque l'affiche manque.
+   Elles restent identifiées comme visuels METARECALL et ne se font pas passer pour des affiches officielles. */
+.officialPosterFallback{
+  position:absolute;isolation:isolate;overflow:hidden;
+  background:linear-gradient(155deg,#27232b,#0c0e15 72%)!important;
+}
+.officialPosterFallback::before{
+  content:"";position:absolute;z-index:0;inset:8px;
+  border:1px solid rgba(238,213,178,.25);
+  background:
+    radial-gradient(ellipse at 50% 31%,rgba(230,196,150,.19),transparent 38%),
+    repeating-linear-gradient(135deg,transparent 0 17px,rgba(255,255,255,.025) 18px 19px,transparent 20px 35px);
+  pointer-events:none;
+}
+.officialPosterFallback::after{
+  content:"";position:absolute;z-index:0;left:-28%;right:-28%;top:31%;
+  height:34%;border-top:1px solid rgba(231,197,153,.25);border-bottom:1px solid rgba(231,197,153,.18);
+  transform:rotate(-17deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);
+  pointer-events:none;
+}
+.officialPosterFallback>*{position:relative;z-index:1}
+.officialPosterSymbol{
+  display:grid;place-items:center;width:62px;height:62px;flex:0 0 62px;
+  margin:8px auto 0;border:1px solid rgba(239,217,186,.32);border-radius:50%;
+  background:radial-gradient(circle at 32% 25%,rgba(255,255,255,.18),rgba(0,0,0,.2) 68%);
+  box-shadow:0 6px 24px rgba(0,0,0,.28),inset 0 1px 8px rgba(255,255,255,.08);
+  font-size:36px;text-shadow:0 3px 15px rgba(0,0,0,.8);
+}
+.officialPosterBrand{margin-top:4px;color:rgba(244,226,201,.82)!important;letter-spacing:1.8px!important}
+.officialPosterTitle{
+  max-width:100%;padding:5px 2px;
+  color:#fff!important;font-size:12px!important;letter-spacing:.55px!important;
+  text-shadow:0 2px 12px #000!important;
+}
+.officialPosterMeta{color:rgba(242,222,195,.75)!important;font-size:7px!important;letter-spacing:1.5px!important}
+.theme-horror .officialPosterFallback{
+  background:radial-gradient(ellipse at 50% 34%,rgba(180,44,53,.48),transparent 42%),linear-gradient(155deg,#32151e,#0a0a10 75%)!important;
+}
+.theme-crypto .officialPosterFallback{
+  background:radial-gradient(ellipse at 50% 34%,rgba(190,149,79,.42),transparent 43%),linear-gradient(155deg,#27251e,#080b10 76%)!important;
+}
+.theme-sports .officialPosterFallback{
+  background:radial-gradient(ellipse at 50% 34%,rgba(190,104,54,.4),transparent 43%),linear-gradient(155deg,#37251f,#0a0b10 76%)!important;
+}
+.theme-anime .officialPosterFallback{
+  background:radial-gradient(ellipse at 50% 34%,rgba(72,112,167,.45),transparent 43%),linear-gradient(155deg,#192a43,#090d16 76%)!important;
+}
+.theme-ghostbusters .officialPosterFallback{
+  background:radial-gradient(ellipse at 50% 34%,rgba(61,161,143,.42),transparent 43%),linear-gradient(155deg,#173d39,#080e12 76%)!important;
+}
+
 </style>
 </head>
 <body>
