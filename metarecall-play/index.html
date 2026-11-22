@@ -2646,6 +2646,78 @@ header.topbar .brandLogo,header.topbar.is-compact .brandLogo{
  header.topbar .searchbox,header.topbar.is-compact .searchbox{width:100%!important}
 }
 
+
+/* HEADER RESPONSIVE REBUILD — desktop original row, mobile Netflix-style banner */
+@media(min-width:701px){
+ header.topbar,header.topbar.is-compact{
+  position:sticky!important;top:0!important;left:auto!important;right:auto!important;
+  width:100%!important;z-index:10020!important;
+  background:#0c0d12ed!important;border-bottom:1px solid #ffffff10!important;
+  backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;
+ }
+ header.topbar .nav,header.topbar.is-compact .nav{
+  display:flex!important;flex-direction:row!important;align-items:center!important;
+  justify-content:flex-start!important;gap:clamp(16px,2.2vw,34px)!important;
+  width:100%!important;max-width:var(--max)!important;height:76px!important;
+  min-height:76px!important;max-height:76px!important;
+  margin:0 auto!important;padding:0 4.5%!important;box-sizing:border-box!important;
+  transform:none!important;overflow:visible!important;
+ }
+ header.topbar .brand,header.topbar.is-compact .brand{
+  display:flex!important;flex:0 0 250px!important;width:250px!important;
+  min-width:220px!important;max-width:250px!important;height:68px!important;
+  margin:0!important;padding:0!important;overflow:visible!important;
+ }
+ header.topbar .brandLogo,header.topbar.is-compact .brandLogo{
+  display:block!important;width:100%!important;height:auto!important;
+  max-height:68px!important;object-fit:contain!important;
+ }
+ header.topbar nav{display:flex!important;flex:0 1 auto!important}
+ header.topbar .navright{display:flex!important;flex:0 0 auto!important;margin-left:auto!important}
+ header.topbar .searchbox{width:auto!important;max-width:none!important;height:auto!important}
+}
+@media(max-width:700px){
+ header.topbar,header.topbar.is-compact{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+  width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;
+  z-index:30!important;transform:none!important;overflow:visible!important;
+  background:#080a0e!important;border-bottom:1px solid #ffffff12!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+ }
+ header.topbar .nav,header.topbar.is-compact .nav{
+  display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;
+  align-items:center!important;justify-content:flex-start!important;
+  gap:3px!important;width:100%!important;height:auto!important;
+  min-height:0!important;max-height:none!important;margin:0!important;
+  padding:4px 2.5% 7px!important;box-sizing:border-box!important;transform:none!important;
+ }
+ header.topbar .brand,header.topbar.is-compact .brand{
+  display:flex!important;flex:0 0 auto!important;align-items:center!important;
+  justify-content:center!important;width:100%!important;max-width:none!important;
+  min-width:0!important;height:clamp(72px,22vw,94px)!important;
+  min-height:0!important;max-height:94px!important;margin:0!important;
+  padding:0!important;overflow:hidden!important;
+ }
+ header.topbar .brandLogo,header.topbar.is-compact .brandLogo{
+  display:block!important;width:100%!important;height:100%!important;
+  max-width:none!important;max-height:none!important;object-fit:fill!important;
+  aspect-ratio:auto!important;margin:0!important;
+ }
+ header.topbar nav{display:none!important}
+ header.topbar .navright,header.topbar.is-compact .navright{
+  display:flex!important;flex:0 0 auto!important;flex-direction:column!important;
+  width:100%!important;margin:0!important;gap:0!important;
+ }
+ header.topbar .searchbox,header.topbar.is-compact .searchbox{
+  display:flex!important;width:100%!important;max-width:none!important;
+  height:42px!important;min-height:42px!important;max-height:42px!important;
+  box-sizing:border-box!important;margin:0!important;padding:0 13px!important;
+  border-radius:13px!important;
+ }
+ header.topbar .searchbox input{width:100%!important;font-size:14px!important}
+ header.topbar .accountControls{display:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -2675,7 +2747,7 @@ header.topbar .brandLogo,header.topbar.is-compact .brandLogo{
 <text x="480" y="205" fill="#f9fbff" font-family="Arial,Helvetica,sans-serif" font-size="112" font-weight="900" letter-spacing="-5" filter="url(#softGlow)">METARECALL</text>
 <path d="M480 258 H565 M1015 258 H1100" stroke="#ff536f" stroke-width="6" stroke-linecap="round" filter="url(#softGlow)"/>
 <text x="790" y="301" fill="url(#playFill)" font-family="Arial,Helvetica,sans-serif" font-size="92" font-style="italic" font-weight="900" text-anchor="middle" letter-spacing="8" filter="url(#logoGlow)">PLAY</text>
-<path d="M400 58 L411 83 L436 94 L411 105 L400 130 L389 105 L364 94 L389 83Z" fill="#ffd778" filter="url(#logoGlow)"/><path d="M790 326 L802 350 L826 361 L802 372 L790 396 L778 372 L754 361 L778 350Z" fill="#ffd778" filter="url(#logoGlow)"/><circle cx="72" cy="185" r="3" fill="#7ceaff" filter="url(#softGlow)"/><circle cx="1118" cy="173" r="3" fill="#ff8093" filter="url(#softGlow)"/>
+<path d="M400 58 L411 83 L436 94 L411 105 L400 130 L389 105 L364 94 L389 83Z" fill="#ffd778" filter="url(#logoGlow)"/><path d="M790 326 L802 350 L826 361 L802 372 L790 396 L778 372 L754 361 L778 350Z" fill="#ffd778" filter="url(#logoGlow)"/><path d="M400 60 L414 86 L440 98 L414 110 L400 136 L386 110 L360 98 L386 86Z" fill="#ffd36a" filter="url(#logoGlow)"/><path d="M790 320 L801 343 L824 354 L801 365 L790 388 L779 365 L756 354 L779 343Z" fill="#ffd36a" filter="url(#logoGlow)"/><circle cx="72" cy="185" r="3" fill="#7ceaff" filter="url(#softGlow)"/><circle cx="1118" cy="173" r="3" fill="#ff8093" filter="url(#softGlow)"/>
 </svg></a>
 <nav aria-label="Navigation principale"><a href="#nouveautes">Derniers ajouts</a><a href="#top15">TOP 15</a><a href="#alafiche">À l’affiche</a><a href="#animations">Animation</a><a href="#docs">Docs & spectacles</a><a href="#annonces-officielles">À venir</a><a href="#catalogue">Catalogue</a></nav>
 <div class="navright">
