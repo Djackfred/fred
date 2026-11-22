@@ -4294,4 +4294,43 @@ supabase.auth.getSession().then(({ data, error }) => {
 </style>
 
 <!-- Déclencheur de publication Render — carrousel roulette fluide -->
+
+<style>
+/* CARROUSEL — affiches à taille constante, sans effet de rétrécissement latéral */
+.heroPoster.one,.heroPoster.two,.heroPoster.three{
+  transform:none!important;
+  transform-origin:center center!important;
+}
+.heroPoster.one{transform:translateY(8px)!important}
+.heroPoster.two{transform:translateY(-8px)!important}
+.heroPoster.three{transform:translateY(8px)!important}
+.heroPoster.incoming{
+  transform:translateX(130px)!important;
+  animation:wheelEnterRightFlat .82s cubic-bezier(.45,0,.2,1) both!important;
+}
+.heroArt.turn-prev .heroPoster.incoming{
+  transform:translateX(-130px)!important;
+  animation:wheelEnterLeftFlat .82s cubic-bezier(.45,0,.2,1) both!important;
+}
+.heroArt.turn-next .heroPoster.one{animation:wheelExitLeftFlat .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroArt.turn-next .heroPoster.two{animation:wheelToLeftFlat .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroArt.turn-next .heroPoster.three{animation:wheelToCenterFlat .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroArt.turn-prev .heroPoster.three{animation:wheelExitRightFlat .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroArt.turn-prev .heroPoster.two{animation:wheelToRightFlat .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroArt.turn-prev .heroPoster.one{animation:wheelToCenterBackFlat .82s cubic-bezier(.45,0,.2,1) both!important}
+@keyframes wheelExitLeftFlat{to{transform:translateX(-145px);opacity:0}}
+@keyframes wheelToLeftFlat{to{transform:translateX(-112px) translateY(8px);opacity:.9}}
+@keyframes wheelToCenterFlat{to{transform:translateX(-96px) translateY(-8px);opacity:1}}
+@keyframes wheelExitRightFlat{to{transform:translateX(145px);opacity:0}}
+@keyframes wheelToRightFlat{to{transform:translateX(112px) translateY(8px);opacity:.9}}
+@keyframes wheelToCenterBackFlat{to{transform:translateX(96px) translateY(-8px);opacity:1}}
+@keyframes wheelEnterRightFlat{to{transform:translateX(0);opacity:.9}}
+@keyframes wheelEnterLeftFlat{to{transform:translateX(0);opacity:.9}}
+@media(max-width:700px){
+ .heroPoster.one{transform:translateY(5px)!important}
+ .heroPoster.two{transform:translateY(-3px)!important}
+ .heroPoster.three{transform:translateY(5px)!important}
+ .heroPoster.incoming{width:clamp(72px,23vw,94px)!important}
+}
+</style>
 </body></html>
