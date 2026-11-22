@@ -2970,9 +2970,6 @@ supabase.auth.getSession().then(({ data, error }) => {
   observer.observe(modal,{attributes:true,attributeFilter:["class"]});
  }
 })();
-</script>
-
-
 /* Navigation au clavier, souris, tactile et télécommande pour le rail des annonces */
 (function(){
  function initOfficialRail(){
@@ -3015,5 +3012,9 @@ supabase.auth.getSession().then(({ data, error }) => {
  const root=document.getElementById("officialReleases");
  if(root)new MutationObserver(()=>initOfficialRail()).observe(root,{childList:true});
 })();
+</script>
+
+
+
 
 </body></html>
