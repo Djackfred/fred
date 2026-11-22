@@ -2370,6 +2370,29 @@ body{
   .topbar.is-compact .brandLogo{display:block!important;width:166px!important;height:35px!important;max-width:54vw!important;max-height:35px!important}
 }
 
+
+/* MOBILE BRAND — long centered app-style masthead, matching the approved artwork */
+@media(max-width:620px){
+ .topbar .nav{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:7px!important;padding:8px 4vw 9px!important}
+ .topbar .brand{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  width:100%!important;max-width:none!important;min-width:0!important;flex:0 0 auto!important;
+  height:auto!important;min-height:0!important;margin:0 auto!important;padding:0!important;
+ }
+ .topbar .brandLogo{
+  display:block!important;width:92vw!important;max-width:560px!important;
+  height:auto!important;max-height:66px!important;flex:0 1 auto!important;
+  margin:0 auto!important;overflow:visible!important;
+ }
+ .topbar.is-compact .nav{display:flex!important;flex-direction:column!important;grid-template-columns:none!important;grid-template-areas:none!important;grid-template-rows:none!important;max-height:112px!important;height:auto!important;min-height:0!important;gap:4px!important;padding:5px 4vw 7px!important}
+ .topbar.is-compact .brand{grid-area:auto!important;width:100%!important;height:auto!important;min-height:0!important;justify-content:center!important}
+ .topbar.is-compact .brandLogo{width:86vw!important;max-width:520px!important;height:auto!important;max-height:55px!important}
+ .topbar .searchbox{width:100%!important;min-height:38px!important;height:38px!important}
+}
+/* Red return arrow remains visible at all scroll positions */
+#orbitNav #backToTop{display:flex!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important}
+#orbitNav #backToTop:disabled{opacity:1!important}
+
 </style>
 </head>
 <body>
@@ -3021,7 +3044,8 @@ function bindScrollArrows(){
   document.body.classList.toggle("hasScrollUp",awayFromTop);
   down.classList.toggle("is-visible",canStep);
   down.disabled=!canStep;
-  up.classList.toggle("is-visible",awayFromTop);
+  up.classList.add("is-visible");
+  up.disabled=false;
  };
  const behavior=()=>window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
  const orbit=document.getElementById("orbitNav");
