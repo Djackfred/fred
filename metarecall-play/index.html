@@ -1095,6 +1095,66 @@ html.tv-navigation{scroll-behavior:smooth}
 .tv-navigation .shelf{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){html.tv-navigation{scroll-behavior:auto}.tv-navigation .poster:focus,.tv-navigation .btn:focus,.tv-navigation .accountBtn:focus{transform:none}}
 
+
+/* Stabilisation définitive de l'en-tête mobile : aucune variation de hauteur au scroll */
+@media(max-width:700px){
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:30;
+    -webkit-backdrop-filter:none;
+    backdrop-filter:none;
+    transform:translateZ(0);
+    contain:layout paint;
+  }
+  .topbar .nav{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    gap:8px!important;
+    width:100%;
+    height:76px!important;
+    min-height:76px!important;
+    max-height:76px!important;
+    padding:8px 10px!important;
+    overflow:hidden!important;
+    grid-template-columns:none!important;
+    grid-template-areas:none!important;
+    grid-template-rows:none!important;
+  }
+  .topbar .brand{
+    flex:0 1 auto;
+    min-width:0!important;
+    max-width:30%;
+    justify-self:auto!important;
+  }
+  .topbar .brandName{font-size:12px!important}
+  .topbar .searchbox{
+    flex:1 1 auto;
+    width:auto!important;
+    min-width:60px;
+    max-width:none!important;
+    height:38px!important;
+    justify-self:auto!important;
+  }
+  .topbar .searchbox input{width:100%!important;min-width:0}
+  .topbar .accountControls{
+    flex:0 0 auto;
+    max-width:31%;
+    min-width:0;
+    justify-self:auto!important;
+    justify-content:flex-end!important;
+    flex-wrap:nowrap!important;
+    gap:4px!important;
+    overflow:hidden!important;
+  }
+  .topbar .accountBtn{
+    min-height:28px!important;
+    padding:5px 7px!important;
+    font-size:8px!important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1596,8 +1656,11 @@ function bindScrollArrows(){
   lastScrollY=currentY;
   // Mobile uses a compact, fixed-height header; scrolling must never resize it.
   if(window.matchMedia&&window.matchMedia("(max-width: 700px)").matches){
-   downTravel=0;upTravel=0;targetProgress=0;
-   if(headerProgress!==0&&!headerFrame)headerFrame=window.requestAnimationFrame(animateHeader);
+   // Mobile: keep the header at a fixed size. Resizing a sticky header while
+   // the page scrolls causes Android browsers to repaint it repeatedly.
+   downTravel=0;upTravel=0;targetProgress=0;headerProgress=0;
+   if(headerFrame){window.cancelAnimationFrame(headerFrame);headerFrame=0;}
+   setHeaderProgress();
    return;
   }
   if(currentY<=8){
