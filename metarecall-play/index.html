@@ -1906,6 +1906,20 @@ html.tv-navigation{scroll-behavior:smooth}
  .topbar .accountControls{justify-self:center;justify-content:center;flex-wrap:wrap;gap:calc(7px - 2px * var(--header-progress))!important}
  .topbar .accountBtn{min-height:calc(34px - 5px * var(--header-progress))!important;padding:7px 11px!important;font-size:9px!important}
 }
+
+/* Anti-tremble scroll : empêcher l'ancrage automatique et les repaint du blur */
+html{overflow-anchor:none;scrollbar-gutter:stable}
+body{overflow-anchor:none}
+.topbar,.topbar .nav{
+ overflow-anchor:none!important;
+ -webkit-backdrop-filter:none!important;
+ backdrop-filter:none!important;
+}
+.topbar{
+ transform:translateZ(0);
+ isolation:isolate;
+}
+
 </style>
 </head>
 <body>
