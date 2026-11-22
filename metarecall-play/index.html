@@ -2071,6 +2071,26 @@ body:before{
 @keyframes starTwinkle{from{transform:scale(.78) rotate(-12deg);filter:brightness(.9)}to{transform:scale(1.22) rotate(12deg);filter:brightness(1.35)}}
 @media(prefers-reduced-motion:reduce){.snowfall i.is-star:after{animation:none}}
 
+
+/* Snow touch targets: visible snowball stays tiny; isolated hit area belongs only to itself */
+.snowfall{pointer-events:none}
+.snowfall i{
+ pointer-events:auto;cursor:pointer;touch-action:none;position:absolute;
+ width:24px;height:24px;border-radius:50%;
+ background:radial-gradient(circle,rgba(255,255,255,.95) 0 2px,rgba(222,244,255,.18) 3px,transparent 7px);
+ box-shadow:none;opacity:1;
+}
+.snowfall i.is-star{
+ width:26px!important;height:26px!important;border-radius:0!important;
+ background:transparent!important;box-shadow:none!important;opacity:1!important;z-index:5;
+}
+.snowfall i.is-star:after{
+ content:"✦";position:absolute;inset:0;display:grid;place-items:center;
+ color:#fff6bd;font:23px/1 Arial,sans-serif;
+ text-shadow:0 0 5px #fff,0 0 12px #ffe27a,0 0 22px #ffb52e;
+ animation:starTwinkle .8s ease-in-out infinite alternate;
+}
+
 </style>
 </head>
 <body>
@@ -3252,7 +3272,7 @@ supabase.auth.getSession().then(({ data, error }) => {
  if(!layer||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
  let seed=17;const rand=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
  const count=window.innerWidth<620?18:30;
- for(let n=0;n<count;n++){
+ function spawn(){
   const flake=document.createElement("i");
   flake.style.setProperty("--x",(rand()*100).toFixed(2)+"%");
   flake.style.setProperty("--s",(2+rand()*3.2).toFixed(1)+"px");
@@ -3260,16 +3280,30 @@ supabase.auth.getSession().then(({ data, error }) => {
   flake.style.setProperty("--d",(13+rand()*18).toFixed(1)+"s");
   flake.style.setProperty("--delay",(-rand()*28).toFixed(1)+"s");
   flake.style.setProperty("--drift",((rand()-.5)*90).toFixed(0)+"px");
+  flake.setAttribute("aria-hidden","true");
+  // Chaque flocon est une cible autonome : aucun événement ne remonte vers les affiches.
+  const isolate=event=>{
+   event.preventDefault();
+   event.stopPropagation();
+   if(event.stopImmediatePropagation)event.stopImmediatePropagation();
+  };
+  const transform=event=>{
+   isolate(event);
+   if(flake.classList.contains("is-star"))return;
+   flake.classList.add("is-star");
+   flake.style.animation="none";
+   flake.setAttribute("aria-label","Étoile magique");
+   window.setTimeout(()=>{
+    flake.remove();
+    if(layer.isConnected)spawn();
+   },1050);
+  };
+  ["pointerdown","pointerup","pointercancel","mousedown","mouseup","touchstart","touchend","click","dblclick"].forEach(type=>{
+   flake.addEventListener(type,type==="pointerdown"||type==="touchstart"||type==="click"?transform:isolate,{passive:false});
+  });
   layer.appendChild(flake);
  }
- // Interaction tactile/souris : chaque flocon touché devient une étoile lumineuse.
- layer.addEventListener("pointerdown",event=>{
-  const flake=event.target.closest("i");
-  if(!flake||!layer.contains(flake))return;
-  event.preventDefault();
-  flake.classList.add("is-star");
-  flake.setAttribute("aria-label","Étoile");
- },{passive:false});
+ for(let n=0;n<count;n++)spawn();
 })();
 </script>
 </body></html>
