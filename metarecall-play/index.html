@@ -1155,6 +1155,89 @@ html.tv-navigation{scroll-behavior:smooth}
     font-size:8px!important;
   }
 }
+
+/* Correctif ergonomie du bandeau mobile : éléments alignés, séparés et sans chevauchement */
+@media(max-width:700px){
+  .topbar .nav{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-areas:"brand" "search" "account"!important;
+    grid-template-rows:auto auto auto!important;
+    align-items:center;
+    justify-items:stretch;
+    gap:9px!important;
+    width:100%;
+    height:auto!important;
+    min-height:0!important;
+    padding:10px 14px 12px!important;
+    overflow:visible!important;
+  }
+  .topbar .brand{
+    grid-area:brand!important;
+    justify-self:start!important;
+    min-width:0;
+    width:max-content;
+    max-width:100%;
+    margin:0;
+  }
+  .topbar .brandName{white-space:nowrap}
+  .topbar .nav>nav{display:none!important}
+  .topbar .navright{
+    display:contents!important;
+  }
+  .topbar .searchbox{
+    grid-area:search!important;
+    justify-self:stretch!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0;
+    height:43px!important;
+    margin:0;
+    padding:0 13px!important;
+    border-radius:12px!important;
+  }
+  .topbar .searchbox input{
+    width:100%!important;
+    min-width:0;
+    font-size:14px!important;
+  }
+  .topbar .accountControls{
+    grid-area:account!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    justify-self:stretch!important;
+    justify-content:stretch!important;
+    align-items:stretch;
+    width:100%;
+    min-width:0;
+    gap:7px!important;
+    margin:0;
+  }
+  .topbar .accountBtn{
+    display:inline-flex;
+    width:100%;
+    min-width:0;
+    min-height:34px!important;
+    padding:7px 8px!important;
+    font-size:9px!important;
+    line-height:1.2;
+    white-space:normal;
+    text-align:center;
+    overflow-wrap:anywhere;
+  }
+  .topbar .accountEmail{
+    grid-column:1/-1;
+    max-width:100%;
+    padding:5px 2px;
+    text-align:center;
+  }
+}
+@media(max-width:360px){
+  .topbar .nav{padding-left:12px!important;padding-right:12px!important;gap:8px!important}
+  .topbar .accountControls{gap:6px!important}
+  .topbar .accountBtn{font-size:8px!important;padding:6px!important}
+}
+
 </style>
 </head>
 <body>
