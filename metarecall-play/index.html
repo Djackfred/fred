@@ -2718,6 +2718,20 @@ header.topbar .brandLogo,header.topbar.is-compact .brandLogo{
  header.topbar .accountControls{display:none!important}
 }
 
+
+/* HERO POSTER CAROUSEL — decoded image swaps, no blank frames on any screen */
+.heroPoster img{
+ opacity:1!important;
+ backface-visibility:hidden;
+ -webkit-backface-visibility:hidden;
+ transform:translateZ(0);
+}
+.heroArt{contain:layout paint;will-change:transform}
+.heroPoster{backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform,opacity}
+@media(prefers-reduced-motion:reduce){
+ .heroArt,.heroPoster{animation:none!important;transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -2896,6 +2910,41 @@ function posterSourcesFor(item){
 let heroPosterItems=[];
 let heroPosterStart=0;
 let heroPosterSuppressClick=false;
+const heroPosterPreloadCache=new Map();
+function heroPosterKey(item){return String((item&&item.id)||((item&&item.title)||""))}
+function preloadHeroPoster(item){
+ const key=heroPosterKey(item);
+ if(heroPosterPreloadCache.has(key))return heroPosterPreloadCache.get(key);
+ const promise=(async()=>{
+  const sources=posterSourcesFor(item);
+  for(const src of sources){
+   try{
+    const probe=new Image();probe.decoding="async";probe.referrerPolicy="no-referrer";
+    probe.src=src;
+    if(probe.decode)await probe.decode();
+    else await new Promise((resolve,reject)=>{probe.onload=resolve;probe.onerror=reject});
+    return src;
+   }catch(_){}
+  }
+  const fallback=placeholderArt(item.title);
+  try{const probe=new Image();probe.src=fallback;if(probe.decode)await probe.decode()}catch(_){}
+  return fallback;
+ })();
+ heroPosterPreloadCache.set(key,promise);
+ return promise;
+}
+function warmHeroPosterNeighbors(){
+ if(!heroPosterItems.length)return;
+ const warm=()=>{
+  const count=Math.min(heroPosterItems.length,6);
+  for(let offset=0;offset<count;offset++){
+   const item=heroPosterItems[(heroPosterStart+offset+heroPosterItems.length)%heroPosterItems.length];
+   preloadHeroPoster(item);
+  }
+ };
+ if("requestIdleCallback" in window)requestIdleCallback(warm,{timeout:700});
+ else setTimeout(warm,80);
+}
 function renderHeroPosterStack(){
  const slots=[...document.querySelectorAll(".heroPoster")];
  slots.forEach((slot,index)=>{
@@ -2907,17 +2956,6 @@ function renderHeroPosterStack(){
   slot.hidden=false;
   image.alt="Affiche de "+item.title;
   image.loading="eager";image.decoding="async";image.referrerPolicy="no-referrer";
-  image.style.opacity="0";
-  const sources=posterSourcesFor(item);let attempt=0;
-  const next=()=>{
-   if(attempt<sources.length){image.src=sources[attempt++];return}
-   image.onload=null;image.onerror=null;
-   image.alt="Couverture éditoriale METARECALL PLAY — "+item.title;
-   image.dataset.posterFallback="editorial";
-   image.src=placeholderArt(item.title);
-  };
-  image.onload=()=>{image.style.opacity="1";slot.hidden=false};
-  image.onerror=next;
   slot.dataset.catalogueId=item.id||"";
   slot.dataset.title=item.title||"";
   slot.title=(item.title||"")+" — toucher pour voir le TOP 15";
@@ -2926,8 +2964,21 @@ function renderHeroPosterStack(){
   slot.setAttribute("aria-label",(item.title||"Affiche")+" — ouvrir le TOP 15");
   slot.classList.remove("one","two","three");
   slot.classList.add(["one","two","three"][index]);
-  next();
+  const key=heroPosterKey(item);
+  const cached=heroPosterPreloadCache.get(key);
+  if(cached){
+   cached.then(src=>{
+    if(slot.dataset.title!==String(item.title||""))return;
+    image.src=src;image.style.opacity="1";slot.hidden=false;
+   });
+  }else{
+   preloadHeroPoster(item).then(src=>{
+    if(slot.dataset.title!==String(item.title||""))return;
+    image.src=src;image.style.opacity="1";slot.hidden=false;
+   });
+  }
  });
+ warmHeroPosterNeighbors();
 }
 function setHeroPosters(items){
  heroPosterItems=Array.isArray(items)?items.slice():[];
@@ -2943,18 +2994,22 @@ function bindHeroPosterCarousel(){
  const moveBy=step=>{
   if(!heroPosterItems.length||heroTurnBusy)return;
   heroTurnBusy=true;
-  const direction=step>0?"next":"prev";
-  area.classList.remove("turn-next","turn-prev");
-  void area.offsetWidth;
-  area.classList.add(direction==="next"?"turn-next":"turn-prev");
-  // Les trois affiches orbitent réellement avant le remplacement du visuel.
-  setTimeout(()=>{
-   heroPosterStart=(heroPosterStart+step+heroPosterItems.length)%heroPosterItems.length;
-   renderHeroPosterStack();
+  const nextStart=(heroPosterStart+step+heroPosterItems.length)%heroPosterItems.length;
+  const nextItems=[0,1,2].map(i=>heroPosterItems[(nextStart+i)%heroPosterItems.length]);
+  // Les trois prochaines affiches sont décodées avant le mouvement : aucun flash vide.
+  Promise.all(nextItems.map(preloadHeroPoster)).then(()=>{
+   const direction=step>0?"next":"prev";
    area.classList.remove("turn-next","turn-prev");
-   area.classList.add("turn-arrive");
-   setTimeout(()=>{area.classList.remove("turn-arrive");heroTurnBusy=false},260);
-  },520);
+   void area.offsetWidth;
+   area.classList.add(direction==="next"?"turn-next":"turn-prev");
+   setTimeout(()=>{
+    heroPosterStart=nextStart;
+    renderHeroPosterStack();
+    area.classList.remove("turn-next","turn-prev");
+    area.classList.add("turn-arrive");
+    setTimeout(()=>{area.classList.remove("turn-arrive");heroTurnBusy=false},180);
+   },420);
+  }).catch(()=>{heroTurnBusy=false});
  };
  area.addEventListener("pointerdown",event=>{
   if(event.pointerType==="mouse"&&event.button!==0)return;
