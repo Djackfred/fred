@@ -3014,22 +3014,39 @@ function bindHeroPosterCarousel(){
   if(!heroPosterItems.length||heroTurnBusy)return;
   heroTurnBusy=true;
   const nextStart=(heroPosterStart+step+heroPosterItems.length)%heroPosterItems.length;
+  const incomingItem=heroPosterItems[(nextStart+2)%heroPosterItems.length];
   const nextItems=[0,1,2].map(i=>heroPosterItems[(nextStart+i)%heroPosterItems.length]);
-  // Les trois prochaines affiches sont décodées avant le mouvement : aucun flash vide.
-  Promise.all(nextItems.map(preloadHeroPoster)).then(()=>{
+  // Précharger les affiches entrantes avant le mouvement pour éviter tout remplacement brutal.
+  Promise.all([...nextItems.map(preloadHeroPoster),preloadHeroPoster(incomingItem)]).then(async()=>{
    const direction=step>0?"next":"prev";
+   area.querySelector(".heroPoster.incoming")?.remove();
+   const sourceSlot=area.querySelector(direction==="next"?".heroPoster.one":".heroPoster.three");
+   const incoming=sourceSlot.cloneNode(true);
+   incoming.className="heroPoster incoming";
+   incoming.dataset.title=incomingItem.title||"";
+   incoming.dataset.catalogueId=incomingItem.id||"";
+   const incomingImage=incoming.querySelector("img");
+   incomingImage.src=await preloadHeroPoster(incomingItem);
+   incomingImage.alt="Affiche de "+incomingItem.title;
+   incoming.hidden=false;
+   incoming.style.opacity="1";
+   area.appendChild(incoming);
    area.classList.remove("turn-next","turn-prev");
    void area.offsetWidth;
    area.classList.add(direction==="next"?"turn-next":"turn-prev");
-   // Attendre la fin exacte de l'orbite CSS avant de permuter les affiches.
-   setTimeout(()=>{
+   const finish=()=>{
+    incoming.remove();
     heroPosterStart=nextStart;
     renderHeroPosterStack();
     area.classList.remove("turn-next","turn-prev","turn-arrive");
-    // Laisser une image de rendu au navigateur, sans snap ni effet de flou.
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{heroTurnBusy=false}));
-   },900);
-  }).catch(()=>{heroTurnBusy=false});
+    heroTurnBusy=false;
+   };
+   const moving=area.querySelector(direction==="next"?".heroPoster.three":".heroPoster.one");
+   let done=false;
+   const complete=()=>{if(done)return;done=true;finish()};
+   moving?.addEventListener("animationend",complete,{once:true});
+   setTimeout(complete,1050);
+  }).catch(()=>{area.querySelector(".heroPoster.incoming")?.remove();heroTurnBusy=false});
  };
  area.addEventListener("pointerdown",event=>{
   if(event.pointerType==="mouse"&&event.button!==0)return;
@@ -4251,5 +4268,28 @@ supabase.auth.getSession().then(({ data, error }) => {
  100%{transform:translateX(90px) rotateY(-70deg) rotateZ(7deg);opacity:0}
 }
 @keyframes posterSettle{from{filter:none}to{filter:none}}
+</style>
+
+<style>
+/* METARECALL PLAY — véritable rotation de carrousel, sans zoom ni saut */
+.heroPoster.one,.heroPoster.two,.heroPoster.three{transform-origin:50% 50%;}
+.heroArt.turn-next .heroPoster.one{animation:wheelExitLeft .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroArt.turn-next .heroPoster.two{animation:wheelToLeft .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroArt.turn-next .heroPoster.three{animation:wheelToCenter .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroArt.turn-prev .heroPoster.three{animation:wheelExitRight .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroArt.turn-prev .heroPoster.two{animation:wheelToRight .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroArt.turn-prev .heroPoster.one{animation:wheelToCenterBack .82s cubic-bezier(.45,0,.2,1) both!important}
+.heroPoster.incoming{position:absolute!important;z-index:1!important;width:clamp(112px,13vw,174px)!important;aspect-ratio:2/3!important;left:calc(50% + 34px)!important;right:auto!important;opacity:1!important;transform:translateX(130px) rotateY(-18deg)!important;animation:wheelEnterRight .82s cubic-bezier(.45,0,.2,1) both!important;pointer-events:none!important}
+.heroArt.turn-prev .heroPoster.incoming{left:auto!important;right:calc(50% + 34px)!important;transform:translateX(-130px) rotateY(18deg)!important;animation:wheelEnterLeft .82s cubic-bezier(.45,0,.2,1) both!important}
+@keyframes wheelExitLeft{to{transform:translateX(-145px) rotateY(34deg);opacity:0}}
+@keyframes wheelToLeft{to{transform:translateX(-112px) rotateY(18deg);opacity:.84}}
+@keyframes wheelToCenter{to{transform:translateX(-96px) rotateY(0);opacity:1}}
+@keyframes wheelExitRight{to{transform:translateX(145px) rotateY(-34deg);opacity:0}}
+@keyframes wheelToRight{to{transform:translateX(112px) rotateY(-18deg);opacity:.84}}
+@keyframes wheelToCenterBack{to{transform:translateX(96px) rotateY(0);opacity:1}}
+@keyframes wheelEnterRight{to{transform:translateX(0) rotateY(-18deg);opacity:.84}}
+@keyframes wheelEnterLeft{to{transform:translateX(0) rotateY(18deg);opacity:.84}}
+@media(max-width:700px){.heroPoster.incoming{width:clamp(72px,23vw,94px)!important;left:calc(50% + 18px)!important}.heroArt.turn-prev .heroPoster.incoming{left:auto!important;right:calc(50% + 18px)!important}}
+@media(prefers-reduced-motion:reduce){.heroArt.turn-next .heroPoster,.heroArt.turn-prev .heroPoster{animation-duration:.01ms!important}}
 </style>
 </body></html>
