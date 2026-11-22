@@ -3005,168 +3005,18 @@ function setHeroPosters(items){
  renderHeroPosterStack();
 }
 function bindHeroPosterCarousel(){
+ // Carrousel désactivé à la demande : les trois pochettes restent affichées
+ // en présentation fixe, sans glissement automatique, tactile ou à la molette.
  const area=document.querySelector(".heroArt");
- if(!area||area.dataset.carouselBound)return;
- area.dataset.carouselBound="true";
- let startX=0,startY=0,pointerId=null,dragged=false;
- let heroTurnBusy=false;
- const moveBy=step=>{
-  if(!heroPosterItems.length||heroTurnBusy)return;
-  heroTurnBusy=true;
-  const nextStart=(heroPosterStart+step+heroPosterItems.length)%heroPosterItems.length;
-  const forward=step>0;
-  const incomingItem=heroPosterItems[(forward?(nextStart+2):nextStart)%heroPosterItems.length];
-  const nextItems=[0,1,2].map(i=>heroPosterItems[(nextStart+i)%heroPosterItems.length]);
-  const clearMotion=()=>{
-   area.querySelectorAll(".heroPoster").forEach(slot=>{
-    ["transform","opacity","transition"].forEach(prop=>slot.style.removeProperty(prop));
-   });
-  };
-  Promise.all([...nextItems.map(preloadHeroPoster),preloadHeroPoster(incomingItem)]).then(async()=>{
-   area.querySelector(".heroPoster.incoming")?.remove();
-   const one=area.querySelector(".heroPoster.one");
-   const two=area.querySelector(".heroPoster.two");
-   const three=area.querySelector(".heroPoster.three");
-   const sourceSlot=forward?one:three;
-   if(!one||!two||!three||!sourceSlot)throw new Error("Poster slot missing");
-   const incoming=sourceSlot.cloneNode(true);
-   incoming.className="heroPoster incoming";
-   incoming.dataset.title=incomingItem.title||"";
-   incoming.dataset.catalogueId=incomingItem.id||"";
-   const incomingImage=incoming.querySelector("img");
-   incomingImage.src=await preloadHeroPoster(incomingItem);
-   incomingImage.alt="Affiche de "+incomingItem.title;
-   incoming.hidden=false;
-   incoming.setAttribute("aria-hidden","true");
-   incoming.style.setProperty("display","block","important");
-   area.appendChild(incoming);
-
-   const sideLeft="translate3d(0,7px,-26px) rotateY(19deg)";
-   const center="translate3d(0,-4px,32px) rotateY(0deg)";
-   const sideRight="translate3d(0,7px,-26px) rotateY(-19deg)";
-   const enterRight="translate3d(var(--cover-spread),7px,-26px) rotateY(-19deg)";
-   const enterLeft="translate3d(calc(0px - var(--cover-spread)),7px,-26px) rotateY(19deg)";
-   const exitLeft="translate3d(calc(0px - var(--cover-spread)),7px,-95px) rotateY(43deg)";
-   const exitRight="translate3d(var(--cover-spread),7px,-95px) rotateY(-43deg)";
-   const moveLeft="translate3d(calc(0px - var(--cover-spread)),7px,-26px) rotateY(19deg)";
-   const moveRight="translate3d(var(--cover-spread),7px,-26px) rotateY(-19deg)";
-   const centerFromRight="translate3d(calc(0px - var(--cover-spread)),-4px,32px) rotateY(0deg)";
-   const centerFromLeft="translate3d(var(--cover-spread),-4px,32px) rotateY(0deg)";
-   const plans=forward?[
-    [one,sideLeft,exitLeft,1,0],
-    [two,center,moveLeft,1,1],
-    [three,sideRight,centerFromRight,1,1],
-    [incoming,enterRight,sideRight,1,.94]
-   ]:[
-    [three,sideRight,exitRight,1,0],
-    [two,center,moveRight,1,1],
-    [one,sideLeft,centerFromLeft,1,1],
-    [incoming,enterLeft,sideLeft,1,.94]
-   ];
-   const duration=window.matchMedia("(prefers-reduced-motion: reduce)").matches?1:720;
-   plans.forEach(([slot,from])=>{
-    slot.style.setProperty("transition","none","important");
-    slot.style.setProperty("transform",from,"important");
-   });
-   void area.offsetWidth;
-   requestAnimationFrame(()=>{
-    plans.forEach(([slot,from,to,fromOpacity,toOpacity])=>{
-     slot.style.setProperty("transition",`transform ${duration}ms cubic-bezier(.2,.72,.22,1), opacity ${duration}ms ease`,"important");
-     slot.style.setProperty("transform",to,"important");
-     slot.style.setProperty("opacity",String(toOpacity),"important");
-    });
-   });
-   let done=false;
-   const finish=()=>{
-    if(done)return;
-    done=true;
-    // On recycle les trois éléments déjà animés : aucune réaffectation de src,
-    // donc aucune nouvelle requête/décodage d'image au moment de l'arrêt.
-    if(forward){
-     one.remove();
-     two.classList.remove("one","two","three");two.classList.add("one");
-     three.classList.remove("one","two","three");three.classList.add("two");
-     incoming.classList.remove("incoming");incoming.classList.add("three");
-    }else{
-     three.remove();
-     one.classList.remove("one","two","three");one.classList.add("two");
-     two.classList.remove("one","two","three");two.classList.add("three");
-     incoming.classList.remove("incoming");incoming.classList.add("one");
-    }
-    incoming.removeAttribute("aria-hidden");
-    incoming.setAttribute("role","button");
-    incoming.setAttribute("tabindex","0");
-    incoming.title=(incomingItem.title||"")+" — toucher pour voir le TOP 15";
-    incoming.setAttribute("aria-label",(incomingItem.title||"Affiche")+" — ouvrir le TOP 15");
-    heroPosterStart=nextStart;
-    clearMotion();
-    warmHeroPosterNeighbors();
-    heroTurnBusy=false;
-   };
-   const moving=forward?three:one;
-   moving.addEventListener("transitionend",event=>{
-    if(event.propertyName==="transform")finish();
-   });
-   window.setTimeout(finish,duration+260);
-  }).catch(()=>{
-   area.querySelector(".heroPoster.incoming")?.remove();
-   clearMotion();
-   heroTurnBusy=false;
-  });
- };
- area.addEventListener("pointerdown",event=>{
-  if(event.pointerType==="mouse"&&event.button!==0)return;
-  pointerId=event.pointerId;startX=event.clientX;startY=event.clientY;dragged=false;
-  try{area.setPointerCapture(pointerId)}catch(_){}
-  event.preventDefault();
- },{passive:false});
- area.addEventListener("pointerup",event=>{
-  if(pointerId!==event.pointerId)return;
-  const dx=event.clientX-startX,dy=event.clientY-startY;
-  pointerId=null;
-  if(Math.hypot(dx,dy)>22){
-   dragged=true;heroPosterSuppressClick=true;
-   // Un geste dans n'importe quelle direction fait défiler le carrousel.
-   const dominant=Math.abs(dx)>=Math.abs(dy)?dx:dy;
-   moveBy(dominant<0?1:-1);
-   setTimeout(()=>{heroPosterSuppressClick=false;dragged=false},280);
-  }
+ if(!area)return;
+ area.dataset.carouselBound="disabled";
+ area.style.cursor="default";
+ area.querySelectorAll(".heroPoster").forEach(slot=>{
+  slot.style.cursor="default";
+  slot.removeAttribute("role");
+  slot.removeAttribute("tabindex");
+  slot.removeAttribute("title");
  });
- area.addEventListener("pointercancel",()=>{pointerId=null});
- const openHeroPosterInTop15=slot=>{
-  const section=document.getElementById("top15");
-  const shelf=document.getElementById("top15Shelf");
-  if(!section)return;
-  const id=slot?.dataset.catalogueId||"";
-  const title=normalizePosterTitle(slot?.dataset.title||"");
-  const cards=shelf?[...shelf.querySelectorAll(".poster")]:[];
-  const target=cards.find(card=>(id&&card.dataset.catalogueId===id)||
-   normalizePosterTitle(card.querySelector(".posterText strong")?.textContent||"")===title);
-  if(target){
-   target.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});
-   target.focus({preventScroll:true});
-  }else{
-   section.scrollIntoView({behavior:"smooth",block:"start"});
-  }
- };
- area.addEventListener("click",event=>{
-  const poster=event.target.closest(".heroPoster");
-  if(!poster||heroPosterSuppressClick||heroTurnBusy)return;
-  event.preventDefault();event.stopPropagation();
-  openHeroPosterInTop15(poster);
- });
- area.addEventListener("keydown",event=>{
-  const slot=event.target.closest?.(".heroPoster");
-  if(!slot||!area.contains(slot)||event.key!=="Enter"&&event.key!==" ")return;
-  event.preventDefault();
-  openHeroPosterInTop15(slot);
- });
- area.addEventListener("wheel",event=>{
-  if(Math.abs(event.deltaX)+Math.abs(event.deltaY)<5)return;
-  event.preventDefault();
-  const delta=Math.abs(event.deltaX)>=Math.abs(event.deltaY)?event.deltaX:event.deltaY;
-  moveBy(delta>0?1:-1);
- },{passive:false});
 }
 function normalizeGenreKey(value){
  return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
