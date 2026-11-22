@@ -515,7 +515,9 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
           "https://image.tmdb.org/t/p/w500/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FkzRAd7mj39ZY3FGNrDdZjqx56tn.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "posterFallbackVerifiedAt": "2026-11-22",
+        "posterFallbackSource": "TMDb — affiche Lucky Strike ouverte et correspondance du titre vérifiée"
       },
       {
         "id": "78013952",
@@ -531,8 +533,11 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
           "https://image.tmdb.org/t/p/w500/kP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg",
+          "https://www.avcesar.com/source/actualites/00/00/B5/77/enfin-la-bande-annonce-officielle-de-l-odyssee-de-christopher-nolan-epoustouflante_1217297.jpg",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FkP8jJIkmX0vWEYiqQ9c5zU0dvcn.jpg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "posterFallbackVerifiedAt": "2026-11-22",
+        "posterFallbackSource": "AVCesar — affiche officielle de L'Odyssée, titre et date visibles sur le visuel"
       },
       {
         "id": "78096640",
@@ -548,8 +553,11 @@
           "https://www.ravpaz.com/1sjuv496ooa1/home/Bk6LJFL.jpeg",
           "https://www.ravpaz.com/1sjuv496ooa1/home/ravpaz/Bk6LJFL.jpeg",
           "https://image.tmdb.org/t/p/w500/Bk6LJFL.jpeg",
+          "https://storage.googleapis.com/endurance-apps-liip/media/cache/disney_no_filter_grid_fs/6a8dc44e9a934259cc05a589",
           "https://wsrv.nl/?url=https%3A%2F%2Fwww.ravpaz.com%2F1sjuv496ooa1%2Fhome%2FBk6LJFL.jpeg&w=500&h=750&fit=cover&output=jpg&q=85"
-        ]
+        ],
+        "posterFallbackVerifiedAt": "2026-11-22",
+        "posterFallbackSource": "Disney France Newsroom — affiche promotionnelle officielle Endgame Extended"
       },
       {
         "id": "78192384",
@@ -3000,5 +3008,29 @@
       }
     ]
   },
-  "genreEnrichmentNote": "Les fiches conservent le relevé de la source Ravpaz dans sourceCategoryLabel. Les classifications complémentaires sont vérifiées via les distributeurs, studios ou fiches cinématographiques cités par fiche. Quand plusieurs genres sont vérifiés, genreTags est utilisé par les filtres."
+  "genreEnrichmentNote": "Les fiches conservent le relevé de la source Ravpaz dans sourceCategoryLabel. Les classifications complémentaires sont vérifiées via les distributeurs, studios ou fiches cinématographiques cités par fiche. Quand plusieurs genres sont vérifiés, genreTags est utilisé par les filtres.",
+  "posterAudit": {
+    "checkedAt": "2026-11-22",
+    "note": "Contrôle des trois images HERO. Les URL Ravpaz directes ne sont pas accessibles dans l'environnement de veille ; des sources de secours visuelles correspondant aux titres ont été confirmées. L'ordre Ravpaz direct, variante, TMDb, source de secours vérifiée, proxy est conservé.",
+    "hero": [
+      {
+        "id": "78174976",
+        "title": "Lucky Strike",
+        "source": "TMDb",
+        "url": "https://image.tmdb.org/t/p/w500/kzRAd7mj39ZY3FGNrDdZjqx56tn.jpg"
+      },
+      {
+        "id": "78013952",
+        "title": "L'Odyssée",
+        "source": "AVCesar",
+        "url": "https://www.avcesar.com/source/actualites/00/00/B5/77/enfin-la-bande-annonce-officielle-de-l-odyssee-de-christopher-nolan-epoustouflante_1217297.jpg"
+      },
+      {
+        "id": "78096640",
+        "title": "Avengers : Endgame Extended",
+        "source": "Disney France Newsroom",
+        "url": "https://storage.googleapis.com/endurance-apps-liip/media/cache/disney_no_filter_grid_fs/6a8dc44e9a934259cc05a589"
+      }
+    ]
+  }
 }
