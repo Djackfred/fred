@@ -1238,6 +1238,101 @@ html.tv-navigation{scroll-behavior:smooth}
   .topbar .accountBtn{font-size:8px!important;padding:6px!important}
 }
 
+
+/* Refonte nette du bandeau mobile : trois lignes lisibles, aucun élément rogné */
+@media(max-width:700px){
+  .topbar .nav{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-areas:"brand" "search" "account"!important;
+    grid-template-rows:auto auto auto!important;
+    align-items:center!important;
+    justify-items:stretch!important;
+    justify-content:stretch!important;
+    gap:8px!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:10px 13px 11px!important;
+    overflow:visible!important;
+  }
+  .topbar .brand{
+    grid-area:brand!important;
+    justify-self:start!important;
+    display:flex!important;
+    width:auto!important;
+    max-width:100%!important;
+    min-width:0!important;
+    flex:none!important;
+    gap:9px!important;
+  }
+  .topbar .brandIcon{width:34px!important;height:34px!important;flex:0 0 34px}
+  .topbar .brandName{font-size:14px!important;line-height:1.05!important;white-space:nowrap}
+  .topbar .brandName .certifiedBy,.topbar .brandName small:last-child{display:none!important}
+  .topbar .nav>nav{display:none!important}
+  .topbar .navright{display:contents!important}
+  .topbar .searchbox{
+    grid-area:search!important;
+    display:flex!important;
+    justify-self:stretch!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    height:40px!important;
+    margin:0!important;
+    padding:0 12px!important;
+    border-radius:999px!important;
+    gap:8px!important;
+  }
+  .topbar .searchbox input{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    font-size:12px!important;
+  }
+  .topbar .accountControls{
+    grid-area:account!important;
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:wrap!important;
+    justify-content:flex-start!important;
+    align-items:center!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    gap:6px!important;
+    overflow:visible!important;
+  }
+  .topbar .accountBtn{
+    display:inline-flex!important;
+    flex:1 1 calc(50% - 6px)!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    min-height:31px!important;
+    padding:6px 9px!important;
+    border-radius:999px!important;
+    font-size:9px!important;
+    line-height:1.15!important;
+    font-weight:800!important;
+    white-space:nowrap!important;
+    text-align:center!important;
+    justify-content:center!important;
+  }
+  .topbar .accountEmail{
+    flex:1 0 100%!important;
+    max-width:100%!important;
+    text-align:left!important;
+    padding:3px 4px!important;
+  }
+}
+@media(max-width:360px){
+  .topbar .nav{padding-left:11px!important;padding-right:11px!important;gap:7px!important}
+  .topbar .brandName{font-size:13px!important}
+  .topbar .accountBtn{font-size:8px!important;padding:6px 7px!important}
+}
+
 </style>
 </head>
 <body>
