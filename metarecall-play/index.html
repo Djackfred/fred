@@ -4408,4 +4408,21 @@ supabase.auth.getSession().then(({ data, error }) => {
 @media(prefers-reduced-motion:reduce){.heroPoster{will-change:auto}}
 </style>
 
+
+<style>
+/* ORBIT NAV — flèches discrètes au repos, pleines au survol */
+.orbitNav .scrollNavArrow{
+  opacity:.22!important;
+  transition:opacity .24s ease,transform .22s ease,box-shadow .22s ease,filter .22s ease!important;
+}
+.orbitNav .scrollNavArrow:hover,
+.orbitNav .scrollNavArrow:focus-visible,
+.orbitNav .scrollNavArrow:active{
+  opacity:1!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .orbitNav .scrollNavArrow{transition:none!important}
+}
+</style>
+
 </body></html>
