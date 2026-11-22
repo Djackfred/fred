@@ -1944,6 +1944,43 @@ body{overflow-anchor:none}
  .topbar.is-compact .accountControls{display:none!important}
 }
 
+
+/* METARECALL PLAY — Christmas night atmosphere */
+body{
+ background:
+  radial-gradient(ellipse at 50% -18%,#3a202b 0%,transparent 48%),
+  radial-gradient(ellipse at 4% 35%,#4b182322 0%,transparent 42%),
+  radial-gradient(ellipse at 96% 68%,#17364b25 0%,transparent 44%),
+  linear-gradient(180deg,#100e15 0%,#0b0c12 48%,#090c12 100%);
+}
+body:before{
+ content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.42;
+ background:
+  radial-gradient(ellipse at 12% 0%,#d43d5520,transparent 38%),
+  radial-gradient(ellipse at 88% 8%,#e4b85a12,transparent 32%),
+  linear-gradient(180deg,transparent 0%,#080b1220 100%);
+}
+.snowfall{position:fixed;inset:0;z-index:4;overflow:hidden;pointer-events:none;contain:strict}
+.snowfall i{position:absolute;top:-12px;left:var(--x);width:var(--s);height:var(--s);border-radius:50%;background:#fff;opacity:var(--o);box-shadow:0 0 7px #d8efff99;animation:snowFall var(--d) linear var(--delay) infinite}
+@keyframes snowFall{0%{transform:translate3d(0,-3vh,0) scale(.7)}50%{transform:translate3d(var(--drift),52vh,0) scale(1)}100%{transform:translate3d(calc(var(--drift) * -.45),108vh,0) scale(.65)}}
+.orbitNav{position:fixed;left:50%;bottom:23px;z-index:1001;display:flex;align-items:center;justify-content:center;gap:9px;width:174px;height:76px;padding:9px 14px;border:1px solid #ffffff52;border-radius:999px;background:linear-gradient(135deg,#202b3bdc,#11131bdc 55%,#271b29dc);box-shadow:0 15px 42px #000b,inset 0 1px 0 #ffffff36,0 0 24px #65caff24;backdrop-filter:blur(18px) saturate(145%);transform:translate(-50%,0);transition:box-shadow .3s ease,border-color .3s ease}
+.orbitNav:before{content:"";position:absolute;inset:-5px;border-radius:inherit;padding:1px;background:linear-gradient(110deg,#50dfffaa,#ffffff22 42%,#ff778cbb);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.9}
+.orbitGlow{position:absolute;inset:-17px -24px;border-radius:50%;z-index:-1;background:linear-gradient(90deg,#29cfff36,#ff657c36);filter:blur(18px);opacity:.7;animation:orbitBreath 4.5s ease-in-out infinite}
+@keyframes orbitBreath{50%{opacity:.38;transform:scale(.94)}}
+.orbitNav .scrollNavArrow{position:relative;inset:auto;left:auto;bottom:auto;z-index:2;flex:0 0 48px;width:48px;height:48px;min-width:48px;padding:0;border:1px solid #ffffff58;border-radius:50%;opacity:1;visibility:visible;pointer-events:auto;transform:none!important;transition:transform .22s ease,box-shadow .22s ease,filter .22s ease;box-shadow:0 5px 17px #0008,inset 0 1px 0 #ffffff55}
+.orbitNav .scrollNavArrow.down{background:radial-gradient(circle at 30% 22%,#78edff,#1595d8 55%,#124b91);box-shadow:0 0 17px #29cfff6b,0 5px 16px #0008}
+.orbitNav .scrollNavArrow.up{background:radial-gradient(circle at 30% 22%,#ffb1a2,#fa526e 55%,#9e234d);box-shadow:0 0 17px #ff64745c,0 5px 16px #0008}
+.orbitNav .scrollNavArrow svg{width:24px;height:24px}
+.orbitNav .scrollNavArrow:hover{filter:brightness(1.16);transform:scale(1.08)!important}
+.orbitNav .scrollNavArrow:focus-visible{outline:2px solid white;outline-offset:4px}
+.orbitDivider{width:1px;height:27px;background:linear-gradient(180deg,transparent,#ffffff65,transparent)}
+.orbitSpark{position:absolute;color:#fff;pointer-events:none;text-shadow:0 0 10px #8ceaff}
+.orbitSparkA{top:-12px;left:34px;font-size:12px;animation:sparkTwinkle 2.4s ease-in-out infinite}
+.orbitSparkB{right:28px;bottom:-10px;font-size:15px;color:#ffb4c0;text-shadow:0 0 10px #ff7b91;animation:sparkTwinkle 3s ease-in-out infinite reverse}
+@keyframes sparkTwinkle{50%{opacity:.35;transform:scale(.7) rotate(35deg)}}
+@media(max-width:620px){.orbitNav{bottom:14px;width:158px;height:68px;gap:7px;padding:8px 11px}.orbitNav .scrollNavArrow{flex-basis:44px;width:44px;height:44px;min-width:44px}.orbitNav .scrollNavArrow svg{width:22px;height:22px}}
+@media(prefers-reduced-motion:reduce){.snowfall i,.orbitGlow,.orbitSpark{animation:none!important}.orbitNav{backdrop-filter:none}}
+
 </style>
 </head>
 <body>
@@ -2498,12 +2535,16 @@ function bindScrollArrows(){
 document.addEventListener("DOMContentLoaded",bindScrollArrows,{once:true});
 </script>
 
-<button class="scrollNavArrow down is-visible" id="scrollToBottom" type="button" aria-label="Descendre en bas de la page" title="Descendre en bas">
- <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m5.5 12.5 6.5 6.5 6.5-6.5"/></svg>
-</button>
-<button class="scrollNavArrow up" id="backToTop" type="button" aria-label="Revenir en haut de la page" title="Revenir en haut">
- <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5.5 11.5 6.5-6.5 6.5 6.5"/></svg>
-</button>
+<div class="orbitNav" id="orbitNav" aria-label="Navigation rapide">
+ <span class="orbitGlow" aria-hidden="true"></span><span class="orbitSpark orbitSparkA" aria-hidden="true">✦</span><span class="orbitSpark orbitSparkB" aria-hidden="true">✧</span>
+ <button class="scrollNavArrow down is-visible" id="scrollToBottom" type="button" aria-label="Descendre à la prochaine rubrique" title="Rubrique suivante">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m5.5 12.5 6.5 6.5 6.5-6.5"/></svg>
+ </button>
+ <span class="orbitDivider" aria-hidden="true"></span>
+ <button class="scrollNavArrow up" id="backToTop" type="button" aria-label="Revenir en haut de la page" title="Retour en haut">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5.5 11.5 6.5-6.5 6.5 6.5"/></svg>
+ </button>
+</div>
 
 <div class="accountOverlay" id="authOverlay" role="dialog" aria-modal="true" aria-labelledby="authTitle">
   <section class="accountDialog">
@@ -3092,4 +3133,23 @@ supabase.auth.getSession().then(({ data, error }) => {
 
 
 
+<div class="snowfall" id="snowfall" aria-hidden="true"></div>
+<script>
+(function(){
+ const layer=document.getElementById("snowfall");
+ if(!layer||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ let seed=17;const rand=()=>{seed=(seed*9301+49297)%233280;return seed/233280};
+ const count=window.innerWidth<620?18:30;
+ for(let n=0;n<count;n++){
+  const flake=document.createElement("i");
+  flake.style.setProperty("--x",(rand()*100).toFixed(2)+"%");
+  flake.style.setProperty("--s",(2+rand()*3.2).toFixed(1)+"px");
+  flake.style.setProperty("--o",(0.22+rand()*0.48).toFixed(2));
+  flake.style.setProperty("--d",(13+rand()*18).toFixed(1)+"s");
+  flake.style.setProperty("--delay",(-rand()*28).toFixed(1)+"s");
+  flake.style.setProperty("--drift",((rand()-.5)*90).toFixed(0)+"px");
+  layer.appendChild(flake);
+ }
+})();
+</script>
 </body></html>
