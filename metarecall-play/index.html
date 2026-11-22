@@ -825,152 +825,165 @@ body.hasScrollUp #backToTop{left:calc(50% + 39px)}
 
 
 
-/* METARECALL PLAY — édition fêtes Noël 2026 / Bonne année 2027
-   CSS saisonnier limité aux smartphones : aucune règle desktop modifiée. */
+/* METARECALL PLAY — Noël rouge, nuages blancs et Père Noël
+   Décor saisonnier limité aux smartphones : version PC inchangée. */
 @media(max-width:700px){
   :root{
-    --bg:#091522;
-    --surface:#101e2d;
-    --surface2:#17283a;
-    --line:#34465a;
-    --accent:#c92f50;
-    --accent2:#e8cd89;
+    --bg:#8f071b;
+    --surface:#a90d25;
+    --surface2:#c51a32;
+    --line:rgba(255,255,255,.24);
+    --accent:#ffe19a;
+    --accent2:#fff;
   }
   body{
     position:relative;
     isolation:isolate;
-    background:
-      radial-gradient(ellipse at 50% -12%,rgba(70,112,157,.29),transparent 48%),
-      linear-gradient(180deg,#091725 0%,#0b1725 48%,#08131f 100%) !important;
+    background-color:#a90822 !important;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 390 360'%3E%3Cg fill='%23fff' opacity='.98'%3E%3Cpath d='M-35 77c0-20 16-36 36-36 5-27 32-44 58-35 16-24 54-20 64 8 25-3 45 15 45 39 20 2 32 16 32 34H-35z'/%3E%3Cpath d='M220 184c0-17 14-31 31-31 4-23 28-37 50-29 14-20 45-16 54 7 21-3 38 12 38 31 17 2 27 14 27 29H220z'/%3E%3Cpath d='M-50 320c0-18 14-32 32-32 4-24 29-39 52-30 15-21 47-18 56 7 22-3 40 13 40 33 18 1 29 14 29 30H-50z'/%3E%3Cpath d='M250 352c0-14 12-26 26-26 4-20 24-32 43-25 12-18 40-15 48 6 18-2 32 11 32 27 15 1 24 12 24 26H250z'/%3E%3C/g%3E%3Cg fill='%23fff' opacity='.9'%3E%3Ccircle cx='195' cy='48' r='3'/%3E%3Ccircle cx='178' cy='204' r='2'/%3E%3Ccircle cx='355' cy='83' r='3'/%3E%3C/g%3E%3C/svg%3E"),
+      radial-gradient(ellipse at 50% 8%,rgba(255,255,255,.12),transparent 45%),
+      linear-gradient(180deg,#d71932 0%,#b80c25 44%,#850719 100%) !important;
+    background-repeat:repeat-y,no-repeat,no-repeat;
+    background-size:100% 360px,100% 100%,100% 100%;
+    background-position:center top,center,center;
   }
+  /* Illustration de Père Noël, discrète et non interactive, en arrière-plan. */
   body::before{
     content:"";
     position:fixed;
-    left:0;
-    right:0;
-    bottom:0;
-    height:154px;
+    right:3px;
+    bottom:-5px;
+    width:112px;
+    height:139px;
     z-index:1;
     pointer-events:none;
-    opacity:.76;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='154' viewBox='0 0 420 154'%3E%3Cpath d='M0 112 Q48 91 95 111 T190 109 T285 110 T420 103 V154 H0Z' fill='%230c2636'/%3E%3Cpath d='M0 132 Q70 111 138 130 T274 128 T420 124 V154 H0Z' fill='%23163142'/%3E%3Cg fill='%230e3040'%3E%3Cpath d='M10 132 35 73 60 132Z M29 132 35 91 42 132Z M67 137 100 55 133 137Z M91 137 100 78 109 137Z M145 132 169 75 193 132Z M161 132 169 91 177 132Z M263 135 294 58 325 135Z M284 135 294 82 304 135Z M333 136 365 65 397 136Z M352 136 365 88 378 136Z'/%3E%3C/g%3E%3Cg fill='%23dcebf4' opacity='.92'%3E%3Cpath d='m35 73-12 29 12-7 12 7Z M100 55 83 96 100 86 117 96Z M169 75 157 104 169 96 181 104Z M294 58 278 98 294 88 310 98Z M365 65 348 103 365 93 382 103Z'/%3E%3C/g%3E%3Cpath d='M0 139 Q70 126 140 139 T280 138 T420 135' fill='none' stroke='%23e5f1f8' stroke-width='2' opacity='.75'/%3E%3C/svg%3E");
-    background-repeat:repeat-x;
-    background-size:420px 154px;
+    opacity:.94;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 190'%3E%3Cellipse cx='81' cy='177' rx='70' ry='10' fill='%23fff' opacity='.92'/%3E%3Cpath d='M39 174c2-35 18-57 42-57s40 22 42 57z' fill='%23d71932'/%3E%3Cpath d='M38 164h86v13H38z' fill='%23fff'/%3E%3Cpath d='M48 139h66v10H48z' fill='%231e2837'/%3E%3Cpath d='M73 136h16v17H73z' rx='2' fill='%23f5cf67'/%3E%3Ccircle cx='81' cy='67' r='33' fill='%23f4c49d'/%3E%3Cpath d='M49 69c-3 12 0 31 13 43 8 8 20 13 30 7 14-8 22-24 21-42-8 8-17 11-29 10-15-1-25-8-35-18z' fill='%23fff'/%3E%3Cpath d='M58 76c5 3 11 3 16 0m14 0c5 3 11 3 16 0' fill='none' stroke='%233b2530' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M77 89q4 4 8 0' fill='none' stroke='%239b5149' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M48 51c4-22 23-37 45-34 16 2 26 14 27 30-17-4-29-10-38-21-8 14-19 22-34 25z' fill='%23c9142d'/%3E%3Cpath d='M48 50c20-2 36-14 45-29 8 12 19 20 27 21l1 13c-24-1-49 6-73 7z' fill='%23c9142d'/%3E%3Cpath d='M46 49q36-12 76-5l-1 13q-38-5-74 8z' fill='%23fff'/%3E%3Ccircle cx='119' cy='22' r='12' fill='%23fff'/%3E%3Cpath d='M44 120c-13 3-20 15-18 29l17 5 15-23z' fill='%23c9142d'/%3E%3Cpath d='M29 147q-8 7-1 14 9 8 17-2l3-7z' fill='%23f4c49d'/%3E%3Cpath d='M118 121q18 8 18 25l-17 8-15-24z' fill='%23c9142d'/%3E%3Cpath d='M135 146q9 7 2 15-9 8-17-2l-3-7z' fill='%23f4c49d'/%3E%3Cpath d='M69 110q12 9 24 0' fill='none' stroke='%23e8e8e8' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
     background-position:center bottom;
+    background-size:contain;
+    filter:drop-shadow(0 4px 8px rgba(65,0,10,.24));
   }
+  /* Flocons fins : le décor ne bloque aucun clic ni déplacement. */
   body::after{
     content:"";
     position:fixed;
     inset:-180px 0 0;
     z-index:25;
     pointer-events:none;
-    opacity:.48;
+    opacity:.25;
     background-image:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='180' viewBox='0 0 140 180'%3E%3Cg stroke='%23edf7ff' stroke-width='1.35' stroke-linecap='round' opacity='.9'%3E%3Cpath d='M25 28v16m-8-8h16m-13-5 10 10m0-10L20 36M105 112v18m-9-9h18m-15-6 12 12m0-12-12 12'/%3E%3C/g%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='180' viewBox='0 0 140 180'%3E%3Cg stroke='%23fff' stroke-width='1.35' stroke-linecap='round' opacity='.9'%3E%3Cpath d='M25 28v16m-8-8h16m-13-5 10 10m0-10L20 36M105 112v18m-9-9h18m-15-6 12 12m0-12-12 12'/%3E%3C/g%3E%3C/svg%3E"),
       radial-gradient(circle,rgba(255,255,255,.9) 0 1px,transparent 1.8px),
-      radial-gradient(circle,rgba(221,240,255,.75) 0 1.4px,transparent 2px);
+      radial-gradient(circle,rgba(255,255,255,.72) 0 1.4px,transparent 2px);
     background-repeat:repeat;
     background-size:140px 180px,95px 135px,180px 220px;
     background-position:0 -180px,35px -135px,90px -220px;
-    animation:metarecallSnowfall 22s linear infinite;
+    animation:metarecallSnowfall 24s linear infinite;
   }
   @keyframes metarecallSnowfall{
     from{background-position:0 -180px,35px -135px,90px -220px}
     to{background-position:65px 100vh,-30px 110vh,155px 120vh}
   }
   .topbar{
-    background:rgba(7,19,31,.96) !important;
-    border-bottom:1px solid rgba(218,235,249,.24);
-    box-shadow:0 8px 24px rgba(0,0,0,.25);
+    background:rgba(125,5,24,.97) !important;
+    border-bottom:1px solid rgba(255,255,255,.32);
+    box-shadow:0 8px 24px rgba(70,0,10,.28);
   }
   .brandIcon{
     position:relative;
-    background:linear-gradient(145deg,#d94d62,#871d3e) !important;
-    box-shadow:0 0 0 1px rgba(234,214,158,.58),0 5px 20px rgba(201,47,80,.28);
+    background:linear-gradient(145deg,#ff5368,#a80722) !important;
+    box-shadow:0 0 0 1px rgba(255,255,255,.56),0 5px 20px rgba(80,0,10,.28);
   }
   .brandIcon::after{
     content:"✦";
     position:absolute;
     top:-7px;
     right:-6px;
-    color:#f3e5b9;
+    color:#ffe6a5;
     font-size:12px;
     line-height:1;
-    text-shadow:0 1px 8px rgba(255,255,255,.65);
+    text-shadow:0 1px 8px rgba(255,255,255,.75);
   }
-  .brandName b{color:#e8cd89 !important}
+  .brandName b{color:#ffe5a6 !important}
   .searchbox{
-    background:rgba(17,32,48,.95) !important;
-    border-color:rgba(211,231,246,.22) !important;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+    background:rgba(91,0,17,.45) !important;
+    border-color:rgba(255,255,255,.34) !important;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
   }
   .accountBtn{
-    border-color:rgba(223,235,246,.2) !important;
-    background:rgba(24,43,61,.96) !important;
+    border-color:rgba(255,255,255,.36) !important;
+    background:rgba(124,7,28,.88) !important;
   }
   .accountBtn.primary{
-    background:linear-gradient(115deg,#c83c55,#8e1e3c) !important;
-    border-color:rgba(244,216,155,.5) !important;
+    color:#8b061b !important;
+    background:linear-gradient(115deg,#fff4d8,#ffd77d) !important;
+    border-color:rgba(255,255,255,.85) !important;
   }
-  .eyebrow{color:#e3ca8d !important}
+  .eyebrow{color:#ffe5a6 !important}
   .genreButton{
-    background:rgba(17,32,48,.94) !important;
-    border-color:rgba(211,231,246,.2) !important;
+    color:#fff !important;
+    background:rgba(110,4,23,.82) !important;
+    border-color:rgba(255,255,255,.32) !important;
   }
   .genreButton.active{
-    color:#fff !important;
-    background:linear-gradient(120deg,rgba(141,36,61,.75),rgba(22,62,72,.88)) !important;
-    border-color:rgba(232,205,137,.7) !important;
+    color:#8b061b !important;
+    background:linear-gradient(120deg,#fff1d1,#ffd87f) !important;
+    border-color:#fff !important;
   }
   .genreButton .genreCount{
-    background:rgba(220,235,247,.12) !important;
-    color:#e9e3d2 !important;
+    background:rgba(255,255,255,.16) !important;
+    color:#fff !important;
   }
-  .rowtitle{color:#f2f7fb;text-shadow:0 2px 18px rgba(127,171,205,.12)}
+  .rowtitle{
+    color:#fff !important;
+    text-shadow:0 2px 16px rgba(75,0,12,.35);
+  }
   .poster{
-    border-color:rgba(220,238,250,.19) !important;
-    box-shadow:0 8px 23px rgba(0,0,0,.5),0 0 0 1px rgba(220,238,250,.025);
+    border-color:rgba(255,255,255,.32) !important;
+    box-shadow:0 8px 23px rgba(65,0,10,.42),0 0 0 1px rgba(255,255,255,.05);
   }
-  .posterText small{color:#e8cd89 !important}
+  .posterText small{color:#ffe4a0 !important}
   .officialCard,.footerLinkCard{
-    border-color:rgba(218,235,249,.2) !important;
-    background:linear-gradient(140deg,rgba(24,43,60,.96),rgba(12,25,38,.97)) !important;
+    border-color:rgba(255,255,255,.3) !important;
+    background:linear-gradient(140deg,rgba(137,7,29,.96),rgba(91,3,19,.97)) !important;
   }
   .officialSource{
-    color:#f1d99b !important;
-    background:rgba(137,42,59,.25) !important;
-    border-color:rgba(232,205,137,.32) !important;
+    color:#fff0c9 !important;
+    background:rgba(255,255,255,.12) !important;
+    border-color:rgba(255,255,255,.3) !important;
   }
   .officialReleaseDate{
-    background:rgba(220,235,247,.08) !important;
-    border:1px solid rgba(220,235,247,.08);
+    background:rgba(255,255,255,.12) !important;
+    border:1px solid rgba(255,255,255,.16);
   }
-  .officialReleaseDate span:first-child{color:#e8cd89 !important}
-  .footerLinks{border-top-color:rgba(218,235,249,.2) !important}
+  .officialReleaseDate span:first-child{color:#ffe5a6 !important}
+  .footerLinks{border-top-color:rgba(255,255,255,.28) !important}
   footer{
     position:relative;
     z-index:2;
-    background:rgba(6,15,25,.97) !important;
-    border-top-color:rgba(218,235,249,.2) !important;
+    background:rgba(105,3,20,.97) !important;
+    border-top-color:rgba(255,255,255,.25) !important;
   }
   footer::before{
     content:"❄  JOYEUSES FÊTES  ·  NOËL 2026  ·  BONNE ANNÉE 2027  ❄";
     display:block;
     padding:0 0 11px;
-    color:#e8d5a5;
+    color:#ffe7ae;
     text-align:center;
     font-size:7px;
     font-weight:850;
     letter-spacing:1.05px;
-    text-shadow:0 0 12px rgba(199,226,245,.28);
+    text-shadow:0 0 12px rgba(255,255,255,.32);
   }
   .modalbox,.accountDialog{
-    border-color:rgba(218,235,249,.24) !important;
-    background:linear-gradient(145deg,#17283a,#0e1b29) !important;
+    border-color:rgba(255,255,255,.3) !important;
+    background:linear-gradient(145deg,#a80d26,#760619) !important;
   }
 }
 @media(max-width:700px) and (prefers-reduced-motion:reduce){
-  body::after{animation:none !important;opacity:.22}
+  body::after{animation:none !important;opacity:.12}
 }
 
 
