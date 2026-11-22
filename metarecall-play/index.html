@@ -1993,6 +1993,26 @@ body:before{
 .orbitNav.is-moving .orbitSparkB{right:-10px;bottom:8px}
 @media(max-width:620px){.orbitNav.is-moving{width:68px;height:140px;padding:10px 8px;gap:7px}}
 
+
+/* ORBIT FIX — both arrows stay centered INSIDE the same capsule on every viewport */
+.orbitNav{left:50%!important;right:auto!important;margin:0!important;box-sizing:border-box;isolation:isolate}
+.orbitNav #scrollToBottom,.orbitNav #backToTop{
+ position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;
+ margin:0!important;float:none!important;transform:none!important;align-self:center;flex-shrink:0;
+}
+.orbitNav #scrollToBottom.is-visible,.orbitNav #backToTop.is-visible{opacity:1;visibility:visible;pointer-events:auto}
+.orbitNav .orbitDivider{flex:0 0 auto}
+.orbitNav.is-moving{left:50%!important;align-items:center;justify-content:center}
+.orbitNav.is-moving #backToTop,.orbitNav.is-moving #scrollToBottom{left:auto!important;right:auto!important;bottom:auto!important}
+@media(min-width:621px){
+ .orbitNav{width:174px;height:76px}
+ .orbitNav.is-moving{width:76px;height:154px}
+}
+@media(max-width:620px){
+ .orbitNav{width:158px;height:68px;left:50%!important;bottom:14px}
+ .orbitNav.is-moving{width:68px;height:140px;left:50%!important;bottom:14px}
+}
+
 </style>
 </head>
 <body>
@@ -2547,12 +2567,14 @@ function bindScrollArrows(){
   setOrbitMoving(true);
   window.scrollTo({top:targetY,behavior:behavior()});
   window.setTimeout(updateVisibility,450);
-  settleOrbit();
+  if(behavior()==="auto")setOrbitMoving(false);
+  else settleOrbit();
  };
  const goTop=()=>{
   setOrbitMoving(true);
   window.scrollTo({top:0,behavior:behavior()});
-  settleOrbit();
+  if(behavior()==="auto")setOrbitMoving(false);
+  else settleOrbit();
  };
  window.addEventListener("scroll",()=>{
   updateVisibility();
