@@ -2013,6 +2013,22 @@ body:before{
  .orbitNav.is-moving{width:68px;height:140px;left:50%!important;bottom:14px}
 }
 
+
+/* ORBIT — press halo follows each arrow's own color and vanishes on release */
+.orbitNav .scrollNavArrow:focus{outline:none;outline-offset:0}
+.orbitNav .scrollNavArrow:focus:not(:focus-visible){outline:none;box-shadow:0 5px 16px #0008}
+.orbitNav .scrollNavArrow.down:active,
+.orbitNav .scrollNavArrow.down:focus-visible{
+ outline:2px solid #38cfff;outline-offset:3px;
+ box-shadow:0 0 0 3px #38cfff35,0 0 22px #29cfffaa,0 5px 16px #0008;
+}
+.orbitNav .scrollNavArrow.up:active,
+.orbitNav .scrollNavArrow.up:focus-visible{
+ outline:2px solid #ff7188;outline-offset:3px;
+ box-shadow:0 0 0 3px #ff718835,0 0 22px #ff6474aa,0 5px 16px #0008;
+}
+.orbitNav .scrollNavArrow{ -webkit-tap-highlight-color:transparent; }
+
 </style>
 </head>
 <body>
