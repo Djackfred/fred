@@ -2322,6 +2322,36 @@ body{
 }
 @media(prefers-reduced-motion:reduce){.heroArt.turn-next .heroPoster,.heroArt.turn-prev .heroPoster,.heroArt.turn-arrive .heroPoster{animation:none!important}}
 
+
+/* MOBILE QUICK NAV — compact shortcuts directly under the search field */
+@media(max-width:620px){
+ #mobileBottomNav{
+  position:relative!important;inset:auto!important;z-index:31!important;
+  display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:4px!important;margin:0 auto!important;padding:3px 12px 7px!important;
+  width:100%;box-sizing:border-box;
+  background:linear-gradient(180deg,#0c0d12f5,#0a0c12f2)!important;
+  border:0!important;border-top:1px solid #ffffff0b!important;
+  border-bottom:1px solid #ffffff12!important;
+  border-radius:0!important;backdrop-filter:blur(12px)!important;
+ }
+ #mobileBottomNav a{
+  min-width:0!important;min-height:30px!important;height:30px!important;
+  display:flex!important;flex-direction:row!important;align-items:center!important;
+  justify-content:center!important;gap:5px!important;padding:0 3px!important;
+  border-radius:7px!important;background:transparent!important;
+  color:#aeb4c2!important;font-size:9px!important;font-weight:650!important;
+  line-height:1!important;white-space:nowrap!important;
+ }
+ #mobileBottomNav a span:first-child{font-size:14px!important;line-height:1!important}
+ #mobileBottomNav a:active,#mobileBottomNav a:focus-visible{
+  color:#fff!important;background:#e52d5525!important;outline:none!important
+ }
+ body{padding-bottom:0!important}
+ footer{padding-bottom:24px!important}
+}
+@media(min-width:621px){#mobileBottomNav{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -3661,4 +3691,19 @@ supabase.auth.getSession().then(({ data, error }) => {
   <a href="#catalogue"><span aria-hidden="true">▦</span><span>Catalogue</span></a>
 </nav>
 
+
+<script>
+(function(){
+ const nav=document.getElementById("mobileBottomNav");
+ const header=document.querySelector("header.topbar");
+ const row=header&&header.querySelector(".nav");
+ if(nav&&header&&row&&nav.parentElement!==header){row.insertAdjacentElement("afterend",nav)}
+ const searchLink=document.getElementById("mobileSearchLink");
+ const search=document.getElementById("search");
+ if(searchLink&&search)searchLink.addEventListener("click",function(e){
+  e.preventDefault();search.focus({preventScroll:true});
+  search.scrollIntoView({behavior:"smooth",block:"nearest"});
+ });
+})();
+</script>
 </body></html>
