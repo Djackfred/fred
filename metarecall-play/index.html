@@ -3080,10 +3080,27 @@ function bindHeroPosterCarousel(){
    const finish=()=>{
     if(done)return;
     done=true;
-    incoming.remove();
-    clearMotion();
+    // On recycle les trois éléments déjà animés : aucune réaffectation de src,
+    // donc aucune nouvelle requête/décodage d'image au moment de l'arrêt.
+    if(forward){
+     one.remove();
+     two.classList.remove("one","two","three");two.classList.add("one");
+     three.classList.remove("one","two","three");three.classList.add("two");
+     incoming.classList.remove("incoming");incoming.classList.add("three");
+    }else{
+     three.remove();
+     one.classList.remove("one","two","three");one.classList.add("two");
+     two.classList.remove("one","two","three");two.classList.add("three");
+     incoming.classList.remove("incoming");incoming.classList.add("one");
+    }
+    incoming.removeAttribute("aria-hidden");
+    incoming.setAttribute("role","button");
+    incoming.setAttribute("tabindex","0");
+    incoming.title=(incomingItem.title||"")+" — toucher pour voir le TOP 15";
+    incoming.setAttribute("aria-label",(incomingItem.title||"Affiche")+" — ouvrir le TOP 15");
     heroPosterStart=nextStart;
-    renderHeroPosterStack();
+    clearMotion();
+    warmHeroPosterNeighbors();
     heroTurnBusy=false;
    };
    const moving=forward?three:one;
@@ -3138,13 +3155,11 @@ function bindHeroPosterCarousel(){
   event.preventDefault();event.stopPropagation();
   openHeroPosterInTop15(poster);
  });
- area.querySelectorAll(".heroPoster").forEach(slot=>{
-  slot.addEventListener("keydown",event=>{
-   if(event.key==="Enter"||event.key===" "){
-    event.preventDefault();
-    openHeroPosterInTop15(slot);
-   }
-  });
+ area.addEventListener("keydown",event=>{
+  const slot=event.target.closest?.(".heroPoster");
+  if(!slot||!area.contains(slot)||event.key!=="Enter"&&event.key!==" ")return;
+  event.preventDefault();
+  openHeroPosterInTop15(slot);
  });
  area.addEventListener("wheel",event=>{
   if(Math.abs(event.deltaX)+Math.abs(event.deltaY)<5)return;
