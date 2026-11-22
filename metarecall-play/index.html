@@ -3039,11 +3039,6 @@ function bindHeroPosterCarousel(){
    incoming.hidden=false;
    incoming.setAttribute("aria-hidden","true");
    incoming.style.setProperty("display","block","important");
-   // Ancrage symétrique : l'affiche entrante démarre du côté réel du mouvement.
-   incoming.style.setProperty("left",forward
-    ?"calc(50% + var(--cover-spread) - var(--cover-half))"
-    :"calc(50% - var(--cover-spread) - var(--cover-half))","important");
-   incoming.style.setProperty("right","auto","important");
    area.appendChild(incoming);
 
    const sideLeft="translate3d(0,7px,-26px) rotateY(19deg)";
@@ -4411,40 +4406,6 @@ supabase.auth.getSession().then(({ data, error }) => {
  .heroArt{--cover-w:72px;--cover-half:36px;--cover-spread:62px}
 }
 @media(prefers-reduced-motion:reduce){.heroPoster{will-change:auto}}
-</style>
-
-
-<style>
-/* ORBIT NAV — presque invisibles au repos, éclairage normal au survol */
-.orbitNav .scrollNavArrow{
-  opacity:.035!important;
-  transition:opacity .24s ease,transform .22s ease,box-shadow .22s ease,filter .22s ease!important;
-}
-.orbitNav .scrollNavArrow:hover,
-.orbitNav .scrollNavArrow:focus-visible,
-.orbitNav .scrollNavArrow:active{
-  opacity:1!important;
-}
-@media(prefers-reduced-motion:reduce){
-  .orbitNav .scrollNavArrow{transition:none!important}
-}
-</style>
-
-
-
-<style>
-/* ORBIT NAV — rendre toute la cellule discrète, pas seulement les flèches */
-.orbitNav{
-  opacity:.045!important;
-  transition:opacity .24s ease!important;
-}
-.orbitNav:hover,
-.orbitNav:focus-within{
-  opacity:1!important;
-}
-@media(prefers-reduced-motion:reduce){
-  .orbitNav{transition:none!important}
-}
 </style>
 
 </body></html>
