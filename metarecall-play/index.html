@@ -2097,6 +2097,35 @@ body:before{
 @media(max-width:900px){.brand{width:210px;flex-basis:210px;min-width:0}.brandLogo{max-height:58px}}
 @media(max-width:700px){.brand{width:154px;flex-basis:154px;min-width:0}.brandLogo{max-height:48px}}
 
+
+/* FIX MOBILE — fond noir de secours sur toute la hauteur, y compris pendant le swipe */
+html{
+  min-height:100%;
+  background-color:#080a0e!important;
+}
+body{
+  min-height:100vh;
+  min-height:100dvh;
+  background-color:#080a0e!important;
+}
+@media(max-width:700px){
+  html,body{
+    background-color:#080a0e!important;
+    overscroll-behavior-y:none;
+  }
+  body{
+    background-attachment:scroll!important;
+    background-repeat:no-repeat!important;
+    background-size:100% 100vh!important;
+    background-size:100% 100dvh!important;
+  }
+  /* Les zones de défilement horizontales restent contenues dans la page */
+  .shelf,#annonces-officielles .officialGrid,.genreChips{
+    overscroll-behavior-x:contain;
+    background-color:#080a0e;
+  }
+}
+
 </style>
 </head>
 <body>
