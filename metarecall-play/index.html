@@ -2288,6 +2288,15 @@ body{
 .posterEditorialTag{position:absolute;left:6px;top:6px;z-index:2;padding:4px 6px;border:1px solid #e8cd8966;border-radius:4px;background:#090d16c9;color:#f0dba9;font-size:6px;font-weight:800;letter-spacing:1px;backdrop-filter:blur(5px)}
 .art{position:relative}
 
+
+/* HERO POSTER STACK — interactive swipe in all directions */
+.heroArt{pointer-events:auto!important;touch-action:none;cursor:grab;z-index:3}
+.heroArt:active{cursor:grabbing}
+.heroPoster{pointer-events:auto;cursor:pointer;transition:left .34s ease,right .34s ease,transform .34s ease,opacity .34s ease,filter .34s ease}
+.heroPoster:focus-visible{outline:2px solid #ff6681;outline-offset:5px}
+@media(max-width:700px){.heroArt{opacity:.92!important;right:2%;width:70%;height:220px;top:auto;bottom:12px;transform:none}.heroPoster{width:clamp(86px,27vw,120px)}}
+@media(prefers-reduced-motion:reduce){.heroPoster{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -2466,38 +2475,97 @@ function posterSourcesFor(item){
  const extras=heroPosterFallbacks[key]||[];
  return [...new Set([...(Array.isArray(item&&item.posterCandidates)?item.posterCandidates:[]),item&&item.imageUrl,...extras].filter(Boolean))];
 }
-function setHeroPosters(items){
+let heroPosterItems=[];
+let heroPosterStart=0;
+let heroPosterSuppressClick=false;
+function renderHeroPosterStack(){
  const slots=[...document.querySelectorAll(".heroPoster")];
- const firstThree=(Array.isArray(items)?items:[]).slice(0,3);
  slots.forEach((slot,index)=>{
-  const item=firstThree[index],image=slot.querySelector("img");
+  const image=slot.querySelector("img");
   if(!image)return;
+  const item=heroPosterItems.length?heroPosterItems[(heroPosterStart+index)%heroPosterItems.length]:null;
   image.onload=null;image.onerror=null;
-  if(!item){slot.hidden=true;slot.dataset.catalogueId="";slot.removeAttribute("title");image.removeAttribute("src");return}
+  if(!item){slot.hidden=true;return}
   slot.hidden=false;
   image.alt="Affiche de "+item.title;
-  image.loading="eager";
-  image.decoding="async";
-  image.fetchPriority=index===1?"high":"auto";
-  image.referrerPolicy="no-referrer";
+  image.loading="eager";image.decoding="async";image.referrerPolicy="no-referrer";
   image.style.opacity="0";
-  const sources=posterSourcesFor(item);
-  let attempt=0;
-  const tryNext=()=>{
+  const sources=posterSourcesFor(item);let attempt=0;
+  const next=()=>{
    if(attempt<sources.length){image.src=sources[attempt++];return}
    image.onload=null;image.onerror=null;
-   image.alt="Visuel éditorial de secours — aucune affiche vérifiée pour "+item.title;
+   image.alt="Couverture éditoriale METARECALL PLAY — "+item.title;
    image.dataset.posterFallback="editorial";
    image.src=placeholderArt(item.title);
   };
   image.onload=()=>{image.style.opacity="1";slot.hidden=false};
-  image.onerror=tryNext;
+  image.onerror=next;
   slot.dataset.catalogueId=item.id||"";
-  slot.title=item.title;
-  tryNext();
+  slot.dataset.title=item.title||"";
+  slot.title=(item.title||"")+" — toucher pour voir le TOP 15";
+  slot.setAttribute("role","button");
+  slot.setAttribute("tabindex","0");
+  slot.setAttribute("aria-label",(item.title||"Affiche")+" — ouvrir le TOP 15");
+  slot.classList.remove("one","two","three");
+  slot.classList.add(["one","two","three"][index]);
+  next();
  });
 }
-
+function setHeroPosters(items){
+ heroPosterItems=Array.isArray(items)?items.slice():[];
+ heroPosterStart=0;
+ renderHeroPosterStack();
+}
+function bindHeroPosterCarousel(){
+ const area=document.querySelector(".heroArt");
+ if(!area||area.dataset.carouselBound)return;
+ area.dataset.carouselBound="true";
+ let startX=0,startY=0,pointerId=null,dragged=false;
+ const moveBy=step=>{
+  if(!heroPosterItems.length)return;
+  heroPosterStart=(heroPosterStart+step+heroPosterItems.length)%heroPosterItems.length;
+  renderHeroPosterStack();
+ };
+ area.addEventListener("pointerdown",event=>{
+  if(event.pointerType==="mouse"&&event.button!==0)return;
+  pointerId=event.pointerId;startX=event.clientX;startY=event.clientY;dragged=false;
+  try{area.setPointerCapture(pointerId)}catch(_){}
+  event.preventDefault();
+ },{passive:false});
+ area.addEventListener("pointerup",event=>{
+  if(pointerId!==event.pointerId)return;
+  const dx=event.clientX-startX,dy=event.clientY-startY;
+  pointerId=null;
+  if(Math.hypot(dx,dy)>22){
+   dragged=true;heroPosterSuppressClick=true;
+   // Un geste dans n'importe quelle direction fait défiler le carrousel.
+   const dominant=Math.abs(dx)>=Math.abs(dy)?dx:dy;
+   moveBy(dominant<0?1:-1);
+   setTimeout(()=>{heroPosterSuppressClick=false;dragged=false},280);
+  }
+ });
+ area.addEventListener("pointercancel",()=>{pointerId=null});
+ area.addEventListener("click",event=>{
+  const poster=event.target.closest(".heroPoster");
+  if(!poster||heroPosterSuppressClick)return;
+  event.preventDefault();event.stopPropagation();
+  document.getElementById("top15")?.scrollIntoView({behavior:"smooth",block:"start"});
+ });
+ area.querySelectorAll(".heroPoster").forEach(slot=>{
+  slot.addEventListener("keydown",event=>{
+   if(event.key==="Enter"||event.key===" "){
+    event.preventDefault();
+    document.getElementById("top15")?.scrollIntoView({behavior:"smooth",block:"start"});
+   }
+  });
+ });
+ area.addEventListener("wheel",event=>{
+  if(Math.abs(event.deltaX)+Math.abs(event.deltaY)<5)return;
+  event.preventDefault();
+  const delta=Math.abs(event.deltaX)>=Math.abs(event.deltaY)?event.deltaX:event.deltaY;
+  moveBy(delta>0?1:-1);
+ },{passive:false});
+}
 function normalizeGenreKey(value){
  return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
 }
@@ -2787,6 +2855,7 @@ async function loadReferenceCatalog(){
   applyFilters(false);
  }catch(error){console.error("Catalogue Ravpaz indisponible",error);["latestShelf","top15Shelf","featuredShelf","animationShelf","docsShelf","catalogueShelf"].forEach(id=>{const shelf=document.getElementById(id);if(shelf)shelf.innerHTML='<p class="note">Le catalogue de référence n’a pas pu être chargé. Réessayez dans quelques instants.</p>'})}
 }
+bindHeroPosterCarousel();
 Promise.allSettled([loadReferenceCatalog(),loadFranceAndWeb()]).then(()=>loadOfficialAnnouncements());
 
 function bindScrollArrows(){
