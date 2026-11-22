@@ -4425,4 +4425,21 @@ supabase.auth.getSession().then(({ data, error }) => {
 }
 </style>
 
+
+
+<style>
+/* ORBIT NAV — rendre toute la cellule discrète, pas seulement les flèches */
+.orbitNav{
+  opacity:.045!important;
+  transition:opacity .24s ease!important;
+}
+.orbitNav:hover,
+.orbitNav:focus-within{
+  opacity:1!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .orbitNav{transition:none!important}
+}
+</style>
+
 </body></html>
