@@ -2053,6 +2053,24 @@ body:before{
  box-shadow:0 5px 16px #0008!important;
 }
 
+
+/* Interactive Christmas flakes: touch a falling snowball to turn it into a star */
+.snowfall{pointer-events:none}
+.snowfall i{pointer-events:auto;cursor:pointer;touch-action:manipulation}
+.snowfall i.is-star{
+ width:22px!important;height:22px!important;border-radius:0!important;
+ background:transparent!important;box-shadow:none!important;
+ opacity:1!important;z-index:2;
+}
+.snowfall i.is-star:after{
+ content:"✦";position:absolute;inset:-5px;display:grid;place-items:center;
+ color:#fff4b5;font:22px/1 Arial,sans-serif;
+ text-shadow:0 0 5px #fff,0 0 12px #ffe27a,0 0 22px #ffb52e;
+ animation:starTwinkle .8s ease-in-out infinite alternate;
+}
+@keyframes starTwinkle{from{transform:scale(.78) rotate(-12deg);filter:brightness(.9)}to{transform:scale(1.22) rotate(12deg);filter:brightness(1.35)}}
+@media(prefers-reduced-motion:reduce){.snowfall i.is-star:after{animation:none}}
+
 </style>
 </head>
 <body>
@@ -3244,6 +3262,14 @@ supabase.auth.getSession().then(({ data, error }) => {
   flake.style.setProperty("--drift",((rand()-.5)*90).toFixed(0)+"px");
   layer.appendChild(flake);
  }
+ // Interaction tactile/souris : chaque flocon touché devient une étoile lumineuse.
+ layer.addEventListener("pointerdown",event=>{
+  const flake=event.target.closest("i");
+  if(!flake||!layer.contains(flake))return;
+  event.preventDefault();
+  flake.classList.add("is-star");
+  flake.setAttribute("aria-label","Étoile");
+ },{passive:false});
 })();
 </script>
 </body></html>
