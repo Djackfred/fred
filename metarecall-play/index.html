@@ -2289,40 +2289,6 @@ body{
 .art{position:relative}
 
 
-/* HERO POSTER STACK — interactive swipe in all directions */
-.heroArt{pointer-events:auto!important;touch-action:none;cursor:grab;z-index:3}
-.heroArt:active{cursor:grabbing}
-.heroPoster{pointer-events:auto;cursor:pointer;transition:left .34s ease,right .34s ease,transform .34s ease,opacity .34s ease,filter .34s ease}
-.heroPoster:focus-visible{outline:2px solid #ff6681;outline-offset:5px}
-@media(max-width:700px){.heroArt{opacity:.92!important;right:2%;width:70%;height:220px;top:auto;bottom:12px;transform:none}.heroPoster{width:clamp(86px,27vw,120px)}}
-@media(prefers-reduced-motion:reduce){.heroPoster{transition:none!important}}
-
-
-/* CINEMATIC POSTER TURNTABLE — 3D page-turn transition */
-.heroArt{transform-style:preserve-3d;perspective:1100px;overflow:visible}
-.heroPoster{backface-visibility:hidden;transform-style:preserve-3d;will-change:transform,opacity,filter}
-.heroArt.turn-next .heroPoster.one{animation:posterOrbitOutLeft .52s cubic-bezier(.22,.75,.25,1) both}
-.heroArt.turn-next .heroPoster.two{animation:posterOrbitLeft .52s cubic-bezier(.22,.75,.25,1) both}
-.heroArt.turn-next .heroPoster.three{animation:posterOrbitCenter .52s cubic-bezier(.22,.75,.25,1) both}
-.heroArt.turn-prev .heroPoster.one{animation:posterOrbitCenterBack .52s cubic-bezier(.22,.75,.25,1) both}
-.heroArt.turn-prev .heroPoster.two{animation:posterOrbitRightBack .52s cubic-bezier(.22,.75,.25,1) both}
-.heroArt.turn-prev .heroPoster.three{animation:posterOrbitOutRight .52s cubic-bezier(.22,.75,.25,1) both}
-.heroArt.turn-arrive .heroPoster{animation:posterSettle .26s ease-out both}
-@keyframes posterOrbitOutLeft{0%{transform:translateX(0) rotateY(19deg) rotateZ(-7deg) scale(1);opacity:.82}45%{transform:translateX(-65px) rotateY(78deg) rotateZ(-12deg) scale(.82);opacity:.35}100%{transform:translateX(-90px) rotateY(90deg) scale(.72);opacity:0}}
-@keyframes posterOrbitLeft{0%{transform:translateX(0) translateY(-8px) scale(1.06);opacity:1}100%{transform:translateX(-115px) rotateY(35deg) rotateZ(-7deg) scale(.88);opacity:.78}}
-@keyframes posterOrbitCenter{0%{transform:translateX(0) rotateY(-18deg) rotateZ(7deg) scale(1);opacity:.88}100%{transform:translateX(-95px) rotateY(0) rotateZ(0) scale(1.08);opacity:1}}
-@keyframes posterOrbitCenterBack{0%{transform:translateX(0) rotateY(19deg) rotateZ(-7deg) scale(1);opacity:.82}100%{transform:translateX(95px) rotateY(0) rotateZ(0) scale(1.08);opacity:1}}
-@keyframes posterOrbitRightBack{0%{transform:translateX(0) translateY(-8px) scale(1.06);opacity:1}100%{transform:translateX(115px) rotateY(-35deg) rotateZ(7deg) scale(.88);opacity:.78}}
-@keyframes posterOrbitOutRight{0%{transform:translateX(0) rotateY(-18deg) rotateZ(7deg) scale(1);opacity:.88}45%{transform:translateX(65px) rotateY(-78deg) rotateZ(12deg) scale(.82);opacity:.35}100%{transform:translateX(90px) rotateY(-90deg) scale(.72);opacity:0}}
-@keyframes posterSettle{0%{filter:blur(2px) brightness(1.35)}100%{filter:blur(0) brightness(1)}}
-@media(max-width:700px){
- .heroArt.turn-next .heroPoster.one{animation-name:posterOrbitOutLeft}
- .heroArt.turn-next .heroPoster.two{animation-name:posterOrbitLeft}
- .heroArt.turn-next .heroPoster.three{animation-name:posterOrbitCenter}
-}
-@media(prefers-reduced-motion:reduce){.heroArt.turn-next .heroPoster,.heroArt.turn-prev .heroPoster,.heroArt.turn-arrive .heroPoster{animation:none!important}}
-
-
 /* MOBILE QUICK NAV — compact shortcuts directly under the search field */
 @media(max-width:620px){
  #mobileBottomNav{
@@ -2719,39 +2685,7 @@ header.topbar .brandLogo,header.topbar.is-compact .brandLogo{
 }
 
 
-/* HERO POSTER CAROUSEL — decoded image swaps, no blank frames on any screen */
-.heroPoster img{
- opacity:1!important;
- backface-visibility:hidden;
- -webkit-backface-visibility:hidden;
- transform:translateZ(0);
-}
-.heroArt{contain:layout paint;will-change:transform}
-.heroPoster{backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform,opacity}
-@media(prefers-reduced-motion:reduce){
- .heroArt,.heroPoster{animation:none!important;transition:none!important}
-}
 
-
-/* CAROUSEL MOTION FINISH — align JS/CSS timing, remove blur and hard snap */
-.heroArt.turn-next .heroPoster.one,
-.heroArt.turn-next .heroPoster.two,
-.heroArt.turn-next .heroPoster.three,
-.heroArt.turn-prev .heroPoster.one,
-.heroArt.turn-prev .heroPoster.two,
-.heroArt.turn-prev .heroPoster.three{
- animation-duration:520ms!important;
- animation-timing-function:cubic-bezier(.22,.75,.25,1)!important;
-}
-.heroArt.turn-arrive .heroPoster{
- animation:posterArriveClean 150ms ease-out both!important;
-}
-@keyframes posterArriveClean{
- from{opacity:.88;filter:none}
- to{opacity:1;filter:none}
-}
-
-</style>
 </head>
 <body>
 <header class="topbar"><div class="nav">
@@ -3008,137 +2942,10 @@ function bindHeroPosterCarousel(){
  const area=document.querySelector(".heroArt");
  if(!area||area.dataset.carouselBound)return;
  area.dataset.carouselBound="true";
- let startX=0,startY=0,pointerId=null,dragged=false;
- let heroTurnBusy=false;
- const moveBy=step=>{
-  if(!heroPosterItems.length||heroTurnBusy)return;
-  heroTurnBusy=true;
-  const nextStart=(heroPosterStart+step+heroPosterItems.length)%heroPosterItems.length;
-  const forward=step>0;
-  const incomingItem=heroPosterItems[(forward?(nextStart+2):nextStart)%heroPosterItems.length];
-  const nextItems=[0,1,2].map(i=>heroPosterItems[(nextStart+i)%heroPosterItems.length]);
-  const clearMotion=()=>{
-   area.querySelectorAll(".heroPoster").forEach(slot=>{
-    ["transform","opacity","transition"].forEach(prop=>slot.style.removeProperty(prop));
-   });
-  };
-  Promise.all([...nextItems.map(preloadHeroPoster),preloadHeroPoster(incomingItem)]).then(async()=>{
-   area.querySelector(".heroPoster.incoming")?.remove();
-   const one=area.querySelector(".heroPoster.one");
-   const two=area.querySelector(".heroPoster.two");
-   const three=area.querySelector(".heroPoster.three");
-   const sourceSlot=forward?one:three;
-   if(!one||!two||!three||!sourceSlot)throw new Error("Poster slot missing");
-   const incoming=sourceSlot.cloneNode(true);
-   incoming.className="heroPoster incoming";
-   incoming.dataset.title=incomingItem.title||"";
-   incoming.dataset.catalogueId=incomingItem.id||"";
-   const incomingImage=incoming.querySelector("img");
-   incomingImage.src=await preloadHeroPoster(incomingItem);
-   incomingImage.alt="Affiche de "+incomingItem.title;
-   incoming.hidden=false;
-   incoming.setAttribute("aria-hidden","true");
-   incoming.style.setProperty("display","block","important");
-   // Ancrage symétrique : l'affiche entrante démarre du côté réel du mouvement.
-   incoming.style.setProperty("left",forward
-    ?"calc(50% + var(--cover-spread) - var(--cover-half))"
-    :"calc(50% - var(--cover-spread) - var(--cover-half))","important");
-   incoming.style.setProperty("right","auto","important");
-   area.appendChild(incoming);
-
-   const sideLeft="translate3d(0,7px,-26px) rotateY(19deg)";
-   const center="translate3d(0,-4px,32px) rotateY(0deg)";
-   const sideRight="translate3d(0,7px,-26px) rotateY(-19deg)";
-   const enterRight="translate3d(var(--cover-spread),7px,-26px) rotateY(-19deg)";
-   const enterLeft="translate3d(calc(0px - var(--cover-spread)),7px,-26px) rotateY(19deg)";
-   const exitLeft="translate3d(calc(0px - var(--cover-spread)),7px,-95px) rotateY(43deg)";
-   const exitRight="translate3d(var(--cover-spread),7px,-95px) rotateY(-43deg)";
-   const moveLeft="translate3d(calc(0px - var(--cover-spread)),7px,-26px) rotateY(19deg)";
-   const moveRight="translate3d(var(--cover-spread),7px,-26px) rotateY(-19deg)";
-   const centerFromRight="translate3d(calc(0px - var(--cover-spread)),-4px,32px) rotateY(0deg)";
-   const centerFromLeft="translate3d(var(--cover-spread),-4px,32px) rotateY(0deg)";
-   const plans=forward?[
-    [one,sideLeft,exitLeft,1,0],
-    [two,center,moveLeft,1,1],
-    [three,sideRight,centerFromRight,1,1],
-    [incoming,enterRight,sideRight,1,.94]
-   ]:[
-    [three,sideRight,exitRight,1,0],
-    [two,center,moveRight,1,1],
-    [one,sideLeft,centerFromLeft,1,1],
-    [incoming,enterLeft,sideLeft,1,.94]
-   ];
-   const duration=window.matchMedia("(prefers-reduced-motion: reduce)").matches?1:720;
-   plans.forEach(([slot,from])=>{
-    slot.style.setProperty("transition","none","important");
-    slot.style.setProperty("transform",from,"important");
-   });
-   void area.offsetWidth;
-   requestAnimationFrame(()=>{
-    plans.forEach(([slot,from,to,fromOpacity,toOpacity])=>{
-     slot.style.setProperty("transition",`transform ${duration}ms cubic-bezier(.2,.72,.22,1), opacity ${duration}ms ease`,"important");
-     slot.style.setProperty("transform",to,"important");
-     slot.style.setProperty("opacity",String(toOpacity),"important");
-    });
-   });
-   let done=false;
-   const finish=()=>{
-    if(done)return;
-    done=true;
-    // On recycle les trois éléments déjà animés : aucune réaffectation de src,
-    // donc aucune nouvelle requête/décodage d'image au moment de l'arrêt.
-    if(forward){
-     one.remove();
-     two.classList.remove("one","two","three");two.classList.add("one");
-     three.classList.remove("one","two","three");three.classList.add("two");
-     incoming.classList.remove("incoming");incoming.classList.add("three");
-    }else{
-     three.remove();
-     one.classList.remove("one","two","three");one.classList.add("two");
-     two.classList.remove("one","two","three");two.classList.add("three");
-     incoming.classList.remove("incoming");incoming.classList.add("one");
-    }
-    incoming.removeAttribute("aria-hidden");
-    incoming.setAttribute("role","button");
-    incoming.setAttribute("tabindex","0");
-    incoming.title=(incomingItem.title||"")+" — toucher pour voir le TOP 15";
-    incoming.setAttribute("aria-label",(incomingItem.title||"Affiche")+" — ouvrir le TOP 15");
-    heroPosterStart=nextStart;
-    clearMotion();
-    warmHeroPosterNeighbors();
-    heroTurnBusy=false;
-   };
-   const moving=forward?three:one;
-   moving.addEventListener("transitionend",event=>{
-    if(event.propertyName==="transform")finish();
-   });
-   window.setTimeout(finish,duration+260);
-  }).catch(()=>{
-   area.querySelector(".heroPoster.incoming")?.remove();
-   clearMotion();
-   heroTurnBusy=false;
-  });
- };
- area.addEventListener("pointerdown",event=>{
-  if(event.pointerType==="mouse"&&event.button!==0)return;
-  pointerId=event.pointerId;startX=event.clientX;startY=event.clientY;dragged=false;
-  try{area.setPointerCapture(pointerId)}catch(_){}
-  event.preventDefault();
- },{passive:false});
- area.addEventListener("pointerup",event=>{
-  if(pointerId!==event.pointerId)return;
-  const dx=event.clientX-startX,dy=event.clientY-startY;
-  pointerId=null;
-  if(Math.hypot(dx,dy)>22){
-   dragged=true;heroPosterSuppressClick=true;
-   // Un geste dans n'importe quelle direction fait défiler le carrousel.
-   const dominant=Math.abs(dx)>=Math.abs(dy)?dx:dy;
-   moveBy(dominant<0?1:-1);
-   setTimeout(()=>{heroPosterSuppressClick=false;dragged=false},280);
-  }
- });
- area.addEventListener("pointercancel",()=>{pointerId=null});
- const openHeroPosterInTop15=slot=>{
+ let pointerId=null,startX=0,startY=0,suppressClickUntil=0,busy=false;
+ const duration=680;
+ const clearPreparing=()=>area.querySelectorAll(".heroPoster").forEach(el=>el.classList.remove("is-preparing"));
+ const openPoster=slot=>{
   const section=document.getElementById("top15");
   const shelf=document.getElementById("top15Shelf");
   if(!section)return;
@@ -3147,30 +2954,117 @@ function bindHeroPosterCarousel(){
   const cards=shelf?[...shelf.querySelectorAll(".poster")]:[];
   const target=cards.find(card=>(id&&card.dataset.catalogueId===id)||
    normalizePosterTitle(card.querySelector(".posterText strong")?.textContent||"")===title);
-  if(target){
-   target.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});
-   target.focus({preventScroll:true});
-  }else{
-   section.scrollIntoView({behavior:"smooth",block:"start"});
-  }
+  if(target){target.scrollIntoView({behavior:"smooth",block:"center",inline:"center"});target.focus({preventScroll:true});}
+  else section.scrollIntoView({behavior:"smooth",block:"start"});
  };
+ const moveBy=step=>{
+  if(busy||!heroPosterItems.length)return;
+  busy=true;
+  const count=heroPosterItems.length;
+  const nextStart=(heroPosterStart+step+count)%count;
+  const forward=step>0;
+  const incomingItem=heroPosterItems[(nextStart+(forward?2:0))%count];
+  const outgoing=area.querySelector(forward?".heroPoster.one":".heroPoster.three");
+  const left=area.querySelector(".heroPoster.one");
+  const center=area.querySelector(".heroPoster.two");
+  const right=area.querySelector(".heroPoster.three");
+  if(!left||!center||!right||!outgoing){busy=false;return;}
+  Promise.all([preloadHeroPoster(incomingItem)]).then(src=>{
+   const incoming=outgoing.cloneNode(true);
+   incoming.className="heroPoster incoming "+(forward?"enter-right":"enter-left")+" is-preparing";
+   incoming.dataset.title=incomingItem.title||"";
+   incoming.dataset.catalogueId=incomingItem.id||"";
+   const img=incoming.querySelector("img");
+   img.src=src[0];img.alt="Affiche de "+incomingItem.title;
+   incoming.hidden=false;
+   incoming.setAttribute("aria-hidden","true");
+   incoming.style.removeProperty("display");
+   area.querySelector(".heroPoster.incoming")?.remove();
+   area.querySelectorAll(".heroPoster").forEach(el=>el.classList.add("is-preparing"));
+   area.appendChild(incoming);
+   void area.offsetWidth;
+   requestAnimationFrame(()=>{
+    clearPreparing();
+    if(forward){
+     left.classList.add("exit-left");
+     center.classList.remove("two");center.classList.add("one");
+     right.classList.remove("three");right.classList.add("two");
+     incoming.classList.remove("enter-right","incoming");incoming.classList.add("three");
+    }else{
+     right.classList.add("exit-right");
+     center.classList.remove("two");center.classList.add("three");
+     left.classList.remove("one");left.classList.add("two");
+     incoming.classList.remove("enter-left","incoming");incoming.classList.add("one");
+    }
+   });
+   let finished=false;
+   const finish=()=>{
+    if(finished)return;finished=true;
+    if(forward){
+     left.remove();
+     center.classList.remove("one");center.classList.add("one");
+     right.classList.remove("two");right.classList.add("two");
+     incoming.classList.remove("three");incoming.classList.add("three");
+    }else{
+     right.remove();
+     left.classList.remove("two");left.classList.add("two");
+     center.classList.remove("three");center.classList.add("three");
+     incoming.classList.remove("one");incoming.classList.add("one");
+    }
+    area.querySelectorAll(".heroPoster").forEach(el=>{
+     el.classList.remove("incoming","enter-left","enter-right","exit-left","exit-right","is-preparing");
+     el.removeAttribute("aria-hidden");
+     el.setAttribute("role","button");el.setAttribute("tabindex","0");
+     el.title=(el.dataset.title||"")+" — toucher pour voir le TOP 15";
+     el.setAttribute("aria-label",(el.dataset.title||"Affiche")+" — ouvrir le TOP 15");
+    });
+    heroPosterStart=nextStart;
+    busy=false;
+    warmHeroPosterNeighbors();
+   };
+   const transitionTarget=forward?center:left;
+   transitionTarget.addEventListener("transitionend",event=>{
+    if(event.propertyName==="transform")finish();
+   },{once:false});
+   window.setTimeout(finish,duration+220);
+  }).catch(()=>{
+   area.querySelector(".heroPoster.incoming")?.remove();
+   clearPreparing();busy=false;
+  });
+ };
+ area.addEventListener("pointerdown",event=>{
+  if(event.pointerType==="mouse"&&event.button!==0)return;
+  pointerId=event.pointerId;startX=event.clientX;startY=event.clientY;
+  try{area.setPointerCapture(pointerId)}catch(_){}
+  event.preventDefault();
+ },{passive:false});
+ area.addEventListener("pointerup",event=>{
+  if(pointerId!==event.pointerId)return;
+  const dx=event.clientX-startX,dy=event.clientY-startY;pointerId=null;
+  if(Math.hypot(dx,dy)>24){
+   suppressClickUntil=Date.now()+450;
+   const dominant=Math.abs(dx)>=Math.abs(dy)?dx:dy;
+   moveBy(dominant<0?1:-1);
+  }
+ });
+ area.addEventListener("pointercancel",()=>{pointerId=null});
  area.addEventListener("click",event=>{
   const poster=event.target.closest(".heroPoster");
-  if(!poster||heroPosterSuppressClick||heroTurnBusy)return;
-  event.preventDefault();event.stopPropagation();
-  openHeroPosterInTop15(poster);
+  if(!poster||Date.now()<suppressClickUntil||busy)return;
+  event.preventDefault();event.stopPropagation();openPoster(poster);
  });
  area.addEventListener("keydown",event=>{
-  const slot=event.target.closest?.(".heroPoster");
-  if(!slot||!area.contains(slot)||event.key!=="Enter"&&event.key!==" ")return;
-  event.preventDefault();
-  openHeroPosterInTop15(slot);
+  const poster=event.target.closest?.(".heroPoster");
+  if(poster&&area.contains(poster)&&(event.key==="Enter"||event.key===" ")){
+   event.preventDefault();openPoster(poster);return;
+  }
+  if(event.key==="ArrowLeft"){event.preventDefault();moveBy(-1);}
+  if(event.key==="ArrowRight"){event.preventDefault();moveBy(1);}
  });
  area.addEventListener("wheel",event=>{
-  if(Math.abs(event.deltaX)+Math.abs(event.deltaY)<5)return;
-  event.preventDefault();
   const delta=Math.abs(event.deltaX)>=Math.abs(event.deltaY)?event.deltaX:event.deltaY;
-  moveBy(delta>0?1:-1);
+  if(Math.abs(delta)<8)return;
+  event.preventDefault();moveBy(delta>0?1:-1);
  },{passive:false});
 }
 function normalizeGenreKey(value){
@@ -4309,108 +4203,52 @@ supabase.auth.getSession().then(({ data, error }) => {
 
 
 <style>
-/* METARECALL PLAY — carrousel simple et stable */
-.heroArt{
-  perspective:none!important;
-  transform-style:flat!important;
-  overflow:visible!important;
-}
-.heroPoster{
-  backface-visibility:visible!important;
-  transform:none!important;
-  filter:none!important;
-  transition:opacity .18s ease!important;
-  animation:none!important;
-  will-change:opacity;
-}
-.heroPoster.one{left:4%!important;right:auto!important;transform:none!important;opacity:.94!important}
-.heroPoster.two{left:34%!important;right:auto!important;transform:none!important;opacity:1!important}
-.heroPoster.three{right:2%!important;left:auto!important;transform:none!important;opacity:.94!important}
-.heroPoster.incoming{display:none!important}
-.heroArt.turn-next .heroPoster,
-.heroArt.turn-prev .heroPoster,
-.heroArt.turn-arrive .heroPoster{animation:none!important}
-@media(max-width:700px){
- .heroArt{perspective:none!important;transform:none!important}
- .heroPoster{width:clamp(72px,23vw,94px)!important;transform:none!important}
- .heroPoster.one{left:calc(50% - 112px)!important;right:auto!important}
- .heroPoster.two{left:50%!important;right:auto!important;transform:translateX(-50%)!important}
- .heroPoster.three{right:calc(50% - 112px)!important;left:auto!important}
-}
-@media(max-width:380px){
- .heroPoster.one{left:calc(50% - 96px)!important}
- .heroPoster.three{right:calc(50% - 96px)!important}
-}
-@media(prefers-reduced-motion:reduce){.heroPoster{transition:none!important}}
-</style>
-
-
 <style>
-/* METARECALL PLAY — 3D Coverflow: stable three-card turntable, no scaling */
+/* METARECALL PLAY — carrousel reconstruit : trois cartes, une trajectoire symétrique */
 .heroArt{
-  --cover-w:clamp(112px,12vw,158px);
-  --cover-half:calc(var(--cover-w) / 2);
-  --cover-spread:clamp(96px,10vw,122px);
-  perspective:1050px!important;
-  perspective-origin:50% 48%!important;
-  transform-style:preserve-3d!important;
-  overflow:visible!important;
-  isolation:auto!important;
+ --cover-w:clamp(112px,12vw,158px);
+ --cover-half:calc(var(--cover-w)/2);
+ --cover-spread:clamp(96px,10vw,122px);
+ perspective:1050px!important;
+ perspective-origin:50% 48%!important;
+ transform-style:preserve-3d!important;
+ overflow:visible!important;
+ isolation:isolate!important;
+ contain:layout!important;
+ touch-action:pan-y;
 }
 .heroPoster{
-  width:var(--cover-w)!important;
-  height:auto!important;
-  aspect-ratio:2/3!important;
-  transform-style:preserve-3d!important;
-  backface-visibility:hidden!important;
-  transform-origin:50% 50%!important;
-  will-change:transform,opacity;
-  animation:none!important;
-  filter:none!important;
-  box-shadow:0 18px 42px rgba(0,0,0,.62),0 2px 8px rgba(0,0,0,.35)!important;
+ position:absolute!important;
+ top:50%!important;left:50%!important;right:auto!important;
+ width:var(--cover-w)!important;height:auto!important;
+ aspect-ratio:2/3!important;
+ margin:calc(var(--cover-w)*-.75) 0 0 calc(0px - var(--cover-half))!important;
+ border-radius:12px!important;overflow:hidden!important;
+ transform-style:preserve-3d!important;
+ backface-visibility:hidden!important;-webkit-backface-visibility:hidden!important;
+ transform-origin:50% 50%!important;
+ will-change:transform,opacity;
+ transition:transform 680ms cubic-bezier(.22,.72,.2,1),opacity 680ms ease!important;
+ filter:none!important;animation:none!important;
+ box-shadow:0 18px 42px rgba(0,0,0,.62),0 2px 8px rgba(0,0,0,.35)!important;
+ cursor:pointer;
 }
-.heroPoster.one{
-  left:calc(50% - var(--cover-spread) - var(--cover-half))!important;
-  right:auto!important;z-index:1!important;
-  transform:translate3d(0,7px,-26px) rotateY(19deg)!important;
-}
-.heroPoster.two{
-  left:calc(50% - var(--cover-half))!important;
-  right:auto!important;z-index:3!important;
-  transform:translate3d(0,-4px,32px) rotateY(0deg)!important;
-}
-.heroPoster.three{
-  left:calc(50% + var(--cover-spread) - var(--cover-half))!important;
-  right:auto!important;z-index:1!important;
-  transform:translate3d(0,7px,-26px) rotateY(-19deg)!important;
-}
-.heroPoster.incoming{
-  display:block!important;
-  left:calc(50% + var(--cover-spread) - var(--cover-half))!important;
-  right:auto!important;z-index:2!important;
-  pointer-events:none!important;
-  transform:translate3d(var(--cover-spread),7px,-26px) rotateY(-19deg)!important;
-}
-.heroArt.turn-prev .heroPoster.incoming{
-  left:calc(50% - var(--cover-spread) - var(--cover-half))!important;
-  right:auto!important;
-  transform:translate3d(calc(0px - var(--cover-spread)),7px,-26px) rotateY(19deg)!important;
-}
+.heroPoster img{display:block;width:100%;height:100%;object-fit:cover;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.heroPoster.one{z-index:1!important;opacity:.94!important;transform:translate3d(calc(0px - var(--cover-spread)),7px,-26px) rotateY(18deg)!important}
+.heroPoster.two{z-index:3!important;opacity:1!important;transform:translate3d(0,-4px,32px) rotateY(0deg)!important}
+.heroPoster.three{z-index:1!important;opacity:.94!important;transform:translate3d(var(--cover-spread),7px,-26px) rotateY(-18deg)!important}
+.heroPoster.enter-right{z-index:2!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*2),7px,-26px) rotateY(-18deg)!important}
+.heroPoster.enter-left{z-index:2!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*-2),7px,-26px) rotateY(18deg)!important}
+.heroPoster.exit-left{z-index:0!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*-2),7px,-100px) rotateY(42deg)!important;pointer-events:none!important}
+.heroPoster.exit-right{z-index:0!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*2),7px,-100px) rotateY(-42deg)!important;pointer-events:none!important}
+.heroPoster.is-preparing{transition:none!important}
+.heroPoster:focus-visible{outline:2px solid #ff6681;outline-offset:5px}
 @media(max-width:700px){
- .heroArt{
-  --cover-w:clamp(72px,22vw,94px);
-  --cover-half:calc(var(--cover-w) / 2);
-  --cover-spread:clamp(62px,19vw,80px);
-  width:100%!important;height:clamp(126px,37vw,150px)!important;
-  margin:12px auto 0!important;opacity:1!important;
-  perspective:850px!important;perspective-origin:50% 48%!important;
-  overflow:visible!important;
- }
+ .heroArt{--cover-w:clamp(72px,22vw,94px);--cover-half:calc(var(--cover-w)/2);--cover-spread:clamp(62px,19vw,80px);width:100%!important;height:clamp(126px,37vw,150px)!important;margin:12px auto 0!important;perspective:850px!important}
 }
-@media(max-width:380px){
- .heroArt{--cover-w:72px;--cover-half:36px;--cover-spread:62px}
-}
-@media(prefers-reduced-motion:reduce){.heroPoster{will-change:auto}}
+@media(max-width:380px){.heroArt{--cover-w:72px;--cover-half:36px;--cover-spread:62px}}
+@media(prefers-reduced-motion:reduce){.heroPoster{transition:none!important;will-change:auto}}
+
 </style>
 
 
