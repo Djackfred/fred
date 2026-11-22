@@ -2497,12 +2497,57 @@ body.footer-in-view #orbitNav{
  #orbitNav{bottom:58px!important}
 }
 
+
+/* FINAL MOBILE MASTHEAD — full-width, slim, centered and identical while scrolling */
+@media(max-width:700px){
+ header.topbar{
+  position:sticky!important;top:0!important;z-index:10020!important;
+  width:100%!important;height:auto!important;min-height:0!important;
+  background:rgba(7,9,14,.97)!important;
+  backdrop-filter:blur(14px)!important;
+  -webkit-backdrop-filter:blur(14px)!important;
+ }
+ header.topbar .nav,
+ header.topbar.is-compact .nav{
+  display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  gap:3px!important;width:100%!important;height:auto!important;
+  min-height:0!important;max-height:none!important;
+  padding:3px 2vw 5px!important;margin:0!important;
+  box-sizing:border-box!important;transform:none!important;
+ }
+ header.topbar .brand,
+ header.topbar.is-compact .brand{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 auto!important;width:96vw!important;max-width:none!important;
+  min-width:0!important;height:clamp(94px,18vw,124px)!important;
+  min-height:0!important;max-height:none!important;
+  margin:0 auto!important;padding:0!important;overflow:hidden!important;
+ }
+ header.topbar .brandLogo,
+ header.topbar.is-compact .brandLogo{
+  display:block!important;flex:0 0 auto!important;
+  width:100%!important;height:100%!important;
+  max-width:none!important;max-height:none!important;
+  object-fit:fill!important;overflow:visible!important;
+  margin:0 auto!important;
+ }
+ header.topbar .brandLogo{preserveAspectRatio:none}
+ header.topbar .searchbox,
+ header.topbar.is-compact .searchbox{
+  display:flex!important;flex:0 0 auto!important;
+  width:100%!important;height:40px!important;
+  min-height:40px!important;max-height:40px!important;
+  margin:0!important;box-sizing:border-box!important;
+ }
+}
+
 </style>
 </head>
 <body>
 <header class="topbar"><div class="nav">
 <a class="brand" href="#accueil" aria-label="METARECALL PLAY, accueil">
-<svg class="brandLogo" viewBox="0 0 1200 400" role="img" aria-labelledby="brandLogoTitle">
+<svg class="brandLogo" viewBox="0 0 1200 400" preserveAspectRatio="none" role="img" aria-labelledby="brandLogoTitle">
 <title id="brandLogoTitle">METARECALL PLAY</title>
 <defs>
  <linearGradient id="capsuleEdge" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#27cfff"/><stop offset=".48" stop-color="#b7d8ff"/><stop offset="1" stop-color="#ff4c70"/></linearGradient>
