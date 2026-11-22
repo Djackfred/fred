@@ -2588,6 +2588,34 @@ body.footer-in-view #orbitNav{
  }
 }
 
+
+/* Privacy notice — force true viewport centering on every mobile layout */
+@media(max-width:700px){
+ .cookieNotice{
+  position:fixed!important;
+  left:50%!important;right:auto!important;
+  transform:translate3d(-50%,0,0)!important;
+  width:min(420px,calc(100vw - 28px))!important;
+  max-width:calc(100vw - 28px)!important;
+  bottom:10px!important;
+  box-sizing:border-box!important;
+  display:flex!important;align-items:center!important;
+  gap:7px!important;padding:6px 9px!important;
+  margin:0!important;
+  z-index:12000!important;
+ }
+ .cookieNotice p{
+  flex:1 1 0!important;min-width:0!important;
+  overflow-wrap:anywhere!important;
+  font-size:8px!important;line-height:1.25!important;
+ }
+ .cookieNotice button{
+  flex:0 0 auto!important;white-space:nowrap!important;
+  margin:0!important;padding:4px 7px!important;
+  font-size:8px!important;
+ }
+}
+
 </style>
 </head>
 <body>
