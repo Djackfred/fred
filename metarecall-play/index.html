@@ -3013,6 +3013,7 @@ function bindHeroPosterCarousel(){
  const moveBy=step=>{
   if(!heroPosterItems.length||heroTurnBusy)return;
   heroTurnBusy=true;
+  area.classList.add("is-turning");
   const nextStart=(heroPosterStart+step+heroPosterItems.length)%heroPosterItems.length;
   const forward=step>0;
   const incomingItem=heroPosterItems[(forward?(nextStart+2):nextStart)%heroPosterItems.length];
@@ -3107,6 +3108,7 @@ function bindHeroPosterCarousel(){
     clearMotion();
     warmHeroPosterNeighbors();
     heroTurnBusy=false;
+    area.classList.remove("is-turning");
    };
    const moving=forward?three:one;
    moving.addEventListener("transitionend",event=>{
@@ -3117,6 +3119,7 @@ function bindHeroPosterCarousel(){
    area.querySelector(".heroPoster.incoming")?.remove();
    clearMotion();
    heroTurnBusy=false;
+   area.classList.remove("is-turning");
   });
  };
  area.addEventListener("pointerdown",event=>{
@@ -4433,6 +4436,11 @@ supabase.auth.getSession().then(({ data, error }) => {
 
 
 <style>
+/* Masquer le curseur-main uniquement pendant le déplacement des affiches */
+.heroArt.is-turning,
+.heroArt.is-turning *{
+  cursor:none!important;
+}
 /* ORBIT NAV — rendre toute la cellule discrète, pas seulement les flèches */
 .orbitNav{
   opacity:.045!important;
