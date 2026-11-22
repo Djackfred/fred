@@ -3026,7 +3026,7 @@ function bindHeroPosterCarousel(){
      setTimeout(()=>{heroTurnBusy=false;},220);
     });
    },160);
-  }).catch(()=>{heroTurnBusy=false;slots?.forEach(slot=>slot.style.opacity="1");});
+  }).catch(()=>{area.querySelectorAll(".heroPoster").forEach(slot=>{slot.style.opacity="1";});heroTurnBusy=false;});
  };
  area.addEventListener("pointerdown",event=>{
   if(event.pointerType==="mouse"&&event.button!==0)return;
