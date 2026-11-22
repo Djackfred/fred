@@ -1981,6 +1981,18 @@ body:before{
 @media(max-width:620px){.orbitNav{bottom:14px;width:158px;height:68px;gap:7px;padding:8px 11px}.orbitNav .scrollNavArrow{flex-basis:44px;width:44px;height:44px;min-width:44px}.orbitNav .scrollNavArrow svg{width:22px;height:22px}}
 @media(prefers-reduced-motion:reduce){.snowfall i,.orbitGlow,.orbitSpark{animation:none!important}.orbitNav{backdrop-filter:none}}
 
+
+/* ORBIT navigation: vertical while moving, horizontal when settled */
+.orbitNav{transition:width .34s cubic-bezier(.2,.8,.2,1),height .34s cubic-bezier(.2,.8,.2,1),padding .34s ease,gap .34s ease,box-shadow .3s ease,border-color .3s ease}
+.orbitNav.is-moving{width:76px;height:154px;flex-direction:column;gap:8px;padding:12px 9px}
+.orbitNav.is-moving .orbitDivider{width:27px;height:1px;background:linear-gradient(90deg,transparent,#ffffff65,transparent)}
+.orbitNav.is-moving #backToTop{order:0}
+.orbitNav.is-moving .orbitDivider{order:1}
+.orbitNav.is-moving #scrollToBottom{order:2}
+.orbitNav.is-moving .orbitSparkA{top:8px;left:-10px}
+.orbitNav.is-moving .orbitSparkB{right:-10px;bottom:8px}
+@media(max-width:620px){.orbitNav.is-moving{width:68px;height:140px;padding:10px 8px;gap:7px}}
+
 </style>
 </head>
 <body>
@@ -2519,17 +2531,37 @@ function bindScrollArrows(){
   up.classList.toggle("is-visible",awayFromTop);
  };
  const behavior=()=>window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
+ const orbit=document.getElementById("orbitNav");
+ let settleTimer=0;
+ const setOrbitMoving=moving=>{
+  if(orbit)orbit.classList.toggle("is-moving",Boolean(moving));
+ };
+ const settleOrbit=()=>{
+  window.clearTimeout(settleTimer);
+  settleTimer=window.setTimeout(()=>setOrbitMoving(false),220);
+ };
  const stepToNextRow=()=>{
   const next=getNextStop();
-  if(!next){updateVisibility();return}
+  if(!next){updateVisibility();setOrbitMoving(false);return}
   const targetY=Math.max(0,window.scrollY+next.getBoundingClientRect().top-76);
+  setOrbitMoving(true);
   window.scrollTo({top:targetY,behavior:behavior()});
   window.setTimeout(updateVisibility,450);
+  settleOrbit();
  };
- window.addEventListener("scroll",updateVisibility,{passive:true});
+ const goTop=()=>{
+  setOrbitMoving(true);
+  window.scrollTo({top:0,behavior:behavior()});
+  settleOrbit();
+ };
+ window.addEventListener("scroll",()=>{
+  updateVisibility();
+  if(orbit&&orbit.classList.contains("is-moving"))settleOrbit();
+ },{passive:true});
+ window.addEventListener("scrollend",()=>setOrbitMoving(false),{passive:true});
  window.addEventListener("resize",updateVisibility,{passive:true});
  down.addEventListener("click",stepToNextRow);
- up.addEventListener("click",()=>window.scrollTo({top:0,behavior:behavior()}));
+ up.addEventListener("click",goTop);
  updateVisibility();
 }
 document.addEventListener("DOMContentLoaded",bindScrollArrows,{once:true});
