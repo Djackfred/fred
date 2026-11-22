@@ -3,8 +3,111 @@
   "sourceUrl": "https://about.netflix.com/fr/news/calendrier-de-sorties-originals-france",
   "checkedAt": "2026-11-22",
   "checkedAtLabel": "22 novembre 2026",
-  "note": "Veille des annonces officielles France. Les titres dont la sortie est explicitement annoncée en France ou globalement sont distingués des simples annonces internationales. Les fiches conservent un visuel de presse vérifié ou un visuel éditorial METARECALL clairement identifié ; aucune disponibilité sur une plateforme tierce n'est déduite. Contrôle du 22 novembre 2026 : ajout de deux films annoncés pour la France sur Apple TV le 25 novembre, après déduplication avec le catalogue Ravpaz et l'historique des annonces.",
+  "note": "Veille des annonces officielles destinées au public français. Les sorties annoncées comme mondiales sont identifiées comme telles ; aucune disponibilité sur une plateforme tierce n'est déduite. Contrôle du 22 novembre 2026 : quatre annonces Apple TV supplémentaires intégrées (She's Fine, Slumberkins saison 2, Presumed Innocent saison 2 et Wild Things), après déduplication avec le catalogue Ravpaz et l'historique des annonces. La page Ravpaz.com de référence et les six endpoints TVmaze testés restent inaccessibles depuis l'environnement de contrôle ; le catalogue Ravpaz n'a donc pas été modifié.",
   "items": [
+    {
+      "id": "apple-shes-fine-2027",
+      "title": "She's Fine",
+      "displayTitle": "She's Fine",
+      "aliases": [
+        "Shes Fine"
+      ],
+      "year": "2027",
+      "type": "Série",
+      "genre": "Comédie",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2027-01-27",
+      "displayDate": "27 janvier 2027 · Apple TV · première mondiale",
+      "description": "Après un divorce difficile, Heidi (Elizabeth Banks) cherche un nouveau départ et se retrouve impliquée dans les aventures sentimentales de la résidence de retraite de son père.",
+      "sourceLabel": "Apple TV Press · première mondiale",
+      "officialUrl": "https://www.apple.com/tv-pr/news/2026/11/apple-tv-unveils-first-look-at-shes-fine-new-comedy-starring-and-executive-produced-by-emmy-award-nominee-elizabeth-banks-created-by-emmy-award-nominee-liz-heldens-and-matt-ward-premiering-globally-wednesday-january-27/",
+      "justWatchQuery": "She's Fine",
+      "posterCandidates": [
+        "https://www.apple.com/tv-pr/articles/2026/11/apple-tv-unveils-first-look-at-shes-fine-new-comedy-starring-and-executive-produced-by-emmy-award-nominee-elizabeth-banks-created-by-emmy-award-nominee-liz-heldens-and-matt-ward-premiering-globally-wednesday-january-27/images/big-image/big-image-01/111226_Shes_Fine_Series_Announcement_Big_Image_01_big_image_post.jpg.large.jpg"
+      ],
+      "posterStatus": "Image de premier regard officielle · Apple TV Press (format paysage), pas une affiche promotionnelle",
+      "posterType": "Image de premier regard",
+      "posterSymbol": "🎭",
+      "posterTheme": "comedy",
+      "visualUpdatedAt": "2026-11-22"
+    },
+    {
+      "id": "apple-slumberkins-season-2-2027",
+      "title": "Slumberkins — Saison 2",
+      "displayTitle": "Slumberkins — Saison 2",
+      "aliases": [
+        "Slumberkins Season 2",
+        "Slumberkins : un monde tout doux — Saison 2"
+      ],
+      "year": "2027",
+      "type": "Série jeunesse",
+      "genre": "Animation · Enfants et famille",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2027-02-05",
+      "displayDate": "5 février 2027 · Apple TV · première mondiale",
+      "description": "Neuf nouveaux épisodes avec Bigfoot, Licorne, Paresseux, Yak et Renard, autour des émotions, de l'amitié et de la résilience.",
+      "sourceLabel": "Apple TV Press · première mondiale",
+      "officialUrl": "https://www.apple.com/tv-pr/news/2026/11/apple-tv-unveils-first-look-at-season-two-of-heartwarming-emmy-award-nominated-preschool-series-slumberkins-premiering-globally-on-friday-february-5-2027/",
+      "justWatchQuery": "Slumberkins : un monde tout doux",
+      "posterCandidates": [
+        "https://www.apple.com/tv-pr/articles/2026/11/apple-tv-unveils-first-look-at-season-two-of-heartwarming-emmy-award-nominated-preschool-series-slumberkins-premiering-globally-on-friday-february-5-2027/images/big-image/big-image-01/111626_Slumberkins_Season_Two_Announcement_Big_Image_01_big_image_post.jpg.large.jpg"
+      ],
+      "posterStatus": "Image de premier regard officielle · Apple TV Press (format paysage), pas une affiche promotionnelle",
+      "posterType": "Image de premier regard",
+      "posterSymbol": "🧸",
+      "posterTheme": "fantasy",
+      "visualUpdatedAt": "2026-11-22"
+    },
+    {
+      "id": "apple-presumed-innocent-season-2-2027",
+      "title": "Presumed Innocent — Saison 2",
+      "displayTitle": "Presumed Innocent — Saison 2",
+      "aliases": [
+        "Presumed Innocent Season 2"
+      ],
+      "year": "2027",
+      "type": "Série",
+      "genre": "Thriller juridique",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2027-02-19",
+      "displayDate": "19 février 2027 · Apple TV · première mondiale",
+      "description": "La saison 2 suit l'avocate Lelia Reynolds (Rachel Brosnahan), opposée à son mari procureur (Matthew Rhys), dans une nouvelle affaire criminelle.",
+      "sourceLabel": "Apple TV Press · première mondiale",
+      "officialUrl": "https://www.apple.com/tv-pr/news/2026/11/apple-tvs-presumed-innocent-returns-for-thrilling-new-season-starring-and-executive-produced-by-emmy-award-winner-rachel-brosnahan-and-also-starring-emmy-award-winner-matthew-rhys-on-friday-february-19-2027/",
+      "justWatchQuery": "Presumed Innocent",
+      "posterCandidates": [
+        "https://www.apple.com/tv-pr/articles/2026/11/apple-tvs-presumed-innocent-returns-for-thrilling-new-season-starring-and-executive-produced-by-emmy-award-winner-rachel-brosnahan-and-also-starring-emmy-award-winner-matthew-rhys-on-friday-february-19-2027/images/big-image/big-image-01/112026_Presumed_Innocent_S2_Premiere_Date_First_Look_Reveal_Big_Image_01_big_image_post.jpg.large.jpg"
+      ],
+      "posterStatus": "Image de premier regard officielle · Apple TV Press (format paysage), pas une affiche promotionnelle",
+      "posterType": "Image de premier regard",
+      "posterSymbol": "⚖️",
+      "posterTheme": "noir",
+      "visualUpdatedAt": "2026-11-22"
+    },
+    {
+      "id": "apple-wild-things-2027",
+      "title": "Wild Things",
+      "displayTitle": "Wild Things",
+      "aliases": [
+        "Wild Things: Siegfried & Roy"
+      ],
+      "year": "2027",
+      "type": "Série limitée",
+      "genre": "Drame",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2027-04-16",
+      "displayDate": "16 avril 2027 · Apple TV · première mondiale",
+      "description": "Mini-série en sept épisodes retraçant la relation entre les illusionnistes Siegfried et Roy, incarnés par Jude Law et Andrew Garfield.",
+      "sourceLabel": "Apple TV Press · première mondiale",
+      "officialUrl": "https://www.apple.com/tv-pr/news/2026/11/wild-things-led-by-jude-law-and-andrew-garfield-roars-onto-apple-tv-on-april-160/",
+      "justWatchQuery": "Wild Things",
+      "posterCandidates": [],
+      "posterStatus": "Visuel éditorial METARECALL · le lien image associé à l'article Apple renvoie à un logo générique ; aucune image de presse correspondante n'est publiée comme affiche",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "🎩",
+      "posterTheme": "retro",
+      "visualUpdatedAt": "2026-11-22"
+    },
     {
       "id": "netflix-82013434",
       "title": "Quasimodo, l'âme de Paris",
@@ -421,6 +524,11 @@
     "https://tv.apple.com/fr/movie/f1-le-film/umc.cmc.3t6dvnnr87zwd4wmvpdx5came",
     "https://tv.apple.com/fr/movie/warrior-kid/umc.cmc.21vzhs44oeejdkoxenkcdmre0",
     "https://www.apple.com/fr/tv-pr/originals/f1/",
-    "https://www.apple.com/tv-pr/news/2026/11/apple-original-films-celebrates-the-world-premiere-of-way-of-the-warrior-kid/"
+    "https://www.apple.com/tv-pr/news/2026/11/apple-original-films-celebrates-the-world-premiere-of-way-of-the-warrior-kid/",
+    "https://www.apple.com/tv-pr/news/2026/11/apple-tv-unveils-first-look-at-shes-fine-new-comedy-starring-and-executive-produced-by-emmy-award-nominee-elizabeth-banks-created-by-emmy-award-nominee-liz-heldens-and-matt-ward-premiering-globally-wednesday-january-27/",
+    "https://www.apple.com/tv-pr/news/2026/11/apple-tv-unveils-first-look-at-season-two-of-heartwarming-emmy-award-nominated-preschool-series-slumberkins-premiering-globally-on-friday-february-5-2027/",
+    "https://www.apple.com/tv-pr/news/2026/11/apple-tvs-presumed-innocent-returns-for-thrilling-new-season-starring-and-executive-produced-by-emmy-award-winner-rachel-brosnahan-and-also-starring-emmy-award-winner-matthew-rhys-on-friday-february-19-2027/",
+    "https://www.apple.com/tv-pr/news/2026/11/wild-things-led-by-jude-law-and-andrew-garfield-roars-onto-apple-tv-on-april-160/",
+    "https://www.apple.com/tv-pr/news/"
   ]
 }
