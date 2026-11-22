@@ -3706,4 +3706,18 @@ supabase.auth.getSession().then(({ data, error }) => {
  });
 })();
 </script>
+
+<style>
+/* MOBILE ORBIT ARROWS RESTORE — keep both controls visible inside the capsule */
+.orbitNav .scrollNavArrow{
+  display:flex!important;
+  align-items:center;
+  justify-content:center;
+}
+@media(max-width:700px){
+  .orbitNav{bottom:26px!important}
+  .orbitNav.is-moving{bottom:26px!important}
+}
+</style>
+
 </body></html>
