@@ -1846,7 +1846,7 @@ html.tv-navigation{scroll-behavior:smooth}
 #annonces-officielles .officialGrid::-webkit-scrollbar-track{background:#171820;border-radius:99px}
 #annonces-officielles .officialGrid::-webkit-scrollbar-thumb{background:#854052;border-radius:99px}
 .officialRailControls{
- position:absolute;z-index:8;left:0;right:0;top:50%;transform:translateY(-50%);
+ position:absolute;z-index:20;left:0;right:0;top:50%;transform:translateY(-50%);
  display:flex;justify-content:space-between;align-items:center;gap:8px;
  padding:0 7px;pointer-events:none;
 }
@@ -1861,6 +1861,7 @@ html.tv-navigation{scroll-behavior:smooth}
 .officialRailButton:last-child{background:linear-gradient(270deg,#090a0fef,#171923d9)}
 .officialRailButton:hover{background:#e52d5540;border-color:#e85a76;transform:scale(1.06)}
 .officialRailButton:disabled{opacity:.22;cursor:default;transform:none}
+#annonces-officielles{position:relative}
 #annonces-officielles .rowhead{align-items:center}
 #annonces-officielles .rowhead .rowmeta{white-space:nowrap}
 @media(max-width:700px){
@@ -2985,6 +2986,9 @@ supabase.auth.getSession().then(({ data, error }) => {
    const next=document.createElement("button");next.type="button";next.className="officialRailButton";
    next.textContent="›";next.setAttribute("aria-label","Afficher les annonces suivantes");
    controls.append(prev,next);section.appendChild(controls);
+   const placeControls=()=>{
+    controls.style.top=(rail.offsetTop+rail.clientHeight/2)+"px";
+   };
    const step=()=>Math.max(rail.clientWidth*.82,rail.querySelector(".officialCard")?.getBoundingClientRect().width||420);
    prev.addEventListener("click",()=>rail.scrollBy({left:-step(),behavior:"smooth"}));
    next.addEventListener("click",()=>rail.scrollBy({left:step(),behavior:"smooth"}));
@@ -2994,9 +2998,9 @@ supabase.auth.getSession().then(({ data, error }) => {
     controls.hidden=max<=4;
    };
    rail.addEventListener("scroll",update,{passive:true});
-   new ResizeObserver(update).observe(rail);
+   new ResizeObserver(()=>{placeControls();update();}).observe(rail);
    new MutationObserver(update).observe(rail,{childList:true});
-   update();
+   placeControls();update();
   }
   rail.addEventListener("keydown",event=>{
    if(event.key!=="ArrowRight"&&event.key!=="ArrowLeft")return;
