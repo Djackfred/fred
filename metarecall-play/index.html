@@ -4333,13 +4333,13 @@ supabase.auth.getSession().then(({ data, error }) => {
   z-index:2!important;
   pointer-events:none!important;
   opacity:1!important;
-  transform:translate3d(118px,7px,-26px) rotateY(-19deg)!important;
+  transform:translate3d(var(--cover-spread),7px,-26px) rotateY(-19deg)!important;
   animation:coverEnterRight .72s cubic-bezier(.2,.72,.22,1) both!important;
 }
 .heroArt.turn-prev .heroPoster.incoming{
   left:calc(50% - var(--cover-spread) - var(--cover-half))!important;
   right:auto!important;
-  transform:translate3d(-118px,7px,-26px) rotateY(19deg)!important;
+  transform:translate3d(calc(0px - var(--cover-spread)),7px,-26px) rotateY(19deg)!important;
   animation:coverEnterLeft .72s cubic-bezier(.2,.72,.22,1) both!important;
 }
 .heroArt.turn-next .heroPoster.one{animation:coverExitLeft .72s cubic-bezier(.2,.72,.22,1) both!important}
@@ -4348,12 +4348,12 @@ supabase.auth.getSession().then(({ data, error }) => {
 .heroArt.turn-prev .heroPoster.three{animation:coverExitRight .72s cubic-bezier(.2,.72,.22,1) both!important}
 .heroArt.turn-prev .heroPoster.two{animation:coverMoveRight .72s cubic-bezier(.2,.72,.22,1) both!important}
 .heroArt.turn-prev .heroPoster.one{animation:coverMoveCenterBack .72s cubic-bezier(.2,.72,.22,1) both!important}
-@keyframes coverExitLeft{to{transform:translate3d(-118px,7px,-95px) rotateY(43deg);opacity:0}}
-@keyframes coverMoveLeft{to{transform:translate3d(-118px,7px,-26px) rotateY(19deg)}}
-@keyframes coverMoveCenter{to{transform:translate3d(-118px,-4px,32px) rotateY(0deg)}}
-@keyframes coverExitRight{to{transform:translate3d(118px,7px,-95px) rotateY(-43deg);opacity:0}}
-@keyframes coverMoveRight{to{transform:translate3d(118px,7px,-26px) rotateY(-19deg)}}
-@keyframes coverMoveCenterBack{to{transform:translate3d(118px,-4px,32px) rotateY(0deg)}}
+@keyframes coverExitLeft{to{transform:translate3d(calc(0px - var(--cover-spread)),7px,-95px) rotateY(43deg);opacity:0}}
+@keyframes coverMoveLeft{to{transform:translate3d(calc(0px - var(--cover-spread)),7px,-26px) rotateY(19deg)}}
+@keyframes coverMoveCenter{to{transform:translate3d(calc(0px - var(--cover-spread)),-4px,32px) rotateY(0deg)}}
+@keyframes coverExitRight{to{transform:translate3d(var(--cover-spread),7px,-95px) rotateY(-43deg);opacity:0}}
+@keyframes coverMoveRight{to{transform:translate3d(var(--cover-spread),7px,-26px) rotateY(-19deg)}}
+@keyframes coverMoveCenterBack{to{transform:translate3d(var(--cover-spread),-4px,32px) rotateY(0deg)}}
 @keyframes coverEnterRight{to{transform:translate3d(0,7px,-26px) rotateY(-19deg)}}
 @keyframes coverEnterLeft{to{transform:translate3d(0,7px,-26px) rotateY(19deg)}}
 @media(max-width:700px){
@@ -4367,8 +4367,8 @@ supabase.auth.getSession().then(({ data, error }) => {
   overflow:visible!important;
  }
  .heroPoster.one,.heroPoster.three{opacity:1!important}
- .heroPoster.incoming{transform:translate3d(78px,5px,-20px) rotateY(-18deg)!important}
- .heroArt.turn-prev .heroPoster.incoming{transform:translate3d(-78px,5px,-20px) rotateY(18deg)!important}
+ .heroPoster.incoming{transform:translate3d(var(--cover-spread),5px,-20px) rotateY(-18deg)!important}
+ .heroArt.turn-prev .heroPoster.incoming{transform:translate3d(calc(0px - var(--cover-spread)),5px,-20px) rotateY(18deg)!important}
 }
 @media(max-width:380px){
  .heroArt{--cover-w:72px;--cover-half:36px;--cover-spread:62px}
