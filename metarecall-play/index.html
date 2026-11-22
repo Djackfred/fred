@@ -2029,6 +2029,30 @@ body:before{
 }
 .orbitNav .scrollNavArrow{ -webkit-tap-highlight-color:transparent; }
 
+
+/* ORBIT — pressed rim is a darker shade of each button, never yellow */
+.orbitNav .scrollNavArrow,
+.orbitNav .scrollNavArrow:focus,
+.orbitNav .scrollNavArrow:focus-visible{
+ outline:none!important;
+}
+.orbitNav .scrollNavArrow.down:active,
+.orbitNav .scrollNavArrow.down:focus-visible{
+ border:3px solid #0879b8!important;
+ outline:0!important;
+ box-shadow:0 0 0 2px #0879b855,0 0 19px #1595d888,0 5px 16px #0008!important;
+}
+.orbitNav .scrollNavArrow.up:active,
+.orbitNav .scrollNavArrow.up:focus-visible{
+ border:3px solid #bd294d!important;
+ outline:0!important;
+ box-shadow:0 0 0 2px #bd294d55,0 0 19px #fa526e88,0 5px 16px #0008!important;
+}
+.orbitNav .scrollNavArrow:focus:not(:focus-visible):not(:active){
+ border:1px solid #ffffff58!important;
+ box-shadow:0 5px 16px #0008!important;
+}
+
 </style>
 </head>
 <body>
