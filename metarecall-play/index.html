@@ -1579,6 +1579,18 @@ html.tv-navigation{scroll-behavior:smooth}
   .hero .actions .btn{font-size:9px!important;padding:7px 9px!important}
 }
 
+
+/* Smartphone : retirer le bloc de commandes abonnés entouré sur la capture */
+@media(max-width:700px){
+  .topbar .accountControls{display:none!important}
+  .topbar .nav{
+    grid-template-areas:"brand" "search"!important;
+    grid-template-rows:auto auto!important;
+    gap:8px!important;
+    padding-bottom:10px!important;
+  }
+}
+
 </style>
 </head>
 <body>
