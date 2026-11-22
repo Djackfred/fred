@@ -3039,6 +3039,11 @@ function bindHeroPosterCarousel(){
    incoming.hidden=false;
    incoming.setAttribute("aria-hidden","true");
    incoming.style.setProperty("display","block","important");
+   // Ancrage symétrique : l'affiche entrante démarre du côté réel du mouvement.
+   incoming.style.setProperty("left",forward
+    ?"calc(50% + var(--cover-spread) - var(--cover-half))"
+    :"calc(50% - var(--cover-spread) - var(--cover-half))","important");
+   incoming.style.setProperty("right","auto","important");
    area.appendChild(incoming);
 
    const sideLeft="translate3d(0,7px,-26px) rotateY(19deg)";
