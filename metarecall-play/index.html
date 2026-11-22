@@ -4222,7 +4222,7 @@ supabase.auth.getSession().then(({ data, error }) => {
  top:50%!important;left:50%!important;right:auto!important;
  width:var(--cover-w)!important;height:auto!important;
  aspect-ratio:2/3!important;
- margin:calc(var(--cover-w)*-.75) 0 0 calc(0px - var(--cover-half))!important;
+ margin:0!important;
  border-radius:12px!important;overflow:hidden!important;
  transform-style:preserve-3d!important;
  backface-visibility:hidden!important;-webkit-backface-visibility:hidden!important;
@@ -4234,13 +4234,13 @@ supabase.auth.getSession().then(({ data, error }) => {
  cursor:pointer;
 }
 .heroPoster img{display:block;width:100%;height:100%;object-fit:cover;backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.heroPoster.one{z-index:1!important;opacity:.94!important;transform:translate3d(calc(0px - var(--cover-spread)),7px,-26px) rotateY(18deg)!important}
-.heroPoster.two{z-index:3!important;opacity:1!important;transform:translate3d(0,-4px,32px) rotateY(0deg)!important}
-.heroPoster.three{z-index:1!important;opacity:.94!important;transform:translate3d(var(--cover-spread),7px,-26px) rotateY(-18deg)!important}
-.heroPoster.enter-right{z-index:2!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*2),7px,-26px) rotateY(-18deg)!important}
-.heroPoster.enter-left{z-index:2!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*-2),7px,-26px) rotateY(18deg)!important}
-.heroPoster.exit-left{z-index:0!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*-2),7px,-100px) rotateY(42deg)!important;pointer-events:none!important}
-.heroPoster.exit-right{z-index:0!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*2),7px,-100px) rotateY(-42deg)!important;pointer-events:none!important}
+.heroPoster.one{z-index:1!important;opacity:.94!important;transform:translate3d(calc(0px - var(--cover-spread)),calc(-50% + 7px),-26px) rotateY(18deg)!important}
+.heroPoster.two{z-index:3!important;opacity:1!important;transform:translate3d(0,calc(-50% - 4px),32px) rotateY(0deg)!important}
+.heroPoster.three{z-index:1!important;opacity:.94!important;transform:translate3d(var(--cover-spread),calc(-50% + 7px),-26px) rotateY(-18deg)!important}
+.heroPoster.enter-right{z-index:2!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*2),calc(-50% + 7px),-26px) rotateY(-18deg)!important}
+.heroPoster.enter-left{z-index:2!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*-2),calc(-50% + 7px),-26px) rotateY(18deg)!important}
+.heroPoster.exit-left{z-index:0!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*-2),calc(-50% + 7px),-100px) rotateY(42deg)!important;pointer-events:none!important}
+.heroPoster.exit-right{z-index:0!important;opacity:0!important;transform:translate3d(calc(var(--cover-spread)*2),calc(-50% + 7px),-100px) rotateY(-42deg)!important;pointer-events:none!important}
 .heroPoster.is-preparing{transition:none!important}
 .heroPoster:focus-visible{outline:2px solid #ff6681;outline-offset:5px}
 @media(max-width:700px){
