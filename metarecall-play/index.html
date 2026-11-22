@@ -2283,6 +2283,11 @@ body{
   }
 }
 
+
+/* Poster fallback label — visible only when every real image source fails */
+.posterEditorialTag{position:absolute;left:6px;top:6px;z-index:2;padding:4px 6px;border:1px solid #e8cd8966;border-radius:4px;background:#090d16c9;color:#f0dba9;font-size:6px;font-weight:800;letter-spacing:1px;backdrop-filter:blur(5px)}
+.art{position:relative}
+
 </style>
 </head>
 <body>
@@ -2506,12 +2511,27 @@ function card(item,index,rank=false){
  const visual=document.createElement("div");visual.className="art";
  const image=document.createElement("img");image.loading=index<8?"eager":"lazy";image.alt="Affiche de "+item.title;image.referrerPolicy="strict-origin-when-cross-origin";
  let posterAttempt=0;
+ let editorialFallbackApplied=false;
  const loadNextPoster=()=>{
   if(posterAttempt<posterCandidates.length){image.src=posterCandidates[posterAttempt++];return}
-  image.onload=null;image.onerror=null;el.remove();
+  if(editorialFallbackApplied)return;
+  editorialFallbackApplied=true;
+  image.onload=null;
+  image.onerror=null;
+  image.alt="Couverture éditoriale METARECALL PLAY — "+item.title;
+  image.dataset.posterFallback="editorial";
+  image.src=placeholderArt(item.title);
+  const label=document.createElement("span");
+  label.className="posterEditorialTag";
+  label.textContent="VISUEL ÉDITORIAL";
+  label.setAttribute("aria-label","Couverture éditoriale METARECALL, pas une affiche officielle");
+  visual.appendChild(label);
+  image.onload=()=>{el.hidden=false;el.style.display="";if(typeof applyFilters==="function")applyFilters(false)};
+  el.hidden=false;
+  el.style.display="";
   if(typeof applyFilters==="function")applyFilters(false);
  };
- image.onload=()=>{el.hidden=false;if(typeof applyFilters==="function")applyFilters(false)};
+ image.onload=()=>{el.hidden=false;el.style.display="";if(typeof applyFilters==="function")applyFilters(false)};
  image.onerror=loadNextPoster;
  visual.appendChild(image);el.appendChild(visual);
  const icon=document.createElement("span");icon.className="playicon";icon.textContent="↗";icon.setAttribute("aria-hidden","true");el.appendChild(icon);
