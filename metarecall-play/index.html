@@ -2433,6 +2433,64 @@ footer{scroll-margin-bottom:18px}
  .legalLinks a{display:inline-block!important;padding:3px 0!important}
 }
 
+
+/* MOBILE HEADER FINAL — match the approved wide banner reference, without vertical offset */
+@media(max-width:700px){
+ header.topbar{
+  position:relative!important;top:auto!important;left:auto!important;right:auto!important;
+  width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;
+  margin:0!important;padding:0!important;overflow:visible!important;
+ }
+ header.topbar .nav,
+ header.topbar.is-compact .nav{
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:flex-start!important;gap:5px!important;
+  width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;
+  margin:0!important;padding:4px 2.2vw 7px!important;overflow:visible!important;
+  box-sizing:border-box!important;transform:none!important;
+ }
+ header.topbar .brand,
+ header.topbar.is-compact .brand{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 auto!important;width:96vw!important;max-width:none!important;min-width:0!important;
+  height:auto!important;min-height:0!important;max-height:none!important;
+  margin:0 auto!important;padding:0!important;overflow:visible!important;
+ }
+ header.topbar .brandLogo,
+ header.topbar.is-compact .brandLogo{
+  display:block!important;flex:0 0 auto!important;
+  width:100%!important;max-width:none!important;height:auto!important;
+  max-height:190px!important;min-height:0!important;object-fit:contain!important;
+  margin:0 auto!important;overflow:visible!important;
+ }
+ header.topbar .searchbox,
+ header.topbar.is-compact .searchbox{
+  display:flex!important;flex:0 0 auto!important;width:100%!important;max-width:none!important;
+  height:42px!important;min-height:42px!important;max-height:42px!important;
+  margin:0!important;padding:0 13px!important;box-sizing:border-box!important;
+ }
+ header.topbar .navright{display:contents!important}
+ header.topbar .accountControls{display:none!important}
+ #mobileBottomNav{margin:0!important;padding:4px 8px 6px!important}
+}
+/* Orbit capsule: always visible and tappable; slightly raised above the bottom edge */
+#orbitNav{
+ bottom:38px!important;
+ opacity:1!important;
+ pointer-events:auto!important;
+}
+#orbitNav .scrollNavArrow,
+#orbitNav #scrollToBottom,
+#orbitNav #backToTop{
+ display:flex!important;visibility:visible!important;opacity:1!important;
+ pointer-events:auto!important;
+}
+#orbitNav #scrollToBottom:disabled{opacity:.72!important;filter:saturate(.8)}
+body.footer-in-view #orbitNav{
+ opacity:1!important;transform:translate(-50%,0)!important;pointer-events:auto!important;
+}
+@media(max-width:700px){#orbitNav{bottom:42px!important}}
+
 </style>
 </head>
 <body>
