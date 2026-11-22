@@ -1512,6 +1512,73 @@ html.tv-navigation{scroll-behavior:smooth}
   .hero .actions .btn{font-size:9px!important;padding:7px 9px!important}
 }
 
+
+/* Bannière d'accueil desktop transposée proprement sur smartphone */
+@media (max-width:700px){
+  .hero{
+    position:relative!important;
+    display:flex!important;
+    flex-direction:column!important;
+    min-height:0!important;
+    margin:12px 12px 0!important;
+    padding:clamp(18px,5vw,24px) clamp(15px,4.5vw,20px) 15px!important;
+    border-radius:18px!important;
+    isolation:isolate!important;
+    overflow:hidden!important;
+    background:transparent!important;
+  }
+  .hero:before{
+    content:""!important;
+    inset:0!important;
+    border:1px solid rgba(218,232,249,.16)!important;
+    border-radius:18px!important;
+    background:
+      radial-gradient(ellipse at 88% 18%,rgba(201,47,80,.30),transparent 42%),
+      radial-gradient(ellipse at 8% 100%,rgba(49,100,145,.23),transparent 48%),
+      linear-gradient(130deg,#1a293b 0%,#101d2c 58%,#0b1725 100%)!important;
+    box-shadow:0 14px 34px rgba(0,0,0,.26)!important;
+  }
+  .heroContent{position:relative!important;z-index:2!important;width:100%!important}
+  .hero .tagline{font-size:8px!important;letter-spacing:1.35px!important;color:#f0b5c1!important}
+  .hero h1{
+    max-width:18ch!important;
+    margin:9px 0 8px!important;
+    font-size:clamp(27px,7.5vw,36px)!important;
+    line-height:1.04!important;
+    letter-spacing:-1.1px!important;
+  }
+  .hero p{max-width:42ch!important;font-size:12px!important;line-height:1.5!important;color:#d1d9e4!important}
+  .hero .actions{display:flex!important;flex-wrap:wrap!important;gap:7px!important;margin-top:13px!important}
+  .hero .actions .btn{
+    min-height:34px!important;padding:8px 11px!important;
+    border-radius:999px!important;font-size:10px!important;
+    font-weight:750!important;box-shadow:none!important;
+  }
+  .hero .btn.play{background:linear-gradient(110deg,#e84c6b,#bd2148)!important}
+  .hero .btn.more{background:rgba(255,255,255,.07)!important;border-color:rgba(255,255,255,.2)!important}
+  .heroArt{
+    position:relative!important;inset:auto!important;transform:none!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    width:100%!important;height:clamp(112px,34vw,142px)!important;
+    margin:14px auto 0!important;opacity:1!important;overflow:visible!important;
+    perspective:760px!important;
+  }
+  .heroPoster{
+    position:absolute!important;width:clamp(70px,22vw,94px)!important;
+    height:auto!important;aspect-ratio:2/3!important;border-radius:8px!important;
+    border:1px solid rgba(255,255,255,.42)!important;
+    box-shadow:0 10px 24px rgba(0,0,0,.5)!important;
+  }
+  .heroPoster.one{left:calc(50% - clamp(78px,25vw,112px))!important;right:auto!important;transform:rotateY(13deg) rotateZ(-5deg)!important}
+  .heroPoster.two{left:50%!important;right:auto!important;z-index:2!important;transform:translateX(-50%) translateY(-3px) scale(1.05)!important}
+  .heroPoster.three{right:calc(50% - clamp(78px,25vw,112px))!important;left:auto!important;transform:rotateY(-13deg) rotateZ(5deg)!important}
+}
+@media(max-width:380px){
+  .hero{padding:17px 14px 13px!important}
+  .heroArt{height:112px!important}
+  .hero .actions .btn{font-size:9px!important;padding:7px 9px!important}
+}
+
 </style>
 </head>
 <body>
