@@ -1,9 +1,9 @@
 {
   "source": "Veille officielle France · Netflix & Apple TV",
   "sourceUrl": "https://about.netflix.com/fr/news/calendrier-de-sorties-originals-france",
-  "checkedAt": "2026-11-21",
-  "checkedAtLabel": "21 novembre 2026",
-  "note": "Veille des annonces officielles France. Les titres dont la sortie est explicitement annoncée en France ou globalement sont distingués des simples annonces internationales. Les fiches conservent un visuel de presse vérifié ou un visuel éditorial METARECALL clairement identifié ; aucune disponibilité sur une plateforme tierce n'est déduite.",
+  "checkedAt": "2026-11-22",
+  "checkedAtLabel": "22 novembre 2026",
+  "note": "Veille des annonces officielles France. Les titres dont la sortie est explicitement annoncée en France ou globalement sont distingués des simples annonces internationales. Les fiches conservent un visuel de presse vérifié ou un visuel éditorial METARECALL clairement identifié ; aucune disponibilité sur une plateforme tierce n'est déduite. Contrôle du 22 novembre 2026 : ajout de deux films annoncés pour la France sur Apple TV le 25 novembre, après déduplication avec le catalogue Ravpaz et l'historique des annonces.",
   "items": [
     {
       "id": "netflix-82013434",
@@ -357,6 +357,55 @@
       "posterSymbol": "🔎",
       "posterTheme": "noir",
       "visualUpdatedAt": "2026-11-21"
+    },
+    {
+      "id": "apple-f1-le-film-2026",
+      "title": "F1 le film",
+      "displayTitle": "F1 le film",
+      "aliases": [
+        "F1",
+        "F1 The Movie"
+      ],
+      "year": "2025",
+      "type": "Film",
+      "genre": "Action · Drame",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-11-25",
+      "displayDate": "25 novembre 2026 · Apple TV",
+      "description": "Sonny Hayes, ancien prodige de la Formule 1, revient pour aider une écurie en difficulté et accompagner un jeune pilote, Joshua Pearce.",
+      "sourceLabel": "Apple TV France",
+      "officialUrl": "https://tv.apple.com/fr/movie/f1-le-film/umc.cmc.3t6dvnnr87zwd4wmvpdx5came",
+      "justWatchQuery": "F1 le film",
+      "posterCandidates": [],
+      "posterStatus": "Visuel éditorial METARECALL · le fichier de jaquette Apple Press est proposé en archive ZIP et n'a pas été validé comme image directe",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "🏎️",
+      "posterTheme": "retro",
+      "visualUpdatedAt": "2026-11-22"
+    },
+    {
+      "id": "apple-warrior-kid-2026",
+      "title": "Warrior Kid",
+      "displayTitle": "Warrior Kid",
+      "aliases": [
+        "Way of the Warrior Kid"
+      ],
+      "year": "2026",
+      "type": "Film",
+      "genre": "Action · Drame",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-11-25",
+      "displayDate": "25 novembre 2026 · Apple TV",
+      "description": "Jake, un commando de la Marine blessé en mission, aide son neveu Marc à prendre confiance en lui et à affronter les difficultés grâce à un programme inspiré de son expérience militaire.",
+      "sourceLabel": "Apple TV France",
+      "officialUrl": "https://tv.apple.com/fr/movie/warrior-kid/umc.cmc.21vzhs44oeejdkoxenkcdmre0",
+      "justWatchQuery": "Warrior Kid",
+      "posterCandidates": [],
+      "posterStatus": "Visuel éditorial METARECALL · aucune URL d'image directe validée pour cette fiche lors du contrôle",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "🛡️",
+      "posterTheme": "noir",
+      "visualUpdatedAt": "2026-11-22"
     }
   ],
   "visualNote": "Chaque fiche comporte une jaquette ou un visuel graphique de présentation. Les visuels issus de médias tiers sont explicitement identifiés (affiche promotionnelle, image de premier regard ou photo d'artiste). Les visuels éditoriaux METARECALL ne sont pas présentés comme des affiches officielles.",
@@ -366,6 +415,12 @@
     "https://www.apple.com/fr/tv-pr/originals/neuromancer/",
     "https://www.apple.com/fr/tv-pr/originals/fraggle-rock-a-holiday-gift/",
     "https://www.apple.com/fr/tv-pr/originals/filters/series/2021/",
-    "https://www.apple.com/tv-pr/news/2026/08/apple-tvs-acclaimed-comedy-bad-monkey-starring-and-executive-produced-by-vince-vaughn-returns-for-season-two-on-wednesday-december-2-2026/"
+    "https://www.apple.com/tv-pr/news/2026/08/apple-tvs-acclaimed-comedy-bad-monkey-starring-and-executive-produced-by-vince-vaughn-returns-for-season-two-on-wednesday-december-2-2026/",
+    "https://tv.apple.com/fr/room/bientot-sur-apple-tv/edt.item.634859dd-55a5-44a0-91d5-f9ec0d181bae",
+    "https://tv.apple.com/fr/room/bientot-sur-apple-tv/edt.item.62e4314e-8707-4e17-9b77-cdb29787ba94",
+    "https://tv.apple.com/fr/movie/f1-le-film/umc.cmc.3t6dvnnr87zwd4wmvpdx5came",
+    "https://tv.apple.com/fr/movie/warrior-kid/umc.cmc.21vzhs44oeejdkoxenkcdmre0",
+    "https://www.apple.com/fr/tv-pr/originals/f1/",
+    "https://www.apple.com/tv-pr/news/2026/11/apple-original-films-celebrates-the-world-premiere-of-way-of-the-warrior-kid/"
   ]
 }
