@@ -1845,16 +1845,28 @@ html.tv-navigation{scroll-behavior:smooth}
 #annonces-officielles .officialGrid::-webkit-scrollbar{height:7px}
 #annonces-officielles .officialGrid::-webkit-scrollbar-track{background:#171820;border-radius:99px}
 #annonces-officielles .officialGrid::-webkit-scrollbar-thumb{background:#854052;border-radius:99px}
-.officialRailControls{display:flex;align-items:center;gap:8px;margin-left:auto}
-.officialRailButton{
- width:34px;height:34px;display:grid;place-items:center;border:1px solid #ffffff28;
- border-radius:50%;background:#1b1d27;color:#fff;font-size:20px;cursor:pointer;
- transition:background .2s,border-color .2s,transform .2s;
+.officialRailControls{
+ position:absolute;z-index:8;left:0;right:0;top:50%;transform:translateY(-50%);
+ display:flex;justify-content:space-between;align-items:center;gap:8px;
+ padding:0 7px;pointer-events:none;
 }
-.officialRailButton:hover{background:#e52d5530;border-color:#e85a76;transform:scale(1.06)}
-.officialRailButton:disabled{opacity:.28;cursor:default;transform:none}
+.officialRailButton{
+ width:44px;height:66px;display:grid;place-items:center;pointer-events:auto;
+ border:1px solid #ffffff30;border-radius:12px;
+ background:linear-gradient(90deg,#090a0feF,#171923d9);color:#fff;
+ font-size:30px;font-weight:500;line-height:1;cursor:pointer;
+ box-shadow:0 5px 18px #0009;opacity:.92;
+ transition:background .2s,border-color .2s,transform .2s,opacity .2s;
+}
+.officialRailButton:last-child{background:linear-gradient(270deg,#090a0fef,#171923d9)}
+.officialRailButton:hover{background:#e52d5540;border-color:#e85a76;transform:scale(1.06)}
+.officialRailButton:disabled{opacity:.22;cursor:default;transform:none}
 #annonces-officielles .rowhead{align-items:center}
 #annonces-officielles .rowhead .rowmeta{white-space:nowrap}
+@media(max-width:700px){
+ .officialRailControls{padding:0 4px}
+ .officialRailButton{width:32px;height:52px;border-radius:9px;font-size:24px}
+}
 @media(max-width:700px){
  #annonces-officielles .officialGrid{
   gap:11px!important;margin:0 4% 10px!important;padding:6px 2px 14px!important;
@@ -2975,7 +2987,7 @@ supabase.auth.getSession().then(({ data, error }) => {
    prev.textContent="‹";prev.setAttribute("aria-label","Afficher les annonces précédentes");
    const next=document.createElement("button");next.type="button";next.className="officialRailButton";
    next.textContent="›";next.setAttribute("aria-label","Afficher les annonces suivantes");
-   controls.append(prev,next);head.appendChild(controls);
+   controls.append(prev,next);section.appendChild(controls);
    const step=()=>Math.max(rail.clientWidth*.82,rail.querySelector(".officialCard")?.getBoundingClientRect().width||420);
    prev.addEventListener("click",()=>rail.scrollBy({left:-step(),behavior:"smooth"}));
    next.addEventListener("click",()=>rail.scrollBy({left:step(),behavior:"smooth"}));
