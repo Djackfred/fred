@@ -3014,39 +3014,19 @@ function bindHeroPosterCarousel(){
   if(!heroPosterItems.length||heroTurnBusy)return;
   heroTurnBusy=true;
   const nextStart=(heroPosterStart+step+heroPosterItems.length)%heroPosterItems.length;
-  const incomingItem=heroPosterItems[(nextStart+2)%heroPosterItems.length];
-  const nextItems=[0,1,2].map(i=>heroPosterItems[(nextStart+i)%heroPosterItems.length]);
-  // Précharger les affiches entrantes avant le mouvement pour éviter tout remplacement brutal.
-  Promise.all([...nextItems.map(preloadHeroPoster),preloadHeroPoster(incomingItem)]).then(async()=>{
-   const direction=step>0?"next":"prev";
-   area.querySelector(".heroPoster.incoming")?.remove();
-   const sourceSlot=area.querySelector(direction==="next"?".heroPoster.one":".heroPoster.three");
-   const incoming=sourceSlot.cloneNode(true);
-   incoming.className="heroPoster incoming";
-   incoming.dataset.title=incomingItem.title||"";
-   incoming.dataset.catalogueId=incomingItem.id||"";
-   const incomingImage=incoming.querySelector("img");
-   incomingImage.src=await preloadHeroPoster(incomingItem);
-   incomingImage.alt="Affiche de "+incomingItem.title;
-   incoming.hidden=false;
-   incoming.style.opacity="1";
-   area.appendChild(incoming);
-   area.classList.remove("turn-next","turn-prev");
-   void area.offsetWidth;
-   area.classList.add(direction==="next"?"turn-next":"turn-prev");
-   const finish=()=>{
-    incoming.remove();
+  const nextItems=[0,1,2].map(i=>heroPosterItems[(nextStart+i)%heroPosterItems.length]).filter(Boolean);
+  Promise.all(nextItems.map(preloadHeroPoster)).then(()=>{
+   const slots=[...area.querySelectorAll(".heroPoster")];
+   slots.forEach(slot=>{slot.style.opacity="0";});
+   setTimeout(()=>{
     heroPosterStart=nextStart;
     renderHeroPosterStack();
-    area.classList.remove("turn-next","turn-prev","turn-arrive");
-    heroTurnBusy=false;
-   };
-   const moving=area.querySelector(direction==="next"?".heroPoster.three":".heroPoster.one");
-   let done=false;
-   const complete=()=>{if(done)return;done=true;finish()};
-   moving?.addEventListener("animationend",complete,{once:true});
-   setTimeout(complete,1050);
-  }).catch(()=>{area.querySelector(".heroPoster.incoming")?.remove();heroTurnBusy=false});
+    requestAnimationFrame(()=>{
+     slots.forEach(slot=>{slot.style.opacity="1";});
+     setTimeout(()=>{heroTurnBusy=false;},220);
+    });
+   },160);
+  }).catch(()=>{heroTurnBusy=false;slots?.forEach(slot=>slot.style.opacity="1");});
  };
  area.addEventListener("pointerdown",event=>{
   if(event.pointerType==="mouse"&&event.button!==0)return;
@@ -4231,106 +4211,48 @@ supabase.auth.getSession().then(({ data, error }) => {
 })();
 </script>
 
-<style>
-/* METARECALL PLAY — mouvement doux, affiches à taille constante */
-.heroPoster.two{transform:translateY(-8px)!important}
-.heroArt.turn-next .heroPoster.one,
-.heroArt.turn-next .heroPoster.two,
-.heroArt.turn-next .heroPoster.three,
-.heroArt.turn-prev .heroPoster.one,
-.heroArt.turn-prev .heroPoster.two,
-.heroArt.turn-prev .heroPoster.three{
- animation-duration:.9s!important;
- animation-timing-function:cubic-bezier(.22,.61,.36,1)!important;
-}
-@keyframes posterOrbitOutLeft{
- 0%{transform:translateX(0) rotateY(19deg) rotateZ(-7deg);opacity:.82}
- 100%{transform:translateX(-90px) rotateY(70deg) rotateZ(-7deg);opacity:0}
-}
-@keyframes posterOrbitLeft{
- 0%{transform:translateX(0) translateY(-8px);opacity:1}
- 100%{transform:translateX(-115px) rotateY(25deg) rotateZ(-5deg);opacity:.82}
-}
-@keyframes posterOrbitCenter{
- 0%{transform:translateX(0) rotateY(-18deg) rotateZ(7deg);opacity:.88}
- 100%{transform:translateX(-95px) rotateY(0) rotateZ(0);opacity:1}
-}
-@keyframes posterOrbitCenterBack{
- 0%{transform:translateX(0) rotateY(19deg) rotateZ(-7deg);opacity:.82}
- 100%{transform:translateX(95px) rotateY(0) rotateZ(0);opacity:1}
-}
-@keyframes posterOrbitRightBack{
- 0%{transform:translateX(0) translateY(-8px);opacity:1}
- 100%{transform:translateX(115px) rotateY(-25deg) rotateZ(5deg);opacity:.82}
-}
-@keyframes posterOrbitOutRight{
- 0%{transform:translateX(0) rotateY(-18deg) rotateZ(7deg);opacity:.88}
- 100%{transform:translateX(90px) rotateY(-70deg) rotateZ(7deg);opacity:0}
-}
-@keyframes posterSettle{from{filter:none}to{filter:none}}
-</style>
+
+
+
+
+
+
+
 
 <style>
-/* METARECALL PLAY — véritable rotation de carrousel, sans zoom ni saut */
-.heroPoster.one,.heroPoster.two,.heroPoster.three{transform-origin:50% 50%;}
-.heroArt.turn-next .heroPoster.one{animation:wheelExitLeft .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroArt.turn-next .heroPoster.two{animation:wheelToLeft .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroArt.turn-next .heroPoster.three{animation:wheelToCenter .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroArt.turn-prev .heroPoster.three{animation:wheelExitRight .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroArt.turn-prev .heroPoster.two{animation:wheelToRight .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroArt.turn-prev .heroPoster.one{animation:wheelToCenterBack .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroPoster.incoming{position:absolute!important;z-index:1!important;width:clamp(112px,13vw,174px)!important;aspect-ratio:2/3!important;left:calc(50% + 34px)!important;right:auto!important;opacity:1!important;transform:translateX(130px) rotateY(-18deg)!important;animation:wheelEnterRight .82s cubic-bezier(.45,0,.2,1) both!important;pointer-events:none!important}
-.heroArt.turn-prev .heroPoster.incoming{left:auto!important;right:calc(50% + 34px)!important;transform:translateX(-130px) rotateY(18deg)!important;animation:wheelEnterLeft .82s cubic-bezier(.45,0,.2,1) both!important}
-@keyframes wheelExitLeft{to{transform:translateX(-145px) rotateY(34deg);opacity:0}}
-@keyframes wheelToLeft{to{transform:translateX(-112px) rotateY(18deg);opacity:.84}}
-@keyframes wheelToCenter{to{transform:translateX(-96px) rotateY(0);opacity:1}}
-@keyframes wheelExitRight{to{transform:translateX(145px) rotateY(-34deg);opacity:0}}
-@keyframes wheelToRight{to{transform:translateX(112px) rotateY(-18deg);opacity:.84}}
-@keyframes wheelToCenterBack{to{transform:translateX(96px) rotateY(0);opacity:1}}
-@keyframes wheelEnterRight{to{transform:translateX(0) rotateY(-18deg);opacity:.84}}
-@keyframes wheelEnterLeft{to{transform:translateX(0) rotateY(18deg);opacity:.84}}
-@media(max-width:700px){.heroPoster.incoming{width:clamp(72px,23vw,94px)!important;left:calc(50% + 18px)!important}.heroArt.turn-prev .heroPoster.incoming{left:auto!important;right:calc(50% + 18px)!important}}
-@media(prefers-reduced-motion:reduce){.heroArt.turn-next .heroPoster,.heroArt.turn-prev .heroPoster{animation-duration:.01ms!important}}
-</style>
-
-<!-- Déclencheur de publication Render — carrousel roulette fluide -->
-
-<style>
-/* CARROUSEL — affiches à taille constante, sans effet de rétrécissement latéral */
-.heroPoster.one,.heroPoster.two,.heroPoster.three{
+/* METARECALL PLAY — carrousel simple et stable */
+.heroArt{
+  perspective:none!important;
+  transform-style:flat!important;
+  overflow:visible!important;
+}
+.heroPoster{
+  backface-visibility:visible!important;
   transform:none!important;
-  transform-origin:center center!important;
+  filter:none!important;
+  transition:opacity .18s ease!important;
+  animation:none!important;
+  will-change:opacity;
 }
-.heroPoster.one{transform:translateY(8px)!important}
-.heroPoster.two{transform:translateY(-8px)!important}
-.heroPoster.three{transform:translateY(8px)!important}
-.heroPoster.incoming{
-  transform:translateX(130px)!important;
-  animation:wheelEnterRightFlat .82s cubic-bezier(.45,0,.2,1) both!important;
-}
-.heroArt.turn-prev .heroPoster.incoming{
-  transform:translateX(-130px)!important;
-  animation:wheelEnterLeftFlat .82s cubic-bezier(.45,0,.2,1) both!important;
-}
-.heroArt.turn-next .heroPoster.one{animation:wheelExitLeftFlat .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroArt.turn-next .heroPoster.two{animation:wheelToLeftFlat .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroArt.turn-next .heroPoster.three{animation:wheelToCenterFlat .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroArt.turn-prev .heroPoster.three{animation:wheelExitRightFlat .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroArt.turn-prev .heroPoster.two{animation:wheelToRightFlat .82s cubic-bezier(.45,0,.2,1) both!important}
-.heroArt.turn-prev .heroPoster.one{animation:wheelToCenterBackFlat .82s cubic-bezier(.45,0,.2,1) both!important}
-@keyframes wheelExitLeftFlat{to{transform:translateX(-145px);opacity:0}}
-@keyframes wheelToLeftFlat{to{transform:translateX(-112px) translateY(8px);opacity:.9}}
-@keyframes wheelToCenterFlat{to{transform:translateX(-96px) translateY(-8px);opacity:1}}
-@keyframes wheelExitRightFlat{to{transform:translateX(145px);opacity:0}}
-@keyframes wheelToRightFlat{to{transform:translateX(112px) translateY(8px);opacity:.9}}
-@keyframes wheelToCenterBackFlat{to{transform:translateX(96px) translateY(-8px);opacity:1}}
-@keyframes wheelEnterRightFlat{to{transform:translateX(0);opacity:.9}}
-@keyframes wheelEnterLeftFlat{to{transform:translateX(0);opacity:.9}}
+.heroPoster.one{left:4%!important;right:auto!important;transform:none!important;opacity:.94!important}
+.heroPoster.two{left:34%!important;right:auto!important;transform:none!important;opacity:1!important}
+.heroPoster.three{right:2%!important;left:auto!important;transform:none!important;opacity:.94!important}
+.heroPoster.incoming{display:none!important}
+.heroArt.turn-next .heroPoster,
+.heroArt.turn-prev .heroPoster,
+.heroArt.turn-arrive .heroPoster{animation:none!important}
 @media(max-width:700px){
- .heroPoster.one{transform:translateY(5px)!important}
- .heroPoster.two{transform:translateY(-3px)!important}
- .heroPoster.three{transform:translateY(5px)!important}
- .heroPoster.incoming{width:clamp(72px,23vw,94px)!important}
+ .heroArt{perspective:none!important;transform:none!important}
+ .heroPoster{width:clamp(72px,23vw,94px)!important;transform:none!important}
+ .heroPoster.one{left:calc(50% - 112px)!important;right:auto!important}
+ .heroPoster.two{left:50%!important;right:auto!important;transform:translateX(-50%)!important}
+ .heroPoster.three{right:calc(50% - 112px)!important;left:auto!important}
 }
+@media(max-width:380px){
+ .heroPoster.one{left:calc(50% - 96px)!important}
+ .heroPoster.three{right:calc(50% - 96px)!important}
+}
+@media(prefers-reduced-motion:reduce){.heroPoster{transition:none!important}}
 </style>
+
 </body></html>
