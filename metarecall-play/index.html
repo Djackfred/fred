@@ -2297,6 +2297,31 @@ body{
 @media(max-width:700px){.heroArt{opacity:.92!important;right:2%;width:70%;height:220px;top:auto;bottom:12px;transform:none}.heroPoster{width:clamp(86px,27vw,120px)}}
 @media(prefers-reduced-motion:reduce){.heroPoster{transition:none!important}}
 
+
+/* CINEMATIC POSTER TURNTABLE — 3D page-turn transition */
+.heroArt{transform-style:preserve-3d;perspective:1100px;overflow:visible}
+.heroPoster{backface-visibility:hidden;transform-style:preserve-3d;will-change:transform,opacity,filter}
+.heroArt.turn-next .heroPoster.one{animation:posterOrbitOutLeft .52s cubic-bezier(.22,.75,.25,1) both}
+.heroArt.turn-next .heroPoster.two{animation:posterOrbitLeft .52s cubic-bezier(.22,.75,.25,1) both}
+.heroArt.turn-next .heroPoster.three{animation:posterOrbitCenter .52s cubic-bezier(.22,.75,.25,1) both}
+.heroArt.turn-prev .heroPoster.one{animation:posterOrbitCenterBack .52s cubic-bezier(.22,.75,.25,1) both}
+.heroArt.turn-prev .heroPoster.two{animation:posterOrbitRightBack .52s cubic-bezier(.22,.75,.25,1) both}
+.heroArt.turn-prev .heroPoster.three{animation:posterOrbitOutRight .52s cubic-bezier(.22,.75,.25,1) both}
+.heroArt.turn-arrive .heroPoster{animation:posterSettle .26s ease-out both}
+@keyframes posterOrbitOutLeft{0%{transform:translateX(0) rotateY(19deg) rotateZ(-7deg) scale(1);opacity:.82}45%{transform:translateX(-65px) rotateY(78deg) rotateZ(-12deg) scale(.82);opacity:.35}100%{transform:translateX(-90px) rotateY(90deg) scale(.72);opacity:0}}
+@keyframes posterOrbitLeft{0%{transform:translateX(0) translateY(-8px) scale(1.06);opacity:1}100%{transform:translateX(-115px) rotateY(35deg) rotateZ(-7deg) scale(.88);opacity:.78}}
+@keyframes posterOrbitCenter{0%{transform:translateX(0) rotateY(-18deg) rotateZ(7deg) scale(1);opacity:.88}100%{transform:translateX(-95px) rotateY(0) rotateZ(0) scale(1.08);opacity:1}}
+@keyframes posterOrbitCenterBack{0%{transform:translateX(0) rotateY(19deg) rotateZ(-7deg) scale(1);opacity:.82}100%{transform:translateX(95px) rotateY(0) rotateZ(0) scale(1.08);opacity:1}}
+@keyframes posterOrbitRightBack{0%{transform:translateX(0) translateY(-8px) scale(1.06);opacity:1}100%{transform:translateX(115px) rotateY(-35deg) rotateZ(7deg) scale(.88);opacity:.78}}
+@keyframes posterOrbitOutRight{0%{transform:translateX(0) rotateY(-18deg) rotateZ(7deg) scale(1);opacity:.88}45%{transform:translateX(65px) rotateY(-78deg) rotateZ(12deg) scale(.82);opacity:.35}100%{transform:translateX(90px) rotateY(-90deg) scale(.72);opacity:0}}
+@keyframes posterSettle{0%{filter:blur(2px) brightness(1.35)}100%{filter:blur(0) brightness(1)}}
+@media(max-width:700px){
+ .heroArt.turn-next .heroPoster.one{animation-name:posterOrbitOutLeft}
+ .heroArt.turn-next .heroPoster.two{animation-name:posterOrbitLeft}
+ .heroArt.turn-next .heroPoster.three{animation-name:posterOrbitCenter}
+}
+@media(prefers-reduced-motion:reduce){.heroArt.turn-next .heroPoster,.heroArt.turn-prev .heroPoster,.heroArt.turn-arrive .heroPoster{animation:none!important}}
+
 </style>
 </head>
 <body>
@@ -2521,10 +2546,22 @@ function bindHeroPosterCarousel(){
  if(!area||area.dataset.carouselBound)return;
  area.dataset.carouselBound="true";
  let startX=0,startY=0,pointerId=null,dragged=false;
+ let heroTurnBusy=false;
  const moveBy=step=>{
-  if(!heroPosterItems.length)return;
-  heroPosterStart=(heroPosterStart+step+heroPosterItems.length)%heroPosterItems.length;
-  renderHeroPosterStack();
+  if(!heroPosterItems.length||heroTurnBusy)return;
+  heroTurnBusy=true;
+  const direction=step>0?"next":"prev";
+  area.classList.remove("turn-next","turn-prev");
+  void area.offsetWidth;
+  area.classList.add(direction==="next"?"turn-next":"turn-prev");
+  // Les trois affiches orbitent réellement avant le remplacement du visuel.
+  setTimeout(()=>{
+   heroPosterStart=(heroPosterStart+step+heroPosterItems.length)%heroPosterItems.length;
+   renderHeroPosterStack();
+   area.classList.remove("turn-next","turn-prev");
+   area.classList.add("turn-arrive");
+   setTimeout(()=>{area.classList.remove("turn-arrive");heroTurnBusy=false},260);
+  },520);
  };
  area.addEventListener("pointerdown",event=>{
   if(event.pointerType==="mouse"&&event.button!==0)return;
