@@ -2091,11 +2091,46 @@ body:before{
  animation:starTwinkle .8s ease-in-out infinite alternate;
 }
 
+
+.brand{min-width:220px;width:250px;flex:0 0 250px;gap:0}
+.brandLogo{display:block;width:100%;height:auto;max-height:68px;overflow:visible}
+@media(max-width:900px){.brand{width:210px;flex-basis:210px;min-width:0}.brandLogo{max-height:58px}}
+@media(max-width:700px){.brand{width:154px;flex-basis:154px;min-width:0}.brandLogo{max-height:48px}}
+
 </style>
 </head>
 <body>
 <header class="topbar"><div class="nav">
-<a class="brand" href="#accueil" aria-label="METARECALL PLAY, accueil"><span class="brandIcon">MP</span><span class="brandName"><small class="certifiedBy">CERTIFIÉ BY FRÉDÉRIC JACQUET</small>METARECALL <b>PLAY</b><small>FILMS · SÉRIES · CRÉATIONS</small></span></a>
+<a class="brand" href="#accueil" aria-label="METARECALL PLAY, accueil">
+<svg class="brandLogo" viewBox="0 0 1200 400" role="img" aria-labelledby="brandLogoTitle">
+<title id="brandLogoTitle">METARECALL PLAY</title>
+<defs>
+ <linearGradient id="capsuleEdge" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#27cfff"/><stop offset=".48" stop-color="#b7d8ff"/><stop offset="1" stop-color="#ff4c70"/></linearGradient>
+ <linearGradient id="mpFace" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff526f"/><stop offset=".52" stop-color="#d71949"/><stop offset="1" stop-color="#65102f"/></linearGradient>
+ <linearGradient id="playFill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff9a9f"/><stop offset=".55" stop-color="#ff536d"/><stop offset="1" stop-color="#d92c53"/></linearGradient>
+ <linearGradient id="blueWave" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#18cfff"/><stop offset="1" stop-color="#18cfff" stop-opacity="0"/></linearGradient>
+ <linearGradient id="redWave" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ff466b" stop-opacity="0"/><stop offset="1" stop-color="#ff466b"/></linearGradient>
+ <filter id="logoGlow" x="-40%" y="-60%" width="180%" height="220%"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="softGlow" x="-40%" y="-60%" width="180%" height="220%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect x="28" y="42" width="1144" height="316" rx="158" fill="#090d18" fill-opacity=".84" stroke="url(#capsuleEdge)" stroke-width="5" filter="url(#softGlow)"/>
+<rect x="37" y="51" width="1126" height="298" rx="149" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="2"/>
+<path d="M80 284 Q280 365 480 306 T850 300 Q1010 318 1130 244" fill="none" stroke="url(#blueWave)" stroke-width="13" opacity=".55" filter="url(#logoGlow)"/>
+<path d="M1150 280 Q960 362 780 308 T490 310 Q300 330 65 235" fill="none" stroke="url(#redWave)" stroke-width="11" opacity=".45" filter="url(#logoGlow)"/>
+<rect x="116" y="91" width="246" height="218" rx="52" fill="url(#mpFace)" stroke="#ff7890" stroke-width="5" filter="url(#logoGlow)"/>
+<rect x="124" y="99" width="230" height="202" rx="46" fill="none" stroke="#ffffff" stroke-opacity=".2" stroke-width="2"/>
+<text x="239" y="240" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="112" font-weight="900" text-anchor="middle" letter-spacing="-9">MP</text>
+<path d="M70 270 C140 356 280 330 380 200" fill="none" stroke="#35d9ff" stroke-width="7" stroke-linecap="round" filter="url(#softGlow)"/>
+<path d="M380 200 C405 166 395 139 360 128" fill="none" stroke="#ff5b78" stroke-width="5" stroke-linecap="round" filter="url(#softGlow)"/>
+<path d="M400 72 L410 96 L434 106 L410 116 L400 140 L390 116 L366 106 L390 96Z" fill="#ffe7a0" filter="url(#logoGlow)"/>
+<path d="M443 112 L449 126 L463 132 L449 138 L443 152 L437 138 L423 132 L437 126Z" fill="#fff1bd" filter="url(#softGlow)"/>
+<path d="M423 88 V316" stroke="#ffffff" stroke-opacity=".25" stroke-width="2"/>
+<text x="480" y="205" fill="#f9fbff" font-family="Arial,Helvetica,sans-serif" font-size="112" font-weight="900" letter-spacing="-5" filter="url(#softGlow)">METARECALL</text>
+<path d="M480 258 H565 M1015 258 H1100" stroke="#ff536f" stroke-width="6" stroke-linecap="round" filter="url(#softGlow)"/>
+<text x="790" y="301" fill="url(#playFill)" font-family="Arial,Helvetica,sans-serif" font-size="92" font-style="italic" font-weight="900" text-anchor="middle" letter-spacing="8" filter="url(#logoGlow)">PLAY</text>
+<path d="M790 327 L800 350 L823 360 L800 370 L790 393 L780 370 L757 360 L780 350Z" fill="#ffe9a4" filter="url(#logoGlow)" opacity=".9"/>
+<circle cx="72" cy="185" r="3" fill="#7ceaff" filter="url(#softGlow)"/><circle cx="1118" cy="173" r="3" fill="#ff8093" filter="url(#softGlow)"/>
+</svg></a>
 <nav aria-label="Navigation principale"><a href="#nouveautes">Derniers ajouts</a><a href="#top15">TOP 15</a><a href="#alafiche">À l’affiche</a><a href="#animations">Animation</a><a href="#docs">Docs & spectacles</a><a href="#annonces-officielles">À venir</a><a href="#catalogue">Catalogue</a></nav>
 <div class="navright">
 <label class="searchbox"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Titres, genres..." aria-label="Rechercher un titre"></label>
