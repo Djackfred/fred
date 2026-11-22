@@ -2732,6 +2732,25 @@ header.topbar .brandLogo,header.topbar.is-compact .brandLogo{
  .heroArt,.heroPoster{animation:none!important;transition:none!important}
 }
 
+
+/* CAROUSEL MOTION FINISH — align JS/CSS timing, remove blur and hard snap */
+.heroArt.turn-next .heroPoster.one,
+.heroArt.turn-next .heroPoster.two,
+.heroArt.turn-next .heroPoster.three,
+.heroArt.turn-prev .heroPoster.one,
+.heroArt.turn-prev .heroPoster.two,
+.heroArt.turn-prev .heroPoster.three{
+ animation-duration:520ms!important;
+ animation-timing-function:cubic-bezier(.22,.75,.25,1)!important;
+}
+.heroArt.turn-arrive .heroPoster{
+ animation:posterArriveClean 150ms ease-out both!important;
+}
+@keyframes posterArriveClean{
+ from{opacity:.88;filter:none}
+ to{opacity:1;filter:none}
+}
+
 </style>
 </head>
 <body>
@@ -3002,13 +3021,14 @@ function bindHeroPosterCarousel(){
    area.classList.remove("turn-next","turn-prev");
    void area.offsetWidth;
    area.classList.add(direction==="next"?"turn-next":"turn-prev");
+   // Attendre la fin exacte de l'orbite CSS avant de permuter les affiches.
    setTimeout(()=>{
     heroPosterStart=nextStart;
     renderHeroPosterStack();
-    area.classList.remove("turn-next","turn-prev");
-    area.classList.add("turn-arrive");
-    setTimeout(()=>{area.classList.remove("turn-arrive");heroTurnBusy=false},180);
-   },420);
+    area.classList.remove("turn-next","turn-prev","turn-arrive");
+    // Laisser une image de rendu au navigateur, sans snap ni effet de flou.
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{heroTurnBusy=false}));
+   },520);
   }).catch(()=>{heroTurnBusy=false});
  };
  area.addEventListener("pointerdown",event=>{
