@@ -2,8 +2,8 @@
   "source": "Veille officielle France · Netflix & Apple TV",
   "sourceUrl": "https://about.netflix.com/fr/news/calendrier-de-sorties-originals-france",
   "checkedAt": "2026-11-22",
-  "checkedAtLabel": "22 novembre 2026 · 06:44",
-  "note": "Contrôle du 22 novembre 2026 (06:44, Europe/Paris) : 18 fiches officielles additionnelles intégrées après déduplication avec le catalogue Ravpaz disponible et l'historique des annonces. Ajouts : 13 projets en production du calendrier Netflix France (dates non annoncées) et 5 annonces Apple TV (Lenni, Knife Edge saison 3, Snoopy Presents: 12 Days of Snoopy, 12 12 12 et Snoopy Unleashed). Les dates ne sont renseignées que lorsqu'elles sont explicitement publiées. Les images Apple sont légendées comme photo artiste ou image de premier regard ; les autres fiches utilisent une couverture éditoriale METARECALL. La page Ravpaz.com exacte reste inaccessible depuis l'environnement de contrôle : le catalogue Ravpaz n'est pas modifié. Les six endpoints TVmaze des 21, 22 et 23 novembre n'ont pas fourni de réponse exploitable ; aucun épisode n'est importé.",
+  "checkedAtLabel": "22 novembre 2026 · 09:12",
+  "note": "Contrôle du 22 novembre 2026 (09:12, Europe/Paris) : 3 fiches Netflix France ajoutées après déduplication avec les 113 titres du snapshot Ravpaz disponible et l'historique des annonces : El crimen de Pazos (13/11), La Daronne (25/11) et L'Homme de la cave (28/11). Les deux films ont une année et des genres recoupés auprès de sources cinéma ; aucun visuel officiel correspondant n'ayant été vérifié, leurs cartes utilisent une couverture éditoriale METARECALL clairement légendée. La page Ravpaz.com exacte reste inaccessible : le catalogue Ravpaz n'est pas modifié. Les six endpoints TVmaze France et Web des 21, 22 et 23 novembre n'ont pas fourni de réponse exploitable ; aucun épisode n'est importé.",
   "items": [
     {
       "id": "netflix-the-body-2026",
@@ -1313,6 +1313,79 @@
       "posterSymbol": "🐾",
       "posterTheme": "anime",
       "visualUpdatedAt": "2026-11-22"
+    },
+    {
+      "id": "netflix-el-crimen-de-pazos-2026",
+      "title": "El crimen de Pazos",
+      "displayTitle": "El crimen de Pazos",
+      "aliases": [],
+      "year": "2026",
+      "type": "Mini-série",
+      "genre": "Thriller · Policier · Drame",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-11-13",
+      "displayDate": "13 novembre 2026 · Netflix France",
+      "announcementDate": "2026-06-24",
+      "description": "Après l'agression nocturne d'une femme, un sergent enquête sur les incohérences du récit de son mari dans une mini-série inspirée de faits réels.",
+      "sourceLabel": "Netflix France · Line-up presse novembre 2026",
+      "officialUrl": "https://www.netflix.com/fr/title/82023389",
+      "justWatchQuery": "El crimen de Pazos",
+      "posterCandidates": [],
+      "posterStatus": "Visuel éditorial METARECALL · aucune affiche officielle vérifiée dans les ressources consultées",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "🔎",
+      "posterTheme": "noir",
+      "visualUpdatedAt": "2026-11-22"
+    },
+    {
+      "id": "netflix-la-daronne-2026",
+      "title": "La Daronne",
+      "displayTitle": "La Daronne",
+      "aliases": [
+        "Mama Weed"
+      ],
+      "year": "2020",
+      "type": "Film",
+      "genre": "Comédie · Drame · Policier",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-11-25",
+      "displayDate": "25 novembre 2026 · Netflix France",
+      "announcementDate": "2026-06-24",
+      "description": "Patience Portefeux, interprète judiciaire spécialisée dans les écoutes des stupéfiants, couvre un jeune trafiquant et se retrouve entraînée à la tête d'un vaste réseau.",
+      "sourceLabel": "Netflix France · Line-up presse novembre 2026",
+      "officialUrl": "https://about.netflix.com/fr/news/line-up-mensuel",
+      "justWatchQuery": "La Daronne",
+      "posterCandidates": [],
+      "posterStatus": "Visuel éditorial METARECALL · aucune affiche officielle vérifiée dans les ressources presse consultées",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "👜",
+      "posterTheme": "comedy",
+      "visualUpdatedAt": "2026-11-22"
+    },
+    {
+      "id": "netflix-lhomme-de-la-cave-2026",
+      "title": "L'Homme de la cave",
+      "displayTitle": "L'Homme de la cave",
+      "aliases": [
+        "The Man in the Basement"
+      ],
+      "year": "2021",
+      "type": "Film",
+      "genre": "Drame · Thriller",
+      "rubrique": "Annonces officielles",
+      "releaseDate": "2026-11-28",
+      "displayDate": "28 novembre 2026 · Netflix France",
+      "announcementDate": "2026-06-24",
+      "description": "Un couple vend une cave à un homme au passé trouble qui finit par s'y installer et bouleverse progressivement la vie de l'immeuble.",
+      "sourceLabel": "Netflix France · Line-up presse novembre 2026",
+      "officialUrl": "https://about.netflix.com/fr/news/line-up-mensuel",
+      "justWatchQuery": "L'Homme de la cave",
+      "posterCandidates": [],
+      "posterStatus": "Visuel éditorial METARECALL · aucune affiche officielle vérifiée dans les ressources presse consultées",
+      "posterType": "Visuel éditorial METARECALL",
+      "posterSymbol": "🗝️",
+      "posterTheme": "noir",
+      "visualUpdatedAt": "2026-11-22"
     }
   ],
   "visualNote": "Chaque fiche comporte une jaquette ou un visuel graphique de présentation. Les visuels issus de médias tiers sont explicitement identifiés (affiche promotionnelle, image de premier regard ou photo d'artiste). Les visuels éditoriaux METARECALL ne sont pas présentés comme des affiches officielles.",
@@ -1353,7 +1426,10 @@
     "https://www.netflix.com/fr/title/82792406",
     "https://www.netflix.com/fr/title/83217799",
     "https://www.netflix.com/fr/title/83217804",
-    "https://www.netflix.com/fr/title/82116121"
+    "https://www.netflix.com/fr/title/82116121",
+    "https://www.netflix.com/fr/title/82023389",
+    "https://www.allocine.fr/film/fichefilm_gen_cfilm=268644.html",
+    "https://www.advitamdistribution.com/films/lhomme-de-la-cave/"
   ],
   "sources": [
     {
@@ -1375,6 +1451,22 @@
     {
       "label": "Apple TV Press — 12 12 12",
       "url": "https://www.apple.com/tv-pr/news/2026/11/apple-tv-celebrates-the-premiere-of-its-highly-anticipated-heist-drama-12-12-12-starring-and-executive-produced-by-anthony-mackie-and-jamie-dornan/"
+    },
+    {
+      "label": "Netflix France — line-up presse mensuel novembre 2026",
+      "url": "https://about.netflix.com/fr/news/line-up-mensuel"
+    },
+    {
+      "label": "Netflix France — El crimen de Pazos",
+      "url": "https://www.netflix.com/fr/title/82023389"
+    },
+    {
+      "label": "AlloCiné — La Daronne (année et genres)",
+      "url": "https://www.allocine.fr/film/fichefilm_gen_cfilm=268644.html"
+    },
+    {
+      "label": "Ad Vitam — L'Homme de la cave (année et genres)",
+      "url": "https://www.advitamdistribution.com/films/lhomme-de-la-cave/"
     }
   ]
 }
