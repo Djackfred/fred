@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090909">
+<meta name="theme-color" content="#0b0c10"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="METARECALL MUSIC"><meta name="mobile-web-app-capable" content="yes"><link rel="manifest" href="/manifest.webmanifest">
 <meta name="description" content="METARECALL MUSIC — Les créations musicales originales de Frédéric Jacquet. Singles, albums et nouveautés à écouter sur Spotify.">
 <meta property="og:title" content="METARECALL MUSIC — Frédéric Jacquet">
 <meta property="og:description" content="Toutes les créations musicales de Frédéric Jacquet. Écoutez sur Spotify."><meta property="og:image" content="https://raw.githubusercontent.com/Djackfred/fred/master/metarecall-music/fred-photo.webp"><meta property="og:image:alt" content="Portrait officiel de Frédéric Jacquet — METARECALL MUSIC"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="METARECALL MUSIC — Frédéric Jacquet"><meta name="twitter:description" content="Découvrez les sorties musicales de Frédéric Jacquet.">
@@ -28,6 +28,73 @@ h1{font-size:clamp(40px,5.5vw,70px);line-height:1.01;letter-spacing:-2.8px;margi
 .artistPanel{margin-top:36px;padding:20px;border:1px solid #ffffff12;border-radius:18px;background:#ffffff05}.artistPanel iframe{width:100%;height:650px;border:0;border-radius:12px}
 footer{padding:31px 5%;border-top:1px solid #ffffff12;background:#090a0f;color:#858b99;font-size:11px;line-height:1.8;text-align:center}footer strong{color:#e6e7eb;letter-spacing:1px}
 @media(max-width:760px){.nav{height:66px;padding:0 4%;gap:10px}.brand{font-size:16px}nav{display:none}.spotifyBtn{font-size:10px;padding:9px 12px}.hero{min-height:0;padding:30px 8% 38px;align-items:flex-start}.heroContent{width:100%;position:relative;z-index:2}.heroContent{width:100%;padding-right:0}.artistPortrait{right:6%;top:24px;transform:none;width:82px;height:108px;object-fit:contain;object-position:center top;filter:drop-shadow(0 7px 14px #0009)}.tagline{max-width:68%}.hero h1{max-width:78%;font-size:clamp(34px,9vw,42px);letter-spacing:-1.8px}.hero h1{font-size:42px}.hero p{font-size:13px}.actions{position:relative;z-index:3;display:flex;flex-direction:column;align-items:stretch;gap:10px}.actions .btn{justify-content:center;width:100%}.heroArt{display:none!important}.heroPlayer{width:100%;margin-top:22px}.heroPlayer iframe{height:152px}.proofbar{grid-template-columns:1fr;padding:0 5%}.content{padding:0 5% 45px}.embedGrid{grid-template-columns:1fr;gap:12px}.sectionHead h2{font-size:19px}.artistPanel{padding:10px}.artistPanel iframe{height:700px}.releaseCard{flex-basis:72vw}}
+
+/* Mobile-first app shell */
+.mobileDock{display:none}
+@media(max-width:760px){
+ html{scroll-padding-top:76px}
+ body{background:#090a0f;padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+ .topbar{position:sticky;top:0;background:#0b0c10f5;border-bottom:1px solid #ffffff12;backdrop-filter:blur(22px)}
+ .nav{height:62px;padding:0 15px;gap:8px}
+ .brand{font-size:14px;gap:8px;letter-spacing:-.45px}
+ .brandIcon{width:34px;height:34px;border-radius:11px;font-size:16px}
+ .navright{margin-left:auto}
+ .spotifyBtn{font-size:9px;padding:9px 11px;white-space:nowrap}
+ main{overflow:visible}
+ .hero{margin:10px 10px 16px;padding:24px 19px 20px;min-height:0;border-radius:22px}
+ .hero:before{inset:0;border-radius:22px;background:radial-gradient(ellipse at 90% 8%,#6a2b4680,transparent 45%),linear-gradient(145deg,#1d1e29,#11131b 80%)}
+ .heroContent{width:100%;display:flex;flex-direction:column;align-items:stretch}
+ .artistPortrait{position:absolute;right:17px;top:17px;transform:none;width:88px;height:108px;object-fit:contain;object-position:center top;filter:drop-shadow(0 8px 14px #000b)}
+ .tagline{font-size:9px;letter-spacing:1.6px;max-width:calc(100% - 96px);min-height:34px;display:flex;align-items:center}
+ .hero h1{font-size:clamp(34px,9vw,43px);line-height:1.02;letter-spacing:-1.8px;max-width:100%;margin:15px 0 10px}
+ .hero p{font-size:13px;line-height:1.55;margin:0;max-width:100%;color:#c5c8d2}
+ .actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+ .actions .btn{width:100%;justify-content:center;padding:11px 8px;font-size:11px;white-space:nowrap}
+ .heroPlayer{margin-top:16px;width:100%}
+ .heroPlayer iframe{height:152px}
+ .proofbar{display:flex;gap:9px;overflow-x:auto;padding:0 12px 3px;scrollbar-width:none}
+ .proofbar::-webkit-scrollbar{display:none}
+ .proofitem{flex:0 0 74%;padding:12px 14px;border-radius:14px;background:#171923}
+ .proofitem strong{font-size:10px}.proofitem small{font-size:10px}
+ .content{margin:28px auto 0;padding:0 13px 30px}
+ .sectionHead{align-items:center;margin-bottom:13px}
+ .sectionHead h2{font-size:19px;line-height:1.2;margin-top:5px}
+ .eyebrow{font-size:9px;letter-spacing:1.8px}
+ .railControls{gap:6px}
+ .railArrow{width:34px;height:34px;font-size:23px}
+ .releaseRail{gap:12px;padding:3px 1px 15px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
+ .releaseCard{flex:0 0 68vw;max-width:270px;padding:10px;border-radius:16px}
+ .cover{border-radius:12px}
+ .cover span{font-size:38px}
+ .releaseCard h3{font-size:14px;margin-top:10px}
+ .releaseCard p{font-size:10px}
+ .listen{font-size:9px;padding:8px 11px}
+ .releaseNote{font-size:10px;line-height:1.55}
+ .embedGrid{grid-template-columns:1fr;gap:12px}
+ .embedCard{padding:10px;border-radius:16px}
+ .embedCard iframe{height:152px}
+ .embedCard h3{font-size:13px}
+ .artistPanel{margin-top:25px;padding:12px;border-radius:16px}
+ .artistPanel iframe{height:650px}
+ footer{padding:25px 18px calc(30px + env(safe-area-inset-bottom));font-size:10px}
+ .mobileDock{position:fixed;z-index:60;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:#101117f5;border-top:1px solid #ffffff18;backdrop-filter:blur(24px);box-shadow:0 -10px 30px #0007}
+ .mobileDock a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:48px;color:#9da3b2;font-size:9px;font-weight:700;letter-spacing:.1px}
+ .mobileDock a svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+ .mobileDock a.active,.mobileDock a:focus-visible{color:#ff7189}
+ .mobileDock a.active svg{stroke:#ff7189}
+ #nouveautes,#sorties,#artiste{scroll-margin-top:75px}
+}
+@media(max-width:380px){
+ .brand{font-size:12px}.brandIcon{width:31px;height:31px}
+ .spotifyBtn{font-size:8px;padding:8px 9px}
+ .hero{padding:20px 15px}
+ .artistPortrait{width:76px;height:98px}
+ .tagline{max-width:calc(100% - 82px);font-size:8px}
+ .hero h1{font-size:34px}
+ .actions{grid-template-columns:1fr}
+ .releaseCard{flex-basis:76vw}
+}
+
 </style>
 </head>
 <body>
@@ -75,5 +142,11 @@ footer{padding:31px 5%;border-top:1px solid #ffffff12;background:#090a0f;color:#
 </div>
 </section>
 </main>
+<nav class="mobileDock" aria-label="Navigation mobile">
+<a class="active" href="#accueil" aria-label="Accueil"><svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9M9 20v-6h6v6"/></svg><span>Accueil</span></a>
+<a href="#nouveautes" aria-label="Nouveautés"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><path d="m17 16 2 2 3-4"/></svg><span>Nouveautés</span></a>
+<a href="#sorties" aria-label="Écouter"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m10 8 6 4-6 4z"/></svg><span>Écouter</span></a>
+<a href="#artiste" aria-label="Artiste"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4 3.5-6 8-6s7.2 2 8 6"/></svg><span>Artiste</span></a>
+</nav>
 <footer><strong>METARECALL MUSIC</strong><br>Une création METARECALL · Frédéric Jacquet<br>Les lecteurs audio et liens d'écoute sont fournis par Spotify. La lecture complète peut nécessiter un compte Spotify.</footer>
- <script>function moveRail(direction){const rail=document.getElementById("releaseRail");if(!rail)return;const card=rail.querySelector(".releaseCard");const step=card?card.getBoundingClientRect().width+16:rail.clientWidth*.8;rail.scrollBy({left:direction*step,behavior:"smooth"});}(()=>{const rail=document.getElementById("releaseRail");if(!rail)return;let down=false,startX=0,startLeft=0,moved=false;rail.addEventListener("pointerdown",e=>{if(e.pointerType==="mouse"&&e.button!==0)return;down=true;moved=false;startX=e.clientX;startLeft=rail.scrollLeft;rail.classList.add("is-dragging");rail.setPointerCapture(e.pointerId)});rail.addEventListener("pointermove",e=>{if(!down)return;const dx=e.clientX-startX;if(Math.abs(dx)>5)moved=true;rail.scrollLeft=startLeft-dx});const stop=()=>{if(!down)return;down=false;rail.classList.remove("is-dragging")};rail.addEventListener("pointerup",stop);rail.addEventListener("pointercancel",stop);rail.addEventListener("lostpointercapture",stop);rail.addEventListener("click",e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false}},true)})();</script></body></html>
+ <script>document.querySelectorAll(".mobileDock a").forEach(a=>a.addEventListener("click",()=>{document.querySelectorAll(".mobileDock a").forEach(x=>x.classList.remove("active"));a.classList.add("active")}));function moveRail(direction){const rail=document.getElementById("releaseRail");if(!rail)return;const card=rail.querySelector(".releaseCard");const step=card?card.getBoundingClientRect().width+16:rail.clientWidth*.8;rail.scrollBy({left:direction*step,behavior:"smooth"});}(()=>{const rail=document.getElementById("releaseRail");if(!rail)return;let down=false,startX=0,startLeft=0,moved=false;rail.addEventListener("pointerdown",e=>{if(e.pointerType==="mouse"&&e.button!==0)return;down=true;moved=false;startX=e.clientX;startLeft=rail.scrollLeft;rail.classList.add("is-dragging");rail.setPointerCapture(e.pointerId)});rail.addEventListener("pointermove",e=>{if(!down)return;const dx=e.clientX-startX;if(Math.abs(dx)>5)moved=true;rail.scrollLeft=startLeft-dx});const stop=()=>{if(!down)return;down=false;rail.classList.remove("is-dragging")};rail.addEventListener("pointerup",stop);rail.addEventListener("pointercancel",stop);rail.addEventListener("lostpointercapture",stop);rail.addEventListener("click",e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false}},true)})();</script></body></html>
