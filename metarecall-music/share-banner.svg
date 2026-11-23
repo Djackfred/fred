@@ -9,4 +9,6 @@
 <text x="86" y="500" font-family="Arial,sans-serif" font-size="27" fill="#d4d5df">L’univers musical de Frédéric Jacquet</text>
 <text x="86" y="555" font-family="Arial,sans-serif" font-size="20" letter-spacing="5" font-weight="700" fill="#ff8298">ÉCOUTER · DÉCOUVRIR · PARTAGER</text>
 <circle cx="1025" cy="470" r="100" fill="none" stroke="#f05a7a" stroke-opacity=".35" stroke-width="2"/><circle cx="1025" cy="470" r="145" fill="none" stroke="#f05a7a" stroke-opacity=".18" stroke-width="2"/>
+<defs><clipPath id="portraitClip"><rect x="690" y="12" width="500" height="606" rx="18"/></clipPath></defs>
+<image href="https://metarecall-music.onrender.com/fred-photo.webp" x="690" y="12" width="500" height="606" preserveAspectRatio="xMidYMax meet" clip-path="url(#portraitClip)"/>
 </svg>
