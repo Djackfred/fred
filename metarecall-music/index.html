@@ -23,16 +23,17 @@ h1{font-size:clamp(40px,5.5vw,70px);line-height:1.01;letter-spacing:-2.8px;margi
 .heroArt{position:absolute;right:7%;top:50%;transform:translateY(-50%);width:39%;display:flex;justify-content:center;align-items:center}.heroArt iframe{width:min(100%,390px);height:352px;border:0;border-radius:14px;box-shadow:0 24px 55px #0009}
 .proofbar{max-width:var(--max);margin:0 auto;padding:0 4.5%;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.proofitem{padding:14px 16px;border:1px solid #ffffff10;border-radius:13px;background:#ffffff06}.proofitem strong{display:block;font-size:11px;letter-spacing:.5px}.proofitem small{color:var(--muted);font-size:10px}
 .content{max-width:var(--max);margin:36px auto 0;padding:0 4.5% 55px}.sectionHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px;gap:12px}.sectionHead h2{font-size:23px;margin:4px 0 0;letter-spacing:-.6px}.sectionHead p{font-size:11px;color:var(--muted);margin:0}
+.releaseRail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:5px 2px 18px;scrollbar-width:thin;scrollbar-color:#6e3445 #171820}.releaseCard{flex:0 0 clamp(220px,24%,300px);min-width:0;scroll-snap-align:start;padding:12px;border:1px solid #ffffff14;border-radius:16px;background:linear-gradient(145deg,#20212b,#12141b);box-shadow:0 12px 30px #0004;transition:transform .2s,border-color .2s}.releaseCard:hover{transform:translateY(-4px);border-color:#ec315a88}.cover{width:100%;aspect-ratio:1;display:grid;place-items:center;border-radius:11px;background:radial-gradient(circle at 25% 20%,#f06b84,#67253f 42%,#151722 82%);overflow:hidden}.cover.alt{background:radial-gradient(circle at 75% 25%,#d5a65a,#754c43 40%,#151722 82%)}.cover span{font-size:42px;font-weight:950;letter-spacing:-3px;text-shadow:0 4px 18px #0008}.releaseCard h3{font-size:14px;margin:11px 3px 2px}.releaseCard p{font-size:11px;color:var(--muted);margin:0 3px 10px}.listen{display:inline-flex;background:#1ed760;color:#07140b;border-radius:99px;padding:8px 13px;font-size:10px;font-weight:900;margin:0 3px 2px}
 .embedGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.embedCard{min-width:0;padding:12px;border:1px solid #ffffff12;border-radius:16px;background:linear-gradient(125deg,#1c1e29,#12141b);box-shadow:0 12px 30px #0003}.embedCard iframe{display:block;width:100%;height:152px;border:0;border-radius:11px}.embedCard h3{font-size:14px;margin:10px 4px 2px}.embedCard p{font-size:11px;color:var(--muted);margin:0 4px 4px}
 .artistPanel{margin-top:36px;padding:20px;border:1px solid #ffffff12;border-radius:18px;background:#ffffff05}.artistPanel iframe{width:100%;height:650px;border:0;border-radius:12px}
 footer{padding:31px 5%;border-top:1px solid #ffffff12;background:#090a0f;color:#858b99;font-size:11px;line-height:1.8;text-align:center}footer strong{color:#e6e7eb;letter-spacing:1px}
-@media(max-width:760px){.nav{height:66px;padding:0 4%;gap:10px}.brand{font-size:16px}nav{display:none}.spotifyBtn{font-size:10px;padding:9px 12px}.hero{min-height:550px;padding:30px 8%;align-items:flex-start}.heroContent{width:100%;position:relative;z-index:2}.hero h1{font-size:42px}.hero p{font-size:13px}.heroArt{top:auto;bottom:14px;left:7%;right:7%;width:86%;transform:none}.heroArt iframe{height:250px;width:100%}.proofbar{grid-template-columns:1fr;padding:0 5%}.content{padding:0 5% 45px}.embedGrid{grid-template-columns:1fr;gap:12px}.sectionHead h2{font-size:19px}.artistPanel{padding:10px}.artistPanel iframe{height:700px}}
+@media(max-width:760px){.nav{height:66px;padding:0 4%;gap:10px}.brand{font-size:16px}nav{display:none}.spotifyBtn{font-size:10px;padding:9px 12px}.hero{min-height:550px;padding:30px 8%;align-items:flex-start}.heroContent{width:100%;position:relative;z-index:2}.hero h1{font-size:42px}.hero p{font-size:13px}.heroArt{top:auto;bottom:14px;left:7%;right:7%;width:86%;transform:none}.heroArt iframe{height:250px;width:100%}.proofbar{grid-template-columns:1fr;padding:0 5%}.content{padding:0 5% 45px}.embedGrid{grid-template-columns:1fr;gap:12px}.sectionHead h2{font-size:19px}.artistPanel{padding:10px}.artistPanel iframe{height:700px}.releaseCard{flex-basis:72vw}}
 </style>
 </head>
 <body>
 <header class="topbar"><div class="nav">
 <a class="brand" href="#accueil"><span class="brandIcon">M</span><span>METARECALL <b>MUSIC</b></span></a>
-<nav><a href="#accueil">Accueil</a><a href="#sorties">Sorties musicales</a><a href="#artiste">Mon univers</a></nav>
+<nav><a href="#accueil">Accueil</a><a href="#nouveautes">Nouveautés</a><a href="#sorties">Sorties musicales</a><a href="#artiste">Mon univers</a></nav>
 <div class="navright"><a class="spotifyBtn" href="https://open.spotify.com/artist/7KwZrK2zXfmiLqDWJB0VXr" target="_blank" rel="noopener">▶ ÉCOUTER SUR SPOTIFY</a></div>
 </div></header>
 <main id="accueil">
@@ -40,12 +41,22 @@ footer{padding:31px 5%;border-top:1px solid #ffffff12;background:#090a0f;color:#
 <div class="tagline">L'UNIVERS MUSICAL DE FRÉDÉRIC JACQUET</div>
 <h1>Des histoires.<br>Des sons.<br>Une signature.</h1>
 <p>Bienvenue dans METARECALL MUSIC. Retrouve mes singles, mes albums et mes créations originales. Toutes les pochettes et les lectures sont reliées directement à Spotify.</p>
-<div class="actions"><a class="btn primary" href="#sorties">♫ Découvrir les sorties</a><a class="btn secondary" href="https://open.spotify.com/artist/7KwZrK2zXfmiLqDWJB0VXr" target="_blank" rel="noopener">Mon profil artiste ↗</a></div>
+<div class="actions"><a class="btn primary" href="#nouveautes">♫ Voir les nouveautés</a><a class="btn secondary" href="https://open.spotify.com/artist/7KwZrK2zXfmiLqDWJB0VXr" target="_blank" rel="noopener">Mon profil artiste ↗</a></div>
 </div><div class="heroArt"><iframe title="Lecteur Spotify — Frédéric Jacquet" src="https://open.spotify.com/embed/artist/7KwZrK2zXfmiLqDWJB0VXr?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
 </section>
 <div class="proofbar"><div class="proofitem"><strong>♫ SORTIES ORIGINALES</strong><small>Singles, albums et créations musicales</small></div><div class="proofitem"><strong>◉ POCHETTES OFFICIELLES</strong><small>Visuels fournis directement par Spotify</small></div><div class="proofitem"><strong>▶ ÉCOUTE INTÉGRÉE</strong><small>Lecture officielle Spotify dans le site</small></div></div>
+<section class="content" id="nouveautes">
+<div class="sectionHead"><div><span class="eyebrow">Mises en avant</span><h2>Les dernières nouveautés</h2></div><p>Fais défiler les sorties →</p></div>
+<div class="releaseRail" aria-label="Carrousel des dernières sorties">
+<article class="releaseCard"><div class="cover"><span>CDTG</span></div><h3>Clash Devant Tes Go</h3><p>Single · 18 août 2026 · Spotify confirmé</p><a class="listen" href="https://open.spotify.com/album/3m0sLaTP5V9YItsDBNMOeQ" target="_blank" rel="noopener">▶ ÉCOUTER</a></article>
+<article class="releaseCard"><div class="cover alt"><span>ON SERT</span></div><h3>On nous sert la fête</h3><p>Single · 29 juin 2026 · Spotify confirmé</p><a class="listen" href="https://open.spotify.com/album/7glRmeCCMh4r1Njghk6jPO" target="_blank" rel="noopener">▶ ÉCOUTER</a></article>
+<article class="releaseCard"><div class="cover"><span>PR</span></div><h3>Poisson rouge</h3><p>Autre sortie du catalogue · lien Spotify à confirmer</p><a class="listen" href="https://open.spotify.com/search/Fr%C3%A9d%C3%A9ric%20Jacquet%20Poisson%20rouge" target="_blank" rel="noopener">RECHERCHER SUR SPOTIFY</a></article>
+<article class="releaseCard"><div class="cover alt"><span>TM</span></div><h3>Ton petit moineau !</h3><p>Autre sortie du catalogue · lien Spotify à confirmer</p><a class="listen" href="https://open.spotify.com/search/Fr%C3%A9d%C3%A9ric%20Jacquet%20Ton%20petit%20moineau" target="_blank" rel="noopener">RECHERCHER SUR SPOTIFY</a></article>
+<article class="releaseCard"><div class="cover"><span>PL</span></div><h3>Petit lézard sous les étoiles…</h3><p>Autre sortie du catalogue · lien Spotify à confirmer</p><a class="listen" href="https://open.spotify.com/search/Fr%C3%A9d%C3%A9ric%20Jacquet%20Petit%20l%C3%A9zard%20sous%20les%20%C3%A9toiles" target="_blank" rel="noopener">RECHERCHER SUR SPOTIFY</a></article>
+</div>
+</section>
 <section class="content" id="sorties">
-<div class="sectionHead"><div><span class="eyebrow">À écouter maintenant</span><h2>Dernières sorties</h2></div><p>Lecteurs Spotify officiels</p></div>
+<div class="sectionHead"><div><span class="eyebrow">À écouter maintenant</span><h2>Lecteurs Spotify</h2></div><p>Lecteurs officiels intégrés</p></div>
 <div class="embedGrid">
 <article class="embedCard"><iframe title="Clash Devant Tes Go" src="https://open.spotify.com/embed/album/3m0sLaTP5V9YItsDBNMOeQ?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe><h3>Clash Devant Tes Go</h3><p>Single · 2026 · Frédéric Jacquet</p></article>
 <article class="embedCard"><iframe title="On nous sert la fête" src="https://open.spotify.com/embed/album/7glRmeCCMh4r1Njghk6jPO?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe><h3>On nous sert la fête</h3><p>Single · 2026 · Frédéric Jacquet</p></article>
@@ -55,5 +66,5 @@ footer{padding:31px 5%;border-top:1px solid #ffffff12;background:#090a0f;color:#
 </div>
 </section>
 </main>
-<footer><strong>METARECALL MUSIC</strong><br>Une création METARECALL · Frédéric Jacquet<br>Les pochettes, titres et lecteurs audio sont fournis par Spotify. La lecture complète peut nécessiter un compte Spotify.</footer>
+<footer><strong>METARECALL MUSIC</strong><br>Une création METARECALL · Frédéric Jacquet<br>Les lecteurs audio et liens d'écoute sont fournis par Spotify. La lecture complète peut nécessiter un compte Spotify.</footer>
 </body></html>
