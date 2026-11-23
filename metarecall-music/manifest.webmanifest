@@ -1,0 +1,21 @@
+{
+  "id": "/",
+  "name": "METARECALL MUSIC",
+  "short_name": "METARECALL",
+  "description": "L'univers musical de Frédéric Jacquet",
+  "lang": "fr-FR",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b0c10",
+  "theme_color": "#0b0c10",
+  "icons": [
+    {
+      "src": "/fred-photo.webp",
+      "sizes": "any",
+      "type": "image/webp",
+      "purpose": "any"
+    }
+  ]
+}
